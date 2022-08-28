@@ -1,0 +1,22 @@
+---
+openapi: "PATCH /crm/note"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.land/crm/note \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "note": {
+    "content": "This note has some interesting content in it!",
+    "userId": "fdabe0c18113ee0f2add83729401d5e2"
+  }
+}'
+```
+
+</RequestExample>

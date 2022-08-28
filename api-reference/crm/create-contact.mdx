@@ -1,0 +1,25 @@
+---
+openapi: "POST /crm/contact"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/contact \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "contact": {
+    "email": "tom@bluecross.com",
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "jobTitle": "Director of Operations",
+    "phone": "2101128833",
+    "mobilePhone": "2106541111"
+  }
+}'
+```
+
+</RequestExample>

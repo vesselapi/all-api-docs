@@ -1,0 +1,175 @@
+---
+title: 'Getting Started'
+---
+
+Step-by-step guide for getting up and running with the Vessel API. If you get stuck or have trouble - email us at `support@vessel.land`.
+
+## Get Access
+
+The first step to getting up and running with the Vessel API is to get access to the API via an API-token. You can request an API-token on our [website](https://www.vessel.land/) or by emailing `support@vessel.land`.
+
+## Test API Call
+
+After receiving your API token, you can quickly gut-check that everything is working by making a request to the link/token endpoint. Here's an example of how to make such a request via curl:
+
+```bash Terminal
+curl -X POST https://api.vessel.land/link/token
+  --header "vessel-api-token: [YOUR_API_TOKEN]"
+```
+
+If you get linkToken back, everything's working and you're good to move on to the next step.
+
+```json
+{ "linkToken": "[SOME_TOKEN]" }
+```
+
+## Setup a Test Account
+
+The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is highly _advised_ that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
+
+Here are links for setting up a test account with each of the currently supported CRM providers:
+
+- [Salesforce](https://developer.salesforce.com/signup)
+- [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page)
+- [Pipedrive](https://developers.pipedrive.com/start-here)
+
+Once you've set up an account and loaded in some dummy data, you can move to the next step.
+
+## Setup and Configure Vessel-link
+
+Next, use Vessel's drop-in UI component to quickly set up authentication for your users.
+
+### Setup
+
+Start by installing the official [vessel-link npm package](https://www.npmjs.com/package/@vesselapi/react-vessel-link) in your FE service. In the next step, you'll see how to get a `linkToken` so you can summon the auth modal provided by the package.
+
+Once you've install the `vessel-link` package and read the README, you can move onto the next step.
+
+## Authenticate the User
+
+Next, we'll see how to retrieve an `accessToken` for a given CRM account. An `accessToken`, in combination with your API-token, will allow you to make calls to the Vessel API and operate on the users CRM data.
+
+### Storing Access Tokens
+
+During the authentication step, after your user has authenticated their CRM, Vessel will return a `publicToken` (_not_ the user's credentials) which can be exchanged for an `accessToken` to query the API with. This process plays an important part in ensuring the security of the Vessel API and you can read more about the `linkToken` / `accessToken` exchange [here](/authentication-and-security). The `accessToken` is used to query our APIs, it should be kept secret and stored securely.
+
+Here's some example code for what this might look like:
+
+### FE Client
+
+```jsx Frontend
+import { useState } from 'React';
+import { VesselConnectButton } from '@vesselapi/react-vessel-link';
+
+function App() {
+  const [linkToken, setLinkToken] = useState();
+
+  useEffect(() => {
+    // STEP 1: Retrieve and store the Link Token
+    async function getLinkToken() {
+      const { linkToken } = await api.post('https://my-company.api.com/link-token');
+      setLinkToken(linkToken);
+    }
+    getLinkToken();
+  }, []);
+
+  return (
+    // STEP 2: Show the authentication modal once we have the Link Token
+    linkToken ? (
+      <VesselConnectButton
+        onSuccess={async (publicToken) => {
+          // STEP 3: Pass the Public Token back to the BE so it can be exchanged for an Access Token
+          await api.post('https://my-company.api.com/store-token', {
+            json: {
+              publicToken,
+            },
+          });
+        }}
+        linkToken={linkToken}
+      />
+    ) : (
+      <div>loading...</div>
+    )
+  );
+}
+```
+
+### BE Server
+
+```js NodeJS
+import express from 'express';
+import api, { extractBodyParams } from '../utils/api';
+import db from '../utils/database';
+
+const app = express();
+const port = 3000;
+const VESSEL_API_TOKEN = 'SOME_TOKEN';
+
+app.post('/link-token', async (req, res) => {
+  const { linkToken } = await api.post('https://api.vessel.land/link/token', {
+    headers: {
+      'vessel-api-token': VESSEL_API_TOKEN,
+    },
+  });
+
+  res.send({ linkToken });
+});
+
+app.post('/store-token', async (req, res) => {
+  const { publicToken } = req.body;
+
+  const { accessToken } = await api.post('https://api.vessel.land/link/exchange', {
+    headers: {
+      'vessel-api-token': VESSEL_API_TOKEN,
+    },
+    json: {
+      publicToken,
+    },
+  });
+  await storeAccessToken(accessToken);
+
+  res.send({ success: true });
+});
+
+app.listen(port);
+```
+
+Try authenticating through the test account you set up in the [Setup a Test Account](#setup-a-test-account) step. If you're able to go through the authentication flow with no issues, and you're successfully storing the `accessToken`, you can move on to the next step.
+
+## Connection status
+
+When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial data pull completes. All other APIs, such as `/webhook/` and `/connection/`, will continue to work. You can [setup a webhook](/webhooks) to be notified when the data pull completes, so you'll know when you can start making `/crm/` APIs calls. Below is a summary of the various connection statuses.
+
+| Status           | Description                                                   |
+| ---------------- | ------------------------------------------------------------- |
+| `NEW_CONNECTION` | When a connection is newly created. All CRM APIs are blocked. |
+| `INITIAL_SYNCED` | First 60 days of data synced. CRM APIs are unblocked.         |
+| `READY`          | All data has been synced                                      |
+
+## Putting it all together
+
+Finally, we can tie the above pieces together and make an end-to-end request to the Vessel API!
+
+```js Example
+app.get('contacts', async (req, res) => {
+  const { user } = req.body;
+
+  const accessToken = await getAccessToken(user);
+
+  const { contacts } = await api.get('https://api.vessel.land/crm/contacts', {
+    headers: {
+      'vessel-api-token': VESSEL_API_TOKEN,
+    },
+    queryParams: {
+      accessToken,
+    },
+  });
+
+  res.send({ contacts });
+});
+```
+
+You can read the API reference for all supported operations. If you run into issues, please contact support@vessel.land.
+
+Feedback
+Did this process take you longer than 1.5 hours? If so, want to hear about it. Please send an email to support@vessel.land so we can inquire more about what went wrong, where we need to improve, and how we can help.

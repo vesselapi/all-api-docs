@@ -1,0 +1,105 @@
+{
+  "name": "Vessel",
+  "favicon": "/logo/favicon.png",
+  "logo": { "light": "/logo/logo-light.png", "dark": "/logo/logo-dark.png" },
+  "api": {
+    "baseUrl": "https://api.vessel.land",
+    "auth": { "method": "key", "name": "vessel-api-token" }
+  },
+  "colors": {
+    "primary": "#424054",
+    "light": "#ECE7E3",
+    "dark": "#2B2B2F",
+    "ultraLight": "#F3EFEC",
+    "ultraDark": "#050229"
+  },
+  "topbarLinks": [
+    { "name": "Request Access", "url": "https://www.vessel.land" }
+  ],
+  "topbarCtaButton": {
+    "url": "https://www.vessel.land/contact",
+    "name": "Contact us"
+  },
+  "anchors": [
+    {
+      "name": "Request Access",
+      "icon": "envelope-open-text",
+      "color": "#0ea4e9",
+      "url": "https://www.vessel.land/"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": ["introduction", "welcome", "getting-started"]
+    },
+    { "group": "References", "pages": ["authentication-and-security"] },
+    { "group": "Tutorials", "pages": ["webhooks"] },
+    {
+      "group": "API",
+      "pages": [
+        "api-reference/crm/get-all-users",
+        "api-reference/crm/get-user",
+        "api-reference/crm/get-user-details",
+        "api-reference/crm/get-all-contacts",
+        "api-reference/crm/get-contact",
+        "api-reference/crm/create-contact",
+        "api-reference/crm/update-contact",
+        "api-reference/crm/get-contract-details",
+        "api-reference/crm/get-all-deals",
+        "api-reference/crm/get-deal",
+        "api-reference/crm/create-deal",
+        "api-reference/crm/update-deal",
+        "api-reference/crm/get-deal-details",
+        "api-reference/crm/get-all-accounts",
+        "api-reference/crm/get-account",
+        "api-reference/crm/create-account",
+        "api-reference/crm/update-account",
+        "api-reference/crm/get-all-leads",
+        "api-reference/crm/get-lead",
+        "api-reference/crm/create-lead",
+        "api-reference/crm/update-lead",
+        "api-reference/crm/get-lead-details",
+        "api-reference/crm/get-all-notes",
+        "api-reference/crm/get-note",
+        "api-reference/crm/create-note",
+        "api-reference/crm/update-note",
+        "api-reference/crm/get-note-details",
+        "api-reference/crm/get-all-tasks",
+        "api-reference/crm/get-task",
+        "api-reference/crm/create-task",
+        "api-reference/crm/update-task",
+        "api-reference/crm/get-task-details",
+        "api-reference/crm/get-all-events",
+        "api-reference/crm/get-event",
+        "api-reference/crm/create-event",
+        "api-reference/crm/update-event",
+        "api-reference/crm/get-event-details",
+        "api-reference/crm/get-all-event-attendees",
+        "api-reference/crm/get-event-attendee",
+        "api-reference/crm/create-event-attendee",
+        "api-reference/crm/update-event-attendee",
+        "api-reference/crm/get-event-attendee-details"
+      ]
+    },
+    {
+      "group": "Link",
+      "pages": [
+        "api-reference/link/create-link-token",
+        "api-reference/link/exchange-tokens"
+      ]
+    },
+    {
+      "group": "Connection",
+      "pages": [
+        "api-reference/connection/remove-connection",
+        "api-reference/connection/get-crm",
+        "api-reference/connection/get-all-connections",
+        "api-reference/connection/remove-webhook"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/vesselapi"
+  }
+}
