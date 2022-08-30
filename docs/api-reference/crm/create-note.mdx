@@ -1,0 +1,25 @@
+---
+openapi: "POST /crm/note"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/note \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "note": {
+    "content": "This note has some interesting content in it!",
+    "userId": "fdabe0c18113ee0f2add83729401d5e2",
+    "dealId": "614e0d537ed844b4c1f870c0cf789aee",
+    "leadId": "50addb0347d52e51e57e6c5406640437",
+    "accountId": "f23ac239fa5e29e04663d9cd04d08221",
+    "contactId": "cf88a16a73f1352596111c2eaa4d9cc5"
+  }
+}'
+```
+
+</RequestExample>

@@ -1,0 +1,54 @@
+---
+openapi: 'POST /connection/remove'
+---
+
+<RequestExample>
+
+```bash Shell / cURL
+curl --request POST \
+  --url https://api.vessel.land/connection/remove \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string"
+}'
+```
+
+```js JavaScript Fetch
+fetch('https://api.vessel.land/connection/remove', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'vessel-api-token': '',
+  },
+  body: '{"accessToken":"string"}',
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+```python Python
+import http.client
+
+conn = http.client.HTTPSConnection("api.vessel.land")
+
+payload = "{\n  \"accessToken\": \"string\"\n}"
+
+headers = {
+    'Content-Type': "application/json",
+    'vessel-api-token': ""
+    }
+
+conn.request("POST", "/connection/remove", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
+</RequestExample>
