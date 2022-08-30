@@ -31,10 +31,20 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "welcome", "getting-started"]
+      "pages": ["welcome"]
     },
-    { "group": "References", "pages": ["authentication-and-security"] },
-    { "group": "Tutorials", "pages": ["webhooks"] },
+    {
+      "group": "How-To Guides",
+      "pages": ["getting-started", "accessing-remote-data"]
+    },
+    {
+      "group": "References",
+      "pages": ["authentication-and-security"]
+    },
+    {
+      "group": "Tutorials",
+      "pages": ["webhooks"]
+    },
     {
       "group": "API",
       "pages": [

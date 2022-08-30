@@ -2,7 +2,7 @@
 title: "Authentication and Security"
 ---
 
-All requests to Vessel are authenticated by an API token and all requests must be made over https. When making any requests, ensure the following headers are provided.
+All requests to Vessel are authenticated by an API token and all requests must be made over `https`. When making any requests, ensure the following headers are provided.
 
 | Key                | Description          |
 | ------------------ | -------------------- |
@@ -14,19 +14,17 @@ Please contact [support@vessel.land](mailto:support@vessel.land) to request an A
 
 </Note>
 
-## Authentication and Security
-
 ### LinkToken/AccessToken Exchange
 
 You can think about our product as a gated neighborhood with locked houses, where each house represents a user's account. The `apiToken` allows you to enter the gated neighborhood and each house can be unlocked by its own unique `accessToken`. To interact with any accounts, you will use both the `apiToken` and `accessToken`.
 
 The following process ensures your customers credentials are handled in a safe manner.
 
-| Step | Action                                                                                                                                                                                                             |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `1`  | Your server calls `/integration/link` to get a `linkToken`. The `linkToken` is a temporary token used by the client to allow users to connect an account on the frontend.                                          |
-| `2`  | Pass the linkToken to the Vessel Link component. In the `onSuccess` handler, Link will return a temporary `publicToken`. The `onSuccess` handler is called after the customer successfully connects their account. |
-| `3`  | Call `/integration/exchange` with the `publicToken` and exchange it for a permanent `accessToken`.                                                                                                                 |
-| `4`  | Store the `accessToken` in a secure location. You will use it with your `apiToken` to interact with the account.                                                                                                   |
+| Step | Action                                                                                                                                                                                                               |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `1`  | Your server calls `/link/token` to get a `linkToken`. The `linkToken` is a temporary token used by the client to allow users to connect an account on the frontend.                                                  |
+| `2`  | Pass the `linkToken` to the Vessel Link component. In the `onSuccess` handler, Link will return a temporary `publicToken`. The `onSuccess` handler is called after the customer successfully connects their account. |
+| `3`  | Call `/link/exchange` with the `publicToken` and exchange it for a permanent `accessToken`.                                                                                                                          |
+| `4`  | Store the `accessToken` in a secure location. You will use it with your `apiToken` to interact with the account.                                                                                                     |
 
 For an example of how to execute this flow inside of your own application - please see the [Getting Started Guide](/getting-started)

@@ -1,0 +1,115 @@
+---
+stoplight-id: 2eb142f0c153c
+---
+
+# Accessing Remote Data
+
+While we pride ourselves on the richness of our unified API and aim to support the most important fields across all objects, sometimes you need to access data that exists only in one particular CRM or for one particular customer (e.g., a custom field). That’s why we’ve added first class support for accessing remote data (the untransformed data in the downstream CRM) in all of our endpoints. Below are some methods and patterns for working with such data.
+
+> _Note: We use Field to mean a property on a CRM object, e.g., for a Contact that looks like `{ id: '36fa123ee123', firstName: 'Test' }`, ‘id’ and ‘firstName’ would both be considered fields._
+
+## Reading Remote Data
+
+When you include the query param `allFields=true` in any of our object endpoints, you’ll see the fields we received from the downstream CRM, untransformed, through the `additional` property. To assist in understanding the shape of these fields, we provide `/crm/[object]/details` endpoints for all objects.
+
+```jsx
+const { contact } = api.get(`crm/contact?id=123ef341fee31233&allFields=true`);
+
+const untransformedContact = contact.additional;
+```
+
+## Writing Non-Universal Fields
+
+Writing fields we don't unify is simple, just include the field you want to write in the body of any object create or update endpoint via the `additional` property. For example, if I wanted to create a contact with a custom field set to a particular value, I could POST to `crm/contact` with the following payload:
+
+```json
+{
+  "accessToken": "ACCESS_TOKEN",
+  "contact": {
+    "firstName": "micheal",
+    ...
+    "additional": {
+      "custom_field": 42
+    }
+  }
+}
+```
+
+**Note**: When writing non-universal fields, it’s important to ensure the field conforms to the type and options (in the case of single/multi select fields) as specified by the `/details/` endpoint as Vessel will not transform the field in anyway before attempting to write to the downstream CRM.
+
+# Use Cases
+
+Here’s are a few common workflows that might arise while working with remote data.
+
+### Use `/details` to convert a Deal stage key to a Deal stage name
+
+Since Vessel will always return the selected **key** of any single select and multi select field, it might be the case that you want to convert the value to the displayable **name.** One such example is in the case of displaying the current stage of a Deal. Here’s how you would go from the stage key to the the stage name:
+
+```jsx
+const dealId = "12fe231232eed"; // The deal I want to display
+const { deal } = api.get(`crm/deal?id=${dealId}`);
+const { fields } = api.get(`crm/deal/details?id=${dealId}`); // In the case of deals, we need to pass the Id since a deal could be in a particular pipeline.
+
+const stageKey = deal.stage; // E.g., 1 or 'closedwon'
+const stageOptions = fields.find((field) => field.key === "stage").options;
+
+const stageName = stageOptions.find((option) => option.key === stageKey).name; // E.g., 'New' or 'Closed Won'
+```
+
+### Read all custom fields to ensure a particular custom field exists
+
+CRMs are often highly customized, it might be the case that your app needs to react to a field that doesn’t exist natively in the downstream CRM. Here’s how you could go about executing a piece of logic if a particular custom field exists in the user's CRM.
+
+```jsx
+const CUSTOM_FIELD_KEY = "_acme_created_contact";
+const { fields } = api.get(`crm/contact/details?allFields=true`);
+
+const allCustomFieldKeys = field
+  .filter((field) => !!field.custom)
+  .map((field) => field.key);
+
+if (!allCustomFieldKeys.includes(CUSTOM_FIELD_KEY)) {
+  throw new Error(
+    `CRM has not been correctly configured! Please add the ${CUSTOM_FIELD_KEY} custom field to your contact object.`
+  );
+}
+```
+
+### Write an arbitrary field back to the CRM
+
+In cases where you want to allow users to edit _any_ field on an object, you can leverage the `/details/` endpoints to understand how each field can be updated.
+
+```js
+const { account } = api.get(`crm/account?id=123ef341fee31233&allFields=true`);
+const { fields } = api.get(`crm/account/details?allFields=true`);
+const updatableFields = fields.filter((field) => field.updatable);
+
+const fieldKey = await askUser(
+  `Which field do you want to update? ${fields.map((f) => f.key).join(", ")}`
+);
+const fieldToUpdate = fields.find((f) => f.key === fieldKey);
+
+let newFieldValue;
+if (fieldToUpdate.type === "string") {
+  newFieldValue = randomString();
+} else if (fieldToUpdate.type === "decimal") {
+  newFieldValue = Math.random();
+  // ... handle other types ...
+} else if (fieldToUpdate.type === "singleselect") {
+  const fieldOptions = fieldToUpdate.options;
+  newFieldVlaue = drawRandom(fieldOptions).key;
+}
+
+api.patch(`crm/account`, {
+  body: {
+    id: account.id,
+    accessToken: "[ACCESS_TOKEN]",
+    account: {
+      ...account,
+      additional: {
+        [fieldToUpdate.key]: newFieldValue,
+      },
+    },
+  },
+});
+```
