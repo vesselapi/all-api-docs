@@ -1,0 +1,36 @@
+---
+openapi: "PATCH /crm/account"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.land/crm/account \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "account": {
+    "name": "Blue Cross",
+    "description": "Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton",
+    "industry": "TV and Media",
+    "annualRevenue": 10000000,
+    "numberOfEmployees": 100,
+    "website": "www.bluecross.penn",
+    "createdTime": "2019-08-24T14:15:22Z",
+    "modifiedTime": "2019-08-24T14:15:22Z",
+    "phone": "8192223333",
+    "address": {
+      "street": "100 Blue Dr",
+      "city": "Scranton",
+      "state": "Pennsylvania",
+      "postalCode": "281332",
+      "country": "USA"
+    }
+  }
+}'
+```
+
+</RequestExample>

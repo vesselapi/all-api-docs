@@ -1,0 +1,27 @@
+---
+openapi: "PATCH /crm/task"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.land/crm/task \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "task": {
+    "body": "This task needs to be done very soon!",
+    "subject": "High Priority Task",
+    "dueDate": "2019-09-24T14:15:22Z",
+    "isDone": false,
+    "userId": "25db6b521ffb8fd4f916345341a935f7",
+    "priority": "High",
+    "status": "Not Done"
+  }
+}'
+```
+
+</RequestExample>
