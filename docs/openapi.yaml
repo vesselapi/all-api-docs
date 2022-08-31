@@ -124,6 +124,45 @@ paths:
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
       description: Retrieve a single User by Id
     parameters: []
+  /crm/user/details:
+    get:
+      summary: Get User Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-user-details
+      description: |-
+        Get details about all users. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/contacts:
     get:
       summary: Get All Contacts
@@ -360,6 +399,45 @@ paths:
               properties: {}
         description: ""
       description: Update an existing Contact.
+  /crm/contact/details:
+    get:
+      summary: Get Contact Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-contact-details
+      description: |-
+        Get details about all contacts. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/deals:
     get:
       summary: Get All Deals
@@ -586,7 +664,7 @@ paths:
                     probability: "0.4"
         description: ""
       description: Update an existing Deal
-  /deal/details:
+  /crm/deal/details:
     get:
       summary: Get Deal Details
       tags: []
@@ -608,19 +686,28 @@ paths:
       description: |-
         Get details about all deals or a particular deal. 
 
-        Details include the type, possible values, and other meta data about the fields on deals.
+        Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
             type: string
           in: query
           name: accessToken
-          description: The token for the customer's CRM account. This was generated when they connected their account.
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
           required: true
         - schema:
             type: string
           in: query
           name: id
           description: "If provided, get the details about a particular deal. If not provided, get details about all deals."
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/accounts:
     get:
       summary: Get All Accounts
@@ -699,6 +786,45 @@ paths:
         - Pipedrive: dealIds + contactIds not supported when querying for all accounts
     parameters: []
   /crm/account:
+  /crm/account/details:
+    get:
+      summary: Get Account Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-account-details
+      description: |-
+        Get details about all accounts. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
     get:
       summary: Get Account
       tags: []
@@ -1110,6 +1236,45 @@ paths:
                     account: Blue Cross
                     phone: "1234445555"
                     mobilePhone: "2338889999"
+  /crm/lead/details:
+    get:
+      summary: Get Lead Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-lead-details
+      description: |-
+        Get details about all leads. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/notes:
     get:
       summary: Get All Notes
@@ -1321,6 +1486,45 @@ paths:
                     content: This note has some interesting content in it!
                     userId: fdabe0c18113ee0f2add83729401d5e2
       description: Update an existing Note by Id
+  /crm/note/details:
+    get:
+      summary: Get Note Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-note-details
+      description: |-
+        Get details about all notes. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/tasks:
     get:
       summary: Get All Tasks
@@ -1552,6 +1756,45 @@ paths:
                     status: Not Done
       description: Update an existing Task by Id
     parameters: []
+  /crm/task/details:
+    get:
+      summary: Get Task Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-task-details
+      description: |-
+        Get details about all tasks. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/events:
     get:
       summary: Get All Events
@@ -1785,6 +2028,45 @@ paths:
                     ownerUserId: 8124367fa866adafcf3166aeeb2e5ce9
       description: Update an existing Event by Id
     parameters: []
+  /crm/event/details:
+    get:
+      summary: Get Event Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-event-details
+      description: |-
+        Get details about all events. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/event/attendees:
     get:
       summary: Get All Event Attendees
@@ -1931,6 +2213,45 @@ paths:
                     eventAttendee:
                       status: Declined
       description: Update the status of an event attendee
+  /crm/event/attendee/details:
+    get:
+      summary: Get Event Attendee Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-event-attendee-details
+      description: |-
+        Get details about all event attendees. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /link/token:
     post:
       summary: Create link token
@@ -1946,7 +2267,7 @@ paths:
                   linkToken:
                     type: string
               examples: {}
-      description: "Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook. Read about Authentication [here](https://vesseldocs.stoplight.io/docs/vessel/ZG9jOjExMDcyMQ-authentication-and-security)."
+      description: "Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
       security:
         - Vessel API Token: []
     parameters: []
@@ -1968,14 +2289,20 @@ paths:
                     type: string
                   integrationId:
                     type: string
-                    description: "Possible values: salesforce, hubspot, pipedrive"
+                    enum:
+                      - salesforce
+                      - hubspot
+                      - pipedrive
                   nativeOrgId:
+                    type: string
+                  nativeOrgURL:
                     type: string
                 required:
                   - connectionId
                   - accessToken
                   - integrationId
                   - nativeOrgId
+                  - nativeOrgURL
               examples: {}
       description: Exchanges the public token for an access token used to interact with the account. Store the access token in a secure location.
       requestBody:
@@ -2735,8 +3062,6 @@ components:
         - associations
     Task:
       title: Task
-      x-stoplight:
-        id: f983ibnj1r8br
       type: object
       description: A task attached to some CRM object
       examples:
@@ -2828,8 +3153,6 @@ components:
         - associations
     Event:
       title: Event
-      x-stoplight:
-        id: hmapjgjd5s4nq
       type: object
       description: |-
         Events are a type of activity that has attendees and takes place at a certain point in time (i.e., has a start and end date).
@@ -2938,8 +3261,6 @@ components:
         - associations
     EventAttendee:
       title: EventAttendee
-      x-stoplight:
-        id: zzjefldpngaha
       type: object
       description: "Event Attendees hold information about someone who attendeed or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
       examples:
@@ -2998,8 +3319,6 @@ components:
         - associations
     Field:
       title: Field
-      x-stoplight:
-        id: smq75dxjeyuvg
       type: object
       description: |-
         (Alias: property) A field is a key-value pair on a CRM Object that provides information about that object.
@@ -3072,8 +3391,6 @@ components:
           updatable: true
     EventAttendeeCreate:
       title: EventAttendeeCreate
-      x-stoplight:
-        id: 3onht2wdp5uwi
       type: object
       description: ""
       examples:
@@ -3096,13 +3413,14 @@ components:
           description: Required unless email is present and CRM supports "Other" for associatedObjectType
         eventId:
           type: string
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - associatedObjectType
         - eventId
     EventAttendeeUpdate:
       title: EventAttendeeUpdate
-      x-stoplight:
-        id: 1isqq8ix1uau0
       type: object
       properties:
         status:
@@ -3112,8 +3430,6 @@ components:
       description: ""
     EventCreate:
       title: EventCreate
-      x-stoplight:
-        id: 0hjydt9rnmvw5
       type: object
       description: ""
       properties:
@@ -3142,6 +3458,9 @@ components:
           type: string
         ownerUserId:
           type: string
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - startDateTime
         - endDateTime
@@ -3160,8 +3479,6 @@ components:
           ownerUserId: 5561946e7c65ba50544584543859074c
     EventUpdate:
       title: EventUpdate
-      x-stoplight:
-        id: wgeg3q63fdb8m
       type: object
       properties:
         subject:
@@ -3181,6 +3498,9 @@ components:
           description: Not supported by HubSpot and Pipedrive
         ownerUserId:
           type: string
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       examples:
         - subject: Meeting with Blue Cross
           description: Going to get tea with Tom from Blue Cross to discuss his paper needs
@@ -3192,8 +3512,6 @@ components:
           ownerUserId: 8124367fa866adafcf3166aeeb2e5ce9
     TaskCreate:
       title: TaskCreate
-      x-stoplight:
-        id: f983ibnj1r8br
       type: object
       description: ""
       examples:
@@ -3236,10 +3554,11 @@ components:
         isDone:
           type: boolean
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     TaskUpdate:
       title: TaskUpdate
-      x-stoplight:
-        id: f983ibnj1r8br
       type: object
       description: ""
       examples:
@@ -3268,6 +3587,9 @@ components:
         isDone:
           type: boolean
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -3294,6 +3616,9 @@ components:
           description: The primary phone
         mobilePhone:
           type: string
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     ContactCreate:
       title: ContactCreate
       type: object
@@ -3320,6 +3645,9 @@ components:
           description: The primary phone
         mobilePhone:
           type: string
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     DealUpdate:
@@ -3343,6 +3671,9 @@ components:
         stage:
           type: string
           description: The stage the deal is in. See /deal/details for possible values
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
         - closeDate
@@ -3367,7 +3698,10 @@ components:
           description: Decimal probability of closing the deal
         stage:
           type: string
-          description: The stage the deal is in. See /deal/details for possible values
+          description: The stage the deal is in. See /deal/details for possible value
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
         - closeDate
@@ -3414,6 +3748,9 @@ components:
           description: The primary phone| Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     AccountCreate:
       title: AccountCreate
       type: object
@@ -3454,6 +3791,9 @@ components:
           description: The primary phone | Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
     NoteCreate:
@@ -3484,6 +3824,9 @@ components:
         contactId:
           type: string
           description: Required unless leadId/accountId/dealId are specified.
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - content
         - userId
@@ -3500,6 +3843,9 @@ components:
         userId:
           type: string
           description: Only Admins can change this property
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     LeadUpdate:
       description: ""
       type: object
@@ -3544,6 +3890,9 @@ components:
         mobilePhone:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     LeadCreate:
@@ -3585,6 +3934,9 @@ components:
         mobilePhone:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     CrmIntegration:
@@ -3604,8 +3956,6 @@ components:
           iconURL: string
     WebhookMetadataCreate:
       title: WebhookMetadataCreate
-      x-stoplight:
-        id: qlh0d9q52xk3m
       type: object
       description: Information describing a webhook
       properties:
@@ -3614,8 +3964,6 @@ components:
           description: a valid URL
     WebhookMetadata:
       title: WebhookMetadata
-      x-stoplight:
-        id: 9176qf59c6bc5
       type: object
       properties:
         webhookId:
