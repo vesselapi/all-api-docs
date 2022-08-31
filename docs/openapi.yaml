@@ -786,45 +786,6 @@ paths:
         - Pipedrive: dealIds + contactIds not supported when querying for all accounts
     parameters: []
   /crm/account:
-  /crm/account/details:
-    get:
-      summary: Get Account Details
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  fields:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Field"
-                  nextPageCursor:
-                    type: string
-      operationId: get-account-details
-      description: |-
-        Get details about all accounts. 
-
-        Details include the type, possible values, and other meta data about the fields.
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          description: "The token for the customer's CRM account. This was generated when they connected their account."
-          required: true
-        - schema:
-            type: string
-          in: query
-          name: cursor
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: "Returns details about native fields."
     get:
       summary: Get Account
       tags: []
@@ -1008,6 +969,45 @@ paths:
                       country: USA
       description: Update an existing Account
       parameters: []
+  /crm/account/details:
+    get:
+      summary: Get Account Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+      operationId: get-account-details
+      description: |-
+        Get details about all accounts. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/leads:
     get:
       summary: Get all Leads
