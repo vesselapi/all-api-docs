@@ -2318,11 +2318,33 @@ paths:
       security:
         - Vessel API Token: []
     parameters: []
-  /connection/remove:
+  /connection/connection:
     parameters: []
-    post:
-      summary: Remove connection
-      operationId: post-connection-remove
+    get:
+      summary: Get Connection
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  connection:
+                    $ref: "#/components/schemas/Connection"
+      operationId: get-connection
+      description: Get info about a connection for a given accessToken.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+    delete:
+      summary: Delete connection
+      operationId: delete-connection
       responses: {}
       security:
         - Vessel API Token: []
@@ -2358,7 +2380,7 @@ paths:
       description: Return all of the CRM integrations supported by Vessel.
       parameters: []
     parameters: []
-  /connection/list:
+  /connection/connections:
     get:
       summary: Get All Connections
       tags: []
@@ -2373,16 +2395,8 @@ paths:
                   connections:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        integrationId:
-                          type: string
-                        connectionId:
-                          type: string
-                        createdTime:
-                          type: string
-                          format: date-time
-      operationId: get-list
+                      $ref: "#/components/schemas/Connection"
+      operationId: get-connections
       description: List all established connections for a workspace
   /connection/webhook:
     get:
@@ -3975,6 +3989,28 @@ components:
         createdTime:
           type: string
           format: date-time
+    Connection:
+      title: Connection
+      type: object
+      properties: 
+        integrationId:
+          type: string
+          enum:
+            - salesforce
+            - hubspot
+            - pipedrive
+        connectionId:
+          type: string
+        createdTime:
+          type: string
+        status:
+          type: string
+          enum:
+            - NEW_CONNECTION
+            - INITIAL_SYNC
+            - READY
+        nativeOrgURL:
+          type: string
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token

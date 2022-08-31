@@ -1,59 +1,14 @@
 ---
-openapi: "GET /connection/list"
+openapi: "GET /connection/connections"
 ---
 
 <RequestExample>
 
-```bash Shell / cURL
+```bash Request
 curl --request GET \
-  --url https://api.vessel.land/connection/list \
-  --header 'Content-Type: application/json'
-```
-
-```js JavaScript Fetch
-fetch("https://api.vessel.land/connection/list", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-```
-
-```python Python
-import http.client
-
-conn = http.client.HTTPSConnection("api.vessel.land")
-
-headers = { 'Content-Type': "application/json" }
-
-conn.request("GET", "/connection/list", headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
+  --url https://api.vessel.land/connection/connections \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
 ```
 
 </RequestExample>
-
-<ResponseExample>
-
-```json Response Example
-{
-  "connections": [
-    {
-      "integrationId": "string",
-      "connectionId": "string",
-      "createdTime": "2019-08-24T14:15:22Z"
-    }
-  ]
-}
-```
-
-</ResponseExample>

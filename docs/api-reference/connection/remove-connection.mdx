@@ -1,12 +1,12 @@
 ---
-openapi: 'POST /connection/remove'
+openapi: "DELETE /connection/connection"
 ---
 
 <RequestExample>
 
 ```bash Shell / cURL
-curl --request POST \
-  --url https://api.vessel.land/connection/remove \
+curl --request DELETE \
+  --url https://api.vessel.land/connection/connection \
   --header 'Content-Type: application/json' \
   --header 'vessel-api-token: ' \
   --data '{
@@ -15,11 +15,11 @@ curl --request POST \
 ```
 
 ```js JavaScript Fetch
-fetch('https://api.vessel.land/connection/remove', {
-  method: 'POST',
+fetch("https://api.vessel.land/connection/connection", {
+  method: "DELETE",
   headers: {
-    'Content-Type': 'application/json',
-    'vessel-api-token': '',
+    "Content-Type": "application/json",
+    "vessel-api-token": "",
   },
   body: '{"accessToken":"string"}',
 })
@@ -43,7 +43,7 @@ headers = {
     'vessel-api-token': ""
     }
 
-conn.request("POST", "/connection/remove", payload, headers)
+conn.request("DELETE", "/connection/connection", payload, headers)
 
 res = conn.getresponse()
 data = res.read()

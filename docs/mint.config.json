@@ -102,9 +102,12 @@
     {
       "group": "Connection",
       "pages": [
-        "api-reference/connection/remove-connection",
         "api-reference/connection/get-crm",
+        "api-reference/connection/get-connection",
+        "api-reference/connection/remove-connection",
         "api-reference/connection/get-all-connections",
+        "api-reference/connection/create-webhook",
+        "api-reference/connection/get-webhook",
         "api-reference/connection/remove-webhook"
       ]
     }
