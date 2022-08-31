@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started'
+title: "Getting Started"
 ---
 
 Step-by-step guide for getting up and running with the Vessel API. If you get stuck or have trouble - email us at `support@vessel.land`.
@@ -25,7 +25,7 @@ If you get linkToken back, everything's working and you're good to move on to th
 
 ## Setup a Test Account
 
-The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is highly _advised_ that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
+The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is _highly_ advised that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
 
 Here are links for setting up a test account with each of the currently supported CRM providers:
 
@@ -33,7 +33,7 @@ Here are links for setting up a test account with each of the currently supporte
 - [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page)
 - [Pipedrive](https://developers.pipedrive.com/start-here)
 
-Once you've set up an account and loaded in some dummy data, you can move to the next step.
+Once you've set up an account with at least one of the above CRMs and loaded in some dummy data, you can move to the next step.
 
 ## Setup and Configure Vessel-link
 
@@ -58,8 +58,8 @@ Here's some example code for what this might look like:
 ### FE Client
 
 ```jsx Frontend
-import { useState } from 'React';
-import { VesselConnectButton } from '@vesselapi/react-vessel-link';
+import { useState } from "React";
+import { VesselConnectButton } from "@vesselapi/react-vessel-link";
 
 function App() {
   const [linkToken, setLinkToken] = useState();
@@ -67,7 +67,9 @@ function App() {
   useEffect(() => {
     // STEP 1: Retrieve and store the Link Token
     async function getLinkToken() {
-      const { linkToken } = await api.post('https://my-company.api.com/link-token');
+      const { linkToken } = await api.post(
+        "https://my-company.api.com/link-token"
+      );
       setLinkToken(linkToken);
     }
     getLinkToken();
@@ -79,7 +81,7 @@ function App() {
       <VesselConnectButton
         onSuccess={async (publicToken) => {
           // STEP 3: Pass the Public Token back to the BE so it can be exchanged for an Access Token
-          await api.post('https://my-company.api.com/store-token', {
+          await api.post("https://my-company.api.com/store-token", {
             json: {
               publicToken,
             },
@@ -97,35 +99,38 @@ function App() {
 ### BE Server
 
 ```js NodeJS
-import express from 'express';
-import api, { extractBodyParams } from '../utils/api';
-import db from '../utils/database';
+import express from "express";
+import api, { extractBodyParams } from "../utils/api";
+import db from "../utils/database";
 
 const app = express();
 const port = 3000;
-const VESSEL_API_TOKEN = 'SOME_TOKEN';
+const VESSEL_API_TOKEN = "SOME_TOKEN";
 
-app.post('/link-token', async (req, res) => {
-  const { linkToken } = await api.post('https://api.vessel.land/link/token', {
+app.post("/link-token", async (req, res) => {
+  const { linkToken } = await api.post("https://api.vessel.land/link/token", {
     headers: {
-      'vessel-api-token': VESSEL_API_TOKEN,
+      "vessel-api-token": VESSEL_API_TOKEN,
     },
   });
 
   res.send({ linkToken });
 });
 
-app.post('/store-token', async (req, res) => {
+app.post("/store-token", async (req, res) => {
   const { publicToken } = req.body;
 
-  const { accessToken } = await api.post('https://api.vessel.land/link/exchange', {
-    headers: {
-      'vessel-api-token': VESSEL_API_TOKEN,
-    },
-    json: {
-      publicToken,
-    },
-  });
+  const { accessToken } = await api.post(
+    "https://api.vessel.land/link/exchange",
+    {
+      headers: {
+        "vessel-api-token": VESSEL_API_TOKEN,
+      },
+      json: {
+        publicToken,
+      },
+    }
+  );
   await storeAccessToken(accessToken);
 
   res.send({ success: true });
@@ -143,7 +148,7 @@ When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial
 | Status           | Description                                                   |
 | ---------------- | ------------------------------------------------------------- |
 | `NEW_CONNECTION` | When a connection is newly created. All CRM APIs are blocked. |
-| `INITIAL_SYNCED` | First 60 days of data synced. CRM APIs are unblocked.         |
+| `INITIAL_SYNCED` | First 30 days of data synced. CRM APIs are unblocked.         |
 | `READY`          | All data has been synced                                      |
 
 ## Putting it all together
@@ -151,14 +156,14 @@ When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial
 Finally, we can tie the above pieces together and make an end-to-end request to the Vessel API!
 
 ```js Example
-app.get('contacts', async (req, res) => {
+app.get("contacts", async (req, res) => {
   const { user } = req.body;
 
   const accessToken = await getAccessToken(user);
 
-  const { contacts } = await api.get('https://api.vessel.land/crm/contacts', {
+  const { contacts } = await api.get("https://api.vessel.land/crm/contacts", {
     headers: {
-      'vessel-api-token': VESSEL_API_TOKEN,
+      "vessel-api-token": VESSEL_API_TOKEN,
     },
     queryParams: {
       accessToken,
@@ -171,5 +176,6 @@ app.get('contacts', async (req, res) => {
 
 You can read the API reference for all supported operations. If you run into issues, please contact support@vessel.land.
 
-Feedback
+## Feedback
+
 Did this process take you longer than 1.5 hours? If so, want to hear about it. Please send an email to support@vessel.land so we can inquire more about what went wrong, where we need to improve, and how we can help.

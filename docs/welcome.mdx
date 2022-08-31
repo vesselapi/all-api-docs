@@ -1,14 +1,18 @@
 ---
-title: 'Welcome'
+title: "Welcome"
 ---
 
-Welcome to the Vessel API! Here you will find the documentation for our Unified API. Take a look around, and if you have any questions, don't hesitate to reach out to `support@vessel.land`.
+Thank you for checking out Vessel, your support means a tremendous amount to us! Take a look around, and if you have any questions, don't hesitate to reach out to `support@vessel.land`. Access to the API can be requested via our [website](https://www.vessel.land/).
+
+## Why Use Vessel?
+
+The Vessel API is a Unified CRM API that provides standardized endpoints for performing operations on common CRM Objects. Vessel also provides a drop-in FE authentication component that handles connecting to your customer’s CRMs. Once you’ve setup Vessel, your customers will automatically gain access to CRMs as we add support for them with no additional code needed on your end.
 
 ## About Our Endpoints
 
-The Vessel API can be queried via HTTP REST endpoints. We follow standard HTTP authentication, response codes, and verbs. Our API accepts form-encoded request bodies and returns JSON-encoded responses which are all documented here. All requests must be made via `https` and all CRM requests should be made to `https://api.vessel.land/crm`.
+The Vessel API can be queried via HTTP REST endpoints. We follow standard HTTP authentication, response codes, and verbs. Our API accepts JSON-encoded request and responses which are all documented here. All requests must be made via `https` and all CRM requests should be made to `https://api.vessel.land/crm`.
 
-## Supported CRMs
+## Currently Supported CRMs
 
 - [Salesforce](https://www.salesforce.com/)
 - [HubSpot](https://hubspot.com/)
@@ -22,14 +26,18 @@ Before diving into the specifics of how to use our API, we wanted to detail some
 
 ### Depth over breadth
 
-There are many approaches to universal APIs, some choose to tackle specific verticals, others choose to offer a large variety of integrations. Each approach has tradeoffs and we want to make it clear which path we're going down. We chose depth becuase we believe that as CRMs become more crucial to businesses, more and more functionality will need to be accessed by the companies that integrate with these providers.
+There are many approaches to universal APIs, some choose to tackle specific verticals, others choose to offer a large variety of integrations. Each approach has tradeoffs and we want to make it clear which path we're going down. We chose depth becuase we believe that as CRMs become more crucial to businesses, more and more functionality will need to be accessed by the companies that integrate with them.
 
 ### Follow best practices, deliver simplicity
 
-We didn't try to reinvent the wheel when it came to designing our API. Our focus is on providing the absolute best developer experience possible and delivering the most integrated and deep CRM API to exist. You'll see familiar terms like accessToken, linkToken, HTTP verbs, and others. These patterns were followed to offer the most intuitive experience possible and we strive to build simplicity for our devs.
+We didn't try to reinvent the wheel when it came to designing our API. Our focus is on providing the absolute best developer experience possible and delivering the most integrated and deep CRM API that ever existed. You'll see familiar terms like accessToken, linkToken, HTTP verbs, and others. These patterns were followed to offer the most intuitive experience possible and we strive to build simplicity for our devs.
 
 ### Security, security, security
 
 Security is important for all companies, but for companies like us where credientials handling is core to the business, security is king. Thus, when designing this API, we made sure security was front and center. We used industry standards and existing paradigms when designing our [authentication system](/authentication-and-security), but if you believe we missed anything please reach out to our dedicated security email `security@vessel.land` and we'll respond within 24 hours.
 
 These principles guide our API design and implementation. We are always open to feedback, especially when it comes to our API; so please don't hestitate to reach out for suggestions or concerns.
+
+## Disclaimers
+
+By using the Vessel API, you agree to our [Terms of Service](https://drive.google.com/file/d/1MAhix9lfQdMW7B600vYeMNtdY3vnQzIQ/view) and acknowledge our [Privacy Policy](https://drive.google.com/file/d/1AnNdqjvqEU_IhqhzSYUbAuk0nOEGJuNF/view).
