@@ -253,7 +253,7 @@ paths:
             type: string
           in: query
           name: email
-          description: The email of the contact to get (conceded precedence over id when both are included)
+          description: The email of the contact to get (concedes precedence over id when both are included)
         - schema:
             type: boolean
           in: query
@@ -3002,24 +3002,7 @@ components:
         id: smq75dxjeyuvg
       type: object
       description: |-
-        (Alias: property) A field is a key-value pair on a CRM Object that provides information about that object. 
-
-        Field types: 
-        * string
-        * number
-        * datetime (ex: '2019-01-01T01:12:33.000Z')
-        * date (ex: '2019-01-01')
-        * boolean
-        * reference
-        * phone
-        * url
-        * id
-        * email
-        * percent
-        * singleselect
-        * multiselect
-        * address
-        * daterange
+        (Alias: property) A field is a key-value pair on a CRM Object that provides information about that object.
       properties:
         key:
           type: string
@@ -3029,7 +3012,26 @@ components:
           description: "The display name of this field (ex: number of employees, annual revenue, etc)"
         type:
           type: string
-          description: See Field model for possible values
+          enum:
+            - string
+            - number
+            - datetime
+            - date
+            - boolean
+            - reference
+            - phone
+            - url
+            - id
+            - email
+            - percent
+            - singleselect
+            - multiselect
+            - address
+            - daterange
+            - decimal
+            - time
+            - daterange
+            - object
         options:
           type: array
           description: Possible options for this field

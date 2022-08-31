@@ -6,7 +6,7 @@ Webhooks allow us to notify you when a relevant change has occurred in our syste
 
 ### Important Notes
 
-- Any time any object is updated/created/deleted, we'll send an event. You can use the `objectType` on the event payload to ignore objects that aren't relevant to your use case.
+- Any time an object is updated/created/deleted, we'll send an event. You can use the `objectType` on the event payload to ignore objects that aren't relevant to your use case.
 - You can only create **one** webhook per connection. It's very important to save the `webhookId` when you create a webhook as that’s how you’ll delete/change your webhook should you need to.
 - Our webhooks are sent as `POST` requests over standard HTTPs and you must return `2xx` after receiving a webhook event.
 

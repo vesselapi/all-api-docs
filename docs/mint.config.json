@@ -35,7 +35,7 @@
     },
     {
       "group": "How-To Guides",
-      "pages": ["getting-started", "accessing-remote-data"]
+      "pages": ["getting-started", "accessing-native-data"]
     },
     {
       "group": "References",
