@@ -142,6 +142,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-user-details
       description: |-
         Get details about all users. 
@@ -417,6 +431,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-contact-details
       description: |-
         Get details about all contacts. 
@@ -612,6 +640,7 @@ paths:
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
                     stage: closedwon
+                    accountId: "8019fa47ac77b2d438d049a31727cbc5"
       description: Create a new Deal
     patch:
       summary: Update Deal
@@ -662,6 +691,7 @@ paths:
                     amount: 10000
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
+                    accountId: "8019fa47ac77b2d438d049a31727cbc5"
         description: ""
       description: Update an existing Deal
   /crm/deal/details:
@@ -682,6 +712,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: amount
+                        name: Amount
+                        type: number
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-deal-details
       description: |-
         Get details about all deals or a particular deal. 
@@ -987,6 +1031,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: name
+                        name: Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-account-details
       description: |-
         Get details about all accounts. 
@@ -1254,6 +1312,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-lead-details
       description: |-
         Get details about all leads. 
@@ -1504,6 +1576,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: content
+                        name: Content
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-note-details
       description: |-
         Get details about all notes. 
@@ -1774,6 +1860,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-task-details
       description: |-
         Get details about all tasks. 
@@ -2046,6 +2146,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-event-details
       description: |-
         Get details about all events. 
@@ -2231,6 +2345,20 @@ paths:
                       $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: email
+                        name: Email
+                        type: email
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
       operationId: get-event-attendee-details
       description: |-
         Get details about all event attendees. 
@@ -3685,6 +3813,9 @@ components:
         stage:
           type: string
           description: The stage the deal is in. See /deal/details for possible values
+        accountId:
+          type: string
+          description: Update the account this deal is associated with.
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
@@ -3713,6 +3844,9 @@ components:
         stage:
           type: string
           description: The stage the deal is in. See /deal/details for possible value
+        accountId:
+          type: string
+          description: The Id of the account to associate this deal with
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
@@ -3959,6 +4093,10 @@ components:
       properties:
         integrationId:
           type: string
+          enum:
+            - salesforce
+            - hubspot
+            - pipedrive
         name:
           type: string
         iconURL:
@@ -3992,7 +4130,7 @@ components:
     Connection:
       title: Connection
       type: object
-      properties: 
+      properties:
         integrationId:
           type: string
           enum:
