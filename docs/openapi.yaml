@@ -3677,6 +3677,7 @@ components:
           type: string
         userId:
           type: string
+          description: The user to assign this note to. If there is no userId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
         leadId:
           type: string
           description: Can only set either leadId or dealId but not both.
@@ -3960,6 +3961,7 @@ components:
           type: string
         userId:
           type: string
+          description: The user to assign this note to. If there is no userId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
         dealId:
           type: string
           description: Required unless leadId/accountId/contactId are specified.
@@ -3977,7 +3979,6 @@ components:
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - content
-        - userId
     NoteUpdate:
       title: NoteUpdate
       type: object
