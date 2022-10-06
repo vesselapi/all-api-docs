@@ -33,7 +33,7 @@ Here are links for setting up a test account with each of the currently supporte
 - [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page)
 - [Pipedrive](https://developers.pipedrive.com/start-here)
 
-Once you've set up an account with at least one of the above CRMs and loaded in some dummy data, you can move to the next step.
+It is vital that you create an account through the links above, otherwise you risk creating an account that will not have API access. Once you've set up an account with at least one of the above CRMs and loaded in some dummy data, you can move on to the next step.
 
 ## Setup and Configure Vessel-link
 
@@ -52,6 +52,8 @@ Next, we'll see how to retrieve an `accessToken` for a given CRM account. An `ac
 ### Storing Access Tokens
 
 During the authentication step, after your user has authenticated their CRM, Vessel will return a `publicToken` (_not_ the user's credentials) which can be exchanged for an `accessToken` to query the API with. This process plays an important part in ensuring the security of the Vessel API and you can read more about the `linkToken` / `accessToken` exchange [here](/authentication-and-security). The `accessToken` is used to query our APIs, it should be kept secret and stored securely.
+
+It is also recommended that you save the `connectionId`. The `connectionId` is similar to a public key and is used when referencing the state of the connection via the `/connection/` endpoints (e.g., to tell if the connection is syncing or if it's fully synced).
 
 Here's some example code for what this might look like:
 
@@ -120,7 +122,7 @@ app.post("/link-token", async (req, res) => {
 app.post("/store-token", async (req, res) => {
   const { publicToken } = req.body;
 
-  const { accessToken } = await api.post(
+  const { connectionId, accessToken } = await api.post(
     "https://api.vessel.land/link/exchange",
     {
       headers: {
@@ -131,7 +133,7 @@ app.post("/store-token", async (req, res) => {
       },
     }
   );
-  await storeAccessToken(accessToken);
+  await storeSecrets(accessToken, connectionId);
 
   res.send({ success: true });
 });
@@ -139,11 +141,11 @@ app.post("/store-token", async (req, res) => {
 app.listen(port);
 ```
 
-Try authenticating through the test account you set up in the [Setup a Test Account](#setup-a-test-account) step. If you're able to go through the authentication flow with no issues, and you're successfully storing the `accessToken`, you can move on to the next step.
+Try authenticating through the test account you set up in the [Setup a Test Account](#setup-a-test-account) step. If you're able to go through the authentication flow with no issues, and you're successfully storing the `accessToken` and `connectionId`, you can move on to the next step.
 
 ## Connection status
 
-When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial data pull completes. All other APIs, such as `/webhook/` and `/connection/`, will continue to work. You can [setup a webhook](/webhooks) to be notified when the data pull completes, so you'll know when you can start making `/crm/` APIs calls. Below is a summary of the various connection statuses.
+When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial data pull completes. All other APIs, such as `/webhook/` and `/connection/`, will be available. You can [setup a webhook](/webhooks) to be notified when the data pull completes, so you'll know when you can start making `/crm/` APIs calls. Below is a summary of the various connection statuses.
 
 | Status           | Description                                                   |
 | ---------------- | ------------------------------------------------------------- |
