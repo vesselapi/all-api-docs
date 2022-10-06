@@ -53,7 +53,7 @@ Next, we'll see how to retrieve an `accessToken` for a given CRM account. An `ac
 
 During the authentication step, after your user has authenticated their CRM, Vessel will return a `publicToken` (_not_ the user's credentials) which can be exchanged for an `accessToken` to query the API with. This process plays an important part in ensuring the security of the Vessel API and you can read more about the `linkToken` / `accessToken` exchange [here](/authentication-and-security). The `accessToken` is used to query our APIs, it should be kept secret and stored securely.
 
-It is also recommended that you save the `connectionId`. The `connectionId` is similar to a public key and is used when referencing the state of the connection via the `/connection/` endpoints (e.g., to tell if the connection is syncing or if it's fully synced).
+It is also recommended that you save the `connectionId`. The `connectionId` is similar to a public identifier and is used when referencing the state of the connection via the `/connection/` endpoints (e.g., to tell if the connection is syncing or if it's fully synced).
 
 Here's some example code for what this might look like:
 
