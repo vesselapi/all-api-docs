@@ -52,7 +52,7 @@ Next, we'll see how to connect to your users CRM using the Vessel API.
 A connection consists of:
 
 1. An `accessToken`: The private secret used to query the Vessel API.
-2. A `connectionId`: The public identifier used to Id the connection.
+2. A `connectionId`: The public identifier of the connection.
 
 During the authentication step, after your user has authenticated their CRM, Vessel will return a `publicToken` (_not_ the user's credentials) which can be exchanged for an `accessToken` to query the API with. This process plays an important part in ensuring the security of the Vessel API and you can read more about the `linkToken` / `accessToken` exchange [here](/authentication-and-security). The `accessToken` is used to query our APIs, it should be kept secret and stored securely.
 
