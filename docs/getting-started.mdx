@@ -10,7 +10,7 @@ The first step to getting up and running with the Vessel API is to get access to
 
 ## Test API Call
 
-After receiving your API token, you can quickly gut-check that everything is working by making a request to the link/token endpoint. Here's an example of how to make such a request via curl:
+After receiving your API token, you can quickly gut-check that everything is working by making a request to the `/link/token` endpoint. Here's an example of how to make such a request via curl:
 
 ```bash Terminal
 curl -X POST https://api.vessel.land/link/token
@@ -25,7 +25,7 @@ If you get linkToken back, everything's working and you're good to move on to th
 
 ## Setup a Test Account
 
-The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is _highly_ advised that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
+The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is **highly** advised that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
 
 Here are links for setting up a test account with each of the currently supported CRM providers:
 
@@ -37,19 +37,17 @@ It is vital that you create an account through the links above, otherwise you ri
 
 ## Setup and Configure Vessel-link
 
-Next, use Vessel's drop-in UI component to quickly set up authentication for your users.
+Next, use Vessel's drop-in UI component to quickly set up authentication for your users. This componet is used to open the Vessel modal which provides a UI for connecting to the CRMs we support.
 
 ### Setup
 
 Start by installing the official [vessel-link npm package](https://www.npmjs.com/package/@vesselapi/react-vessel-link) in your FE service. In the next step, you'll see how to get a `linkToken` so you can summon the auth modal provided by the package.
 
-Once you've install the `vessel-link` package and read the README, you can move onto the next step.
+Once you've installed the `vessel-link` package and read the README, you can move on to the next step.
 
-## Authenticate the User
+## Creating a Connection to the user's CRM
 
-Next, we'll see how to retrieve an `accessToken` for a given CRM account. An `accessToken`, in combination with your API-token, will allow you to make calls to the Vessel API and operate on the users CRM data.
-
-### Creating a Connection to a CRM
+Next, we'll see how to connect to your users CRM using the Vessel API.
 
 A connection consists of:
 
@@ -69,37 +67,26 @@ import { useState } from "React";
 import { VesselConnectButton } from "@vesselapi/react-vessel-link";
 
 function App() {
-  const [linkToken, setLinkToken] = useState();
-
-  useEffect(() => {
-    // STEP 1: Retrieve and store the Link Token
-    async function getLinkToken() {
-      const { linkToken } = await api.post(
-        "https://my-company.api.com/link-token"
-      );
-      setLinkToken(linkToken);
-    }
-    getLinkToken();
-  }, []);
-
   return (
-    // STEP 2: Show the authentication modal once we have the Link Token
-    linkToken ? (
-      <VesselConnectButton
-        onSuccess={async (publicToken) => {
-          // STEP 3: Pass the Public Token back to the BE so it can be exchanged for an Access Token
-          await api.post("https://my-company.api.com/store-token", {
-            json: {
-              publicToken,
-            },
-          });
-        }}
-        linkToken={linkToken}
-      />
-    ) : (
-      <div>loading...</div>
-    )
-  );
+    <VesselConnectButton
+      onSuccess={async (publicToken) => {
+        // Pass the publicToken back to the BE so it can be exchanged for an accessToken
+        await api.post("https://my-company.api.com/store-token", {
+          json: {
+            publicToken,
+          },
+        });
+      }}
+      // Retrieve and store the linkToken
+      linkToken={() => {
+        const { linkToken } = await api.post(
+          "https://my-company.api.com/link-token"
+        );
+        return linkToken
+      }
+    }
+    />
+  )
 }
 ```
 
@@ -181,7 +168,13 @@ app.get("contacts", async (req, res) => {
 });
 ```
 
-You can read the API reference for all supported operations. If you run into issues, please contact support@vessel.land.
+You can read the API reference for all supported operations.
+
+## Cleaning up Connections
+
+It's very important that you provide a way for your users to disconnect their CRM accounts from your app. This not only helps maintain good CRM hygiene (which your users will thank you for), but also allows Vessel to de-allocate resources for connections that are no longer in use. Additionally, development environments are allotted **five** connections, meaning that if you try to connect a sixth connection without first removing previous connection, the authentication call will fail with an error message indicating the connection limit has been reached.
+
+To disconnect a connection, call the [`DELETE /connection/connection` endpoint](https://docs.vessel.land/api-reference/connection/remove-connection)
 
 ## Feedback
 
