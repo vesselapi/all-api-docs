@@ -47,7 +47,7 @@ Once you've installed the `vessel-link` package and read the README, you can mov
 
 ## Creating a Connection to the user's CRM
 
-Next, we'll see how to connect to your users CRM using the Vessel API.
+Next, we'll see how to connect to your user's CRM using the Vessel API.
 
 A connection consists of:
 
@@ -77,8 +77,8 @@ function App() {
           },
         });
       }}
-      // Retrieve and store the linkToken
-      linkToken={() => {
+      getLinkToken={() => {
+        // Retrieve the linkToken
         const { linkToken } = await api.post(
           "https://my-company.api.com/link-token"
         );
@@ -99,12 +99,11 @@ import db from "../utils/database";
 
 const app = express();
 const port = 3000;
-const VESSEL_API_TOKEN = "SOME_TOKEN";
 
 app.post("/link-token", async (req, res) => {
   const { linkToken } = await api.post("https://api.vessel.land/link/token", {
     headers: {
-      "vessel-api-token": VESSEL_API_TOKEN,
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
     },
   });
 
@@ -118,7 +117,7 @@ app.post("/store-token", async (req, res) => {
     "https://api.vessel.land/link/exchange",
     {
       headers: {
-        "vessel-api-token": VESSEL_API_TOKEN,
+        "vessel-api-token": process.env.VESSEL_API_TOKEN,
       },
       json: {
         publicToken,
@@ -157,7 +156,7 @@ app.get("contacts", async (req, res) => {
 
   const { contacts } = await api.get("https://api.vessel.land/crm/contacts", {
     headers: {
-      "vessel-api-token": VESSEL_API_TOKEN,
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
     },
     queryParams: {
       accessToken,
@@ -174,7 +173,7 @@ You can read the API reference for all supported operations.
 
 It's very important that you provide a way for your users to disconnect their CRM accounts from your app. This not only helps maintain good CRM hygiene (which your users will thank you for), but also allows Vessel to de-allocate resources for connections that are no longer in use. Additionally, development environments are allotted **five** connections, meaning that if you try to connect a sixth connection without first removing previous connection, the authentication call will fail with an error message indicating the connection limit has been reached.
 
-To disconnect a connection, call the [`DELETE /connection/connection` endpoint](https://docs.vessel.land/api-reference/connection/remove-connection)
+To disconnect a connection, call the [DELETE /connection/connection](https://docs.vessel.land/api-reference/connection/remove-connection) endpoint.
 
 ## Feedback
 
