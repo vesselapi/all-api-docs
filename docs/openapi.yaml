@@ -3497,7 +3497,12 @@ components:
           type: array
           description: Possible options for this field
           items:
-            type: string
+            type: object
+            properties:
+              key:
+                type: string | number
+              name:
+                type: string
         isArray:
           type: boolean
           description: If this field is an array
