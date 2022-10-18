@@ -29,8 +29,8 @@ The easiest way to test the Vessel CRM endpoints is to set up test accounts with
 
 Here are links for setting up a test account with each of the currently supported CRM providers:
 
+- [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page) (_Recommended_)
 - [Salesforce](https://developer.salesforce.com/signup)
-- [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page)
 - [Pipedrive](https://developers.pipedrive.com/start-here)
 
 It is vital that you create an account through the links above, otherwise you risk creating an account that will not have API access. Once you've set up an account with at least one of the above CRMs and loaded in some dummy data, you can move on to the next step.
@@ -58,7 +58,51 @@ During the authentication step, after your user has authenticated their CRM, Ves
 
 It is also recommended that you save the `connectionId`. The `connectionId` is used when referencing the state of the connection via the `/connection/` endpoints (e.g., to tell if the connection is still syncing or if it's fully synced).
 
-Here's some example code for what this might look like:
+Here's some example code for how to exchange a `publicToken` for an `accessToken` and a `connectionId`:
+
+### BE Server
+
+```js NodeJS
+import express from "express";
+import fetch from "node-fetch";
+import db from "../utils/database";
+
+const app = express();
+const port = 3000;
+
+app.post("/link-token", async (req, res) => {
+  // @reference https://docs.vessel.land/api-reference/link/create-link-token
+  const response = await fetch("https://api.vessel.land/link/token", {
+    method: "POST",
+    headers: {
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
+    },
+  });
+
+  const body = await response.json();
+  res.send({ linkToken: body.linkToken });
+});
+
+app.post("/store-token", async (req, res) => {
+  const { publicToken } = req.body;
+  // @reference https://docs.vessel.land/api-reference/link/exchange-tokens
+  const response = await fetch("https://api.vessel.land/link/exchange", {
+    method: "POST",
+    headers: {
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
+    },
+    body: JSON.stringify({
+      publicToken,
+    }),
+  });
+  const { connectionId, accessToken } = await response.json();
+  await db.storeSecrets(accessToken, connectionId);
+
+  res.send({ success: true });
+});
+
+app.listen(port);
+```
 
 ### FE Client
 
@@ -71,65 +115,25 @@ function App() {
     <VesselConnectButton
       onSuccess={async (publicToken) => {
         // Pass the publicToken back to the BE so it can be exchanged for an accessToken
-        await api.post("https://my-company.api.com/store-token", {
-          json: {
+        await fetch("https://my-company.api.com/store-token", {
+          method: "POST",
+          body: JSON.stringify({
             publicToken,
-          },
+          }),
         });
       }}
-      getLinkToken={() => {
+      getLinkToken={async () => {
         // Retrieve the linkToken
-        const { linkToken } = await api.post(
-          "https://my-company.api.com/link-token"
-        );
-        return linkToken
-      }
-    }
+        const response = await fetch("https://my-company.api.com/link-token", {
+          method: "POST",
+        });
+
+        const { linkToken } = await response.json();
+        return linkToken;
+      }}
     />
-  )
-}
-```
-
-### BE Server
-
-```js NodeJS
-import express from "express";
-import api, { extractBodyParams } from "../utils/api";
-import db from "../utils/database";
-
-const app = express();
-const port = 3000;
-
-app.post("/link-token", async (req, res) => {
-  const { linkToken } = await api.post("https://api.vessel.land/link/token", {
-    headers: {
-      "vessel-api-token": process.env.VESSEL_API_TOKEN,
-    },
-  });
-
-  res.send({ linkToken });
-});
-
-app.post("/store-token", async (req, res) => {
-  const { publicToken } = req.body;
-
-  const { connectionId, accessToken } = await api.post(
-    "https://api.vessel.land/link/exchange",
-    {
-      headers: {
-        "vessel-api-token": process.env.VESSEL_API_TOKEN,
-      },
-      json: {
-        publicToken,
-      },
-    }
   );
-  await storeSecrets(accessToken, connectionId);
-
-  res.send({ success: true });
-});
-
-app.listen(port);
+}
 ```
 
 Try authenticating through the test account you set up in the [Setup a Test Account](#setup-a-test-account) step. If you're able to go through the authentication flow with no issues, and you're successfully storing the `accessToken` and `connectionId`, you can move on to the next step.
@@ -154,15 +158,18 @@ app.get("contacts", async (req, res) => {
 
   const accessToken = await getAccessToken(user);
 
-  const { contacts } = await api.get("https://api.vessel.land/crm/contacts", {
-    headers: {
-      "vessel-api-token": process.env.VESSEL_API_TOKEN,
-    },
-    queryParams: {
-      accessToken,
-    },
-  });
+  // @reference https://docs.vessel.land/api-reference/crm/get-all-contacts
+  const response = await fetch(
+    `https://api.vessel.land/crm/contacts?accessToken=${accessToken}`,
+    {
+      method: "POST",
+      headers: {
+        "vessel-api-token": process.env.VESSEL_API_TOKEN,
+      },
+    }
+  );
 
+  const { contacts } = await response.json();
   res.send({ contacts });
 });
 ```

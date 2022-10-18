@@ -1068,7 +1068,7 @@ paths:
           description: "Returns details about native fields."
   /crm/leads:
     get:
-      summary: Get all Leads
+      summary: Get All Leads
       tags: []
       responses:
         "200":
@@ -1114,7 +1114,7 @@ paths:
                             - 9a73be51665b57dd1d4df0edc67d5e4a
                         additional: {}
                     nextPageCursor: string
-      operationId: get-leads
+      operationId: get-crm-leads
       description: |-
         Retrieve all leads.
 
@@ -1386,7 +1386,7 @@ paths:
                           ownerUserId: fdabe0c18113ee0f2add83729401d5e2
                         additional: {}
                     nextPageCursor: string
-      operationId: get-notes
+      operationId: get-crm-notes
       description: Retrieve all Notes
       parameters:
         - schema:
@@ -1655,7 +1655,7 @@ paths:
                           ownerUserId: 25db6b521ffb8fd4f916345341a935f7
                         additional: {}
                     nextPageCursor: string
-      operationId: get-tasks
+      operationId: get-crm-tasks
       description: Retrieve all Tasks
       parameters:
         - schema:
@@ -1942,7 +1942,7 @@ paths:
                           ownerUserId: 5561946e7c65ba50544584543859074c
                         additional: {}
                     nextPageCursor: string
-      operationId: get-events
+      operationId: get-crm-events
       description: Retrieve all Events
       parameters:
         - schema:
@@ -2001,7 +2001,7 @@ paths:
                           - 9c315a6f3669114b8d0641f91e85647b
                         ownerUserId: 5561946e7c65ba50544584543859074c
                       additional: {}
-      operationId: get-task
+      operationId: get-event
       parameters:
         - schema:
             type: string
@@ -2022,7 +2022,7 @@ paths:
       description: Retrieve a single Event by Id
     post:
       summary: Create Event
-      operationId: post-task
+      operationId: post-event
       responses:
         "200":
           description: OK
@@ -2076,7 +2076,7 @@ paths:
       description: Create a new Event.
     patch:
       summary: Update Event
-      operationId: put-task
+      operationId: put-event
       responses:
         "200":
           description: OK
@@ -2259,7 +2259,7 @@ paths:
                         eventId: 098f19400187a6bfa2fabffc0674c6a4
                         associationId: fbdb8b1e827609f50c25b4d52a7b6f57
                       additional: {}
-      operationId: get-task
+      operationId: get-event-attendee
       parameters:
         - schema:
             type: string
@@ -2307,7 +2307,7 @@ paths:
       description: Add an Attendee to an Event
     patch:
       summary: Update Event Attendee
-      operationId: patch-event-attendee
+      operationId: put-event-attendee
       responses:
         "200":
           description: OK
@@ -2382,8 +2382,8 @@ paths:
           description: "Returns details about native fields."
   /link/token:
     post:
-      summary: Create link token
-      operationId: post-user
+      summary: Create Link Token
+      operationId: post-link-token
       responses:
         "200":
           description: Create link token
@@ -2401,8 +2401,8 @@ paths:
     parameters: []
   /link/exchange:
     post:
-      summary: Exchange public token for access token
-      operationId: post-user
+      summary: Exchange Public Token for Access Token
+      operationId: post-link-exchange
       responses:
         "200":
           description: Exchange for access token
@@ -2471,7 +2471,7 @@ paths:
           description: The token for the customer's CRM account. This was generated when they connected their account.
           required: true
     delete:
-      summary: Delete connection
+      summary: Delete Connection
       operationId: delete-connection
       responses: {}
       security:
