@@ -73,7 +73,7 @@ const port = 3000;
 app.post("/link-token", async (req, res) => {
   // @reference https://docs.vessel.land/api-reference/link/create-link-token
   const response = await fetch("https://api.vessel.land/link/token", {
-    method: 'POST,'
+    method: "POST",
     headers: {
       "vessel-api-token": process.env.VESSEL_API_TOKEN,
     },
@@ -87,7 +87,7 @@ app.post("/store-token", async (req, res) => {
   const { publicToken } = req.body;
   // @reference https://docs.vessel.land/api-reference/link/exchange-tokens
   const response = await fetch("https://api.vessel.land/link/exchange", {
-    method: 'POST,'
+    method: "POST",
     headers: {
       "vessel-api-token": process.env.VESSEL_API_TOKEN,
     },
@@ -95,7 +95,7 @@ app.post("/store-token", async (req, res) => {
       publicToken,
     }),
   });
-  const { connectionId, accessToken } = await response.json()
+  const { connectionId, accessToken } = await response.json();
   await db.storeSecrets(accessToken, connectionId);
 
   res.send({ success: true });
@@ -159,12 +159,15 @@ app.get("contacts", async (req, res) => {
   const accessToken = await getAccessToken(user);
 
   // @reference https://docs.vessel.land/api-reference/crm/get-all-contacts
-  const response = await fetch(`https://api.vessel.land/crm/contacts?accessToken=${accessToken}`, {
-    method: 'POST,'
-    headers: {
-      "vessel-api-token": process.env.VESSEL_API_TOKEN,
-    },
-  });
+  const response = await fetch(
+    `https://api.vessel.land/crm/contacts?accessToken=${accessToken}`,
+    {
+      method: "POST",
+      headers: {
+        "vessel-api-token": process.env.VESSEL_API_TOKEN,
+      },
+    }
+  );
 
   const { contacts } = await response.json();
   res.send({ contacts });
