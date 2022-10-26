@@ -2409,7 +2409,13 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    headers:
+                      content-type: application/json
+                    url: https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account
+                    statusCode: 200
+                    body:
+                      id: 0011A00001XQ4QSQAZ
+                      success: true
       requestBody:
         content:
           application/json:
