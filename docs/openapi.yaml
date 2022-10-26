@@ -2382,7 +2382,7 @@ paths:
           description: "Returns details about native fields."
   /crm/passthrough:
     post:
-      summary: Authenticated Passthrough Request
+      summary: Passthrough Request
       operationId: post-passthrough
       responses:
         "200":
