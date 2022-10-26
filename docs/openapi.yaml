@@ -2446,7 +2446,7 @@ paths:
                   method: PATCH
                   path: sobjects/Account/0011A00001XQ4ZUQA1
                   body:
-                    - Name: "New Account Name"
+                    - Name: "Vessel"
         description: ""
       description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
   /link/token:
