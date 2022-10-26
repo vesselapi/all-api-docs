@@ -2380,6 +2380,75 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
+  /crm/passthrough:
+    post:
+      summary: Authenticated Passthrough Request
+      operationId: post-passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream CRM.
+                  body:
+                    type: any
+                    description: The body of the response from the downstream CRM.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The sub-path to send the request to. Vessel handles the base path and domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `sobjects/Account`."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "New Account Name"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
   /link/token:
     post:
       summary: Create Link Token

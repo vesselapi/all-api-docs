@@ -90,7 +90,8 @@
         "api-reference/crm/get-event-attendee",
         "api-reference/crm/create-event-attendee",
         "api-reference/crm/update-event-attendee",
-        "api-reference/crm/get-event-attendee-details"
+        "api-reference/crm/get-event-attendee-details",
+        "api-reference/crm/authenticated-passthrough"
       ]
     },
     {
