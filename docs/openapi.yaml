@@ -2411,7 +2411,7 @@ paths:
                   value:
                     headers:
                       content-type: application/json
-                    url: https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account
+                    url: https://mydomain.my.salesforce.com/services/data/v53.0/sobjects/Account
                     statusCode: 200
                     body:
                       id: 0011A00001XQ4QSQAZ
@@ -2450,7 +2450,7 @@ paths:
                 value:
                   accessToken: string
                   method: PATCH
-                  path: sobjects/Account/0011A00001XQ4ZUQA1
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
                     - Name: "Vessel"
         description: ""
