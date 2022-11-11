@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: API Reference
-  version: '1.0'
+  version: "1.0"
   summary: CRM
   description: |-
     Vessel's CRM APIs requires an access token to be used together with your Vessel API token. Ensure the following headers are provided when making API calls:
@@ -12,14 +12,14 @@ info:
      
     Additionally, in the query or body parameters of each request depending on whether it is a GET or POST, make sure to include the `accessToken` for the connection you want to access.
 servers:
-  - url: 'https://api.vessel.land'
+  - url: "https://api.vessel.land"
 paths:
   /crm/users:
     get:
       summary: Get All Users
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -29,7 +29,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: '#/components/schemas/User'
+                      $ref: "#/components/schemas/User"
                   nextPageCursor:
                     type: string
               examples:
@@ -37,12 +37,12 @@ paths:
                   value:
                     users:
                       - id: 6b48faf9e8dc534c4ca693c63e8bf8e6
-                        nativeId: '12'
+                        nativeId: "12"
                         firstName: Micheal
                         lastName: Scott
                         email: micheal@dundermifflin.com
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           taskIds:
                             - b3b04a80af4190796185c527e7b9933c
@@ -76,7 +76,7 @@ paths:
       summary: Get User
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -84,18 +84,18 @@ paths:
                 type: object
                 properties:
                   user:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
               examples:
                 example-1:
                   value:
                     user:
                       id: 6b48faf9e8dc534c4ca693c63e8bf8e6
-                      nativeId: '12'
+                      nativeId: "12"
                       firstName: Micheal
                       lastName: Scott
                       email: micheal@dundermifflin.com
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         taskIds:
                           - b3b04a80af4190796185c527e7b9933c
@@ -129,7 +129,7 @@ paths:
       summary: Get User Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -139,7 +139,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -176,13 +176,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/contacts:
     get:
       summary: Get All Contacts
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -192,7 +192,7 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Contact'
+                      $ref: "#/components/schemas/Contact"
                   nextPageCursor:
                     type: string
               examples:
@@ -200,15 +200,15 @@ paths:
                   value:
                     contacts:
                       - id: c064e916a0f93ddbd85c31963861d481
-                        nativeId: '23'
+                        nativeId: "23"
                         email: tom@bluecross.com
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
-                        phone: '2101128833'
-                        mobilePhone: '2106541111'
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        phone: "2101128833"
+                        mobilePhone: "2106541111"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           accountIds:
                             - 1fbdc2a6cb24a77f9c8843b35a00977b
@@ -250,7 +250,7 @@ paths:
       summary: Get Contact
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -258,21 +258,21 @@ paths:
                 type: object
                 properties:
                   contact:
-                    $ref: '#/components/schemas/Contact'
+                    $ref: "#/components/schemas/Contact"
               examples:
                 example-1:
                   value:
                     contact:
                       id: c064e916a0f93ddbd85c31963861d481
-                      nativeId: '23'
+                      nativeId: "23"
                       email: tom@bluecross.com
                       firstName: Tom
                       lastName: Smith
                       jobTitle: Director of Operations
-                      phone: '2101128833'
-                      mobilePhone: '2106541111'
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      phone: "2101128833"
+                      mobilePhone: "2106541111"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         accountIds:
                           - 1fbdc2a6cb24a77f9c8843b35a00977b
@@ -312,13 +312,13 @@ paths:
           in: query
           name: allFields
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: 'Retrieve a Contact by either Id or email. When both email and Id are included, Id will take priority.'
+      description: "Retrieve a Contact by either Id or email. When both email and Id are included, Id will take priority."
     parameters: []
     post:
       summary: Create Contact
       operationId: post-contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -330,7 +330,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -340,7 +340,7 @@ paths:
                 accessToken:
                   type: string
                 contact:
-                  $ref: '#/components/schemas/ContactCreate'
+                  $ref: "#/components/schemas/ContactCreate"
               required:
                 - accessToken
                 - contact
@@ -353,23 +353,23 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    phone: '2101128833'
-                    mobilePhone: '2106541111'
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
       description: Create a new contact.
     patch:
       summary: Update Contact
       operationId: put-contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -378,7 +378,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -390,7 +390,7 @@ paths:
                 id:
                   type: string
                 contact:
-                  $ref: '#/components/schemas/ContactUpdate'
+                  $ref: "#/components/schemas/ContactUpdate"
               required:
                 - accessToken
                 - id
@@ -405,20 +405,20 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    phone: '2101128833'
-                    mobilePhone: '2106541111'
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ''
+        description: ""
       description: Update an existing Contact.
   /crm/contact/details:
     get:
       summary: Get Contact Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -428,7 +428,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -465,13 +465,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/deals:
     get:
       summary: Get All Deals
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -481,7 +481,7 @@ paths:
                   deals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Deal'
+                      $ref: "#/components/schemas/Deal"
                   nextPageCursor:
                     type: string
               examples:
@@ -489,17 +489,17 @@ paths:
                   value:
                     deals:
                       - id: f97b667b7b53c2cae0280657a9fa4c3b
-                        nativeId: '84'
+                        nativeId: "84"
                         name: Blue Cross Deal
                         stage: demo
                         amount: 10000
-                        closeDate: '2020-08-23T00:00:00Z'
-                        probability: '0.4'
+                        closeDate: "2020-08-23T00:00:00Z"
+                        probability: "0.4"
                         expectedRevenue: 4000
                         isWon: false
                         isClosed: false
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           contactIds:
                             - 48fabaa6eec4d244ec0c67d7beffec41
@@ -537,7 +537,7 @@ paths:
       summary: Get Deal
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -545,23 +545,23 @@ paths:
                 type: object
                 properties:
                   deal:
-                    $ref: '#/components/schemas/Deal'
+                    $ref: "#/components/schemas/Deal"
               examples:
                 example-1:
                   value:
                     deal:
                       id: f97b667b7b53c2cae0280657a9fa4c3b
-                      nativeId: '84'
+                      nativeId: "84"
                       name: Blue Cross Deal
                       stage: demo
                       amount: 10000
-                      closeDate: '2020-08-23T00:00:00Z'
-                      probability: '0.4'
+                      closeDate: "2020-08-23T00:00:00Z"
+                      probability: "0.4"
                       expectedRevenue: 4000
                       isWon: false
                       isClosed: false
-                      modifiedTime: '2019-08-24T14:15:22Z'
-                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
                       associations:
                         contactIds:
                           - 48fabaa6eec4d244ec0c67d7beffec41
@@ -598,16 +598,16 @@ paths:
       summary: Create Deal
       operationId: post-deal
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -616,7 +616,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -626,7 +626,7 @@ paths:
                 accessToken:
                   type: string
                 deal:
-                  $ref: '#/components/schemas/DealCreate'
+                  $ref: "#/components/schemas/DealCreate"
               required:
                 - accessToken
                 - deal
@@ -637,25 +637,25 @@ paths:
                   deal:
                     name: Blue Cross Deal
                     amount: 10000
-                    closeDate: '2020-08-23T00:00:00Z'
-                    probability: '0.4'
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
                     stage: closedwon
-                    accountId: '8019fa47ac77b2d438d049a31727cbc5'
+                    accountId: "8019fa47ac77b2d438d049a31727cbc5"
       description: Create a new Deal
     patch:
       summary: Update Deal
       operationId: put-deal
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -664,7 +664,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -676,7 +676,7 @@ paths:
                 id:
                   type: string
                 deal:
-                  $ref: '#/components/schemas/DealUpdate'
+                  $ref: "#/components/schemas/DealUpdate"
               required:
                 - accessToken
                 - id
@@ -689,17 +689,17 @@ paths:
                   deal:
                     name: Blue Cross Deal
                     amount: 10000
-                    closeDate: '2020-08-23T00:00:00Z'
-                    probability: '0.4'
-                    accountId: '8019fa47ac77b2d438d049a31727cbc5'
-        description: ''
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
+                    accountId: "8019fa47ac77b2d438d049a31727cbc5"
+        description: ""
       description: Update an existing Deal
   /crm/deal/details:
     get:
       summary: Get Deal Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -709,7 +709,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -742,7 +742,7 @@ paths:
             type: string
           in: query
           name: id
-          description: 'If provided, get the details about a particular deal. If not provided, get details about all deals.'
+          description: "If provided, get the details about a particular deal. If not provided, get details about all deals."
         - schema:
             type: string
           in: query
@@ -751,13 +751,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/accounts:
     get:
       summary: Get All Accounts
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -767,7 +767,7 @@ paths:
                   accounts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Account'
+                      $ref: "#/components/schemas/Account"
                   nextPageCursor:
                     type: string
               examples:
@@ -775,21 +775,21 @@ paths:
                   value:
                     accounts:
                       - id: b2d9eabb468030e65fa36ff7183826e0
-                        nativeId: '344'
+                        nativeId: "344"
                         name: Blue Cross
                         description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
                         industry: TV and Media
                         annualRevenue: 10000000
                         numberOfEmployees: 100
                         website: www.bluecross.penn
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        phone: '8192223333'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
                         address:
                           street: 100 Blue Dr
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: '281332'
+                          postalCode: "281332"
                           country: USA
                         associations:
                           dealIds:
@@ -834,7 +834,7 @@ paths:
       summary: Get Account
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -842,27 +842,27 @@ paths:
                 type: object
                 properties:
                   account:
-                    $ref: '#/components/schemas/Account'
+                    $ref: "#/components/schemas/Account"
               examples:
                 example-1:
                   value:
                     account:
                       id: b2d9eabb468030e65fa36ff7183826e0
-                      nativeId: '344'
+                      nativeId: "344"
                       name: Blue Cross
                       description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
                       industry: TV and Media
                       annualRevenue: 10000000
                       numberOfEmployees: 100
                       website: www.bluecross.penn
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
-                      phone: '8192223333'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: "8192223333"
                       address:
                         street: 100 Blue Dr
                         city: Scranton
                         state: Pennsylvania
-                        postalCode: '281332'
+                        postalCode: "281332"
                         country: USA
                       associations:
                         dealIds:
@@ -902,16 +902,16 @@ paths:
       summary: Create Account
       operationId: post-account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -928,7 +928,7 @@ paths:
                 accessToken:
                   type: string
                 account:
-                  $ref: '#/components/schemas/AccountCreate'
+                  $ref: "#/components/schemas/AccountCreate"
               required:
                 - accessToken
                 - account
@@ -943,28 +943,28 @@ paths:
                     annualRevenue: 10000000
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    phone: '8192223333'
+                    phone: "8192223333"
                     address:
                       street: 100 Blue Dr
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
       description: Create a new Account
     patch:
       summary: Update Account
       operationId: put-account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -973,7 +973,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -985,7 +985,7 @@ paths:
                 id:
                   type: string
                 account:
-                  $ref: '#/components/schemas/AccountUpdate'
+                  $ref: "#/components/schemas/AccountUpdate"
               required:
                 - accessToken
                 - id
@@ -1002,14 +1002,14 @@ paths:
                     annualRevenue: 10000000
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    createdTime: '2019-08-24T14:15:22Z'
-                    modifiedTime: '2019-08-24T14:15:22Z'
-                    phone: '8192223333'
+                    createdTime: "2019-08-24T14:15:22Z"
+                    modifiedTime: "2019-08-24T14:15:22Z"
+                    phone: "8192223333"
                     address:
                       street: 100 Blue Dr
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
       description: Update an existing Account
       parameters: []
@@ -1018,7 +1018,7 @@ paths:
       summary: Get Account Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1028,7 +1028,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -1065,13 +1065,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/leads:
     get:
       summary: Get All Leads
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1081,7 +1081,7 @@ paths:
                   leads:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Lead'
+                      $ref: "#/components/schemas/Lead"
                   nextPageCursor:
                     type: string
               examples:
@@ -1089,16 +1089,16 @@ paths:
                   value:
                     leads:
                       - id: 573de1b49555e84fccd76c47f8bac0a2
-                        nativeId: '23'
+                        nativeId: "23"
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
                         email: tom@bluecross.com
                         account: Blue Cross
-                        phone: '1234445555'
-                        mobilePhone: '2338889999'
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        phone: "1234445555"
+                        mobilePhone: "2338889999"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           contactIds:
                             - 3e530bfc11fdb21bbc8d28dd6dde491a
@@ -1141,7 +1141,7 @@ paths:
       summary: Get Lead
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           headers: {}
           content:
@@ -1150,22 +1150,22 @@ paths:
                 type: object
                 properties:
                   lead:
-                    $ref: '#/components/schemas/Lead'
+                    $ref: "#/components/schemas/Lead"
               examples:
                 example-1:
                   value:
                     lead:
                       id: 573de1b49555e84fccd76c47f8bac0a2
-                      nativeId: '23'
+                      nativeId: "23"
                       firstName: Tom
                       lastName: Smith
                       jobTitle: Director of Operations
                       email: tom@bluecross.com
                       account: Blue Cross
-                      phone: '1234445555'
-                      mobilePhone: '2338889999'
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      phone: "1234445555"
+                      mobilePhone: "2338889999"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         contactIds:
                           - 3e530bfc11fdb21bbc8d28dd6dde491a
@@ -1203,16 +1203,16 @@ paths:
       summary: Create Lead
       operationId: post-lead
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1232,7 +1232,7 @@ paths:
                 accessToken:
                   type: string
                 lead:
-                  $ref: '#/components/schemas/LeadCreate'
+                  $ref: "#/components/schemas/LeadCreate"
               required:
                 - accessToken
                 - lead
@@ -1246,22 +1246,22 @@ paths:
                     jobTitle: Director of Operations
                     email: tom@bluecross.com
                     account: Blue Cross
-                    phone: '1234445555'
-                    mobilePhone: '2338889999'
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
     patch:
       summary: Update Lead
       operationId: put-lead
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1270,7 +1270,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       description: Update an existing Lead by Id
       requestBody:
         content:
@@ -1281,7 +1281,7 @@ paths:
                 accessToken:
                   type: string
                 lead:
-                  $ref: '#/components/schemas/LeadUpdate'
+                  $ref: "#/components/schemas/LeadUpdate"
             examples:
               example-1:
                 value:
@@ -1292,14 +1292,14 @@ paths:
                     jobTitle: Director of Operations
                     email: tom@bluecross.com
                     account: Blue Cross
-                    phone: '1234445555'
-                    mobilePhone: '2338889999'
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
   /crm/lead/details:
     get:
       summary: Get Lead Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1309,7 +1309,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -1346,13 +1346,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/notes:
     get:
       summary: Get All Notes
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1362,7 +1362,7 @@ paths:
                   notes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Note'
+                      $ref: "#/components/schemas/Note"
                   nextPageCursor:
                     type: string
               examples:
@@ -1370,10 +1370,10 @@ paths:
                   value:
                     notes:
                       - id: 64e620997e69e749d5fac9f6bedfd8bb
-                        nativeId: '34'
+                        nativeId: "34"
                         content: This note has some interesting content in it!
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           dealIds:
                             - 614e0d537ed844b4c1f870c0cf789aee
@@ -1409,7 +1409,7 @@ paths:
       summary: Get Note
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1417,16 +1417,16 @@ paths:
                 type: object
                 properties:
                   note:
-                    $ref: '#/components/schemas/Note'
+                    $ref: "#/components/schemas/Note"
               examples:
                 example-1:
                   value:
                     note:
                       id: 64e620997e69e749d5fac9f6bedfd8bb
-                      nativeId: '34'
+                      nativeId: "34"
                       content: This note has some interesting content in it!
-                      modifiedTime: '2019-08-24T14:15:22Z'
-                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
                       associations:
                         dealIds:
                           - 614e0d537ed844b4c1f870c0cf789aee
@@ -1461,16 +1461,16 @@ paths:
       summary: Create Note
       operationId: post-note
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1479,7 +1479,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -1489,7 +1489,7 @@ paths:
                 accessToken:
                   type: string
                 note:
-                  $ref: '#/components/schemas/NoteCreate'
+                  $ref: "#/components/schemas/NoteCreate"
               required:
                 - accessToken
                 - note
@@ -1504,7 +1504,7 @@ paths:
                     leadId: 50addb0347d52e51e57e6c5406640437
                     accountId: f23ac239fa5e29e04663d9cd04d08221
                     contactId: cf88a16a73f1352596111c2eaa4d9cc5
-        description: ''
+        description: ""
       description: |-
         Create a new Note.
 
@@ -1514,16 +1514,16 @@ paths:
       summary: Update Note
       operationId: put-note
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1532,7 +1532,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -1544,7 +1544,7 @@ paths:
                 id:
                   type: string
                 note:
-                  $ref: '#/components/schemas/NoteUpdate'
+                  $ref: "#/components/schemas/NoteUpdate"
               required:
                 - accessToken
                 - id
@@ -1563,7 +1563,7 @@ paths:
       summary: Get Note Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1573,7 +1573,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -1610,13 +1610,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/tasks:
     get:
       summary: Get All Tasks
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1626,7 +1626,7 @@ paths:
                   tasks:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Task'
+                      $ref: "#/components/schemas/Task"
                   nextPageCursor:
                     type: string
               examples:
@@ -1634,15 +1634,15 @@ paths:
                   value:
                     tasks:
                       - id: b5a4e4a2d54c0b2391162954f1ff76a2
-                        nativeId: '122'
+                        nativeId: "122"
                         body: This task needs to be done very soon!
                         subject: High Priority Task
                         isDone: false
-                        dueDate: '2019-09-24T14:15:22Z'
+                        dueDate: "2019-09-24T14:15:22Z"
                         status: Not Done
                         priority: High
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           dealIds:
                             - d3eb15b42607b6147596c226166c7ba2
@@ -1679,7 +1679,7 @@ paths:
       summary: Get Task
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1687,21 +1687,21 @@ paths:
                 type: object
                 properties:
                   task:
-                    $ref: '#/components/schemas/Task'
+                    $ref: "#/components/schemas/Task"
               examples:
                 example-1:
                   value:
                     task:
                       id: b5a4e4a2d54c0b2391162954f1ff76a2
-                      nativeId: '122'
+                      nativeId: "122"
                       body: This task needs to be done very soon!
                       subject: High Priority Task
                       isDone: false
-                      dueDate: '2019-09-24T14:15:22Z'
+                      dueDate: "2019-09-24T14:15:22Z"
                       status: Not Done
                       priority: High
-                      modifiedTime: '2019-08-24T14:15:22Z'
-                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
                       associations:
                         dealIds:
                           - d3eb15b42607b6147596c226166c7ba2
@@ -1736,16 +1736,16 @@ paths:
       summary: Create Task
       operationId: post-task
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1754,7 +1754,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -1764,7 +1764,7 @@ paths:
                 accessToken:
                   type: string
                 task:
-                  $ref: '#/components/schemas/TaskCreate'
+                  $ref: "#/components/schemas/TaskCreate"
               required:
                 - accessToken
             examples:
@@ -1774,7 +1774,7 @@ paths:
                   task:
                     body: This task needs to be done very soon!
                     subject: High Priority Task
-                    dueDate: '2019-09-24T14:15:22Z'
+                    dueDate: "2019-09-24T14:15:22Z"
                     isDone: false
                     userId: 25db6b521ffb8fd4f916345341a935f7
                     leadId: afa79f2dda94b0e5b48b930fa05ceafa
@@ -1783,7 +1783,7 @@ paths:
                     contactId: 3bd3cf14ee9cc889269c52e3f4018b27
                     priority: High
                     status: Not Done
-        description: ''
+        description: ""
       description: |-
         Create a new Task.
 
@@ -1793,16 +1793,16 @@ paths:
       summary: Update Task
       operationId: put-task
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -1811,7 +1811,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -1823,7 +1823,7 @@ paths:
                 id:
                   type: string
                 task:
-                  $ref: '#/components/schemas/TaskUpdate'
+                  $ref: "#/components/schemas/TaskUpdate"
               required:
                 - accessToken
                 - id
@@ -1835,7 +1835,7 @@ paths:
                   task:
                     body: This task needs to be done very soon!
                     subject: High Priority Task
-                    dueDate: '2019-09-24T14:15:22Z'
+                    dueDate: "2019-09-24T14:15:22Z"
                     isDone: false
                     userId: 25db6b521ffb8fd4f916345341a935f7
                     priority: High
@@ -1847,7 +1847,7 @@ paths:
       summary: Get Task Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1857,7 +1857,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -1894,13 +1894,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/events:
     get:
       summary: Get All Events
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1910,7 +1910,7 @@ paths:
                   events:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Event'
+                      $ref: "#/components/schemas/Event"
                   nextPageCursor:
                     type: string
               examples:
@@ -1918,16 +1918,16 @@ paths:
                   value:
                     events:
                       - id: 18e81ebacaf668919bf5bfb450e46e70
-                        nativeId: '19'
+                        nativeId: "19"
                         subject: Meeting with Blue Cross
                         description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                         type: Meeting
                         location: 1122 Tea Dr
-                        startDateTime: '2019-08-24T14:15:22Z'
-                        endDateTime: '2019-08-24T14:15:22Z'
+                        startDateTime: "2019-08-24T14:15:22Z"
+                        endDateTime: "2019-08-24T14:15:22Z"
                         isAllDayEvent: true
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           accountIds:
                             - 48e360b6458763af2fabe1468580162a
@@ -1964,7 +1964,7 @@ paths:
       summary: Get Event
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1972,22 +1972,22 @@ paths:
                 type: object
                 properties:
                   event:
-                    $ref: '#/components/schemas/Event'
+                    $ref: "#/components/schemas/Event"
               examples:
                 example-1:
                   value:
                     event:
                       id: 18e81ebacaf668919bf5bfb450e46e70
-                      nativeId: '19'
+                      nativeId: "19"
                       subject: Meeting with Blue Cross
                       description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                       type: Meeting
                       location: 1122 Tea Dr
-                      startDateTime: '2019-08-24T14:15:22Z'
-                      endDateTime: '2019-08-24T14:15:22Z'
+                      startDateTime: "2019-08-24T14:15:22Z"
+                      endDateTime: "2019-08-24T14:15:22Z"
                       isAllDayEvent: true
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         accountIds:
                           - 48e360b6458763af2fabe1468580162a
@@ -2024,16 +2024,16 @@ paths:
       summary: Create Event
       operationId: post-event
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -2042,7 +2042,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -2052,7 +2052,7 @@ paths:
                 accessToken:
                   type: string
                 event:
-                  $ref: '#/components/schemas/EventCreate'
+                  $ref: "#/components/schemas/EventCreate"
               required:
                 - accessToken
             examples:
@@ -2064,30 +2064,30 @@ paths:
                     description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                     type: Meeting
                     location: 1122 Tea Dr
-                    startDateTime: '2019-08-24T14:15:22Z'
-                    endDateTime: '2019-08-24T14:15:22Z'
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
                     dealId: 1fef18eba546440ec37e504bc411262e
                     accountId: 48e360b6458763af2fabe1468580162a
                     contactId: 3fd7f63bfcda56afe955220b370b0e86
                     leadId: e4292594a425de320dccf0ff4dd1bb99
                     ownerUserId: 5561946e7c65ba50544584543859074c
-        description: ''
+        description: ""
       description: Create a new Event.
     patch:
       summary: Update Event
       operationId: put-event
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -2096,7 +2096,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       requestBody:
         content:
           application/json:
@@ -2108,7 +2108,7 @@ paths:
                 id:
                   type: string
                 event:
-                  $ref: '#/components/schemas/EventUpdate'
+                  $ref: "#/components/schemas/EventUpdate"
               required:
                 - accessToken
                 - id
@@ -2122,8 +2122,8 @@ paths:
                     description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                     type: Meeting
                     location: 1122 Tea Dr
-                    startDateTime: '2019-08-24T14:15:22Z'
-                    endDateTime: '2019-08-24T14:15:22Z'
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
                     ownerUserId: 8124367fa866adafcf3166aeeb2e5ce9
       description: Update an existing Event by Id
@@ -2133,7 +2133,7 @@ paths:
       summary: Get Event Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2143,7 +2143,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -2180,13 +2180,13 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/event/attendees:
     get:
       summary: Get All Event Attendees
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2196,7 +2196,7 @@ paths:
                   eventAttendees:
                     type: array
                     items:
-                      $ref: '#/components/schemas/EventAttendee'
+                      $ref: "#/components/schemas/EventAttendee"
                   nextPageCursor:
                     type: string
               examples:
@@ -2207,8 +2207,8 @@ paths:
                         associatedObjectType: Contact
                         status: Confirmed
                         email: null
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           eventId: 098f19400187a6bfa2fabffc0674c6a4
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -2236,7 +2236,7 @@ paths:
       summary: Get Event Attendee
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2244,7 +2244,7 @@ paths:
                 type: object
                 properties:
                   eventAttendee:
-                    $ref: '#/components/schemas/EventAttendee'
+                    $ref: "#/components/schemas/EventAttendee"
               examples:
                 example-1:
                   value:
@@ -2253,8 +2253,8 @@ paths:
                       associatedObjectType: Contact
                       status: Confirmed
                       email: null
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         eventId: 098f19400187a6bfa2fabffc0674c6a4
                         associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -2283,7 +2283,7 @@ paths:
       summary: Create Event Attendee
       operationId: post-event-attendee
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2293,7 +2293,7 @@ paths:
                   accessToken:
                     type: string
                   eventAttendee:
-                    $ref: '#/components/schemas/EventAttendeeCreate'
+                    $ref: "#/components/schemas/EventAttendeeCreate"
               examples:
                 example-1:
                   value:
@@ -2309,7 +2309,7 @@ paths:
       summary: Update Event Attendee
       operationId: put-event-attendee
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2319,7 +2319,7 @@ paths:
                   accessToken:
                     type: string
                   eventAttendee:
-                    $ref: '#/components/schemas/EventAttendeeUpdate'
+                    $ref: "#/components/schemas/EventAttendeeUpdate"
               examples:
                 example-1:
                   value:
@@ -2332,7 +2332,7 @@ paths:
       summary: Get Event Attendee Details
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2342,7 +2342,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Field'
+                      $ref: "#/components/schemas/Field"
                   nextPageCursor:
                     type: string
               examples:
@@ -2379,18 +2379,18 @@ paths:
             type: boolean
           in: query
           name: allFields
-          description: 'Returns details about native fields.'
+          description: "Returns details about native fields."
   /crm/passthrough:
     post:
       summary: Passthrough Request
       operationId: post-passthrough
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                description: ''
+                description: ""
                 type: object
                 properties:
                   headers:
@@ -2434,13 +2434,13 @@ paths:
                     - DELETE
                 path:
                   type: string
-                  description: 'The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`.'
+                  description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
                 body:
                   type: object
-                  description: 'The body of the request.'
+                  description: "The body of the request."
                 query:
                   type: object
-                  description: 'The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM.'
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
               required:
                 - accessToken
                 - method
@@ -2452,15 +2452,15 @@ paths:
                   method: PATCH
                   path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
-                    - Name: 'Vessel'
-        description: ''
+                    - Name: "Vessel"
+        description: ""
       description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
   /link/token:
     post:
       summary: Create Link Token
       operationId: post-link-token
       responses:
-        '200':
+        "200":
           description: Create link token
           content:
             application/json:
@@ -2470,7 +2470,7 @@ paths:
                   linkToken:
                     type: string
               examples: {}
-      description: 'Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook.'
+      description: "Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
       security:
         - Vessel API Token: []
     parameters: []
@@ -2479,7 +2479,7 @@ paths:
       summary: Exchange Public Token for Access Token
       operationId: post-link-exchange
       responses:
-        '200':
+        "200":
           description: Exchange for access token
           content:
             application/json:
@@ -2527,7 +2527,7 @@ paths:
       summary: Get Connection
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2535,7 +2535,7 @@ paths:
                 type: object
                 properties:
                   connection:
-                    $ref: '#/components/schemas/Connection'
+                    $ref: "#/components/schemas/Connection"
       operationId: get-connection
       description: Get info about a connection for a given accessToken.
       parameters:
@@ -2568,7 +2568,7 @@ paths:
       summary: Get CRM Integrations
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2578,7 +2578,7 @@ paths:
                   integrations:
                     type: array
                     items:
-                      $ref: '#/components/schemas/CrmIntegration'
+                      $ref: "#/components/schemas/CrmIntegration"
       operationId: get-integrations
       description: Return all of the CRM integrations supported by Vessel.
       parameters: []
@@ -2588,7 +2588,7 @@ paths:
       summary: Get All Connections
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2598,7 +2598,7 @@ paths:
                   connections:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Connection'
+                      $ref: "#/components/schemas/Connection"
       operationId: get-connections
       description: List all established connections for a workspace
   /connection/webhook:
@@ -2606,7 +2606,7 @@ paths:
       summary: Get Webhook
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2614,7 +2614,7 @@ paths:
                 type: object
                 properties:
                   webhook:
-                    $ref: '#/components/schemas/WebhookMetadata'
+                    $ref: "#/components/schemas/WebhookMetadata"
       operationId: get-webhook
       description: Retrieve information about a webhook for a given connection and id
       parameters:
@@ -2631,7 +2631,7 @@ paths:
       summary: Create Webhook
       operationId: post-webhook
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2639,7 +2639,7 @@ paths:
                 type: object
                 properties:
                   webhook:
-                    $ref: '#/components/schemas/WebhookMetadata'
+                    $ref: "#/components/schemas/WebhookMetadata"
       description: Create a new webhook for a given connection
       requestBody:
         content:
@@ -2650,12 +2650,12 @@ paths:
                 accessToken:
                   type: string
                 webhook:
-                  $ref: '#/components/schemas/WebhookMetadataCreate'
+                  $ref: "#/components/schemas/WebhookMetadataCreate"
     delete:
       summary: Remove Webhook
       operationId: delete-webhook
       responses:
-        '200':
+        "200":
           description: OK
       description: Removes a webhook for a given connection and id
       requestBody:
@@ -2673,15 +2673,15 @@ components:
     User:
       title: User
       type: object
-      description: 'Users of the connected CRM platform. These are *not* the contacts or leads, but rather the user accounts from the connected CRM.'
+      description: "Users of the connected CRM platform. These are *not* the contacts or leads, but rather the user accounts from the connected CRM."
       examples:
         - id: 6b48faf9e8dc534c4ca693c63e8bf8e6
-          nativeId: '12'
+          nativeId: "12"
           firstName: Micheal
           lastName: Scott
           email: micheal@dundermifflin.com
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             taskIds:
               - b3b04a80af4190796185c527e7b9933c
@@ -2733,7 +2733,7 @@ components:
                 type: string
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -2745,15 +2745,15 @@ components:
       type: object
       examples:
         - id: c064e916a0f93ddbd85c31963861d481
-          nativeId: '23'
+          nativeId: "23"
           email: tom@bluecross.com
           firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
-          phone: '2101128833'
-          mobilePhone: '2106541111'
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          phone: "2101128833"
+          mobilePhone: "2106541111"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             accountIds:
               - 1fbdc2a6cb24a77f9c8843b35a00977b
@@ -2770,7 +2770,7 @@ components:
             eventAttendeeIds:
               - cccbc820f7ebd2525c66a69dbea198ce
           additional: {}
-      description: 'Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)'
+      description: "Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)"
       properties:
         id:
           type: string
@@ -2841,7 +2841,7 @@ components:
                 type: string
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -2873,17 +2873,17 @@ components:
       type: object
       examples:
         - id: f97b667b7b53c2cae0280657a9fa4c3b
-          nativeId: '84'
+          nativeId: "84"
           name: Blue Cross Deal
           stage: demo
           amount: 10000
-          closeDate: '2020-08-23T00:00:00Z'
-          probability: '0.4'
+          closeDate: "2020-08-23T00:00:00Z"
+          probability: "0.4"
           expectedRevenue: 4000
           isWon: false
           isClosed: false
-          modifiedTime: '2019-08-24T14:15:22Z'
-          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
           associations:
             contactIds:
               - 48fabaa6eec4d244ec0c67d7beffec41
@@ -2971,7 +2971,7 @@ components:
                 type: string
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -2984,21 +2984,21 @@ components:
       type: object
       examples:
         - id: b2d9eabb468030e65fa36ff7183826e0
-          nativeId: '344'
+          nativeId: "344"
           name: Blue Cross
           description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
           industry: TV and Media
           annualRevenue: 10000000
           numberOfEmployees: 100
           website: www.bluecross.penn
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
-          phone: '8192223333'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
           address:
             street: 100 Blue Dr
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
           associations:
             dealIds:
@@ -3014,7 +3014,7 @@ components:
             eventIds:
               - 8de75611be060242c74b56fa7feb9d39
           additional: {}
-      description: '(Alias: company, organization) An organization involved with your business.'
+      description: "(Alias: company, organization) An organization involved with your business."
       properties:
         id:
           type: string
@@ -3042,7 +3042,7 @@ components:
           type: string
           description: The primary phone number. Not supported by Pipedrive
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         createdTime:
           type: string
           format: date-time
@@ -3087,7 +3087,7 @@ components:
                 type: string
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3104,16 +3104,16 @@ components:
         - HubSpot: we consider contacts with the `leadStatus` set to be leads.
       examples:
         - id: 573de1b49555e84fccd76c47f8bac0a2
-          nativeId: '23'
+          nativeId: "23"
           firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
           email: tom@bluecross.com
           account: Blue Cross
-          phone: '1234445555'
-          mobilePhone: '2338889999'
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          phone: "1234445555"
+          mobilePhone: "2338889999"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             contactIds:
               - 3e530bfc11fdb21bbc8d28dd6dde491a
@@ -3195,7 +3195,7 @@ components:
                 type: string
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3205,13 +3205,13 @@ components:
     Note:
       title: Note
       type: object
-      description: 'A Note attached to some CRM Object. '
+      description: "A Note attached to some CRM Object. "
       examples:
         - id: 64e620997e69e749d5fac9f6bedfd8bb
-          nativeId: '34'
+          nativeId: "34"
           content: This note has some interesting content in it!
-          modifiedTime: '2019-08-24T14:15:22Z'
-          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
           associations:
             dealIds:
               - 614e0d537ed844b4c1f870c0cf789aee
@@ -3270,7 +3270,7 @@ components:
               description: The Id of the User that owns this note
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3283,15 +3283,15 @@ components:
       description: A task attached to some CRM object
       examples:
         - id: b5a4e4a2d54c0b2391162954f1ff76a2
-          nativeId: '122'
+          nativeId: "122"
           body: This task needs to be done very soon!
           subject: High Priority Task
           isDone: false
-          dueDate: '2019-09-24T14:15:22Z'
+          dueDate: "2019-09-24T14:15:22Z"
           status: Not Done
           priority: High
-          modifiedTime: '2019-08-24T14:15:22Z'
-          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
           associations:
             dealIds:
               - d3eb15b42607b6147596c226166c7ba2
@@ -3361,7 +3361,7 @@ components:
               description: The Id of the User that owns this Task
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3380,16 +3380,16 @@ components:
         - Pipedrive = Activities
       examples:
         - id: 18e81ebacaf668919bf5bfb450e46e70
-          nativeId: '19'
+          nativeId: "19"
           subject: Meeting with Blue Cross
           description: Going to get tea with Tom from Blue Cross to discuss his paper needs
           type: Meeting
           location: 1122 Tea Dr
-          startDateTime: '2019-08-24T14:15:22Z'
-          endDateTime: '2019-08-24T14:15:22Z'
+          startDateTime: "2019-08-24T14:15:22Z"
+          endDateTime: "2019-08-24T14:15:22Z"
           isAllDayEvent: true
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             accountIds:
               - 48e360b6458763af2fabe1468580162a
@@ -3469,7 +3469,7 @@ components:
               description: The Id of the User that owns this event
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3479,14 +3479,14 @@ components:
     EventAttendee:
       title: EventAttendee
       type: object
-      description: 'Event Attendees hold information about someone who attendeed or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other.'
+      description: "Event Attendees hold information about someone who attendeed or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
       examples:
         - id: a064aa9181f456c0a40d2a60500cc71e
           associatedObjectType: Contact
           status: Confirmed
           email: null
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             eventId: 098f19400187a6bfa2fabffc0674c6a4
             associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -3501,7 +3501,7 @@ components:
           type: string
         associatedObjectType:
           type: string
-          description: 'The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object'
+          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
         email:
           type: string
           description: Optional unless `associationId` is null
@@ -3523,10 +3523,10 @@ components:
               type: string
             associationId:
               type: string
-              description: 'The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present'
+              description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
         additional:
           type: object
-          description: 'Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM'
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
       required:
         - id
         - nativeId
@@ -3542,10 +3542,10 @@ components:
       properties:
         key:
           type: string
-          description: 'The key in the CRM object (ex: annualRevenue, numberOfEmployees, etc)'
+          description: "The key in the CRM object (ex: annualRevenue, numberOfEmployees, etc)"
         name:
           type: string
-          description: 'The display name of this field (ex: number of employees, annual revenue, etc)'
+          description: "The display name of this field (ex: number of employees, annual revenue, etc)"
         type:
           type: string
           enum:
@@ -3614,7 +3614,7 @@ components:
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
-      description: ''
+      description: ""
       examples:
         - email: null
           associatedObjectType: Contact
@@ -3627,7 +3627,7 @@ components:
           description: 'Required if associationId is not present and the CRM supports "Other" for attendee associatedObjectType '
         associatedObjectType:
           type: string
-          description: 'The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object'
+          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
         status:
           type: string
         associationId:
@@ -3637,7 +3637,7 @@ components:
           type: string
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - associatedObjectType
         - eventId
@@ -3649,11 +3649,11 @@ components:
           type: string
       examples:
         - status: Declined
-      description: ''
+      description: ""
     EventCreate:
       title: EventCreate
       type: object
-      description: ''
+      description: ""
       properties:
         subject:
           type: string
@@ -3682,7 +3682,7 @@ components:
           type: string
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - startDateTime
         - endDateTime
@@ -3691,8 +3691,8 @@ components:
           description: Going to get tea with Tom from Blue Cross to discuss his paper needs
           type: Meeting
           location: 1122 Tea Dr
-          startDateTime: '2019-08-24T14:15:22Z'
-          endDateTime: '2019-08-24T14:15:22Z'
+          startDateTime: "2019-08-24T14:15:22Z"
+          endDateTime: "2019-08-24T14:15:22Z"
           isAllDayEvent: true
           dealId: 1fef18eba546440ec37e504bc411262e
           accountId: 48e360b6458763af2fabe1468580162a
@@ -3722,24 +3722,24 @@ components:
           type: string
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       examples:
         - subject: Meeting with Blue Cross
           description: Going to get tea with Tom from Blue Cross to discuss his paper needs
           type: Meeting
           location: 1122 Tea Dr
-          startDateTime: '2019-08-24T14:15:22Z'
-          endDateTime: '2019-08-24T14:15:22Z'
+          startDateTime: "2019-08-24T14:15:22Z"
+          endDateTime: "2019-08-24T14:15:22Z"
           isAllDayEvent: true
           ownerUserId: 8124367fa866adafcf3166aeeb2e5ce9
     TaskCreate:
       title: TaskCreate
       type: object
-      description: ''
+      description: ""
       examples:
         - body: This task needs to be done very soon!
           subject: High Priority Task
-          dueDate: '2019-09-24T14:15:22Z'
+          dueDate: "2019-09-24T14:15:22Z"
           isDone: false
           userId: 25db6b521ffb8fd4f916345341a935f7
           leadId: afa79f2dda94b0e5b48b930fa05ceafa
@@ -3779,15 +3779,15 @@ components:
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     TaskUpdate:
       title: TaskUpdate
       type: object
-      description: ''
+      description: ""
       examples:
         - body: This task needs to be done very soon!
           subject: High Priority Task
-          dueDate: '2019-09-24T14:15:22Z'
+          dueDate: "2019-09-24T14:15:22Z"
           isDone: false
           userId: 25db6b521ffb8fd4f916345341a935f7
           priority: High
@@ -3812,7 +3812,7 @@ components:
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -3821,8 +3821,8 @@ components:
           firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
-          phone: '2101128833'
-          mobilePhone: '2106541111'
+          phone: "2101128833"
+          mobilePhone: "2106541111"
       description: Update a Contact.
       properties:
         email:
@@ -3841,7 +3841,7 @@ components:
           type: string
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     ContactCreate:
       title: ContactCreate
       type: object
@@ -3850,8 +3850,8 @@ components:
           firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
-          phone: '2101128833'
-          mobilePhone: '2106541111'
+          phone: "2101128833"
+          mobilePhone: "2106541111"
       description: Properties that a contact can be created with
       properties:
         email:
@@ -3870,7 +3870,7 @@ components:
           type: string
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     DealUpdate:
@@ -3879,8 +3879,8 @@ components:
       examples:
         - name: Blue Cross Deal
           amount: 10000
-          closeDate: '2020-08-23T00:00:00Z'
-          probability: '0.4'
+          closeDate: "2020-08-23T00:00:00Z"
+          probability: "0.4"
       properties:
         name:
           type: string
@@ -3899,7 +3899,7 @@ components:
           description: Update the account this deal is associated with.
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
         - closeDate
@@ -3909,8 +3909,8 @@ components:
       examples:
         - name: Blue Cross Deal
           amount: 10000
-          closeDate: '2020-08-23T00:00:00Z'
-          probability: '0.4'
+          closeDate: "2020-08-23T00:00:00Z"
+          probability: "0.4"
           stage: closedwon
       properties:
         name:
@@ -3930,7 +3930,7 @@ components:
           description: The Id of the account to associate this deal with
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
         - closeDate
@@ -3944,14 +3944,14 @@ components:
           annualRevenue: 10000000
           numberOfEmployees: 100
           website: www.bluecross.penn
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
-          phone: '8192223333'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
           address:
             street: 100 Blue Dr
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
       properties:
         name:
@@ -3976,10 +3976,10 @@ components:
           type: string
           description: The primary phone| Not supported by Pipedrive
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     AccountCreate:
       title: AccountCreate
       type: object
@@ -3990,12 +3990,12 @@ components:
           annualRevenue: 10000000
           numberOfEmployees: 100
           website: www.bluecross.penn
-          phone: '8192223333'
+          phone: "8192223333"
           address:
             street: 100 Blue Dr
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
       properties:
         name:
@@ -4019,10 +4019,10 @@ components:
           type: string
           description: The primary phone | Not supported by Pipedrive
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - name
     NoteCreate:
@@ -4056,7 +4056,7 @@ components:
           description: Required unless leadId/accountId/dealId are specified.
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - content
     NoteUpdate:
@@ -4074,9 +4074,9 @@ components:
           description: Only Admins can change this property
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     LeadUpdate:
-      description: ''
+      description: ""
       type: object
       x-examples:
         example-1:
@@ -4085,7 +4085,7 @@ components:
           jobTitle: string
           email: string
           phones:
-            - value: '0001112222'
+            - value: "0001112222"
               type: Home
           modifiedTime: string
           createdTime: string
@@ -4095,8 +4095,8 @@ components:
           jobTitle: Director of Operations
           email: tom@bluecross.com
           account: Blue Cross
-          phone: '1234445555'
-          mobilePhone: '2338889999'
+          phone: "1234445555"
+          mobilePhone: "2338889999"
       title: LeadUpdate
       properties:
         firstName:
@@ -4121,11 +4121,11 @@ components:
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     LeadCreate:
-      description: ''
+      description: ""
       type: object
       x-examples:
         example-1:
@@ -4134,7 +4134,7 @@ components:
           jobTitle: CEO
           email: tony@starkindustries.com
           phones:
-            - value: '0001112222'
+            - value: "0001112222"
               type: Home
       examples:
         - firstName: Tom
@@ -4142,8 +4142,8 @@ components:
           jobTitle: Director of Operations
           email: tom@bluecross.com
           account: Blue Cross
-          phone: '1234445555'
-          mobilePhone: '2338889999'
+          phone: "1234445555"
+          mobilePhone: "2338889999"
       title: LeadCreate
       properties:
         firstName:
@@ -4156,7 +4156,7 @@ components:
           type: string
         account:
           type: string
-          description: 'Name of the Account associated with this lead. Not supported for Pipedrive. Defaults to `[TODO]: Fill in Company Name` in Salesforce'
+          description: "Name of the Account associated with this lead. Not supported for Pipedrive. Defaults to `[TODO]: Fill in Company Name` in Salesforce"
         phone:
           type: string
           description: The primary phone number for this lead
@@ -4165,7 +4165,7 @@ components:
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
         additional:
           type: object
-          description: 'Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details.'
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
     CrmIntegration:
