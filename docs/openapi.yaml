@@ -2470,7 +2470,7 @@ paths:
                   linkToken:
                     type: string
               examples: {}
-      description: "Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
+      description: "Generates a link token to be used during the authentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
       security:
         - Vessel API Token: []
     parameters: []
@@ -2602,6 +2602,9 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Connection"
+          examples:
+              allOf:
+                - $ref: "#/components/schemas/Connection"
       operationId: get-connections
       description: List all established connections for a workspace
   /connection/webhook:
