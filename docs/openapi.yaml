@@ -2536,6 +2536,9 @@ paths:
                 properties:
                   connection:
                     $ref: "#/components/schemas/Connection"
+          examples:
+              example-1:
+                $ref: "#/components/schemas/Connection"
       operationId: get-connection
       description: Get info about a connection for a given accessToken.
       parameters:
