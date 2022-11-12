@@ -2536,9 +2536,6 @@ paths:
                 properties:
                   connection:
                     $ref: "#/components/schemas/Connection"
-          examples:
-              example-1:
-                $ref: "#/components/schemas/Connection"
       operationId: get-connection
       description: Get info about a connection for a given accessToken.
       parameters:
@@ -2602,9 +2599,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Connection"
-          examples:
-              allOf:
-                - $ref: "#/components/schemas/Connection"
       operationId: get-connections
       description: List all established connections for a workspace
   /connection/webhook:
