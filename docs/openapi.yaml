@@ -2785,7 +2785,7 @@ paths:
                   linkToken:
                     type: string
               examples: {}
-      description: "Generates a link token to be used during the auhtentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
+      description: "Generates a link token to be used during the authentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
       security:
         - Vessel API Token: []
     parameters: []
@@ -4802,6 +4802,15 @@ components:
             - READY
         nativeOrgURL:
           type: string
+        lastActivityDate:
+          type: string
+      examples:
+        - connectionId: sample/eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
+          integrationId: hubspot
+          createdTime: 2022-11-09T23:11:28.617Z
+          status: READY,
+          nativeOrgURL: https://app.hubspot.com
+          lastActivityDate: 2022-11-10T00:00:00.000Z
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token
