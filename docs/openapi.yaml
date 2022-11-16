@@ -2380,6 +2380,323 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
+  /crm/emails:
+    get:
+      summary: Get All Emails
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: 13e81ebacaf668912bf5bfb450e46e71
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 48e360b6458763af2fabe1468580162a
+                          leadIds:
+                            - e4292594a425de320dccf0ff4dd1bb99
+                          contactIds:
+                            - 3fd7f63bfcda56afe955220b370b0e86
+                          dealIds:
+                            - 1fef18eba546440ec37e504bc411262e
+                          ownerUserId: 5561946e7c65ba50544584543859074c
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-crm-emails
+      description: Retrieve all Emails
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+    parameters: []
+  /crm/email:
+    get:
+      summary: Get Email
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    $ref: "#/components/schemas/Email"
+              examples:
+                example-1:
+                  value:
+                    email:
+                        id: 13e81ebacaf668912bf5bfb450e46e71
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 48e360b6458763af2fabe1468580162a
+                          leadIds:
+                            - e4292594a425de320dccf0ff4dd1bb99
+                          contactIds:
+                            - 3fd7f63bfcda56afe955220b370b0e86
+                          dealIds:
+                            - 1fef18eba546440ec37e504bc411262e
+                          ownerUserId: 5561946e7c65ba50544584543859074c
+                        additional: {}
+      operationId: get-email
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Task by Id
+    post:
+      summary: Create Email
+      operationId: post-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                email:
+                  $ref: "#/components/schemas/EmailCreate"
+              required:
+                - accessToken
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  email:
+                    from: michael@dunder.mifflin
+                    to:
+                      - greg@bluecross.com
+                    cc:
+                      - betty@bluecross.com
+                    bcc:
+                      - carl@bluecross.com
+                    subject: BlueCross <> Dunder Mifflin
+                    body: Hi Greg, need any paper? - Michael
+                    bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                    messageDate: "2019-08-24T14:15:22Z"
+                    isIncoming: false
+                    status: SENT
+                    accountIds:
+                      - 48e360b6458763af2fabe1468580162a
+                    dealIds:
+                      - 1fef18eba546440ec37e504bc411262e
+                    leads:
+                      - id: e4292594a425de320dccf0ff4dd1bb99
+                        role: to
+                    contacts:
+                      - id: 3fd7f63bfcda56afe955220b370b0e86
+                        role: cc
+                    ownerUserId: 5561946e7c65ba50544584543859074c
+                    additional: {}
+        description: ""
+      description: |-
+        Create a new Email.
+
+        *CRM Caveats*:
+        - Pipedrive: Not supported.
+    patch:
+      summary: Update Email
+      operationId: put-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                task:
+                  $ref: "#/components/schemas/EmailUpdate"
+              required:
+                - accessToken
+                - id
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  email:
+                      isIncoming: false
+                      status: SENT
+                      ownerUserId: 5561946e7c65ba50544584543859074c
+                      additional: {}
+      description: |-
+        Update an Email by Id.
+
+        *CRM Caveats*:
+        - Pipedrive: Not supported.
+    parameters: []
+  /crm/email/details:
+    get:
+      summary: Get Email Details
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: email
+                        name: Email
+                        type: email
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-email-details
+      description: |-
+        Get details about all emails. 
+
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
   /crm/passthrough:
     post:
       summary: Passthrough Request
@@ -2548,7 +2865,9 @@ paths:
     delete:
       summary: Delete Connection
       operationId: delete-connection
-      responses: {}
+      responses: 
+        "200":
+          description: OK
       security:
         - Vessel API Token: []
       requestBody:
@@ -2693,10 +3012,10 @@ components:
       properties:
         id:
           type: string
-          description: Unique identifier for the given user
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         firstName:
           type: string
         lastName:
@@ -2774,9 +3093,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         email:
           type: string
         firstName:
@@ -2905,9 +3225,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         name:
           type: string
           description: Optional name for this deal
@@ -3018,9 +3339,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         name:
           type: string
         description:
@@ -3131,9 +3453,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         firstName:
           type: string
         lastName:
@@ -3226,9 +3549,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         content:
           type: string
           description: The body of the note
@@ -3306,9 +3630,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         body:
           type: string
         subject:
@@ -3406,9 +3731,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         subject:
           type: string
         description:
@@ -3494,9 +3820,10 @@ components:
       properties:
         id:
           type: string
+          description: Unique Vessel Id.
         nativeId:
           type: string
-          description: Id in the downstream CRM
+          description: Id of the object in the connected CRM.
         status:
           type: string
         associatedObjectType:
@@ -3611,6 +3938,255 @@ components:
           universal: true
           creatable: true
           updatable: true
+    Email:
+      title: Email
+      type: object
+      description: |-
+        An email is a message sent from one person to another through an email service. Emails involve participants - the person who the email was sent to, or the person that sent it. Participants are usually a Contact, Lead, or User but in certain CRMs, can be a person not yet associated with a CRM object.
+      examples:
+        - id: 13e81ebacaf668912bf5bfb450e46e71
+          nativeId: "23"
+          from: michael@dunder.mifflin
+          to:
+            - greg@bluecross.com
+          cc:
+            - betty@bluecross.com
+          bcc:
+            - carl@bluecross.com
+          subject: BlueCross <> Dunder Mifflin
+          body: Hi Greg, need any paper? - Michael
+          bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+          messageDate: "2019-08-24T14:15:22Z"
+          isIncoming: false
+          isBounced: false
+          hasAttachment: false
+          status: SENT
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            accountIds:
+              - 48e360b6458763af2fabe1468580162a
+            leadIds:
+              - e4292594a425de320dccf0ff4dd1bb99
+            contactIds:
+              - 3fd7f63bfcda56afe955220b370b0e86
+            dealIds:
+              - 1fef18eba546440ec37e504bc411262e
+            ownerUserId: 5561946e7c65ba50544584543859074c
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Unique Vessel Id.
+        nativeId:
+          type: string
+          description: Id of the object in the connected CRM.
+        from:
+          type: string
+          description: The email address that sent the email
+        to:
+          type: array
+          description: The email addresses that received the email
+          items:
+            type: string
+        cc:
+          type: array
+          description: The email addresses that received a copy of the email
+          items:
+            type: string
+        bcc:
+          type: array
+          description: The email addresses that received a blind copy of the email
+          items:
+            type: string
+        subject:
+          type: string
+          description: The subject of the email
+        body:
+          type: string
+          description: The text formatted body of the email
+        bodyHtml:
+          type: string
+          description: The html formatted body of the email
+        messageDate:
+          type: string
+          format: date-time
+          description: The date the email was created. This can be set when creating the email object and is not necessarily the same as the `createdTime` field.
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        isBounced:
+          type: boolean
+          description: If this email was bounced
+        hasAttachment:
+          type: boolean
+          description: If this email has attachment(s)
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        createdTime:
+          type: string
+          format: date-time
+          description: The date that the email object was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The date the email object was last modified
+        associations:
+          type: object
+          required:
+            - accountIds
+            - leadIds
+            - contactIds
+            - dealIds
+            - ownerUserId
+          properties:
+            accountIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            dealIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
+      required:
+        - id
+        - nativeId
+        - from
+        - to
+        - subject
+        - createdTime
+        - modifiedTime
+        - associations
+    EmailCreate:
+      title: EmailCreate
+      type: object
+      description: ""
+      examples:
+        - from: michael@dunder.mifflin
+          to:
+            - greg@bluecross.com
+          cc:
+            - betty@bluecross.com
+          bcc:
+            - carl@bluecross.com
+          subject: BlueCross <> Dunder Mifflin
+          body: Hi Greg, need any paper? - Michael
+          bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+          messageDate: "2019-08-24T14:15:22Z"
+          isIncoming: false
+          status: SENT
+          accountIds:
+            - 48e360b6458763af2fabe1468580162a
+          dealIds:
+            - 1fef18eba546440ec37e504bc411262e
+          leads:
+            - id: e4292594a425de320dccf0ff4dd1bb99
+              role: to
+          contacts:
+            - id: 3fd7f63bfcda56afe955220b370b0e86
+              role: cc
+          ownerUserId: 5561946e7c65ba50544584543859074c
+          additional: {}
+      properties:
+        from:
+          type: string
+          description: The email address that sent the email
+        to:
+          type: array
+          description: The email addresses that received the email
+          items:
+            type: string
+        cc:
+          type: array
+          description: The email addresses that received a copy of the email
+          items:
+            type: string
+        bcc:
+          type: array
+          description: The email addresses that received a blind copy of the email
+          items:
+            type: string
+        subject:
+          type: string
+          description: The subject of the email
+        body:
+          type: string
+          description: The text formatted body of the email
+        bodyHtml:
+          type: string
+          description: The html formatted body of the email
+        messageDate:
+          type: string
+          format: date-time
+          description: The date the email was created. This can be set when creating the email object and is not necessarily the same as the `createdTime` field.
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        accountId:
+          type: string
+        dealId:
+          type: string
+        lead:
+          type: object
+          description: Associated Leads must participate in the email (i.e., have a role).
+          properties:
+            id:
+              type: string
+            role:
+              enum:
+                - from
+                - to
+                - cc
+                - bcc
+        contact:
+          type: object
+          description: Associated Contacts must participate in the email (i.e., have a role).
+          properties:
+            id:
+              type: string
+            role:
+              enum:
+                - from
+                - to
+                - cc
+                - bcc
+        ownerUserId:
+          type: string
+          description: The Id of the User that owns this email
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
+      required:
+        - from
+        - to
+        - subject
+    EmailUpdate:
+      title: EmailUpdate
+      type: object
+      description: ""
+      examples:
+        - isIncoming: false
+          status: SENT
+          ownerUserId: 5561946e7c65ba50544584543859074c
+          additional: {}
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
