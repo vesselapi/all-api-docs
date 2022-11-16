@@ -2572,10 +2572,8 @@ paths:
                     messageDate: "2019-08-24T14:15:22Z"
                     isIncoming: false
                     status: SENT
-                    accountIds:
-                      - 48e360b6458763af2fabe1468580162a
-                    dealIds:
-                      - 1fef18eba546440ec37e504bc411262e
+                    accountId: 48e360b6458763af2fabe1468580162a
+                    dealId: 1fef18eba546440ec37e504bc411262e
                     leads:
                       - id: e4292594a425de320dccf0ff4dd1bb99
                         role: to
@@ -4090,10 +4088,8 @@ components:
           messageDate: "2019-08-24T14:15:22Z"
           isIncoming: false
           status: SENT
-          accountIds:
-            - 48e360b6458763af2fabe1468580162a
-          dealIds:
-            - 1fef18eba546440ec37e504bc411262e
+          accountId: 48e360b6458763af2fabe1468580162a
+          dealId: 1fef18eba546440ec37e504bc411262e
           leads:
             - id: e4292594a425de320dccf0ff4dd1bb99
               role: to

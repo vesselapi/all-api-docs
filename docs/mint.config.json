@@ -91,6 +91,11 @@
         "api-reference/crm/create-event-attendee",
         "api-reference/crm/update-event-attendee",
         "api-reference/crm/get-event-attendee-details",
+        "api-reference/crm/get-all-emails",
+        "api-reference/crm/get-email",
+        "api-reference/crm/create-email",
+        "api-reference/crm/update-email",
+        "api-reference/crm/get-email-details",
         "api-reference/crm/authenticated-passthrough"
       ]
     },
