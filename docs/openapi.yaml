@@ -177,61 +177,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/user/batch:
-    get:
-      summary: Get Batch Users
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  users:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/User"
-              examples:
-                example-1:
-                  value:
-                    users:
-                      - id: 6b48faf9e8dc534c4ca693c63e8bf8e6
-                        nativeId: "12"
-                        firstName: Micheal
-                        lastName: Scott
-                        email: micheal@dundermifflin.com
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          taskIds:
-                            - b3b04a80af4190796185c527e7b9933c
-                          noteIds:
-                            - eb84649fd7a5145b93c349bde55dd88d
-                          eventIds:
-                            - e5db1d3933cf1f2c207ac5d333050efe
-                        additional: {}
-      operationId: get-crm-user-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of User Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Users by a set of Id's
-    parameters: []
   /crm/contacts:
     get:
       summary: Get All Contacts
@@ -521,72 +466,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/contact/batch:
-    get:
-      summary: Get Batch Contacts
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  contacts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Contact"
-              examples:
-                example-1:
-                  value:
-                    contacts:
-                      - id: c064e916a0f93ddbd85c31963861d481
-                        nativeId: "23"
-                        email: tom@bluecross.com
-                        firstName: Tom
-                        lastName: Smith
-                        jobTitle: Director of Operations
-                        phone: "2101128833"
-                        mobilePhone: "2106541111"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountIds:
-                            - 1fbdc2a6cb24a77f9c8843b35a00977b
-                          dealIds:
-                            - bb9c8b0f90fe8956498e5fe46f0464ee
-                          leadIds:
-                            - 710fea9e6bd3a756dc265c6d560f6bf6
-                          noteIds:
-                            - 07d76173e2285e7b75ebe23e93095d50
-                          taskIds:
-                            - 24f2bba2d256580f10095848bff0e570
-                          eventIds:
-                            - 502b5a1eab8de195a60d38610032f2c3
-                          eventAttendeeIds:
-                            - cccbc820f7ebd2525c66a69dbea198ce
-                        additional: {}
-      operationId: get-crm-contact-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Contact Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Contacts by a set of Id's
-    parameters: []
   /crm/deals:
     get:
       summary: Get All Deals
@@ -873,70 +752,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/deal/batch:
-    get:
-      summary: Get Batch Deals
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  deals:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Deal"
-              examples:
-                example-1:
-                  value:
-                    deals:
-                      - id: f97b667b7b53c2cae0280657a9fa4c3b
-                        nativeId: "84"
-                        name: Blue Cross Deal
-                        stage: demo
-                        amount: 10000
-                        closeDate: "2020-08-23T00:00:00Z"
-                        probability: "0.4"
-                        expectedRevenue: 4000
-                        isWon: false
-                        isClosed: false
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          contactIds:
-                            - 48fabaa6eec4d244ec0c67d7beffec41
-                          accountIds:
-                            - 8019fa47ac77b2d438d049a31727cbc5
-                          noteIds:
-                            - 0c8fd760aec8ba0ee534e9e71f3dc8f4
-                          taskIds:
-                            - 7cf4f54538b03dd8780b2b25304a788b
-                          eventIds:
-                            - 3567fd27ace6e5698258de221668d8f4
-                        additional: {}
-      operationId: get-crm-deal-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Deal Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Deals by a set of Id's
-    parameters: []
   /crm/accounts:
     get:
       summary: Get All Accounts
@@ -1251,77 +1066,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/account/batch:
-    get:
-      summary: Get Batch Accounts
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  accounts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Account"
-              examples:
-                example-1:
-                  value:
-                    accounts:
-                      - id: b2d9eabb468030e65fa36ff7183826e0
-                        nativeId: "344"
-                        name: Blue Cross
-                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
-                        industry: TV and Media
-                        annualRevenue: 10000000
-                        numberOfEmployees: 100
-                        website: www.bluecross.penn
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        phone: "8192223333"
-                        address:
-                          street: 100 Blue Dr
-                          city: Scranton
-                          state: Pennsylvania
-                          postalCode: "281332"
-                          country: USA
-                        associations:
-                          dealIds:
-                            - c59e003883004e33204e87350ca29777
-                          contactIds:
-                            - 048a9a404f11c8ff84b4353f768d2066
-                          noteIds:
-                            - 0942a3fb764cb58539338ad56b81ca5e
-                          taskIds:
-                            - 2338ee55636bef55f0ffab4e782458d7
-                          leadIds:
-                            - 3b6e39123631efe4f82e16caab553f08
-                          eventIds:
-                            - 8de75611be060242c74b56fa7feb9d39
-                        additional: {}
-      operationId: get-crm-account-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Account Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Accounts by a set of Id's
-    parameters: []
   /crm/leads:
     get:
       summary: Get All Leads
@@ -1603,71 +1347,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/lead/batch:
-    get:
-      summary: Get Batch Leads
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  leads:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Lead"
-              examples:
-                example-1:
-                  value:
-                    leads:
-                      - id: 573de1b49555e84fccd76c47f8bac0a2
-                        nativeId: "23"
-                        firstName: Tom
-                        lastName: Smith
-                        jobTitle: Director of Operations
-                        email: tom@bluecross.com
-                        account: Blue Cross
-                        phone: "1234445555"
-                        mobilePhone: "2338889999"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          contactIds:
-                            - 3e530bfc11fdb21bbc8d28dd6dde491a
-                          accountIds:
-                            - 19b2822fc02e1b032f312b1667996415
-                          noteIds:
-                            - 516ca443f07a4f6ecf32d13ac365ae61
-                          taskIds:
-                            - 09a43cce3a886c9816c782e019f8755f
-                          eventIds:
-                            - 84ef4f971bd77a046fdf4a20a89c80d6
-                          eventAttendeeIds:
-                            - 9a73be51665b57dd1d4df0edc67d5e4a
-                        additional: {}
-      operationId: get-crm-lead-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Lead Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Leads by a set of Id's
-    parameters: []
   /crm/notes:
     get:
       summary: Get All Notes
@@ -1932,62 +1611,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/note/batch:
-    get:
-      summary: Get Batch Notes
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  notes:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Note"
-              examples:
-                example-1:
-                  value:
-                    notes:
-                      - id: 64e620997e69e749d5fac9f6bedfd8bb
-                        nativeId: "34"
-                        content: This note has some interesting content in it!
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          dealIds:
-                            - 614e0d537ed844b4c1f870c0cf789aee
-                          contactIds:
-                            - cf88a16a73f1352596111c2eaa4d9cc5
-                          accountIds:
-                            - f23ac239fa5e29e04663d9cd04d08221
-                          leadIds:
-                            - 50addb0347d52e51e57e6c5406640437
-                          ownerUserId: fdabe0c18113ee0f2add83729401d5e2
-                        additional: {}
-      operationId: get-crm-note-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Note Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Notes by a set of Id's
-    parameters: []
   /crm/tasks:
     get:
       summary: Get All Tasks
@@ -2272,67 +1895,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/task/batch:
-    get:
-      summary: Get Batch Tasks
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  tasks:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Task"
-              examples:
-                example-1:
-                  value:
-                    tasks:
-                      - id: b5a4e4a2d54c0b2391162954f1ff76a2
-                        nativeId: "122"
-                        body: This task needs to be done very soon!
-                        subject: High Priority Task
-                        isDone: false
-                        dueDate: "2019-09-24T14:15:22Z"
-                        status: Not Done
-                        priority: High
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          dealIds:
-                            - d3eb15b42607b6147596c226166c7ba2
-                          contactIds:
-                            - 3bd3cf14ee9cc889269c52e3f4018b27
-                          accountIds:
-                            - 432ba6928b33aecfca646431e68dc829
-                          leadIds:
-                            - afa79f2dda94b0e5b48b930fa05ceafa
-                          ownerUserId: 25db6b521ffb8fd4f916345341a935f7
-                        additional: {}
-      operationId: get-crm-task-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Task Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Tasks by a set of Id's
-    parameters: []
   /crm/events:
     get:
       summary: Get All Events
@@ -2619,70 +2181,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/event/batch:
-    get:
-      summary: Get Batch Events
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  events:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Event"
-              examples:
-                example-1:
-                  value:
-                    events:
-                      - id: 18e81ebacaf668919bf5bfb450e46e70
-                        nativeId: "19"
-                        subject: Meeting with Blue Cross
-                        description: Going to get tea with Tom from Blue Cross to discuss his paper needs
-                        type: Meeting
-                        location: 1122 Tea Dr
-                        startDateTime: "2019-08-24T14:15:22Z"
-                        endDateTime: "2019-08-24T14:15:22Z"
-                        isAllDayEvent: true
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountIds:
-                            - 48e360b6458763af2fabe1468580162a
-                          leadIds:
-                            - e4292594a425de320dccf0ff4dd1bb99
-                          contactIds:
-                            - 3fd7f63bfcda56afe955220b370b0e86
-                          dealIds:
-                            - 1fef18eba546440ec37e504bc411262e
-                          eventAttendeeIds:
-                            - 9c315a6f3669114b8d0641f91e85647b
-                          ownerUserId: 5561946e7c65ba50544584543859074c
-                        additional: {}
-      operationId: get-crm-event-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Event Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Events by a set of Id's
-    parameters: []
   /crm/event/attendees:
     get:
       summary: Get All Event Attendees
@@ -2882,56 +2380,6 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
-  /crm/event/attendee/batch:
-    get:
-      summary: Get Batch Event Attendees
-      tags: []
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  eventAttendees:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/EventAttendee"
-              examples:
-                example-1:
-                  value:
-                    eventAttendees:
-                      - id: a064aa9181f456c0a40d2a60500cc71e
-                        associatedObjectType: Contact
-                        status: Confirmed
-                        email: null
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          eventId: 098f19400187a6bfa2fabffc0674c6a4
-                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
-                        additional: {}
-      operationId: get-crm-event-attendee-batch
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Event Attendee Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Event Attendees by a set of Id's
-    parameters: []
   /crm/passthrough:
     post:
       summary: Passthrough Request
