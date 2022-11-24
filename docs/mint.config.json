@@ -53,7 +53,8 @@
           "pages": [
             "api-reference/crm/get-all-users",
             "api-reference/crm/get-user",
-            "api-reference/crm/get-user-details"
+            "api-reference/crm/get-user-details",
+            "api-reference/crm/get-batch-user"
           ]
         },
         {
@@ -63,7 +64,8 @@
             "api-reference/crm/get-contact",
             "api-reference/crm/create-contact",
             "api-reference/crm/update-contact",
-            "api-reference/crm/get-contract-details"
+            "api-reference/crm/get-contract-details",
+            "api-reference/crm/get-batch-contact"
           ]
         },
         {
@@ -73,7 +75,8 @@
             "api-reference/crm/get-deal",
             "api-reference/crm/create-deal",
             "api-reference/crm/update-deal",
-            "api-reference/crm/get-deal-details"
+            "api-reference/crm/get-deal-details",
+            "api-reference/crm/get-batch-deal"
           ]
         },
         {
@@ -83,7 +86,8 @@
             "api-reference/crm/get-account",
             "api-reference/crm/create-account",
             "api-reference/crm/update-account",
-            "api-reference/crm/get-account-details"
+            "api-reference/crm/get-account-details",
+            "api-reference/crm/get-batch-account"
           ]
         },
         {
@@ -93,7 +97,8 @@
             "api-reference/crm/get-lead",
             "api-reference/crm/create-lead",
             "api-reference/crm/update-lead",
-            "api-reference/crm/get-lead-details"
+            "api-reference/crm/get-lead-details",
+            "api-reference/crm/get-batch-lead"
           ]
         },
         {
@@ -103,7 +108,8 @@
             "api-reference/crm/get-note",
             "api-reference/crm/create-note",
             "api-reference/crm/update-note",
-            "api-reference/crm/get-note-details"
+            "api-reference/crm/get-note-details",
+            "api-reference/crm/get-batch-note"
           ]
         },
         {
@@ -113,7 +119,8 @@
             "api-reference/crm/get-task",
             "api-reference/crm/create-task",
             "api-reference/crm/update-task",
-            "api-reference/crm/get-task-details"
+            "api-reference/crm/get-task-details",
+            "api-reference/crm/get-batch-task"
           ]
         },
         {
@@ -123,7 +130,8 @@
             "api-reference/crm/get-event",
             "api-reference/crm/create-event",
             "api-reference/crm/update-event",
-            "api-reference/crm/get-event-details"
+            "api-reference/crm/get-event-details",
+            "api-reference/crm/get-batch-event"
           ]
         },
         {
@@ -133,7 +141,8 @@
             "api-reference/crm/get-event-attendee",
             "api-reference/crm/create-event-attendee",
             "api-reference/crm/update-event-attendee",
-            "api-reference/crm/get-event-attendee-details"
+            "api-reference/crm/get-event-attendee-details",
+            "api-reference/crm/get-batch-event-attendee"
           ]
         },
         "api-reference/crm/authenticated-passthrough"
