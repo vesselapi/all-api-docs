@@ -193,6 +193,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/User"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -537,6 +539,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Contact"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -889,6 +893,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Deal"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -1267,6 +1273,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Account"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -1619,6 +1627,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Lead"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -1948,6 +1958,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Note"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -2288,6 +2300,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Task"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -2635,6 +2649,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Event"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -2898,6 +2914,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/EventAttendee"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
               examples:
                 example-1:
                   value:
@@ -4791,6 +4809,11 @@ components:
           status: READY,
           nativeOrgURL: https://app.hubspot.com
           lastActivityDate: 2022-11-10T00:00:00.000Z
+    InvalidIds:
+      type: array
+      items:
+        type: string
+      description: All requested Id's that did not correspond to an object. This field is only returned if there is at least one invalid Id. 
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token
