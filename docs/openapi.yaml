@@ -4813,7 +4813,7 @@ components:
       type: array
       items:
         type: string
-      description: Ids that didn't return anything. Can be an empty array if all Ids are valid.
+      description: Ids that didn't return anything. Will be an empty array if all Ids are valid.
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token
