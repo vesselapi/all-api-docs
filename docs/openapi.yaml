@@ -4813,7 +4813,7 @@ components:
       type: array
       items:
         type: string
-      description: All requested Id's that did not correspond to an object. This field is only returned if there is at least one invalid Id. 
+      description: Ids that didn't return anything. Can be an empty array if all Ids are valid.
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token
