@@ -105,13 +105,15 @@ app.post('crm/link-account', async (req, res) => {
 Here's a possible endpoint that's responsible for processing the webhook events sent by Vessel. As seen below, to generate the authentication signature take the sha256 of the `accessToken`, response body, and `x-vessel-timestamp`.
 
 ```js
+const hash = (s: string) => crypto.createHash('sha256').update(s).digest('hex')
+
 app.post(WEBHOOK_URL, async (req, res) => {
   const timestamp = req.headers['x-vessel-timestamp']
   const connectionId = req.headers['x-vessel-connection-id']
   const accessToken = await getAccessTokenForConnection(connectionId)
   const signature = `${accessToken}${JSON.stringify(req.body)}${timestamp}`
 
-  if (sha256(signature) !== req.headers["x-vessel-signature"]) {
+  if (hash(signature) !== req.headers["x-vessel-signature"]) {
     throw new Error("Unable to validate signature")
   }
 
