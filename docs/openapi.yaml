@@ -50,6 +50,8 @@ paths:
                             - eb84649fd7a5145b93c349bde55dd88d
                           eventIds:
                             - e5db1d3933cf1f2c207ac5d333050efe
+                          dealIds:
+                            - 6b48faf9e8dc534c4ca693c63e8bf8e6
                         additional: {}
                     nextPageCursor: string
       operationId: get-crm-users
@@ -103,6 +105,8 @@ paths:
                           - eb84649fd7a5145b93c349bde55dd88d
                         eventIds:
                           - e5db1d3933cf1f2c207ac5d333050efe
+                        dealIds:
+                          - 6b48faf9e8dc534c4ca693c63e8bf8e6
                       additional: {}
       operationId: get-user
       parameters:
@@ -636,6 +640,7 @@ paths:
                             - 7cf4f54538b03dd8780b2b25304a788b
                           eventIds:
                             - 3567fd27ace6e5698258de221668d8f4
+                          ownerUserId: 2347fd27ace6e5698258de221668d8f4
                         additional: {}
                     nextPageCursor: string
       operationId: get-crm-deals
@@ -698,6 +703,7 @@ paths:
                           - 7cf4f54538b03dd8780b2b25304a788b
                         eventIds:
                           - 3567fd27ace6e5698258de221668d8f4
+                        ownerUserId: 2347fd27ace6e5698258de221668d8f4
                       additional: {}
       operationId: get-deal
       parameters:
@@ -3259,6 +3265,8 @@ components:
               - eb84649fd7a5145b93c349bde55dd88d
             eventIds:
               - e5db1d3933cf1f2c207ac5d333050efe
+            dealIds:
+              - 6b48faf9e8dc534c4ca693c63e8bf8e6
           additional: {}
       properties:
         id:
@@ -3288,6 +3296,7 @@ components:
             - taskIds
             - noteIds
             - eventIds
+            - dealIds
           properties:
             taskIds:
               type: array
@@ -3298,6 +3307,10 @@ components:
               items:
                 type: string
             eventIds:
+              type: array
+              items:
+                type: string
+            dealIds:
               type: array
               items:
                 type: string
@@ -3465,6 +3478,7 @@ components:
               - 7cf4f54538b03dd8780b2b25304a788b
             eventIds:
               - 3567fd27ace6e5698258de221668d8f4
+            ownerUserId: 2347fd27ace6e5698258de221668d8f4
           additional: {}
       description: |-
         (Alias: Opportunity) An object representing either the opportunity to sell a product to an Account, or in the case of an `isWon` deal, a product sold to an Account.
@@ -3518,6 +3532,7 @@ components:
             - accountIds
             - noteIds
             - taskIds
+            - ownerUserId
           properties:
             contactIds:
               type: array
@@ -3539,6 +3554,8 @@ components:
               type: array
               items:
                 type: string
+            ownerUserId:
+              type: string
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we recieved from the downstream CRM"
