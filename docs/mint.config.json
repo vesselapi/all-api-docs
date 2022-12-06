@@ -130,7 +130,8 @@
             "api-reference/crm/get-email",
             "api-reference/crm/create-email",
             "api-reference/crm/update-email",
-            "api-reference/crm/get-email-details"
+            "api-reference/crm/get-email-details",
+            "api-reference/crm/get-batch-email"
           ]
         },
         {

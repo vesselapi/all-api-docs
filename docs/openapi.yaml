@@ -2910,7 +2910,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  tasks:
+                  emails:
                     type: array
                     items:
                       $ref: "#/components/schemas/Email"
@@ -3139,7 +3139,7 @@ paths:
                   type: string
                 id:
                   type: string
-                task:
+                email:
                   $ref: "#/components/schemas/EmailUpdate"
               required:
                 - accessToken
@@ -3213,6 +3213,78 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
+  /crm/email/batch:
+    get:
+      summary: Get Batch Emails
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    email:
+                        id: 13e81ebacaf668912bf5bfb450e46e71
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 48e360b6458763af2fabe1468580162a
+                          leadIds:
+                            - e4292594a425de320dccf0ff4dd1bb99
+                          contactIds:
+                            - 3fd7f63bfcda56afe955220b370b0e86
+                          dealIds:
+                            - 1fef18eba546440ec37e504bc411262e
+                          ownerUserId: 5561946e7c65ba50544584543859074c
+                        additional: {}
+      operationId: get-crm-email-batch
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Email Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Email by a set of Id's
+    parameters: []
   /crm/event/attendee/batch:
     get:
       summary: Get Batch Event Attendees
@@ -4753,6 +4825,19 @@ components:
           status: SENT
           ownerUserId: 5561946e7c65ba50544584543859074c
           additional: {}
+      properties:
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        ownerUserId:
+          type: string
+          description: The Id of the User that owns this email
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
