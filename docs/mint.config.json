@@ -124,6 +124,17 @@
           ]
         },
         {
+          "group": "Email",
+          "pages": [
+            "api-reference/crm/get-all-emails",
+            "api-reference/crm/get-email",
+            "api-reference/crm/create-email",
+            "api-reference/crm/update-email",
+            "api-reference/crm/get-email-details",
+            "api-reference/crm/get-batch-email"
+          ]
+        },
+        {
           "group": "Event",
           "pages": [
             "api-reference/crm/get-all-events",
