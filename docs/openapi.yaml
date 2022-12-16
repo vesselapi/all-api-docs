@@ -65,6 +65,12 @@ paths:
           in: query
           name: cursor
         - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
+        - schema:
             type: boolean
           in: query
           name: allFields
@@ -295,6 +301,12 @@ paths:
             type: string
           in: query
           name: cursor
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
         - schema:
             type: boolean
           in: query
@@ -650,6 +662,12 @@ paths:
             type: string
           in: query
           name: cursor
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
         - schema:
             type: boolean
           in: query
@@ -1009,6 +1027,12 @@ paths:
             type: string
           in: query
           name: cursor
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
         - schema:
             type: boolean
           in: query
@@ -1396,6 +1420,12 @@ paths:
           in: query
           name: cursor
         - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
+        - schema:
             type: boolean
           in: query
           name: allFields
@@ -1731,6 +1761,12 @@ paths:
           in: query
           name: cursor
         - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
+        - schema:
             type: boolean
           in: query
           name: allFields
@@ -2057,6 +2093,12 @@ paths:
             type: string
           in: query
           name: cursor
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
         - schema:
             type: boolean
           in: query
@@ -2407,6 +2449,12 @@ paths:
           in: query
           name: cursor
         - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
+        - schema:
             type: boolean
           in: query
           name: allFields
@@ -2745,6 +2793,12 @@ paths:
           in: query
           name: cursor
         - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
+        - schema:
             type: boolean
           in: query
           name: allFields
@@ -2964,6 +3018,12 @@ paths:
             type: string
           in: query
           name: cursor
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: The number of records to return per page.
         - schema:
             type: boolean
           in: query
