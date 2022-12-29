@@ -65,7 +65,7 @@
             "api-reference/crm/get-contact",
             "api-reference/crm/create-contact",
             "api-reference/crm/update-contact",
-            "api-reference/crm/get-contract-details",
+            "api-reference/crm/get-contact-details",
             "api-reference/crm/get-batch-contact"
           ]
         },
