@@ -31,8 +31,8 @@
   ],
   "navigation": [
     {
-      "group": "Home",
-      "pages": ["welcome"]
+      "group": "Welcome",
+      "pages": ["introduction"]
     },
     {
       "group": "How-To Guides",
@@ -47,7 +47,7 @@
       "pages": ["webhooks"]
     },
     {
-      "group": "API",
+      "group": "CRM API",
       "pages": [
         {
           "group": "User",
@@ -158,6 +158,32 @@
           ]
         },
         "api-reference/crm/authenticated-passthrough"
+      ]
+    },
+    {
+      "group": "Engagement API",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "api-reference/crm/get-all-users",
+            "api-reference/crm/get-user"
+          ]
+        },
+        {
+          "group": "Contact",
+          "pages": [
+            "api-reference/crm/get-all-contacts",
+            "api-reference/crm/get-contact"
+          ]
+        },
+        {
+          "group": "Account",
+          "pages": [
+            "api-reference/crm/get-all-accounts",
+            "api-reference/crm/get-account"
+          ]
+        }
       ]
     },
     {
