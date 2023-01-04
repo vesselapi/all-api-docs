@@ -5322,7 +5322,6 @@ components:
           type: string
         jobTitle:
           type: string
-          description: Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/EngAddress"
         emails:
@@ -5363,7 +5362,7 @@ components:
               type: string
         additional:
           type: object
-          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
         required:
           - id
           - createdTime
@@ -5731,7 +5730,7 @@ components:
           $ref: "#/components/schemas/EngAddress"
         additional:
           type: object
-          description: "Create any property in the downstream CRM, such as a custom property."
+          description: "Create any property in the downstream Engagement Platform, such as a custom property."
       required:
         - name
     EngAccountUpdate:
@@ -5773,7 +5772,7 @@ components:
           $ref: "#/components/schemas/EngAddress"
         additional:
           type: object
-          description: "Update any property in the downstream CRM, such as a custom property."
+          description: "Update any property in the downstream Engagement Platform, such as a custom property."
     EngContactCreate:
       title: ContactCreate
       type: object
@@ -5797,12 +5796,11 @@ components:
           type: string
         jobTitle:
           type: string
-          description: Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/EngAddress"
         additional:
           type: object
-          description: "Create any property in the downstream CRM, such as a custom property."
+          description: "Create any property in the downstream Engagement Platform, such as a custom property."
     EngContactUpdate:
       title: ContactUpdate
       type: object
@@ -5826,12 +5824,11 @@ components:
           type: string
         jobTitle:
           type: string
-          description: Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/EngAddress"
         additional:
           type: object
-          description: "Update any property in the downstream CRM, such as a custom property."
+          description: "Update any property in the downstream Engagement Platform, such as a custom property."
     ActionComplete:
       title: ActionComplete
       type: object
@@ -5917,7 +5914,7 @@ components:
           description: The Id of the User that owns this Task
         additional:
           type: object
-          description: "Update any property in the downstream CRM, such as a custom property."
+          description: "Update any property in the downstream Engagement Platform, such as a custom property."
       required:
         - type
         - dueDate
@@ -5938,7 +5935,7 @@ components:
           type: string
         additional:
           type: object
-          description: "Update any property in the downstream CRM, such as a custom property."
+          description: "Update any property in the downstream Engagement Platform, such as a custom property."
     InvalidIds:
       type: array
       items:
