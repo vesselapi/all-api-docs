@@ -183,6 +183,35 @@
             "api-reference/engagement/get-all-accounts",
             "api-reference/engagement/get-account"
           ]
+        },
+        {
+          "group": "Action",
+          "pages": [
+            "api-reference/engagement/get-all-actions",
+            "api-reference/engagement/get-action"
+          ]
+        },
+        {
+          "group": "Task",
+          "pages": [
+            "api-reference/engagement/get-all-tasks",
+            "api-reference/engagement/get-task"
+          ]
+        },
+        {
+          "group": "Call",
+          "pages": [
+            "api-reference/engagement/get-all-calls",
+            "api-reference/engagement/get-call",
+            "api-reference/engagement/get-all-callDispositions"
+          ]
+        },
+        {
+          "group": "Email",
+          "pages": [
+            "api-reference/engagement/get-all-emails",
+            "api-reference/engagement/get-email"
+          ]
         }
       ]
     },
