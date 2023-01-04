@@ -2,7 +2,6 @@
   "name": "Vessel",
   "favicon": "/logo/favicon.png",
   "logo": { "light": "/logo/logo-light.png", "dark": "/logo/logo-dark.png" },
-  "openApi": "https://vesselapi.github.io/yaml/openapi-v2.yaml",
   "api": {
     "baseUrl": "https://api.vessel.land",
     "auth": { "method": "key", "name": "vessel-api-token" }
@@ -31,7 +30,7 @@
   ],
   "navigation": [
     {
-      "group": "Welcome",
+      "group": "Introduction",
       "pages": ["introduction"]
     },
     {
@@ -237,6 +236,7 @@
       "group": "Connection",
       "pages": [
         "api-reference/connection/get-all-crm-integrations",
+        "api-reference/connection/get-all-engagement-integrations",
         "api-reference/connection/get-connection",
         "api-reference/connection/remove-connection",
         "api-reference/connection/get-all-connections",
