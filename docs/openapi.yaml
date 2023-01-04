@@ -1,0 +1,5094 @@
+openapi: 3.1.0
+info:
+  title: API Reference
+  version: "2.0"
+  summary: API
+  description: |-
+    Vessel's APIs requires an access token to be used together with your Vessel API token. Ensure the following headers are provided when making API calls:
+
+    Key | Value | Description
+    ---------|----------|----------
+     vessel-api-token | `<VESSEL_API_TOKEN>` | The API token provided by us
+     
+    Additionally, in the query or body parameters of each request depending on whether it is a GET or POST, make sure to include the `accessToken` for the connection you want to access.
+servers:
+  - url: "https://api.vessel.land"
+tags:
+  - name: users
+  - name: contacts
+  - name: notes
+  - name: tasks
+  - name: deals
+  - name: accounts
+  - name: emails
+  - name: events
+  - name: attendees
+  - name: leads
+  - name: passthrough
+  - name: links
+  - name: connections
+  - name: webhooks
+  - name: integrations
+  - name: tokens
+x-speakeasy-method-names:
+  - operationId: post-*
+    methodNameOverride: create
+  - operationId: put-*
+    methodNameOverride: update
+  - operationId: delete-*
+    methodNameOverride: delete
+  - operationId: get-one-*
+    methodNameOverride: find
+  - operationId: get-all-*
+    methodNameOverride: list
+  - operationId: get-details-*
+    methodNameOverride: details
+  - operationId: get-batch-*
+    methodNameOverride: batch
+paths:
+  /crm/users:
+    get:
+      summary: Get All Users
+      tags:
+        - users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        nativeId: "12"
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-users
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve all Users
+    parameters: []
+  /crm/user:
+    get:
+      summary: Get User
+      tags:
+        - users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  user:
+                    $ref: "./crm.yaml#/components/schemas/User"
+              examples:
+                example-1:
+                  value:
+                    user:
+                      id: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      nativeId: "12"
+                      firstName: Micheal
+                      lastName: Scott
+                      email: micheal@dundermifflin.com
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        taskIds:
+                          - v.task.2322707bbc41577d9806400e2daa25de
+                        noteIds:
+                          - v.note.006b4db16b6b50c981a174b02753c390
+                        eventIds:
+                          - v.event.0000d2e83d6c5d52a61f2fb860666477
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        emailIds:
+                          - v.email.3ab3a9562af957228c1019127e3c81e1
+                      additional: {}
+      operationId: get-one-crm-user
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single User by Id
+    parameters: []
+  /crm/user/details:
+    get:
+      summary: Get User Details
+      tags:
+        - users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-user
+      description: |-
+        Get details about all users. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/user/batch:
+    get:
+      summary: Get Batch Users
+      tags:
+        - users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/User"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        nativeId: "12"
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+      operationId: get-batch-crm-user
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of User Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Users by a set of Id's
+    parameters: []
+  /crm/contacts:
+    get:
+      summary: Get All Contacts
+      tags:
+        - contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        nativeId: "23"
+                        email: tom@bluecross.com
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phone: "2101128833"
+                        mobilePhone: "2106541111"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-contacts
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve all Contacts
+    parameters: []
+  /crm/contact:
+    get:
+      summary: Get Contact
+      tags:
+        - contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contact:
+                    $ref: "./crm.yaml#/components/schemas/Contact"
+              examples:
+                example-1:
+                  value:
+                    contact:
+                      id: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                      nativeId: "23"
+                      email: tom@bluecross.com
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      phone: "2101128833"
+                      mobilePhone: "2106541111"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        noteIds:
+                          - v.note.006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - v.task.2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - v.event.0000d2e83d6c5d52a61f2fb860666477
+                        eventAttendeeIds:
+                          - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                        emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                      additional: {}
+      operationId: get-one-crm-contact
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: The id of the contact to get (takes precedence over email when both are included)
+        - schema:
+            type: string
+          in: query
+          name: email
+          description: The email of the contact to get (concedes precedence over id when both are included)
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: "Retrieve a Contact by either Id or email. When both email and Id are included, Id will take priority."
+    parameters: []
+    post:
+      summary: Create Contact
+      tags:
+        - contacts
+      operationId: post-crm-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                contact:
+                  $ref: "./crm.yaml#/components/schemas/ContactCreate"
+              required:
+                - accessToken
+                - contact
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  contact:
+                    email: tom@bluecross.com
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
+      description: Create a new contact.
+    patch:
+      summary: Update Contact
+      tags:
+        - contacts
+      operationId: put-crm-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                contact:
+                  $ref: "./crm.yaml#/components/schemas/ContactUpdate"
+              required:
+                - accessToken
+                - id
+                - contact
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  contact:
+                    email: tom@bluecross.com
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Contact.
+  /crm/contact/details:
+    get:
+      summary: Get Contact Details
+      tags:
+        - contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-contact
+      description: |-
+        Get details about all contacts. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/contact/batch:
+    get:
+      summary: Get Batch Contacts
+      tags:
+        - contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Contact"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        nativeId: "23"
+                        email: tom@bluecross.com
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phone: "2101128833"
+                        mobilePhone: "2106541111"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+      operationId: get-batch-crm-contact
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Contact Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Contacts by a set of Id's
+    parameters: []
+  /crm/deals:
+    get:
+      summary: Get All Deals
+      tags:
+        - deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deals:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Deal"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    deals:
+                      - id: v.deal.497fb529e6805351b5dc8057c74a4a52
+                        nativeId: "84"
+                        name: Blue Cross Deal
+                        stage: demo
+                        amount: 10000
+                        closeDate: "2020-08-23T00:00:00Z"
+                        probability: "0.4"
+                        expectedRevenue: 4000
+                        isWon: false
+                        isClosed: false
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-deals
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve all Deals
+    parameters: []
+  /crm/deal:
+    get:
+      summary: Get Deal
+      tags:
+        - deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deal:
+                    $ref: "./crm.yaml#/components/schemas/Deal"
+              examples:
+                example-1:
+                  value:
+                    deal:
+                      id: v.deal.497fb529e6805351b5dc8057c74a4a52
+                      nativeId: "84"
+                      name: Blue Cross Deal
+                      stage: demo
+                      amount: 10000
+                      closeDate: "2020-08-23T00:00:00Z"
+                      probability: "0.4"
+                      expectedRevenue: 4000
+                      isWon: false
+                      isClosed: false
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        noteIds:
+                          - v.note.006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - v.task.2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - v.event.0000d2e83d6c5d52a61f2fb860666477
+                        emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-crm-deal
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Deal by Id
+    parameters: []
+    post:
+      summary: Create Deal
+      tags:
+        - deals
+      operationId: post-crm-deal
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                deal:
+                  $ref: "./crm.yaml#/components/schemas/DealCreate"
+              required:
+                - accessToken
+                - deal
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  deal:
+                    name: Blue Cross Deal
+                    amount: 10000
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
+                    stage: closedwon
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+      description: Create a new Deal
+    patch:
+      summary: Update Deal
+      tags:
+        - deals
+      operationId: put-crm-deal
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                deal:
+                  $ref: "./crm.yaml#/components/schemas/DealUpdate"
+              required:
+                - accessToken
+                - id
+                - deal
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  deal:
+                    name: Blue Cross Deal
+                    amount: 10000
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+        description: ""
+      description: Update an existing Deal
+  /crm/deal/details:
+    get:
+      summary: Get Deal Details
+      tags:
+        - deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: amount
+                        name: Amount
+                        type: number
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-deal
+      description: |-
+        Get details about all deals or a particular deal. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: "If provided, get the details about a particular deal. If not provided, get details about all deals."
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/deal/batch:
+    get:
+      summary: Get Batch Deals
+      tags:
+        - deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deals:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Deal"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    deals:
+                      - id: v.deal.497fb529e6805351b5dc8057c74a4a52
+                        nativeId: "84"
+                        name: Blue Cross Deal
+                        stage: demo
+                        amount: 10000
+                        closeDate: "2020-08-23T00:00:00Z"
+                        probability: "0.4"
+                        expectedRevenue: 4000
+                        isWon: false
+                        isClosed: false
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-deal
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Deal Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Deals by a set of Id's
+    parameters: []
+  /crm/accounts:
+    get:
+      summary: Get All Accounts
+      tags:
+        - accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        nativeId: "344"
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        annualRevenue: 10000000
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        address:
+                          street: 100 Blue Dr
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-accounts
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: |-
+        Retrieve all Accounts
+        *CRM Caveats*:
+        - Pipedrive: dealIds + contactIds not supported when querying for all accounts
+    parameters: []
+  /crm/account:
+    get:
+      summary: Get Account
+      tags:
+        - accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  account:
+                    $ref: "./crm.yaml#/components/schemas/Account"
+              examples:
+                example-1:
+                  value:
+                    account:
+                      id: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                      nativeId: "344"
+                      name: Blue Cross
+                      description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                      industry: TV and Media
+                      annualRevenue: 10000000
+                      numberOfEmployees: 100
+                      website: www.bluecross.penn
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: "8192223333"
+                      address:
+                        street: 100 Blue Dr
+                        city: Scranton
+                        state: Pennsylvania
+                        postalCode: "281332"
+                        country: USA
+                      associations:
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        noteIds:
+                          - v.note.006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - v.task.2322707bbc41577d9806400e2daa25de
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        eventIds:
+                          - v.event.0000d2e83d6c5d52a61f2fb860666477
+                        emailIds:
+                          - v.email.3ab3a9562af957228c1019127e3c81e1
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-crm-account
+      parameters:
+        - schema:
+            type: string
+          in: query
+          required: true
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Account by Id
+    parameters: []
+    post:
+      summary: Create Account
+      tags:
+        - accounts
+      operationId: post-crm-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                account:
+                  $ref: "./crm.yaml#/components/schemas/AccountCreate"
+              required:
+                - accessToken
+                - account
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    annualRevenue: 10000000
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      street: 100 Blue Dr
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+      description: Create a new Account
+    patch:
+      summary: Update Account
+      tags:
+        - accounts
+      operationId: put-crm-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                account:
+                  $ref: "./crm.yaml#/components/schemas/AccountUpdate"
+              required:
+                - accessToken
+                - id
+                - account
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    annualRevenue: 10000000
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    createdTime: "2019-08-24T14:15:22Z"
+                    modifiedTime: "2019-08-24T14:15:22Z"
+                    phone: "8192223333"
+                    address:
+                      street: 100 Blue Dr
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+      description: Update an existing Account
+      parameters: []
+  /crm/account/details:
+    get:
+      summary: Get Account Details
+      tags:
+        - accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: name
+                        name: Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-account
+      description: |-
+        Get details about all accounts. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/account/batch:
+    get:
+      summary: Get Batch Accounts
+      tags:
+        - accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Account"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        nativeId: "344"
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        annualRevenue: 10000000
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        address:
+                          street: 100 Blue Dr
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-account
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Account Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Accounts by a set of Id's
+    parameters: []
+  /crm/leads:
+    get:
+      summary: Get All Leads
+      tags:
+        - leads
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  leads:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Lead"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    leads:
+                      - id: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        nativeId: "23"
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        email: tom@bluecross.com
+                        account: Blue Cross
+                        phone: "1234445555"
+                        mobilePhone: "2338889999"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-leads
+      description: |-
+        Retrieve all leads.
+        *CRM Caveats*:
+        - Pipedrive: Only `jobTitle` is returned when querying for all leads
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+  /crm/lead:
+    get:
+      summary: Get Lead
+      tags:
+        - leads
+      responses:
+        "200":
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  lead:
+                    $ref: "./crm.yaml#/components/schemas/Lead"
+              examples:
+                example-1:
+                  value:
+                    lead:
+                      id: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                      nativeId: "23"
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      email: tom@bluecross.com
+                      account: Blue Cross
+                      phone: "1234445555"
+                      mobilePhone: "2338889999"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        noteIds:
+                          - v.note.006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - v.task.2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - v.event.0000d2e83d6c5d52a61f2fb860666477
+                        eventAttendeeIds:
+                          - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                        emailIds:
+                          - v.email.3ab3a9562af957228c1019127e3c81e1
+                      additional: {}
+      operationId: get-one-crm-lead
+      description: Retrieve a single Lead by Id
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+    post:
+      summary: Create Lead
+      tags:
+        - leads
+      operationId: post-crm-lead
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: string
+      description: Create a new Lead
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                lead:
+                  $ref: "./crm.yaml#/components/schemas/LeadCreate"
+              required:
+                - accessToken
+                - lead
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  lead:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    email: tom@bluecross.com
+                    account: Blue Cross
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
+    patch:
+      summary: Update Lead
+      tags:
+        - leads
+      operationId: put-crm-lead
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      description: Update an existing Lead by Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                lead:
+                  $ref: "./crm.yaml#/components/schemas/LeadUpdate"
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  lead:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    email: tom@bluecross.com
+                    account: Blue Cross
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
+  /crm/lead/details:
+    get:
+      summary: Get Lead Details
+      tags:
+        - leads
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-lead
+      description: |-
+        Get details about all leads. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/lead/batch:
+    get:
+      summary: Get Batch Leads
+      tags:
+        - leads
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  leads:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Lead"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    leads:
+                      - id: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        nativeId: "23"
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        email: tom@bluecross.com
+                        account: Blue Cross
+                        phone: "1234445555"
+                        mobilePhone: "2338889999"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - v.note.006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - v.task.2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - v.event.0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                        additional: {}
+      operationId: get-batch-crm-lead
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Lead Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Leads by a set of Id's
+    parameters: []
+  /crm/notes:
+    get:
+      summary: Get All Notes
+      tags:
+        - notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  notes:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Note"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    notes:
+                      - id: v.note.006b4db16b6b50c981a174b02753c390
+                        nativeId: "34"
+                        content: This note has some interesting content in it!
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-notes
+      description: Retrieve all Notes
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+  /crm/note:
+    get:
+      summary: Get Note
+      tags:
+        - notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  note:
+                    $ref: "./crm.yaml#/components/schemas/Note"
+              examples:
+                example-1:
+                  value:
+                    note:
+                      id: v.note.006b4db16b6b50c981a174b02753c390
+                      nativeId: "34"
+                      content: This note has some interesting content in it!
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-crm-note
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Note by Id
+    post:
+      summary: Create Note
+      tags:
+        - notes
+      operationId: post-crm-note
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                note:
+                  $ref: "./crm.yaml#/components/schemas/NoteCreate"
+              required:
+                - accessToken
+                - note
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  note:
+                    content: This note has some interesting content in it!
+                    userId: v.user.79d154aa0c7a571295a157369d448e65
+                    dealId: v.deal.497fb529e6805351b5dc8057c74a4a52
+                    leadId: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                    contactId: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+        description: ""
+      description: |-
+        Create a new Note.
+        *CRM Caveats*:
+        - Salesforce: You may only associate a Note with one entity.
+    patch:
+      summary: Update Note
+      tags:
+        - notes
+      operationId: put-crm-note
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                note:
+                  $ref: "./crm.yaml#/components/schemas/NoteUpdate"
+              required:
+                - accessToken
+                - id
+                - note
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  note:
+                    content: This note has some interesting content in it!
+                    userId: v.user.79d154aa0c7a571295a157369d448e65
+      description: Update an existing Note by Id
+  /crm/note/details:
+    get:
+      summary: Get Note Details
+      tags:
+        - notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: content
+                        name: Content
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: true
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-note
+      description: |-
+        Get details about all notes. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/note/batch:
+    get:
+      summary: Get Batch Notes
+      tags:
+        - notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  notes:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Note"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    notes:
+                      - id: v.note.006b4db16b6b50c981a174b02753c390
+                        nativeId: "34"
+                        content: This note has some interesting content in it!
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-note
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Note Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Notes by a set of Id's
+    parameters: []
+  /crm/tasks:
+    get:
+      summary: Get All Tasks
+      tags:
+        - tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Task"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    tasks:
+                      - id: v.task.2322707bbc41577d9806400e2daa25de
+                        nativeId: "122"
+                        body: This task needs to be done very soon!
+                        subject: High Priority Task
+                        isDone: false
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: Not Done
+                        priority: High
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-tasks
+      description: Retrieve all Tasks
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+    parameters: []
+  /crm/task:
+    get:
+      summary: Get Task
+      tags:
+        - tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  task:
+                    $ref: "./crm.yaml#/components/schemas/Task"
+              examples:
+                example-1:
+                  value:
+                    task:
+                      id: v.task.2322707bbc41577d9806400e2daa25de
+                      nativeId: "122"
+                      body: This task needs to be done very soon!
+                      subject: High Priority Task
+                      isDone: false
+                      dueDate: "2019-09-24T14:15:22Z"
+                      status: Not Done
+                      priority: High
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-crm-task
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Task by Id
+    post:
+      summary: Create Task
+      tags:
+        - tasks
+      operationId: post-crm-task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                task:
+                  $ref: "./crm.yaml#/components/schemas/TaskCreate"
+              required:
+                - accessToken
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  task:
+                    body: This task needs to be done very soon!
+                    subject: High Priority Task
+                    dueDate: "2019-09-24T14:15:22Z"
+                    isDone: false
+                    userId: v.user.79d154aa0c7a571295a157369d448e65
+                    leadId: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                    dealId: v.deal.497fb529e6805351b5dc8057c74a4a52
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                    contactId: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                    priority: High
+                    status: Not Done
+        description: ""
+      description: |-
+        Create a new Task.
+        *CRM Caveats*:
+        - Salesforce: You may only associate a Task with either a Lead or a Contact *and* either a Deal or an Account.
+    patch:
+      summary: Update Task
+      tags:
+        - tasks
+      operationId: put-crm-task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                task:
+                  $ref: "./crm.yaml#/components/schemas/TaskUpdate"
+              required:
+                - accessToken
+                - id
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  task:
+                    body: This task needs to be done very soon!
+                    subject: High Priority Task
+                    dueDate: "2019-09-24T14:15:22Z"
+                    isDone: false
+                    userId: v.user.79d154aa0c7a571295a157369d448e65
+                    priority: High
+                    status: Not Done
+      description: Update an existing Task by Id
+    parameters: []
+  /crm/task/details:
+    get:
+      summary: Get Task Details
+      tags:
+        - tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-task
+      description: |-
+        Get details about all tasks. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/task/batch:
+    get:
+      summary: Get Batch Tasks
+      tags:
+        - tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Task"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    tasks:
+                      - id: v.task.2322707bbc41577d9806400e2daa25de
+                        nativeId: "122"
+                        body: This task needs to be done very soon!
+                        subject: High Priority Task
+                        isDone: false
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: Not Done
+                        priority: High
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-task
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Task Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Tasks by a set of Id's
+    parameters: []
+  /crm/events:
+    get:
+      summary: Get All Events
+      tags:
+        - events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Event"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    events:
+                      - id: v.event.0000d2e83d6c5d52a61f2fb860666477
+                        nativeId: "19"
+                        subject: Meeting with Blue Cross
+                        description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                        type: Meeting
+                        location: 1122 Tea Dr
+                        startDateTime: "2019-08-24T14:15:22Z"
+                        endDateTime: "2019-08-24T14:15:22Z"
+                        isAllDayEvent: true
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-events
+      description: Retrieve all Events
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+  /crm/event:
+    get:
+      summary: Get Event
+      tags:
+        - events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  event:
+                    $ref: "./crm.yaml#/components/schemas/Event"
+              examples:
+                example-1:
+                  value:
+                    event:
+                      id: v.event.0000d2e83d6c5d52a61f2fb860666477
+                      nativeId: "19"
+                      subject: Meeting with Blue Cross
+                      description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                      type: Meeting
+                      location: 1122 Tea Dr
+                      startDateTime: "2019-08-24T14:15:22Z"
+                      endDateTime: "2019-08-24T14:15:22Z"
+                      isAllDayEvent: true
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        contactIds:
+                          - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        dealIds:
+                          - v.deal.497fb529e6805351b5dc8057c74a4a52
+                        eventAttendeeIds:
+                          - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-crm-event
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Event by Id
+    post:
+      summary: Create Event
+      tags:
+        - events
+      operationId: post-crm-event
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                event:
+                  $ref: "./crm.yaml#/components/schemas/EventCreate"
+              required:
+                - accessToken
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  event:
+                    subject: Meeting with Blue Cross
+                    description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                    type: Meeting
+                    location: 1122 Tea Dr
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
+                    isAllDayEvent: true
+                    dealId: v.deal.497fb529e6805351b5dc8057c74a4a52
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                    contactId: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                    leadId: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                    ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+        description: ""
+      description: Create a new Event.
+    patch:
+      summary: Update Event
+      tags:
+        - events
+      operationId: put-crm-event
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                event:
+                  $ref: "./crm.yaml#/components/schemas/EventUpdate"
+              required:
+                - accessToken
+                - id
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  event:
+                    subject: Meeting with Blue Cross
+                    description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                    type: Meeting
+                    location: 1122 Tea Dr
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
+                    isAllDayEvent: true
+                    ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+      description: Update an existing Event by Id
+    parameters: []
+  /crm/event/details:
+    get:
+      summary: Get Event Details
+      tags:
+        - events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-event
+      description: |-
+        Get details about all events. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/event/batch:
+    get:
+      summary: Get Batch Events
+      tags:
+        - events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Event"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    events:
+                      - id: v.event.0000d2e83d6c5d52a61f2fb860666477
+                        nativeId: "19"
+                        subject: Meeting with Blue Cross
+                        description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                        type: Meeting
+                        location: 1122 Tea Dr
+                        startDateTime: "2019-08-24T14:15:22Z"
+                        endDateTime: "2019-08-24T14:15:22Z"
+                        isAllDayEvent: true
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          eventAttendeeIds:
+                            - v.attendee.f63c1bd7215f5150b332d31d9509752f
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-event
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Event Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response.
+      description: Retrieve Events by a set of Id's
+    parameters: []
+  /crm/event/attendees:
+    get:
+      summary: Get All Event Attendees
+      tags:
+        - attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendees:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/EventAttendee"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    eventAttendees:
+                      - id: v.attendee.f63c1bd7215f5150b332d31d9509752f
+                        associatedObjectType: Contact
+                        status: Confirmed
+                        email: null
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          eventId: v.event.0000d2e83d6c5d52a61f2fb860666477
+                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-event-attendees
+      description: Retrieve all Attendees for all Events
+      parameters:
+        - schema:
+            type: string
+          in: query
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          name: accessToken
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+  /crm/event/attendee:
+    get:
+      summary: Get Event Attendee
+      tags:
+        - attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendee:
+                    $ref: "./crm.yaml#/components/schemas/EventAttendee"
+              examples:
+                example-1:
+                  value:
+                    eventAttendee:
+                      id: v.attendee.f63c1bd7215f5150b332d31d9509752f
+                      associatedObjectType: Contact
+                      status: Confirmed
+                      email: null
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        eventId: v.event.0000d2e83d6c5d52a61f2fb860666477
+                        associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+                      additional: {}
+      operationId: get-one-crm-event-attendee
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Event Attendee by Id
+    parameters: []
+    post:
+      summary: Create Event Attendee
+      tags:
+        - attendees
+      operationId: post-crm-event-attendee
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  eventAttendee:
+                    $ref: "./crm.yaml#/components/schemas/EventAttendeeCreate"
+              examples:
+                example-1:
+                  value:
+                    accessToken: string
+                    eventAttendee:
+                      email: null
+                      associatedObjectType: Contact
+                      status: Declined
+                      associationId: 98201f83c3f1c36dbcb36804c572c3ca
+                      eventId: v.event.0000d2e83d6c5d52a61f2fb860666477
+      description: Add an Attendee to an Event
+    patch:
+      summary: Update Event Attendee
+      tags:
+        - attendees
+      operationId: put-crm-event-attendee
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  eventAttendee:
+                    $ref: "./crm.yaml#/components/schemas/EventAttendeeUpdate"
+              examples:
+                example-1:
+                  value:
+                    accessToken: string
+                    eventAttendee:
+                      status: Declined
+      description: Update the status of an event attendee
+  /crm/event/attendee/details:
+    get:
+      summary: Get Event Attendee Details
+      tags:
+        - attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: email
+                        name: Email
+                        type: email
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-event-attendee
+      description: |-
+        Get details about all event attendees. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/event/attendee/batch:
+    get:
+      summary: Get Batch Event Attendees
+      tags:
+        - attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendees:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/EventAttendee"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+              examples:
+                example-1:
+                  value:
+                    eventAttendees:
+                      - id: v.attendee.f63c1bd7215f5150b332d31d9509752f
+                        associatedObjectType: Contact
+                        status: Confirmed
+                        email: null
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          eventId: v.event.0000d2e83d6c5d52a61f2fb860666477
+                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+                        additional: {}
+      operationId: get-batch-crm-event-attendee
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Event Attendee Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Event Attendees by a set of Id's
+    parameters: []
+  /crm/emails:
+    get:
+      summary: Get All Emails
+      tags: 
+        - emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: v.email.3ab3a9562af957228c1019127e3c81e1
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-crm-emails
+      description: Retrieve all Emails
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: number
+          in: query
+          name: limit
+          description: The number of records to return per page.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+    parameters: []
+  /crm/email:
+    get:
+      summary: Get Email
+      tags: 
+        - emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    $ref: "./crm.yaml#/components/schemas/Email"
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    email:
+                        id: v.email.3ab3a9562af957228c1019127e3c81e1
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-one-crm-email
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single Task by Id
+    post:
+      summary: Create Email
+      tags: 
+        - emails
+      operationId: post-crm-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                email:
+                  $ref: "./crm.yaml#/components/schemas/EmailCreate"
+              required:
+                - accessToken
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  email:
+                    from: michael@dunder.mifflin
+                    to:
+                      - greg@bluecross.com
+                    cc:
+                      - betty@bluecross.com
+                    bcc:
+                      - carl@bluecross.com
+                    subject: BlueCross <> Dunder Mifflin
+                    body: Hi Greg, need any paper? - Michael
+                    bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                    messageDate: "2019-08-24T14:15:22Z"
+                    isIncoming: false
+                    status: SENT
+                    accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
+                    dealId: v.deal.497fb529e6805351b5dc8057c74a4a52
+                    leads:
+                      - id: v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        role: to
+                    contacts:
+                      - id: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                        role: cc
+                    ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                    additional: {}
+        description: ""
+      description: |-
+        Create a new Email.
+        *CRM Caveats*:
+
+        - Pipedrive: Not supported.
+    patch:
+      summary: Update Email
+      tags: 
+        - emails
+      operationId: put-crm-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                email:
+                  $ref: "./crm.yaml#/components/schemas/EmailUpdate"
+              required:
+                - accessToken
+                - id
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  email:
+                      isIncoming: false
+                      status: SENT
+                      ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      description: |-
+        Update an Email by Id.
+        *CRM Caveats*:
+        - Pipedrive: Not supported.
+    parameters: []
+  /crm/email/details:
+    get:
+      summary: Get Email Details
+      tags: 
+        - emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: email
+                        name: Email
+                        type: email
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-email
+      description: |-
+        Get details about all emails. 
+        Details include the type, possible values, and other meta data about the fields.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: "The token for the customer's CRM account. This was generated when they connected their account."
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: "Returns details about native fields."
+  /crm/email/batch:
+    get:
+      summary: Get Batch Emails
+      tags: 
+        - emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Email"
+                  invalidIds:
+                    $ref: "#/components/schemas/InvalidIds"
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    email:
+                        id: v.email.3ab3a9562af957228c1019127e3c81e1
+                        nativeId: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        body: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-batch-crm-email
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          required: true
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: Comma separated list of Email Id's.
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve Email by a set of Id's
+    parameters: []
+  /crm/passthrough:
+    post:
+      summary: Passthrough Request
+      tags:
+        - passthrough
+      operationId: post-crm-passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream CRM.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream CRM.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://mydomain.my.salesforce.com/services/data/v53.0/sobjects/Account
+                    statusCode: 200
+                    body:
+                      id: 0011A00001XQ4QSQAZ
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
+  /engagement/users:
+    get:
+      summary: Get All Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          actionIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-users
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Users
+    parameters: []
+  /engagement/user:
+    get:
+      summary: Get User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  user:
+                    $ref: "./engagement.yaml#/components/schemas/User"
+              examples:
+                example-1:
+                  value:
+                    user:
+                      id: 34f5b4b0b6b650c981a174b02753c390
+                      firstName: Micheal
+                      lastName: Scott
+                      email: micheal@dundermifflin.com
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        actionIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                      additional: {}
+      operationId: get-one-engagement-user
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve a single User by Id
+    parameters: []
+  /engagement/accounts:
+    get:
+      summary: Get All Accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: 59f5b4b0b6b650c981a174b02753c390
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        locality: Scranton
+                        address:
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          actionIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-accounts
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: |-
+        Retrieve all Accounts
+    parameters: []
+  /engagement/account:
+    get:
+      summary: Get Account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  account:
+                    $ref: "./engagement.yaml#/components/schemas/Account"
+              examples:
+                example-1:
+                  value:
+                    account:
+                      - id: 59f5b4b0b6b650c981a174b02753c390
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        locality: Scranton
+                        address:
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          actionIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+      operationId: get-one-engagement-account
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve a single Account by Id
+    post:
+      summary: Create Account
+      operationId: post-engagement-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                account:
+                  $ref: "./engagement.yaml#/components/schemas/AccountCreate"
+              required:
+                - accessToken
+                - account
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    additional: {}
+      description: Create a new account.
+    patch:
+      summary: Update Account
+      operationId: put-engagement-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                account:
+                  $ref: "./engagement.yaml#/components/schemas/AccountUpdate"
+              required:
+                - accessToken
+                - id
+                - account
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    additional: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing account.
+    parameters: []
+  /engagement/contacts:
+    get:
+      summary: Get All Contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phones: 
+                          - number: "8192223333"
+                            type: "work"
+                            isPrimary: true
+                        emails: 
+                          - address: "tom@dunder.com"
+                            type: "work"
+                            isPrimary: true
+                        address: 
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                          actionIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-contacts
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Contacts
+    parameters: []
+  /engagement/contact:
+    get:
+      summary: Get Contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contact:
+                    $ref: "./engagement.yaml#/components/schemas/Contact"
+              examples:
+                example-1:
+                  value:
+                    contact:
+                      id: 34f5b4b0b6b650c981a174b02753c390
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      phones: 
+                        - number: "8192223333"
+                          type: "work"
+                          isPrimary: true
+                      emails: 
+                        - address: "tom@dunder.com"
+                          type: "work"
+                          isPrimary: true
+                      address: 
+                        line1: 100 Blue Dr
+                        line2: Suite 100
+                        city: Scranton
+                        state: Pennsylvania
+                        postalCode: "281332"
+                        country: USA
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                        actionIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-engagement-contact
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: "Retrieve a Contact by Id."
+    post:
+      summary: Create Contact
+      operationId: post-engagement-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                contact:
+                  $ref: "./engagement.yaml#/components/schemas/ContactCreate"
+              required:
+                - accessToken
+                - contact
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    address: 
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    additional: {}
+      description: Create a new contact.
+    patch:
+      summary: Update Contact
+      tags:
+        - contacts
+      operationId: put-engagement-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                contact:
+                  $ref: "./engagement.yaml#/components/schemas/ContactUpdate"
+              required:
+                - accessToken
+                - id
+                - contact
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    address: 
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    additional: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Contact.
+    parameters: []
+  /engagement/tasks:
+    get:
+      summary: Get All Tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Task"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    tasks:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        type: call
+                        body: Call Dunder Mifflin to get a paper refill
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: complete
+                        completedTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                          callId: 0dcb45e051315a6ea63b0f16e73689d9
+                          emailId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-tasks
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Tasks
+    parameters: []
+  /engagement/task:
+    get:
+      summary: Get Task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  task:
+                    $ref: "./engagement.yaml#/components/schemas/Task"
+              examples:
+                example-1:
+                  value:
+                    task:
+                      id: 2322707bbc41577d9806400e2daa25de
+                      type: call
+                      body: Call Dunder Mifflin to get a paper refill
+                      dueDate: "2019-09-24T14:15:22Z"
+                      status: complete
+                      completedTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                        callId: 0dcb45e051315a6ea63b0f16e73689d9
+                        emailId: d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-engagement-task
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: "Retrieve a Task by Id."
+    post:
+      summary: Create Task
+      operationId: post-engagement-task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                task:
+                  $ref: "./engagement.yaml#/components/schemas/TaskCreate"
+              required:
+                - accessToken
+                - task
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  task:
+                    type: call
+                    body: Call Dunder Mifflin to get a paper refill
+                    dueDate: "2019-09-24T14:15:22Z"
+                    contactId: 2d4fd2115220bd20a2ccf81210ec
+                    ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    additional: {}
+      description: Create a new task.
+    patch:
+      summary: Update Task
+      tags:
+        - contacts
+      operationId: put-engagement-task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                id:
+                  type: string
+                task:
+                  $ref: "./engagement.yaml#/components/schemas/TaskUpdate"
+              required:
+                - accessToken
+                - id
+                - task
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  id: string
+                  task:
+                    body: Call Dunder Mifflin to get a paper refill
+                    dueDate: "2019-09-24T14:15:22Z"
+                    additional: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Task.
+    parameters: []
+  /engagement/task/complete:
+    post:
+      summary: Complete Task
+      operationId: post-complete-engagement-task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id: 
+                  type: string
+                accessToken:
+                  type: string
+                fields:
+                  $ref: "./engagement.yaml#/components/schemas/TaskComplete"
+              required:
+                - id
+                - accessToken
+                - fields
+            examples:
+              example-1:
+                value:
+                  id: 939f3f91233b4b0e8f0f2a0f2a0f2a0f
+                  accessToken: string
+                  fields:
+                    type: call
+                    durationSeconds: 120
+                    phone: "8192223333"
+                    body: Call went well, they'll likely buy our paper.
+                    dispositionKey: "answered_meeting_set"
+      description: Complete a task.
+    parameters: [] 
+  /engagement/actions:
+    get:
+      summary: Get All Actions
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Action"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    actions:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        type: call
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: complete
+                        completedTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                          callId: 0dcb45e051315a6ea63b0f16e73689d9
+                          emailId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-actions
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Actions
+    parameters: []
+  /engagement/action:
+    get:
+      summary: Get Action
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  action:
+                    $ref: "./engagement.yaml#/components/schemas/Action"
+              examples:
+                example-1:
+                  value:
+                    action:
+                      id: 2322707bbc41577d9806400e2daa25de
+                      type: call
+                      dueDate: "2019-09-24T14:15:22Z"
+                      status: complete
+                      completedTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                        callId: 0dcb45e051315a6ea63b0f16e73689d9
+                        emailId: d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-engagement-action
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: "Retrieve a Action by Id."
+    parameters: []
+  /engagement/action/complete:
+    post:
+      summary: Complete Action
+      operationId: post-complete-engagement-action
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id: 
+                  type: string
+                accessToken:
+                  type: string
+                fields:
+                  $ref: "./engagement.yaml#/components/schemas/ActionComplete"
+              required:
+                - id
+                - accessToken
+                - fields  
+            examples:
+              example-1:
+                value:
+                  id: 939f3f91233b4b0e8f0f2a0f2a0f2a0f
+                  accessToken: string
+                  fields:
+                    type: call
+                    durationSeconds: 120
+                    phone: "8192223333"
+                    body: Call went well, they'll likely buy our paper.
+                    dispositionKey: "answered_meeting_set"
+      description: Complete an action to move a prospect to the next step of a sequence.
+    parameters: [] 
+  /engagement/calls:
+    get:
+      summary: Get All Calls
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  calls:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Call"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    calls:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        phone: "212-555-1212"
+                        direction: inbound
+                        disposition: Answered - Meeting Set
+                        durationSeconds: '120'
+                        note: "This is a note about the call"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                          taskId: 0dcb45e051315a6ea63b0f16e73689d9
+                          actionId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-calls
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Calls
+    parameters: []
+  /engagement/call:
+    get:
+      summary: Get Call
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  call:
+                    $ref: "./engagement.yaml#/components/schemas/Call"
+              examples:
+                example-1:
+                  value:
+                    call:
+                      id: 2322707bbc41577d9806400e2daa25de
+                      phone: "212-555-1212"
+                      direction: inbound
+                      disposition: Answered - Meeting Set
+                      durationSeconds: '120'
+                      note: "This is a note about the call"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                        taskId: 0dcb45e051315a6ea63b0f16e73689d9
+                        actionId: d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-engagement-call
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: "Retrieve a Call by Id."
+    parameters: []
+  /engagement/emails:
+    get:
+      summary: Get All Emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        to: "micheal@dunder.mifflin"
+                        cc:
+                          - "tom@dunder.mifflin"
+                        bcc:
+                          - "scott@dunder.mifflin"
+                        subject: "Re: Paper renewal"
+                        bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
+                        bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+                        isBounced: false
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                          taskId: 0dcb45e051315a6ea63b0f16e73689d9
+                          actionId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-emails
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Emails
+    parameters: []
+  /engagement/email:
+    get:
+      summary: Get Email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  email:
+                    $ref: "./engagement.yaml#/components/schemas/Email"
+              examples:
+                example-1:
+                  value:
+                    email:
+                      id: 2322707bbc41577d9806400e2daa25de
+                      nativeId: "122"
+                      to: "micheal@dunder.mifflin"
+                      cc:
+                        - "tom@dunder.mifflin"
+                      bcc:
+                        - "scott@dunder.mifflin"
+                      subject: "Re: Paper renewal"
+                      bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
+                      bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+                      isBounced: false
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                        taskId: 0dcb45e051315a6ea63b0f16e73689d9
+                        actionId: d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      additional: {}
+      operationId: get-one-engagement-email
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/allFields'
+      description: "Retrieve a Email by Id."
+    parameters: []
+  /engagement/call-dispositions:
+    get:
+      summary: Get All Call Dispositions
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  dispositions:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/CallDisposition"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    dispositions:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        nativeId: "122"
+                        name: "Answered - Meeting Set"
+                        key: "answered_meeting_set" 
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        additional: {}
+                    nextPageCursor: string
+      operationId: get-all-engagement-callDispositions
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Call Dispositions
+    parameters: []
+  /link/token:
+    post:
+      summary: Create Link Token
+      tags:
+        - tokens
+      operationId: post-link-token
+      responses:
+        "200":
+          description: Create link token
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  linkToken:
+                    type: string
+              examples: {}
+      description: "Generates a link token to be used during the authentication flow. This token is passed to either the Vessel Link Component or `useVesselLink` hook."
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /link/exchange:
+    post:
+      summary: Exchange Public Token for Access Token
+      tags:
+        - links
+      operationId: post-link-exchange
+      responses:
+        "200":
+          description: Exchange for access token
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  connectionId:
+                    type: string
+                  accessToken:
+                    type: string
+                  integrationId:
+                    type: string
+                    enum:
+                      - salesforce
+                      - hubspot
+                      - pipedrive
+                  nativeOrgId:
+                    type: string
+                  nativeOrgURL:
+                    type: string
+                required:
+                  - connectionId
+                  - accessToken
+                  - integrationId
+                  - nativeOrgId
+                  - nativeOrgURL
+              examples: {}
+      description: Exchanges the public token for an access token used to interact with the account. Store the access token in a secure location.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                publicToken:
+                  type: string
+              required:
+                - publicToken
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /connection/connection:
+    parameters: []
+    get:
+      summary: Get Connection
+      tags:
+        - connections
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  connection:
+                    $ref: "./crm.yaml#/components/schemas/Connection"
+      operationId: get-one-connection
+      description: Get info about a connection for a given accessToken.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+    delete:
+      summary: Delete Connection
+      tags:
+        - connections
+      operationId: delete-connection
+      responses:
+        '200':
+          description: >-
+            Remove a connection for a given `accessToken`. Removing a connection
+            disconnects the user's CRM so they'll need to re-authenticate should
+            they want to re-connect their CRM.
+
+            For CRMs that support it (such as Pipedrive), removing the
+            `accessToken` will also remove the Vessel app from their CRM.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+      security:
+        - VesselAPIToken: []
+      description: |-
+        Remove a connection for a given `accessToken`. Removing a connection disconnects the user's CRM so they'll need to re-authenticate should they want to re-connect their CRM.
+        For CRMs that support it (such as Pipedrive), removing the `accessToken` will also remove the Vessel app from their CRM.
+  /connection/crm/integrations:
+    get:
+      summary: Get CRM Integrations
+      tags:
+        - integrations
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  integrations:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Integration"
+      operationId: get-all-crm-integrations
+      description: Return all of the CRM integrations supported by Vessel.
+      parameters: []
+    parameters: []
+  /connection/engagement/integrations:
+    get:
+      summary: Get Engagement Integrations
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  integrations:
+                    type: array
+                    items:
+                      $ref: "./engagement.yaml#/components/schemas/Integration"
+      operationId: get-all-engagement-integrations
+      description: Return all of the Engagement Platform integrations supported by Vessel.
+      parameters: []
+    parameters: []
+  /connection/connections:
+    get:
+      summary: Get All Connections
+      tags:
+        - connections
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  connections:
+                    type: array
+                    items:
+                      $ref: "./crm.yaml#/components/schemas/Connection"
+      operationId: get-all-crm-connections
+      description: List all established connections for a workspace
+  /connection/webhook:
+    get:
+      summary: Get Webhook
+      tags:
+        - webhooks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  webhook:
+                    $ref: "./crm.yaml#/components/schemas/WebhookMetadata"
+      operationId: get-one-webhook
+      description: Retrieve information about a webhook for a given connection and id
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+        - schema:
+            type: string
+          in: query
+          name: webhookId
+    post:
+      summary: Create Webhook
+      tags:
+        - webhooks
+      operationId: post-webhook
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  webhook:
+                    $ref: "./crm.yaml#/components/schemas/WebhookMetadata"
+      description: Create a new webhook for a given connection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                webhook:
+                  $ref: "./crm.yaml#/components/schemas/WebhookMetadataCreate"
+    delete:
+      summary: Remove Webhook
+      tags:
+        - webhooks
+      operationId: delete-webhook
+      responses:
+        "200":
+          description: OK
+      description: Removes a webhook for a given connection and id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                webhookId:
+                  type: string
+components:
+  schemas:
+    InvalidIds:
+      type: array
+      items:
+        type: string
+      description: Ids that didn't return anything. Will be an empty array if all Ids are valid.
+  parameters:
+      accessToken:
+        name: accessToken
+        in: query
+        description: The token for the customer's account. This was generated when they connected their account.
+        required: true
+        schema:
+          type: string
+      id:
+        name: id
+        in: query
+        description: The id of the object to retrieve
+        required: true
+        schema:
+          type: string
+      allFields:
+        name: allFields
+        in: query
+        description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+        schema:
+          type: boolean
+      cursor:
+        name: cursor
+        in: query
+        description: The cursor to use for pagination
+        schema:
+          type: string
+      limit:
+        name: limit
+        in: query
+        description: The number of records to return per page.
+        schema:
+          type: number
+  securitySchemes:
+    VesselAPIToken:
+      name: vessel-api-token
+      type: apiKey
+      in: header
+security:
+  - VesselAPIToken: []
