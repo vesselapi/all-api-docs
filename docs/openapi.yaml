@@ -5048,7 +5048,7 @@ paths:
 components:
   schemas:
     EngIntegration:
-        title: EngIntegration
+        title: Integration
         type: object
         properties:
           integrationId:
@@ -5066,7 +5066,7 @@ components:
             name: Outreach
             iconURL: string
     EmailEngAddress: 
-      title: EmailEngAddress
+      title: EmailAddress
       type: object
       properties:
         address:
@@ -5105,7 +5105,7 @@ components:
         type: "work"
         isPrimary: true
     EngAddress:
-      title: EngAddress
+      title: Address
       type: object
       properties:
         line1:
@@ -5128,7 +5128,7 @@ components:
           postalCode: 94105
           country: US
     EngAccount:
-      title: EngAccount
+      title: Account
       type: object
       examples:
         - id: "344"
@@ -5155,7 +5155,7 @@ components:
               - 006b4db16b6b50c981a174b02753c390
             taskIds:
               - 2322707bbc41577d9806400e2daa25de
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       description: "(Alias: company, organization) An organization involved with your business."
       properties:
@@ -5166,10 +5166,10 @@ components:
           type: string
         description:
           type: string
-          description: A description of this Company/EngAccount.
+          description: A description of this Company/Account.
         industry:
           type: string
-          description: The industry that this EngAccount belongs to (e.g. "Healthcare", "Technology", etc.)
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
         locality:
           type: string
         numberOfEmployees:
@@ -5195,7 +5195,7 @@ components:
             - contactIds
             - actionIds
             - taskIds
-            - ownerEngUserId
+            - ownerUserId
           properties:
             contactIds:
               type: array
@@ -5209,9 +5209,9 @@ components:
               type: array
               items:
                 type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
-              description: The Id of the EngUser that owns this EngAccount
+              description: The Id of the User that owns this Account
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -5221,9 +5221,9 @@ components:
         - modifiedTime
         - associations
     EngUser:
-      title: EngUser
+      title: User
       type: object
-      description: "EngUsers of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform."
+      description: "Users of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform."
       examples:
         - id: 56f653659ea9524b9e0fb0ba67e6f8a0
           firstName: Micheal
@@ -5279,7 +5279,7 @@ components:
           - modifiedTime
           - associations
     EngContact:
-      title: EngContact
+      title: Contact
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
@@ -5309,9 +5309,9 @@ components:
               - 006b4db16b6b50c981a174b02753c390
             taskIds:
               - 2322707bbc41577d9806400e2daa25de
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
-      description: "An known individual affiliated with an EngAccount, Deal, etc"
+      description: "An known individual affiliated with an Account, Deal, etc"
       properties:
         id:
           type: string
@@ -5347,7 +5347,7 @@ components:
             - accountId
             - actionIds
             - eventIds
-            - ownerEngUserId
+            - ownerUserId
           properties:
             accountId:
               type: string
@@ -5359,7 +5359,7 @@ components:
               type: array
               items:
                 type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
         additional:
           type: object
@@ -5370,7 +5370,7 @@ components:
           - modifiedTime
           - associations
     EngTask:
-      title: EngTask
+      title: Task
       type: object
       description: A task attached to some object
       examples:
@@ -5386,7 +5386,7 @@ components:
             contactId: 2d4fd2115220bd20a2ccf81210ec
             callId: 15a6ea63b0f16e73689d9
             emailId: d08f345ace24509e911a0ea8e3d2203c
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         id:
@@ -5422,7 +5422,7 @@ components:
             - callId
             - contactId
             - emailId
-            - ownerEngUserId
+            - ownerUserId
           properties:
             callId:
               type: string
@@ -5430,9 +5430,9 @@ components:
               type: string
             emailId:
               type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
-              description: The Id of the EngUser that owns this EngTask
+              description: The Id of the User that owns this Task
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -5457,7 +5457,7 @@ components:
             contactId: e5f32d4fd2115220bd20a2ccf81210ec
             callId: 0dcb45e051315a6ea63b0f16e73689d9
             emailId: d08f345ace24509e911a0ea8e3d2203c
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         id:
@@ -5491,7 +5491,7 @@ components:
             - callId
             - contactId
             - emailId
-            - ownerEngUserId
+            - ownerUserId
           properties:
             callId:
               type: string
@@ -5499,9 +5499,9 @@ components:
               type: string
             emailId:
               type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
-              description: The Id of the EngUser that owns this Action
+              description: The Id of the User that owns this Action
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -5513,7 +5513,7 @@ components:
     Call:
       title: Call
       type: object
-      description: A phone call between a EngUser and an external EngContact
+      description: A phone call between a User and an external Contact
       examples:
         - id: 2322707bbc41577d9806400e2daa25de
           phone: "212-555-1212"
@@ -5527,7 +5527,7 @@ components:
             contactId: e5f32d4fd2115220bd20a2ccf81210ec
             taskId: 0dcb45e051315a6ea63b0f16e73689d9
             actionId: d08f345ace24509e911a0ea8e3d2203c
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         id:
@@ -5560,7 +5560,7 @@ components:
             - taskId
             - contactId
             - actionId
-            - ownerEngUserId
+            - ownerUserId
           properties:
             taskId:
               type: string
@@ -5568,9 +5568,9 @@ components:
               type: string
             actionId:
               type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
-              description: The Id of the EngUser that owns this Action
+              description: The Id of the User that owns this Action
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -5582,7 +5582,7 @@ components:
     EngEmail:
       title: Email
       type: object
-      description: A email between a EngUser and an external EngContact
+      description: A email between a User and an external Contact
       examples:
         - id: 2322707bbc41577d9806400e2daa25de
           to: "micheal@dunder.mifflin"
@@ -5600,7 +5600,7 @@ components:
             contactId: e5f32d4fd2115220bd20a2ccf81210ec
             taskId: 0dcb45e051315a6ea63b0f16e73689d9
             actionId: d08f345ace24509e911a0ea8e3d2203c
-            ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         id:
@@ -5638,7 +5638,7 @@ components:
             - taskId
             - contactId
             - actionId
-            - ownerEngUserId
+            - ownerUserId
           properties:
             taskId:
               type: string
@@ -5646,9 +5646,9 @@ components:
               type: string
             actionId:
               type: string
-            ownerEngUserId:
+            ownerUserId:
               type: string
-              description: The Id of the EngUser that owns this Action
+              description: The Id of the User that owns this Action
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -5693,7 +5693,7 @@ components:
         - modifiedTime
         - associations
     EngAccountCreate:
-      title: EngAccountCreate
+      title: AccountCreate
       type: object
       examples:
         - name: Blue Cross
@@ -5716,10 +5716,10 @@ components:
           type: string
         description:
           type: string
-          description: A description of this Company/EngAccount.
+          description: A description of this Company/Account.
         industry:
           type: string
-          description: The industry that this EngAccount belongs to (e.g. "Healthcare", "Technology", etc.)
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
         numberOfEmployees:
           type: number
         website:
@@ -5735,7 +5735,7 @@ components:
       required:
         - name
     EngAccountUpdate:
-      title: EngAccountUpdate
+      title: AccountUpdate
       type: object
       examples:
         - name: Blue Cross
@@ -5758,10 +5758,10 @@ components:
           type: string
         description:
           type: string
-          description: A description of this Company/EngAccount.
+          description: A description of this Company/Account.
         industry:
           type: string
-          description: The industry that this EngAccount belongs to (e.g. "Healthcare", "Technology", etc.)
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
         numberOfEmployees:
           type: number
         website:
@@ -5775,7 +5775,7 @@ components:
           type: object
           description: "Update any property in the downstream CRM, such as a custom property."
     EngContactCreate:
-      title: EngContactCreate
+      title: ContactCreate
       type: object
       examples:
         - firstName: Tom
@@ -5804,7 +5804,7 @@ components:
           type: object
           description: "Create any property in the downstream CRM, such as a custom property."
     EngContactUpdate:
-      title: EngContactUpdate
+      title: ContactUpdate
       type: object
       examples:
         - firstName: Tom
@@ -5861,7 +5861,7 @@ components:
           type: string
           description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
     EngTaskComplete:
-      title: EngTaskComplete
+      title: TaskComplete
       type: object
       examples:
         - type: call
@@ -5889,7 +5889,7 @@ components:
           type: string
           description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
     EngTaskCreate:
-      title: EngTaskCreate
+      title: TaskCreate
       type: object
       description: Properties that a task can be created with
       examples:
@@ -5897,7 +5897,7 @@ components:
           body: Call Dunder Mifflin to get a paper refill
           dueDate: "2019-09-24T14:15:22Z"
           contactId: 2d4fd2115220bd20a2ccf81210ec
-          ownerEngUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         body:
@@ -5912,9 +5912,9 @@ components:
             - other
         contactId:
           type: string
-        ownerEngUserId:
+        ownerUserId:
           type: string
-          description: The Id of the EngUser that owns this EngTask
+          description: The Id of the User that owns this Task
         additional:
           type: object
           description: "Update any property in the downstream CRM, such as a custom property."
@@ -5922,9 +5922,9 @@ components:
         - type
         - dueDate
         - contactId
-        - ownerEngUserId
+        - ownerUserId
     EngTaskUpdate:
-      title: EngTaskUpdate
+      title: TaskUpdate
       type: object
       description: Properties that a task can be updated with
       examples:
