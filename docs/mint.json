@@ -2,7 +2,6 @@
   "name": "Vessel",
   "favicon": "/logo/favicon.png",
   "logo": { "light": "/logo/logo-light.png", "dark": "/logo/logo-dark.png" },
-  "openApi": "https://vesselapi.github.io/yaml/openapi.yaml",
   "api": {
     "baseUrl": "https://api.vessel.land",
     "auth": { "method": "key", "name": "vessel-api-token" }
@@ -31,8 +30,8 @@
   ],
   "navigation": [
     {
-      "group": "Home",
-      "pages": ["welcome"]
+      "group": "Introduction",
+      "pages": ["introduction"]
     },
     {
       "group": "How-To Guides",
@@ -47,7 +46,7 @@
       "pages": ["webhooks"]
     },
     {
-      "group": "API",
+      "group": "CRM API",
       "pages": [
         {
           "group": "User",
@@ -161,6 +160,72 @@
       ]
     },
     {
+      "group": "Engagement API",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "api-reference/engagement/get-all-users",
+            "api-reference/engagement/get-user"
+          ]
+        },
+        {
+          "group": "Contact",
+          "pages": [
+            "api-reference/engagement/get-all-contacts",
+            "api-reference/engagement/get-contact",
+            "api-reference/engagement/create-contact",
+            "api-reference/engagement/update-contact"
+          ]
+        },
+        {
+          "group": "Account",
+          "pages": [
+            "api-reference/engagement/get-all-accounts",
+            "api-reference/engagement/get-account",
+            "api-reference/engagement/create-account",
+            "api-reference/engagement/update-account"
+          ]
+        },
+        {
+          "group": "Action",
+          "pages": [
+            "api-reference/engagement/get-all-actions",
+            "api-reference/engagement/get-action",
+            "api-reference/engagement/complete-action"
+          ]
+        },
+        {
+          "group": "Task",
+          "pages": [
+            "api-reference/engagement/get-all-tasks",
+            "api-reference/engagement/get-task",
+            "api-reference/engagement/create-task",
+            "api-reference/engagement/update-task",
+            "api-reference/engagement/complete-task"
+          ]
+        },
+        {
+          "group": "Call",
+          "pages": [
+            "api-reference/engagement/get-all-calls",
+            "api-reference/engagement/get-call"
+          ]
+        },
+        {
+          "group": "Call Disposition",
+          "pages": ["api-reference/engagement/get-all-callDispositions"]
+        },
+        {
+          "group": "Email",
+          "pages": [
+            "api-reference/engagement/get-all-emails",
+            "api-reference/engagement/get-email"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Link",
       "pages": [
         "api-reference/link/create-link-token",
@@ -171,6 +236,7 @@
       "group": "Connection",
       "pages": [
         "api-reference/connection/get-all-crm-integrations",
+        "api-reference/connection/get-all-engagement-integrations",
         "api-reference/connection/get-connection",
         "api-reference/connection/remove-connection",
         "api-reference/connection/get-all-connections",
