@@ -1,0 +1,897 @@
+components:
+  schemas:
+    Integration:
+        title: Integration
+        type: object
+        properties:
+          integrationId:
+            type: string
+            enum:
+              - outreach
+              - salesloft
+          name:
+            type: string
+          iconURL:
+            type: string
+            description: Base 64 data URI
+        examples:
+          - integrationId: outreach
+            name: Outreach
+            iconURL: string
+    EmailAddress: 
+      title: EmailAddress
+      type: object
+      properties:
+        address:
+          type: string
+          description: The email address
+        type:
+          type: string
+          enum:
+            - work
+            - personal
+        isPrimary:
+          type: boolean
+          description: Whether this is the primary email address
+      example:
+        address: "tom@dunder.com"
+        type: "work"
+        isPrimary: true
+    Phone: 
+      title: Phone
+      type: object
+      properties:
+        number:
+          type: string
+          description: The phone number
+        type:
+          type: string
+          enum:
+            - work
+            - personal
+            - other
+        isPrimary:
+          type: boolean
+          description: Whether this is the primary phone number
+      example:
+        number: "555-555-5555"
+        type: "work"
+        isPrimary: true
+    Address:
+      title: Address
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+        examples:
+          - line1: 123 Main St
+            line2: Apt 1
+            city: San Francisco
+            state: CA
+            postalCode: 94105
+            country: US
+    Account:
+      title: Account
+      type: object
+      examples:
+        - id: "344"
+          name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
+          locality: Scranton
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          associations:
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            actionIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      description: "(Alias: company, organization) An organization involved with your business."
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        locality:
+          type: string
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the account was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the account was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - actionIds
+            - taskIds
+            - ownerUserId
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            actionIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Account
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    User:
+      title: User
+      type: object
+      description: "Users of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform."
+      examples:
+        - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+          firstName: Micheal
+          lastName: Scott
+          email: micheal@dundermifflin.com
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            actionIds:
+              - 006b4db16b6b50c981a174b02753c390
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          format: email
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the user was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the user was last modified
+        associations:
+          type: object
+          required:
+            - taskIds
+            - actionIds
+          properties:
+            taskIds:
+              type: array
+              items:
+                type: string
+            actionIds:
+              type: array
+              items:
+                type: string
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+        required:
+          - id
+          - createdTime
+          - modifiedTime
+          - associations
+    Contact:
+      title: Contact
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          phones: 
+            - number: "8192223333"
+              type: "work"
+              isPrimary: true
+          emails: 
+            - address: "tom@dunder.com"
+              type: "work"
+              isPrimary: true
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            accountId: 0dcb45e051315a6ea63b0f16e73689d9
+            actionIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      description: "An known individual affiliated with an Account, Deal, etc"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        address:
+          $ref: "#/components/schemas/Address"
+        emails:
+          type: array
+          items:
+            $ref: "#/components/schemas/EmailAddress"
+        phones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the contact was last modified
+        associations:
+          type: object
+          required:
+            - accountId
+            - actionIds
+            - eventIds
+            - ownerUserId
+          properties:
+            accountId:
+              type: string
+            actionIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
+        required:
+          - id
+          - createdTime
+          - modifiedTime
+          - associations
+    Task:
+      title: Task
+      type: object
+      description: A task attached to some object
+      examples:
+        - id: 22707bbc41577d9806400e2daa25de
+          type: call
+          body: Call Dunder Mifflin to get a paper refill
+          dueDate: "2019-09-24T14:15:22Z"
+          status: complete
+          completedTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactId: 2d4fd2115220bd20a2ccf81210ec
+            callId: 15a6ea63b0f16e73689d9
+            emailId: d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        body:
+          type: string
+        dueDate:
+          type: string
+        type:
+          type: string
+          enum:
+            - call
+            - email
+            - other
+        status:
+          type: string
+          enum:
+            - in_progress
+            - complete
+            - to_do
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the task was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the task was last modified
+        associations:
+          type: object
+          required:
+            - callId
+            - contactId
+            - emailId
+            - ownerUserId
+          properties:
+            callId:
+              type: string
+            contactId:
+              type: string
+            emailId:
+              type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Task
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Action:
+      title: Action
+      type: object
+      description: An action represents some work that needs to be done in order to progress a sequence to the next step.
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          type: call
+          dueDate: "2019-09-24T14:15:22Z"
+          status: complete
+          completedTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactId: e5f32d4fd2115220bd20a2ccf81210ec
+            callId: 0dcb45e051315a6ea63b0f16e73689d9
+            emailId: d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        dueDate:
+          type: string
+        type:
+          type: string
+          enum:
+            - call
+            - email
+            - other
+        status:
+          type: string
+          enum:
+            - in_progress
+            - complete
+            - to_do
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the action was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the action was last modified
+        associations:
+          type: object
+          required:
+            - callId
+            - contactId
+            - emailId
+            - ownerUserId
+          properties:
+            callId:
+              type: string
+            contactId:
+              type: string
+            emailId:
+              type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Action
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Call:
+      title: Call
+      type: object
+      description: A phone call between a User and an external Contact
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          phone: "212-555-1212"
+          direction: inbound
+          disposition: Answered - Meeting Set
+          durationSeconds: '120'
+          note: "This is a note about the call"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactId: e5f32d4fd2115220bd20a2ccf81210ec
+            taskId: 0dcb45e051315a6ea63b0f16e73689d9
+            actionId: d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        phone:
+          type: string
+        direction:
+          type: string
+          enum:
+            - inbound
+            - outbound
+        disposition:
+          type: string
+        durationSeconds:
+          type: number
+        note:
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the call was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the call was last modified
+        associations:
+          type: object
+          required:
+            - taskId
+            - contactId
+            - actionId
+            - ownerUserId
+          properties:
+            taskId:
+              type: string
+            contactId:
+              type: string
+            actionId:
+              type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Action
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Email:
+      title: Email
+      type: object
+      description: A email between a User and an external Contact
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          to: "micheal@dunder.mifflin"
+          cc:
+            - "tom@dunder.mifflin"
+          bcc:
+            - "scott@dunder.mifflin"
+          subject: "Re: Paper renewal"
+          bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
+          bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+          isBounced: false
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactId: e5f32d4fd2115220bd20a2ccf81210ec
+            taskId: 0dcb45e051315a6ea63b0f16e73689d9
+            actionId: d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        to:
+          type: string
+        cc:
+          type: array
+          items:
+            type: string
+        bcc:
+          type: array
+          items:
+            type: string
+        subject:
+          type: string
+        bodyText:
+          type: string
+        bodyHtml:
+          type: string
+        isBounced:
+          type: boolean
+        createdTime:
+          type: string
+          format: date-time
+          description: The timestamp that the email was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The timestamp the email was last modified
+        associations:
+          type: object
+          required:
+            - taskId
+            - contactId
+            - actionId
+            - ownerUserId
+          properties:
+            taskId:
+              type: string
+            contactId:
+              type: string
+            actionId:
+              type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Action
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    CallDisposition:
+      title: Call Disposition
+      type: object
+      description: The disposition of a call
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          name: "Answered - Meeting Set"
+          key: "answered_meeting_set" 
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          additional: {}
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        name:
+          type: string
+        key:
+          type: string 
+        createdTime:
+          type: string
+          format: date-time
+          description: The date that the call disposition was created
+        modifiedTime:
+          type: string
+          format: date-time
+          description: The date the call disposition was last modified
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    AccountCreate:
+      title: AccountCreate
+      type: object
+      examples:
+        - name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          phone: "8192223333"
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          additional: {}
+      description: Properties that an account can be created with
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom property."
+      required:
+        - name
+    AccountUpdate:
+      title: AccountUpdate
+      type: object
+      examples:
+        - name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          phone: "8192223333"
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          additional: {}
+      description: Properties that an account can be update with
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Update any property in the downstream CRM, such as a custom property."
+    ContactCreate:
+      title: ContactCreate
+      type: object
+      examples:
+        - firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          additional: {}
+      description: Properties that a contact can be created with
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        address:
+          $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Create any property in the downstream CRM, such as a custom property."
+    ContactUpdate:
+      title: ContactUpdate
+      type: object
+      examples:
+        - firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          additional: {}
+      description: Properties that a contact can be updated with
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        address:
+          $ref: "#/components/schemas/Address"
+        additional:
+          type: object
+          description: "Update any property in the downstream CRM, such as a custom property."
+    ActionComplete:
+      title: ActionComplete
+      type: object
+      examples:
+        - type: call
+          durationSeconds: 120
+          phone: "8192223333"
+          body: Call went well, they'll likely buy our paper.
+          dispositionKey: "answered_meeting_set"
+      description: Complete a call or other action to move a prospect in a sequence to the next step.
+      properties:
+        type:
+          type: string
+          enum: 
+            - call
+            - other
+          description: The type of the action that was completed. Only call and other actions are currently supported.
+        body:
+          type: string
+        durationSeconds:
+          type: number
+          description: Only supported for call actions. How long the call lasted, in seconds.
+        phone:
+          type: string
+          description: Only supported for call actions. The phone number called.
+        dispositionKey:
+          type: string
+          description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
+    TaskComplete:
+      title: TaskComplete
+      type: object
+      examples:
+        - type: call
+          durationSeconds: 120
+          phone: "8192223333"
+          body: Call went well, they'll likely buy our paper.
+          dispositionKey: "answered_meeting_set"
+      description: Complete a call or other task.
+      properties:
+        type:
+          type: string
+          enum: 
+            - call
+            - other
+          description: The type of the action that was completed. Only call and other actions are currently supported.
+        body:
+          type: string
+        durationSeconds:
+          type: number
+          description: Only supported for call actions. How long the call lasted, in seconds.
+        phone:
+          type: string
+          description: Only supported for call actions. The phone number called.
+        dispositionKey:
+          type: string
+          description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
+    TaskCreate:
+      title: TaskCreate
+      type: object
+      description: Properties that a task can be created with
+      examples:
+        - type: call
+          body: Call Dunder Mifflin to get a paper refill
+          dueDate: "2019-09-24T14:15:22Z"
+          contactId: 2d4fd2115220bd20a2ccf81210ec
+          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          additional: {}
+      properties:
+        body:
+          type: string
+        dueDate:
+          type: string
+        type:
+          type: string
+          enum:
+            - call
+            - email
+            - other
+        contactId:
+          type: string
+        ownerUserId:
+          type: string
+          description: The Id of the User that owns this Task
+        additional:
+          type: object
+          description: "Update any property in the downstream CRM, such as a custom property."
+      required:
+        - type
+        - dueDate
+        - contactId
+        - ownerUserId
+    TaskUpdate:
+      title: TaskUpdate
+      type: object
+      description: Properties that a task can be updated with
+      examples:
+        - body: Call Dunder Mifflin to get a paper refill
+          dueDate: "2019-09-24T14:15:22Z"
+          additional: {}
+      properties:
+        body:
+          type: string
+        dueDate:
+          type: string
+        additional:
+          type: object
+          description: "Update any property in the downstream CRM, such as a custom property."
+    
+    
+     
