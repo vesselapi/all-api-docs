@@ -174,37 +174,48 @@
           "group": "Contact",
           "pages": [
             "api-reference/engagement/get-all-contacts",
-            "api-reference/engagement/get-contact"
+            "api-reference/engagement/get-contact",
+            "api-reference/engagement/create-contact",
+            "api-reference/engagement/update-contact"
           ]
         },
         {
           "group": "Account",
           "pages": [
             "api-reference/engagement/get-all-accounts",
-            "api-reference/engagement/get-account"
+            "api-reference/engagement/get-account",
+            "api-reference/engagement/create-account",
+            "api-reference/engagement/update-account"
           ]
         },
         {
           "group": "Action",
           "pages": [
             "api-reference/engagement/get-all-actions",
-            "api-reference/engagement/get-action"
+            "api-reference/engagement/get-action",
+            "api-reference/engagement/complete-action"
           ]
         },
         {
           "group": "Task",
           "pages": [
             "api-reference/engagement/get-all-tasks",
-            "api-reference/engagement/get-task"
+            "api-reference/engagement/get-task",
+            "api-reference/engagement/create-task",
+            "api-reference/engagement/update-task",
+            "api-reference/engagement/complete-task"
           ]
         },
         {
           "group": "Call",
           "pages": [
             "api-reference/engagement/get-all-calls",
-            "api-reference/engagement/get-call",
-            "api-reference/engagement/get-all-callDispositions"
+            "api-reference/engagement/get-call"
           ]
+        },
+        {
+          "group": "Call Disposition",
+          "pages": ["api-reference/engagement/get-all-callDispositions"]
         },
         {
           "group": "Email",
