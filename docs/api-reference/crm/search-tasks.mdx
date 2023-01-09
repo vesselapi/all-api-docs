@@ -1,0 +1,21 @@
+---
+openapi: "POST /crm/tasks/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/tasks/search \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "filters": {
+    "body": {
+      "startsWith": "important"
+    }
+  }
+```
+
+</RequestExample>
