@@ -1,0 +1,152 @@
+---
+title: "Things You Can Do With Vessel"
+---
+
+Here are a few examples of things that Vessel enables you to do.
+
+## Setup
+
+Before we get started, let's put down a very rough but
+concrete version of what a client for Vessel's API would look like.
+
+```typescript
+class VesselClient {
+  private apiToken: string;
+  private accessToken: string;
+
+  constructor(apiToken: string, accessToken: string) {
+    this.apiToken = apiToken;
+    this.accessToken = accessToken;
+  }
+
+  async makeRequest({
+    objectType,
+    requestType,
+    data,
+  }: {
+    objectType: string;
+    requestType: string;
+    data?: Record<string, any>;
+  }) {
+    const path : string = {
+      'get-all': 's',
+      'batch': '/batch',
+      'details': '/details', 
+    }[requestType] ?? '';
+
+    const method : string = {
+      'get': 'GET',
+      'get-all': 'GET',
+      'batch': 'GET',
+      'details': 'GET',
+      'create': 'POST',
+      'update': 'PATCH',
+    }[requestType];
+
+    const query = method === 'GET' ? `?${new URLSearchParams(data as Record<string, string>)}` : '';
+
+    const response = await fetch(
+      `https://api.vessel.land/crm/${objectType}${path}${query}`,
+      {
+        method,
+        headers: {
+          'vessel-api-token': this.apiToken,
+        },
+        ...(method === 'GET' ? {} :
+          {
+            body: JSON.stringify({
+              access_token: this.accessToken,
+              ...data,
+            })
+          }
+        ),
+      }
+    );
+    return await response.json();
+  }
+}
+
+const vessel = new VesselClient(API_TOKEN, ACCESS_TOKEN);
+```
+We will use this generic `makeRequest` in each of our following examples to be explicit how we're making the calls.
+
+## Create a Lead
+Let's say your app creates an amazing funnel that creates new leads for your users. You can automatically add them to your user's CRM's with this
+```typescript
+const createLead = async (firstName: string,
+                          lastName: string,
+                          email: string) => client.makeRequest({
+  objectType: 'lead',
+  requestType: 'create',
+  data: { lead: {
+    firstName, lastName, email,
+  } },
+});
+```
+
+## Add a Note for a Lead
+For this example, let's say your app allows potential leads to provide feedback after a sales call. You would like to add this as a note in your user's CRM's attached to their lead entity.
+
+Let's first add functionality to find our lead object.
+```typescript
+const findLeadsWithEmail = async (email: string) => client.makeRequest({
+  objectType: 'lead',
+  requestType: 'search',
+  data: { email }
+});
+```
+And then add a function to create a note with the feedback we want.
+```typescript
+const createNote = async (user: YourUser, leadId: string, feedback: string) => client.makeRequest({
+  objectType: 'note',
+  requestType: 'create',
+  data: { note: {
+    userId: user.vesselId,
+    leadId,
+    content: feedback,
+  } }
+});
+```
+And finally
+```typescript
+async function updateLeadWithFeedback(user: YourUser, email: string, feedback: string) {
+  const { leads } = await findLeadsWithEmail(email);
+  const leadId = leads[0].id;
+  await createNote(user, leadId, feedback);
+}
+```
+
+## Territory of a User
+Say your app involves looking at all the locations a given user is assigned to. In this specific example, we will pull all postal codes for a user.
+
+First we will need all account ids associated with the user in question.
+```typescript
+const getAccountIdsFromUser = async (userId: string) => vessel.makeRequest({
+  objectType: 'associations',
+  requestType: 'get',
+  data: { objectId: userId },
+});
+```
+
+Then we will need to grab the full account objects from those ids.
+```typescript
+const getBatchAccounts = async (ids: string[]) => vessel.makeRequest({
+  objectType: 'accounts',
+  requestType: 'batch',
+  data: { ids: ids.join(',') },
+});
+```
+
+And finally we can put it all together and grab the postal codes for each account.
+```typescript
+async function getZipCodesForUser(user: YourUser) {
+  const { associations } = await getAccountIdsFromUser(user.vesselId);
+  const accountIds = associations.filter((a) => a.objectType === 'account').map((a) => a.objectId);
+  const { accounts } = await getBatchAccounts(accountIds);
+  return accounts.map((account) => account.address?.postalCode);
+}
+```
+
+## Questions
+
+Is there anything you're wondering if Vessel can accomplish for your company? Send us an email at [support@vessel.land](support@vessel.land) and we'll be more than happy to help!
