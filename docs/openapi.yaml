@@ -37,7 +37,7 @@ tags:
   - name: engTasks
   - name: engActions
   - name: engDispositions
-x-speakeasy-method-names:
+x-speakeasy-name-override:
   - operationId: post-*
     methodNameOverride: create
   - operationId: put-*
@@ -5291,7 +5291,7 @@ paths:
       summary: Complete Task
       tags: 
         - engTasks
-      x-speakeasy-method-names:
+      x-speakeasy-name-override:
         methodNameOverride: complete
       operationId: post-complete-engagement-task
       responses:
@@ -5429,7 +5429,7 @@ paths:
       summary: Complete Action
       tags: 
         - engActions
-      x-speakeasy-method-names:
+      x-speakeasy-name-override:
         methodNameOverride: complete
       operationId: post-complete-engagement-action
       responses:
