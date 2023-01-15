@@ -36,7 +36,7 @@
     },
     {
       "group": "How-To Guides",
-      "pages": ["getting-started", "how-to-vessel", "accessing-native-data"]
+      "pages": ["getting-started", "examples", "accessing-native-data"]
     },
     {
       "group": "References",

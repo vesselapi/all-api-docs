@@ -1,0 +1,160 @@
+---
+title: "Examples"
+---
+
+Here are a few examples of what Vessel empowers you to do. Each example
+below consists of a real use-case that your company might be able to
+provide for your users!
+
+## Add a Note for a Lead
+Notes are a great way to include information in your users' CRMs.
+For this example, we're creating a survey process for leads after
+a sales call. The sales rep will be able to see this as an attached
+note to the lead.  
+
+The app will take in the lead's email, so we can use that to
+make our search.
+```typescript
+const findLeadsWithEmail = async (email: string) => vessel.makeRequest({
+  objectType: 'Lead',
+  requestType: 'search',
+  data: { email }
+});
+```
+
+Now that we have the lead, lets create a Note object and pass in the
+lead id.
+```typescript
+const createNote = async (user: YourUser, leadId: string, feedback: string) => vessel.makeRequest({
+  objectType: 'Note',
+  requestType: 'create',
+  data: { note: {
+    userId: user.vesselId,
+    leadId,
+    content: feedback,
+  } }
+});
+```
+And finally
+```typescript
+async function updateLeadWithFeedback(user: YourUser, email: string, feedback: string) {
+  const { leads } = await findLeadsWithEmail(email);
+  const leadId = leads[0].id;
+  await createNote(user, leadId, feedback);
+}
+```
+
+## Territory of a User
+It's often useful to know the territories a user is assigned to. For this
+example we will grab all the zip codes for the Accounts a given user
+is assigned to.
+
+First we will need all account ids associated with the user in question.
+Most Vessel objects have an associations array you can pull from, however,
+`User` objects require a separate endpoint, since they tend to be highly
+associated.
+```typescript
+const getAccountIdsFromUser = async (userId: string) => vessel.makeRequest({
+  objectType: 'associations',
+  requestType: 'get',
+  data: { objectId: userId },
+});
+```
+
+Now lets make a batch request with the account ids.
+```typescript
+const getBatchAccounts = async (ids: string[]) => vessel.makeRequest({
+  objectType: 'accounts',
+  requestType: 'batch',
+  data: { ids: ids.join(',') },
+});
+```
+
+Putting it together we can grab all the zip codes for a user.
+```typescript
+async function getZipCodesForUser(user: YourUser) {
+  const { associations } = await getAccountIdsFromUser(user.vesselId);
+  const accountIds = associations.filter((a) => a.objectType === 'account').map((a) => a.objectId);
+  const { accounts } = await getBatchAccounts(accountIds);
+  return accounts.map((account) => account.address?.postalCode);
+}
+```
+
+## Calendar Prep
+For this example, we're going to build an extension that automatically
+provides Account details to a calendar event.
+
+Your extension has access to the Event subject, so lets use that to 
+grab the event object itself.
+```typescript
+async function getEvent(subject: string) {
+  const { events } = await vessel.makeRequest({
+    objectType: 'Event',
+    requestType: 'search',
+    data: { subject },
+  });
+  return events[0];
+}
+```
+
+Now one way to figure out which company this event is with is by
+looking at the attendees and their email addresses.
+We can grab all attendees for an event
+
+```typescript
+async function getAccoountDetails(event: VesselEvent) {
+  const attendeeIds  = event.associations.eventAttendeeIds;
+  const { eventAttendees: VesselEventAttendee[] } = await vessel.makeRequest({
+    objectType: 'EventAttendee',
+    requestType: 'batch',
+    data: { ids: attendeeIds.join(',') },
+  });
+  // Grab all the domains from the attendee emails.
+  const domains = eventAttendees.map((attendee) => attendee.email?.split('@')[1])
+                                .filter((d) => d && d !== YOUR_DOMAIN);
+  // Grab the domain who has the most attendees that is not your domain.
+  const accountDomain = mode(domains);
+  // Grab the account with that domain.
+  const { accounts } = await vessel.makeRequest({
+    objectType: 'Account',
+    requestType: 'search',
+    data: { url: {
+      contains: accountDomain,
+    } },
+  });
+  const account = first(accounts);
+
+  if (!account) {
+    throw new Error('Could not find account for event');
+  }
+
+  return pick(account, ['description', 'industry']);
+}
+```
+
+Now all those sales reps invited to the event will have
+details about the account right away. Let's be a little bit more helpful
+and add some related notes to the event as well.
+```typescript
+async function getAccountNotes(account: VesselAccount) {
+  const noteIds = account.associations.noteIds;
+  if (noteIds.length === 0) {
+    return [];
+  }
+
+  const { notes } = await vessel.makeRequest({
+    objectType: 'Note',
+    requestType: 'batch',
+    data: { ids: noteIds.join(',') },
+  });
+
+  return notes.map((note) => note.content);
+}
+```
+
+
+## Questions
+
+Is there anything you're wondering if Vessel can accomplish for your
+company? Send us an email at [support@vessel.land](support@vessel.land)
+and we'll be more than happy to help!
