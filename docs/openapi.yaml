@@ -8434,6 +8434,8 @@ components:
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
+      required:
+        - closeDate
     DealCreate:
       title: DealCreate
       type: object
