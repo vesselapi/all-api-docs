@@ -1,5 +1,5 @@
 ---
-openapi: "DELETE /connection/connection"
+openapi: 'DELETE /connection/connection'
 ---
 
 <RequestExample>
@@ -10,18 +10,18 @@ curl --request DELETE \
   --header 'Content-Type: application/json' \
   --header 'vessel-api-token: ' \
   --data '{
-  "accessToken": "string"
+  "connectionId": "string"
 }'
 ```
 
 ```js JavaScript Fetch
-fetch("https://api.vessel.land/connection/connection", {
-  method: "DELETE",
+fetch('https://api.vessel.land/connection/connection', {
+  method: 'DELETE',
   headers: {
-    "Content-Type": "application/json",
-    "vessel-api-token": "",
+    'Content-Type': 'application/json',
+    'vessel-api-token': '',
   },
-  body: '{"accessToken":"string"}',
+  body: '{"connectionId":"string"}',
 })
   .then((response) => {
     console.log(response);
