@@ -10,7 +10,7 @@ curl --request DELETE \
   --header 'Content-Type: application/json' \
   --header 'vessel-api-token: ' \
   --data '{
-  "accessToken": "string"
+  "connectionId": "string"
 }'
 ```
 
@@ -21,7 +21,7 @@ fetch("https://api.vessel.land/connection/connection", {
     "Content-Type": "application/json",
     "vessel-api-token": "",
   },
-  body: '{"accessToken":"string"}',
+  body: '{"connectionId":"string"}',
 })
   .then((response) => {
     console.log(response);
@@ -36,7 +36,7 @@ import http.client
 
 conn = http.client.HTTPSConnection("api.vessel.land")
 
-payload = "{\n  \"accessToken\": \"string\"\n}"
+payload = "{\n  \"connectionId\": \"string\"\n}"
 
 headers = {
     'Content-Type': "application/json",
