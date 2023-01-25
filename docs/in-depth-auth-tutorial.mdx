@@ -1,10 +1,17 @@
 ---
-title: "Creating a new Connection"
+title: "Creating a New Connection"
 ---
 
 Here is a more detailed guide on how to setup your frontend and backend
-to create a new connection. The authentication process we employ is unique
-to Unified API's, so don't fret if you're not familiar with it.
+to create a new connection. The authentication process is a bit more
+complicated than the typical auth flow, but it is necessary to
+ensure the privacy of your user's data.
+
+Since this process is so unique to Unified API's,
+don't fret if you're not familiar with it.
+
+For this example we are going to assume the user is connecting their
+Salesforce account, but this authentication flow works for any integration.
 
 ## Summary
 
@@ -24,13 +31,13 @@ tied to your user's account.
 
 2. `publicToken`: This is essentially the public counterpart of the `accessToken`.
 This is what your frontend receives and will send to your backend. This is generated
-once the user has authenticated their CRM. Your backend will then exchange this
+once the user has authenticated their platform (e.g. Salesforce account). Your backend will then exchange this
 for an `accessToken` and a `connectionId`.
 
-3. `linkToken`: This is the precursor to the `publicToken`. This is created
-when the user initiates the connection flow, even before they
-have authenticated their CRM. This will be used by Vessel's modal
-to link the CRM authentication with our generated public token.
+3. `linkToken`: This is a temporary auth token to identify a session.
+This is created when the user initiates the connection flow, even before they
+have authenticated through their platform. It acts as a session link between the browser session
+and Vessel's backend.
 
 ## Backend
 
@@ -136,7 +143,7 @@ function App() {
 
 This type of authentication flow can seem quite unusual at first.
 The reason for this particular flow is that the user must interact
-with their CRM's authentication flow, which then talks directly
+with their platform's authentication flow, which then talks directly
 to Vessel's API. And so the sensitive information (i.e. `accessToken`)
 is generated quite detached from the backend. The `publicToken` serves
 as a bridge between the two.
