@@ -5797,8 +5797,8 @@ paths:
         - schema:
             type: string
           in: query
-          name: accessToken
-          description: The token for the customer's CRM account. This was generated when they connected their account.
+          name: connectionId
+          description: The ID of the connection for the customer's CRM account. This was generated when they connected their account.
           required: true
     delete:
       summary: Delete Connection
@@ -5811,22 +5811,20 @@ paths:
             Remove a connection for a given `accessToken`. Removing a connection
             disconnects the user's CRM so they'll need to re-authenticate should
             they want to re-connect their CRM.
-
-            For CRMs that support it (such as Pipedrive), removing the
-            `accessToken` will also remove the Vessel app from their CRM.
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                accessToken:
+                connectionId:
                   type: string
+              required:
+                  - connectionId
       security:
         - VesselAPIToken: []
       description: |-
-        Remove a connection for a given `accessToken`. Removing a connection disconnects the user's CRM so they'll need to re-authenticate should they want to re-connect their CRM.
-        For CRMs that support it (such as Pipedrive), removing the `accessToken` will also remove the Vessel app from their CRM.
+        Remove a connection for a given `connectionId`. Removing a connection disconnects the user's CRM so they'll need to re-authenticate should they want to re-connect their CRM.
   /connection/crm/integrations:
     get:
       summary: Get CRM Integrations
