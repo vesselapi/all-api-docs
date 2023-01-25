@@ -5817,7 +5817,7 @@ paths:
             schema:
               type: object
               properties:
-                accessToken:
+                connectionId:
                   type: string
       security:
         - VesselAPIToken: []
