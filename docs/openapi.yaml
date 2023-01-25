@@ -5819,6 +5819,7 @@ paths:
               properties:
                 connectionId:
                   type: string
+                  required: true
       security:
         - VesselAPIToken: []
       description: |-
