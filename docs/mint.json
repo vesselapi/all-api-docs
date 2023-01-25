@@ -35,7 +35,7 @@
     },
     {
       "group": "How-To Guides",
-      "pages": ["getting-started", "accessing-native-data"]
+      "pages": ["getting-started", "examples", "accessing-native-data"]
     },
     {
       "group": "References",
