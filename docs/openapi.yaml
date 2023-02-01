@@ -8755,7 +8755,7 @@ components:
           type: string
           enum:
             - NEW_CONNECTION
-            - INITIAL_SYNC
+            - INITIAL_SYNCED
             - READY
         nativeOrgURL:
           type: string
