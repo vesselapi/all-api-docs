@@ -5096,6 +5096,96 @@ paths:
         description: ""
       description: Update an existing Contact.
     parameters: []
+  /engagement/contacts/search:
+    post:
+      summary: Search Contacts
+      tags: 
+        - engContacts
+      operationId: search-engagement-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngContact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phones: 
+                          - number: "8192223333"
+                            type: "work"
+                            isPrimary: true
+                        emails: 
+                          - address: "tom@dunder.com"
+                            type: "work"
+                            isPrimary: true
+                        address: 
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                          actionIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        additional: {}
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                filters:
+                  type: object
+                  properties: 
+                    emails:
+                      type: object
+                      properties:
+                        address:
+                          type: object
+                          properties:
+                            equals:
+                              type: string
+                          required: equals
+                      required: address
+                  required: emails
+              required:
+                - accessToken
+                - filters
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  filters:
+                    emails:
+                      address:
+                        equals: fake@email.com
+      description: Search contacts.
+
   /engagement/tasks:
     get:
       summary: Get All Tasks
@@ -5700,6 +5790,138 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/allFields'
       description: Retrieve all Call Dispositions
+    parameters: []
+  /engagement/sequences:
+    get: 
+      summary: Get All Sequences
+      tags: 
+        - engSequences
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  sequences:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngSequence"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    sequences:
+                      - id: "2322707bbc41577d9806400e2daa25de"
+                        isEnabled: true
+                        name: "Reaching out about My Company"
+                        tags: ["cold"]
+                        numSteps: 1
+                        scheduledCount: 0
+                        openedCount: 0
+                        optedOutCount: 0
+                        repliedCount: 0
+                        clickedCount: 0
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      operationId: get-all-engagement-sequences
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Sequences
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /engagement/sequence/start:
+    post:
+      summary: Start Sequence
+      tags: 
+        - engSequences
+      operationId: post-start-engagement-sequence
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id: 
+                  type: string
+                accessToken:
+                  type: string
+                fields:
+                  $ref: "#/components/schemas/EngSequenceStart"
+              required:
+                - id
+                - accessToken
+                - fields  
+            examples:
+              example-1:
+                value:
+                  id: 939f3f91233b4b0e8f0f2a0f2a0f2a0f
+                  accessToken: string
+                  fields:
+                    contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
+                    mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
+      description: Complete an action to move a prospect to the next step of a sequence.
+    parameters: []
+  /engagement/mailboxes:
+    get: 
+      summary: Get All Mailboxes
+      tags: 
+        - engMailboxes
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  mailboxes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngMailbox"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    mailboxes:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        email: fake@email.com
+                        isDefault: true
+                        associations: 
+                          ownerUserId: d9806400e2daa25de2322707bbc41577
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      operationId: get-all-engagement-mailboxes
+      parameters:
+        - $ref: '#/components/parameters/accessToken'
+        - $ref: '#/components/parameters/cursor'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/allFields'
+      description: Retrieve all Mailboxes
+      security:
+        - VesselAPIToken: []
     parameters: []
   /link/token:
     post:
@@ -6836,6 +7058,78 @@ components:
         additional:
           type: object
           description: "Update any property in the downstream Engagement Platform, such as a custom property."
+    EngSequence:
+      title: Sequence
+      type: object
+      description: "Sequences in the connected engagement platform. These are often used to schedule outbound emails, or other tasks."
+      examples:
+        - id: "2322707bbc41577d9806400e2daa25de"
+          isEnabled: true
+          name: "Reaching out about My Company"
+          tags: ["cold"]
+          numSteps: 1
+          scheduledCount: 0
+          openedCount: 0
+          optedOutCount: 0
+          repliedCount: 0
+          clickedCount: 0
+      properties: 
+        id: 
+          type: string
+        isEnabled: 
+          type: boolean
+        name: 
+          type: string
+        tags: 
+          type: array
+          items:
+            type: string
+        numSteps: 
+          type: number
+        scheduledCount: 
+          type: number
+        openedCount: 
+          type: number
+        optedOutCount: 
+          type: number
+        repliedCount: 
+          type: number
+        clickedCount: 
+          type: number
+    EngSequenceStart:
+      title: SequenceStart
+      type: object
+      description: "Start a sequence"
+      examples: 
+        - contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
+          mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
+      properties: 
+        contactId: 
+          type: string
+        mailboxId:
+          type: string
+    EngMailbox: 
+      title: Mailbox
+      type: object
+      description: "Mailboxes in the connected engagement platform. These are email accounts that outbound emails will be sent from."
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          email: fake@email.com
+          isDefault: true
+          associations: 
+            ownerUserId: d9806400e2daa25de2322707bbc41577
+      properties: 
+        id: 
+          type: string
+        email: 
+          type: string
+        isDefault: 
+          type: boolean
+        associations: 
+          type: object
+          properties:
+            ownerUserId: 
+              type: string
     InvalidIds:
       type: array
       items:

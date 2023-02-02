@@ -185,7 +185,8 @@
             "api-reference/engagement/get-all-contacts",
             "api-reference/engagement/get-contact",
             "api-reference/engagement/create-contact",
-            "api-reference/engagement/update-contact"
+            "api-reference/engagement/update-contact",
+            "api-reference/engagement/search-contacts"
           ]
         },
         {
@@ -231,6 +232,19 @@
           "pages": [
             "api-reference/engagement/get-all-emails",
             "api-reference/engagement/get-email"
+          ]
+        },
+        {
+          "group": "Sequence",
+          "pages": [
+            "api-reference/engagement/get-all-sequences",
+            "api-reference/engagement/start-sequence"
+          ]
+        },
+        {
+          "group": "Mailbox",
+          "pages": [
+            "api-reference/engagement/get-all-mailboxes"
           ]
         }
       ]

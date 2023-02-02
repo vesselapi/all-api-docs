@@ -1,0 +1,22 @@
+---
+openapi: "POST /engagement/sequence/start"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/engagement/sequence/start \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "fields": {
+    "contactId": "d9806400e2daa25de2322707bbc41577",
+    "mailboxId": "5de2322707bbc41577d9806400e2daa2",
+  }
+}'
+```
+
+</RequestExample>
