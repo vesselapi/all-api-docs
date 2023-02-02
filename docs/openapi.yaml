@@ -5841,8 +5841,6 @@ paths:
       summary: Start Sequence
       tags: 
         - engSequences
-      # x-speakeasy-name-override:
-      #   methodNameOverride: start
       operationId: post-start-engagement-sequence
       responses:
         "200":
@@ -5899,7 +5897,7 @@ paths:
                 title: responseBody
                 type: object
                 properties:
-                  sequences:
+                  mailboxes:
                     type: array
                     items:
                       $ref: "#/components/schemas/EngMailbox"
