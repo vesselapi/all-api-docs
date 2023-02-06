@@ -1,5 +1,5 @@
 ---
-title: "Webhooks"
+title: 'Webhooks'
 ---
 
 Webhooks allow us to notify you when a relevant change has occurred in our system (or a downstream integration). This article contains only information relevant to Vessel webhooks; for a general overview of webhooks we recommend this [blog post](https://medium.com/hookdeck/webhooks-explained-what-are-webhooks-and-how-do-they-work-90c613c055a4).
@@ -24,13 +24,13 @@ The shape of the event we send to your `webhookUrl`
 
 ### Headers
 
-<Param query="x-vessel-timestamp" type="string">
+<Param query='x-vessel-timestamp' type='string'>
   unix timestamp
 </Param>
-<Param query="x-vessel-signature" type="string">
+<Param query='x-vessel-signature' type='string'>
   signature for authentication
 </Param>
-<Param query="x-vessel-connection-id" type="string">
+<Param query='x-vessel-connection-id' type='string'>
   connectionId of this webhook
 </Param>
 
@@ -53,7 +53,7 @@ _type="OBJECT_CHANGE"_
   "eventId": string,
   "type": "OBJECT_CHANGE",
   "data": {
-    "objectType": string, // "Contact" | "Account" | "Deal" | "Lead" | "User" | "Note" | "Task" | "Event" | "EventAttendee"
+    "objectType": string, // "Contact" | "Account" | "Deal" | "Lead" | "User" | "Note" | "Task" | "Event" | "EventAttendee" | "Email"
     "eventType": string, // "DELETE" | "CREATE" | "UPDATE"
     "record": object
   }
