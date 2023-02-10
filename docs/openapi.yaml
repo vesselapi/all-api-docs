@@ -4015,7 +4015,10 @@ paths:
                         additional: {}
                     nextPageCursor: string
       operationId: get-all-crm-emails
-      description: Retrieve all Emails
+      description: |-
+        Retrieve all Emails
+        *CRM Caveats*:
+        - Not supported for Zoho
       parameters:
         - schema:
             type: string
