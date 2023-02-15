@@ -2168,6 +2168,8 @@ paths:
               properties:
                 accessToken:
                   type: string
+                id:
+                  type: string
                 lead:
                   $ref: "#/components/schemas/LeadUpdate"
             examples:
@@ -3840,6 +3842,8 @@ paths:
                 type: object
                 properties:
                   accessToken:
+                    type: string
+                  id:
                     type: string
                   eventAttendee:
                     $ref: "#/components/schemas/EventAttendeeUpdate"
