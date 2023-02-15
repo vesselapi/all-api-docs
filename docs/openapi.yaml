@@ -8845,6 +8845,9 @@ components:
         phone:
           type: string
           description: The primary phone | Not supported by Pipedrive
+        ownerUserId:
+          type: string
+          description: The User Id the Account is associated to.
         address:
           $ref: "#/components/schemas/Address"
         additional:
