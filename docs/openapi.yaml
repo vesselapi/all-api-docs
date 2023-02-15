@@ -2172,6 +2172,10 @@ paths:
                   type: string
                 lead:
                   $ref: "#/components/schemas/LeadUpdate"
+              required:
+                - accessToken
+                - id
+                - lead
             examples:
               example-1:
                 value:
@@ -3033,6 +3037,7 @@ paths:
               required:
                 - accessToken
                 - id
+                - task
             examples:
               example-1:
                 value:
@@ -3487,6 +3492,7 @@ paths:
               required:
                 - accessToken
                 - id
+                - event
             examples:
               example-1:
                 value:
@@ -3847,6 +3853,10 @@ paths:
                     type: string
                   eventAttendee:
                     $ref: "#/components/schemas/EventAttendeeUpdate"
+                required:
+                  - accessToken
+                  - id
+                  - eventAttendee
               examples:
                 example-1:
                   value:
@@ -4327,6 +4337,7 @@ paths:
               required:
                 - accessToken
                 - id
+                - email
             examples:
               example-1:
                 value:
