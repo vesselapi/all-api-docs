@@ -15,13 +15,19 @@ curl --request POST \
     "firstName": "Tom",
     "lastName": "Smith",
     "jobTitle": "Director of Operations",
-    "address":
+    "address": {
       "line1": "100 Blue Dr",
       "line2": "Suite 100",
       "city": "Scranton",
       "state": "Pennsylvania",
       "postalCode": "281332",
-      "country": "USA",
+      "country": "USA"
+    },
+    "emails": [{
+      "address": "fake@email.com",
+      "isPrimary": true,
+      "type": "work"
+    }],
     "additional": {},
   }
 }'

@@ -4878,6 +4878,83 @@ paths:
         description: ""
       description: Update an existing account.
     parameters: []
+  /engagement/accounts/search:
+    post:
+      summary: Search Accounts
+      tags: 
+        - engAccountss
+      operationId: search-engagement-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngAccount"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: "15"
+                        name: "test account"
+                        createdTime: "2023-02-17T21:28:30.000Z"
+                        modifiedTime: "2023-02-18T01:57:12.000Z"
+                        description: null
+                        industry: null
+                        numberOfEmployees: null
+                        domain: "vessel.land"
+                        website: null
+                        address: null
+                        phone: null
+                        locality: "San Francisco"
+                        associations:
+                            ownerUserId: "1"
+                        additional: {}
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                filters:
+                  type: object
+                  properties: 
+                    name:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+                    domain:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+              required:
+                - accessToken
+                - filters
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  filters:
+                    name:
+                      equals:
+                        "Acme Co."
+      description: Search accounts.
+
   /engagement/contacts:
     get:
       summary: Get All Contacts
@@ -6917,6 +6994,10 @@ components:
         - firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
+          emails:
+            - address: fake@email.com
+              type: work
+              isPrimary: true
           address: 
             line1: 100 Blue Dr
             line2: Suite 100
@@ -6935,6 +7016,22 @@ components:
           type: string
         address:
           $ref: "#/components/schemas/EngAddress"
+        emails:
+          type: array
+          items: 
+            type: object
+            properties:
+              address: 
+                type: string
+              isPrimary:
+                type: boolean
+              type:
+                type: string
+                enum:
+                  - work
+                  - personal
+            required: 
+              - address
         additional:
           type: object
           description: "Create any property in the downstream Engagement Platform, such as a custom property."
