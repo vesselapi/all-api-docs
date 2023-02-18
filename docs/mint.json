@@ -195,7 +195,9 @@
             "api-reference/engagement/get-all-accounts",
             "api-reference/engagement/get-account",
             "api-reference/engagement/create-account",
-            "api-reference/engagement/update-account"
+            "api-reference/engagement/update-account",
+            "api-reference/engagement/search-accounts"
+
           ]
         },
         {
