@@ -8777,6 +8777,9 @@ components:
           description: The primary phone
         mobilePhone:
           type: string
+        ownerUserId:
+          type: string
+          description: The Id of the User to assign this Contact to
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
@@ -8809,6 +8812,9 @@ components:
         accountId:
           type: string
           description: The Id of the account to associate this contact with
+        ownerUserId:
+          type: string
+          description: The Id of the User to assign this Contact to
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
@@ -8916,6 +8922,9 @@ components:
           description: The primary phone| Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/Address"
+        ownerUserId:
+          type: string
+          description: The Id of the User to assign this Account to
         additional:
           type: object
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
@@ -8959,7 +8968,7 @@ components:
           description: The primary phone | Not supported by Pipedrive
         ownerUserId:
           type: string
-          description: The User Id the Account is associated to.
+          description: The Id of the User to assign this Account to
         address:
           $ref: "#/components/schemas/Address"
         additional:
