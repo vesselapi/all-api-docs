@@ -7825,10 +7825,10 @@ components:
           description: Id of the object in the connected CRM.
         contentHtml:
           type: string
-          description: The body of the note
+          description: The body of the note (populated if CRM notes support html)
         contentText:
           type: string
-          description: Used only for Salesforce notes (not ContentNotes).
+          description: The body of the note (populated if CRM notes only support plaintext)
         createdTime:
           type: string
           description: The timestamp that the note was created
@@ -8982,12 +8982,9 @@ components:
           accountId: v.account.0dcb45e051315a6ea63b0f16e73689d9
           contactId: v.contact.e5f32d4fd2115220bd20a2ccf81210ec
       properties:
-        contentHtml:
+        content:
           type: string
-          description: HTML supported notes
-        contentText:
-          type: string
-          description: Used only for plain text notes.
+          description: The body of the note
         ownerUserId:
           type: string
           description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
@@ -9014,12 +9011,9 @@ components:
         - content: This note has some interesting content in it!
           ownerUserId: v.user.79d154aa0c7a571295a157369d448e65
       properties:
-        contentHtml:
+        content:
           type: string
-          description: HTML supported notes
-        contentText:
-          type: string
-          description: Used only for Salesforce notes (not ContentNotes).
+          description: The body of the note
         ownerUserId:
           type: string
           description: Only Admins can change this property
