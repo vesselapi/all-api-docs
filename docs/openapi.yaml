@@ -2246,8 +2246,9 @@ paths:
   /crm/lead/custom-field:
     post:
       summary: Create Lead Custom Field
+      description: "Only supported for Salesforce and HubSpot"
       tags:
-        - leads
+        - leadCustomFields
       operationId: post-lead-custom-field
       responses:
         "200":
