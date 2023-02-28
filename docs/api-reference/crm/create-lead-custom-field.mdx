@@ -1,0 +1,32 @@
+---
+openapi: "POST /crm/lead/custom-field"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/lead/custom-field \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "customField": {
+    "key": "new_custom_field",
+    "name": "New Custom Field",
+    "type": "singleselect",
+    "options": [
+      {
+        "label": "first_label",
+        "value": "first_value"
+      },
+      {
+        "label": "second_label",
+        "value": "second_value"
+      }
+    ]
+  }
+}'
+```
+
+</RequestExample>
