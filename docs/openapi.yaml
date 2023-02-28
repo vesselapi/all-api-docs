@@ -6499,11 +6499,11 @@ components:
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
-        required:
-          - id
-          - createdTime
-          - modifiedTime
-          - associations
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
     EngContact:
       title: Contact
       type: object
@@ -6587,11 +6587,11 @@ components:
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
-        required:
-          - id
-          - createdTime
-          - modifiedTime
-          - associations
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
     EngTask:
       title: Task
       type: object
