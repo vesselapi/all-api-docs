@@ -9162,6 +9162,7 @@ components:
         - lastName
     CustomFieldCreate:
       type: object
+      description: ""
       properties:
         key:
           type: string
