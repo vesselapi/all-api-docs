@@ -2269,7 +2269,6 @@ paths:
                 example-1:
                   value:
                     success: true
-      description: Create a new Lead
       requestBody:
         content:
           application/json:
@@ -9178,13 +9177,13 @@ components:
           items:
             type: object
             properties:
-              label:
+              name:
                 type: string
-              value:
+              key:
                 type: string
             required:
-              - label 
-              - value
+              - name 
+              - key
       required:
         - key
         - name
