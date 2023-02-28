@@ -9159,7 +9159,6 @@ components:
         - lastName
     CustomFieldCreate:
       type: object
-      description: "Currently we only support `singleselect` types"
       properties:
         key:
           type: string
