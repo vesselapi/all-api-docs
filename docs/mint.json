@@ -103,7 +103,8 @@
             "api-reference/crm/update-lead",
             "api-reference/crm/get-lead-details",
             "api-reference/crm/get-batch-lead",
-            "api-reference/crm/search-leads"
+            "api-reference/crm/search-leads",
+            "api-reference/crm/create-lead-custom-field"
           ]
         },
         {

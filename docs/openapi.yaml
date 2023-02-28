@@ -2243,6 +2243,45 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
+  /crm/lead/custom-field:
+    post:
+      summary: Create Lead Custom Field
+      tags:
+        - leads
+      operationId: post-lead-custom-field
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  success:
+                    type: boolean
+              examples:
+                example-1:
+                  value:
+                    success: true
+      description: Create a new Lead
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  $ref: '#/components/parameters/accessToken'
+                customField:
+                  $ref: "#/components/schemas/CustomFieldCreate"
+              required:
+                - accessToken
+                - customField
   /crm/lead/batch:
     get:
       summary: Get Batch Leads
@@ -9117,6 +9156,35 @@ components:
           description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
       required:
         - lastName
+    CustomFieldCreate:
+      type: object
+      description: "Currently we only support `singleselect` types"
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - singleselect
+        options:
+          type: array
+          description: "Required when `type = singleselect`"
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+            required:
+              - label 
+              - value
+      required:
+        - key
+        - name
+        - type
     Integration:
       title: Integration
       type: object
