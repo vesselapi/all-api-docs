@@ -167,6 +167,13 @@
             "api-reference/crm/search-event-attendees"
           ]
         },
+        {
+          "group": "Lists",
+          "pages": [
+            "api-reference/crm/get-all-lists",
+            "api-reference/crm/get-list"
+          ]
+        },
         "api-reference/crm/authenticated-passthrough"
       ]
     },
