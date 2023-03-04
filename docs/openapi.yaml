@@ -4521,6 +4521,107 @@ paths:
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
       description: Retrieve Email by a set of Id's
     parameters: []
+  /crm/lists:
+    get:
+      summary: Get All Lists
+      tags:
+        - lists
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  lists:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ListWithoutAssociations"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    lists:
+                      - id: 006b4db16b6b50c981a174b02753c390
+                        nativeId: "34"
+                        name: California Leads
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      operationId: get-all-crm-lists
+      description: Retrieve all Lists
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+            enum:
+              - contact
+              - lead
+          in: query
+          name: objectType
+          description: The object type for the Lists
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+  /crm/list:
+    get:
+      summary: Get List
+      tags:
+        - lists
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  list:
+                    $ref: "#/components/schemas/ListWithAssociations"
+      operationId: get-one-crm-list
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: accessToken
+          description: The token for the customer's CRM account. This was generated when they connected their account.
+          required: true
+        - schema:
+            type: string
+            enum:
+              - contact
+              - lead
+          in: query
+          name: objectType
+          description: The object type for the Lists
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: allFields
+          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      description: Retrieve a single List by Id
   /crm/passthrough:
     post:
       summary: Passthrough Request
@@ -9188,6 +9289,83 @@ components:
         - key
         - name
         - type
+    ListWithAssociations:
+      title: List
+      type: object
+      description: "A List or View in a CRM"
+      properties:
+        id:
+          type: string
+          description: Id of the object.
+        nativeId:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+          description: The name of the list
+        createdTime:
+          type: string
+          description: The timestamp that the list was created
+        modifiedTime:
+          type: string
+          description: The timestamp the list was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - leadIds
+            - ownerUserId
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this list
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
+      required:
+        - id
+        - nativeId
+        - name
+        - createdTime
+        - modifiedTime
+        - associations
+    ListWithoutAssociations:
+      title: List
+      type: object
+      description: "A List or View in a CRM"
+      properties:
+        id:
+          type: string
+          description: Id of the object.
+        nativeId:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+          description: The name of the list
+        createdTime:
+          type: string
+          description: The timestamp that the list was created
+        modifiedTime:
+          type: string
+          description: The timestamp the list was last modified
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
+      required:
+        - id
+        - nativeId
+        - name
+        - createdTime
+        - modifiedTime
     Integration:
       title: Integration
       type: object
