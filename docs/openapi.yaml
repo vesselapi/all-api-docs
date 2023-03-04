@@ -9356,7 +9356,7 @@ components:
           description: The timestamp that the list was created
         modifiedTime:
           type: string
-          description: The timestamp the note was last modified
+          description: The timestamp the list was last modified
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
