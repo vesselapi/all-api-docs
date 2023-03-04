@@ -9353,7 +9353,7 @@ components:
           description: The name of the list
         createdTime:
           type: string
-          description: The timestamp that the note was created
+          description: The timestamp that the list was created
         modifiedTime:
           type: string
           description: The timestamp the note was last modified
