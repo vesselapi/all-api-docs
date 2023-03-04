@@ -9326,7 +9326,7 @@ components:
                 type: string
             ownerUserId:
               type: string
-              description: The Id of the User that owns this note
+              description: The Id of the User that owns this list
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
