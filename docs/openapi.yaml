@@ -5911,21 +5911,16 @@ paths:
                   value:
                     emails:
                       - id: 2322707bbc41577d9806400e2daa25de
-                        to: "micheal@dunder.mifflin"
-                        cc:
-                          - "tom@dunder.mifflin"
-                        bcc:
-                          - "scott@dunder.mifflin"
                         subject: "Re: Paper renewal"
-                        bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
-                        bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+                        hasReplied: true
                         isBounced: false
+                        openCount: 1
+                        clickCount: 2
+                        replyCount: null
                         modifiedTime: "2019-08-24T14:15:22Z"
                         createdTime: "2019-08-24T14:15:22Z"
                         associations:
-                          contactId: e5f32d4fd2115220bd20a2ccf81210ec
-                          taskId: 0dcb45e051315a6ea63b0f16e73689d9
-                          actionId: d08f345ace24509e911a0ea8e3d2203c
+                          sequenceId: d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -5958,22 +5953,16 @@ paths:
                   value:
                     email:
                       id: 2322707bbc41577d9806400e2daa25de
-                      nativeId: "122"
-                      to: "micheal@dunder.mifflin"
-                      cc:
-                        - "tom@dunder.mifflin"
-                      bcc:
-                        - "scott@dunder.mifflin"
                       subject: "Re: Paper renewal"
-                      bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
-                      bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+                      hasReplied: true
                       isBounced: false
+                      openCount: 1
+                      clickCount: 2
+                      replyCount: null
                       modifiedTime: "2019-08-24T14:15:22Z"
                       createdTime: "2019-08-24T14:15:22Z"
                       associations:
-                        contactId: e5f32d4fd2115220bd20a2ccf81210ec
-                        taskId: 0dcb45e051315a6ea63b0f16e73689d9
-                        actionId: d08f345ace24509e911a0ea8e3d2203c
+                        sequenceId: d08f345ace24509e911a0ea8e3d2203c
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                       additional: {}
       operationId: get-one-engagement-email
@@ -6942,45 +6931,34 @@ components:
       description: A email between a User and an external Contact
       examples:
         - id: 2322707bbc41577d9806400e2daa25de
-          to: "micheal@dunder.mifflin"
-          cc:
-            - "tom@dunder.mifflin"
-          bcc:
-            - "scott@dunder.mifflin"
           subject: "Re: Paper renewal"
-          bodyText: "Hey team, what's the status of our paper renewal? We're running low and need to get a new order in."
-          bodyHtml: "<p>Hey team, what's the status of our paper renewal? We're running low and need to get a new order in.</p>"
+          hasReplied: true
           isBounced: false
+          openCount: 1
+          clickCount: 2
+          replyCount: null
           modifiedTime: "2019-08-24T14:15:22Z"
           createdTime: "2019-08-24T14:15:22Z"
           associations:
-            contactId: e5f32d4fd2115220bd20a2ccf81210ec
-            taskId: 0dcb45e051315a6ea63b0f16e73689d9
-            actionId: d08f345ace24509e911a0ea8e3d2203c
+            sequenceId: d08f345ace24509e911a0ea8e3d2203c
             ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       properties:
         id:
           type: string
           description: Id of the object in the connected Engagement Platform.
-        to:
-          type: string
-        cc:
-          type: array
-          items:
-            type: string
-        bcc:
-          type: array
-          items:
-            type: string
         subject:
-          type: string
-        bodyText:
-          type: string
-        bodyHtml:
           type: string
         isBounced:
           type: boolean
+        hasReplied:
+          type: boolean
+        openCount:
+          type: number
+        clickCount:
+          type: number
+        replyCount:
+          type: number
         createdTime:
           type: string
           description: The timestamp that the email was created
@@ -6990,16 +6968,10 @@ components:
         associations:
           type: object
           required:
-            - taskId
-            - contactId
-            - actionId
+            - sequenceId
             - ownerUserId
           properties:
-            taskId:
-              type: string
-            contactId:
-              type: string
-            actionId:
+            sequenceId:
               type: string
             ownerUserId:
               type: string
