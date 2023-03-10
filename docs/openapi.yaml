@@ -5128,6 +5128,10 @@ paths:
                           state: Pennsylvania
                           postalCode: "281332"
                           country: USA
+                        openCount: 0
+                        clickCount: 3
+                        replyCount: 1
+                        bouncedCount: 1
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
@@ -5186,6 +5190,10 @@ paths:
                         state: Pennsylvania
                         postalCode: "281332"
                         country: USA
+                      openCount: 0
+                      clickCount: 3
+                      replyCount: 1
+                      bouncedCount: 1
                       createdTime: "2019-08-24T14:15:22Z"
                       modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
@@ -5362,6 +5370,10 @@ paths:
                           state: Pennsylvania
                           postalCode: "281332"
                           country: USA
+                        openCount: 0
+                        clickCount: 3
+                        replyCount: 1
+                        bouncedCount: 1
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
@@ -6600,7 +6612,7 @@ components:
           description: The timestamp that the user was created
         modifiedTime:
           type: string
-          description: The timestamp the user was last modified
+          description: Not supported by Apollo. The timestamp the user was last modified.
         associations:
           type: object
           required:
@@ -6646,6 +6658,10 @@ components:
             state: Pennsylvania
             postalCode: "281332"
             country: USA
+          openCount: 0
+          clickCount: 3
+          replyCount: 1
+          bouncedCount: 1
           createdTime: "2019-08-24T14:15:22Z"
           modifiedTime: "2019-08-24T14:15:22Z"
           associations:
@@ -6669,6 +6685,7 @@ components:
           type: string
         address:
           $ref: "#/components/schemas/EngAddress"
+          description: "Not supported by Apollo"
         emails:
           type: array
           items:
@@ -6677,6 +6694,18 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Phone"
+        openCount: 
+          type: number
+          description: "Not supported by Apollo"
+        clickCount: 
+          type: number
+          description: "Not supported by Apollo"
+        replyCount: 
+          type: number
+          description: "Not supported by Apollo"
+        bouncedCount:
+          type: number
+          description: "Not supported by Outreach & Apollo"
         createdTime:
           type: string
           description: The timestamp that the contact was created
@@ -6949,6 +6978,7 @@ components:
           type: number
         replyCount:
           type: number
+          description: Not supported in Outreach - use `hasReplied`.
         createdTime:
           type: string
           description: The timestamp that the email was created
@@ -7300,16 +7330,27 @@ components:
             type: string
         numSteps: 
           type: number
+          description: Not supported in Salesloft.
         scheduledCount: 
           type: number
         openedCount: 
           type: number
+          description: Not supported in Salesloft.
         optedOutCount: 
           type: number
+          description: Not supported in Salesloft.
         repliedCount: 
           type: number
+          description: Not supported in Salesloft.
         clickedCount: 
           type: number
+          description: Not supported in Salesloft.
+        createdTime:
+          type: string
+          description: The timestamp that the user was created
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified 
     EngSequenceStart:
       title: SequenceStart
       type: object
@@ -7339,6 +7380,13 @@ components:
           type: string
         isDefault: 
           type: boolean
+          description: Not supported by Outreach.
+        createdTime:
+          type: string
+          description: Not supported by Apollo. The timestamp that the user was created
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified 
         associations: 
           type: object
           properties:
