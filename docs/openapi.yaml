@@ -610,11 +610,6 @@ paths:
           name: id
           description: The id of the contact to get (takes precedence over email when both are included)
         - schema:
-            type: string
-          in: query
-          name: email
-          description: The email of the contact to get (concedes precedence over id when both are included)
-        - schema:
             type: boolean
           in: query
           name: allFields
