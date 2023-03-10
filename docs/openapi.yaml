@@ -2239,7 +2239,7 @@ paths:
   /crm/lead/custom-field:
     post:
       summary: Create Lead Custom Field
-      description: "Only supported for Salesforce and HubSpot"
+      description: "Supported for Salesforce and HubSpot"
       tags:
         - leadCustomFields
       operationId: post-lead-custom-field
@@ -7186,13 +7186,13 @@ components:
           type: string
         durationSeconds:
           type: number
-          description: Only supported for call actions. How long the call lasted, in seconds.
+          description: Supported for call actions. How long the call lasted, in seconds.
         phone:
           type: string
-          description: Only supported for call actions. The phone number called.
+          description: Supported for call actions. The phone number called.
         dispositionKey:
           type: string
-          description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
+          description: Supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
     EngTaskComplete:
       title: TaskComplete
       type: object
@@ -7214,13 +7214,13 @@ components:
           type: string
         durationSeconds:
           type: number
-          description: Only supported for call actions. How long the call lasted, in seconds.
+          description: Supported for call actions. How long the call lasted, in seconds.
         phone:
           type: string
-          description: Only supported for call actions. The phone number called.
+          description: Supported for call actions. The phone number called.
         dispositionKey:
           type: string
-          description: Only supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
+          description: Supported for call actions. The key of the disposition selected for the call. Call /call-dispositions for possible values.
     EngTaskCreate:
       title: TaskCreate
       type: object
