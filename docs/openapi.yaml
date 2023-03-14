@@ -608,7 +608,7 @@ paths:
             type: string
           in: query
           name: id
-          description: The id of the contact to get (takes precedence over email when both are included)
+          description: The id of the contact to get 
         - schema:
             type: boolean
           in: query
