@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /link/exchange'
+openapi: "POST /link/exchange"
 ---
 
 <RequestExample>
@@ -15,11 +15,11 @@ curl --request POST \
 ```
 
 ```js JavaScript Fetch
-fetch('https://api.vessel.land/link/exchange', {
-  method: 'POST',
+fetch("https://api.vessel.land/link/exchange", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'vessel-api-token': '',
+    "Content-Type": "application/json",
+    "vessel-api-token": "",
   },
   body: '{"publicToken":"string"}',
 })
@@ -60,7 +60,8 @@ print(data.decode("utf-8"))
   "connectionId": "string",
   "accessToken": "string",
   "integrationId": "string",
-  "nativeOrgId": "string"
+  "nativeOrgId": "string",
+  "nativeUserId": "string"
 }
 ```
 
