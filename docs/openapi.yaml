@@ -6187,7 +6187,12 @@ paths:
                       - hubspot
                       - pipedrive
                       - zoho
+                      - apollo
+                      - salesloft
+                      - outreach
                   nativeOrgId:
+                    type: string
+                  nativeUserId:
                     type: string
                   nativeOrgURL:
                     type: string
@@ -6196,6 +6201,7 @@ paths:
                   - accessToken
                   - integrationId
                   - nativeOrgId
+                  - nativeUserId
                   - nativeOrgURL
               examples: {}
       description: Exchanges the public token for an access token used to interact with the account. Store the access token in a secure location.
