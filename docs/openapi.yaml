@@ -9283,7 +9283,7 @@ components:
       properties:
         customKey:
           type: string
-          description: "Not supported for Close"
+          description: "Used for overriding the default key generated from the name of the field. Not supported for Close"
         name:
           type: string
         type:
