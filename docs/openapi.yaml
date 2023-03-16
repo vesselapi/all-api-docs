@@ -2256,8 +2256,9 @@ paths:
                   example-1:
                     success: true
                 properties:
-                  success:
-                    type: boolean
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
               examples:
                 example-1:
                   value:
@@ -9280,8 +9281,9 @@ components:
       type: object
       description: ""
       properties:
-        key:
+        customKey:
           type: string
+          description: "Used for overriding the default key generated from the name of the field. Not supported for Close"
         name:
           type: string
         type:
@@ -9302,7 +9304,6 @@ components:
               - name 
               - key
       required:
-        - key
         - name
         - type
     ListWithAssociations:
