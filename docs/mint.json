@@ -35,7 +35,11 @@
     },
     {
       "group": "How-To Guides",
-      "pages": ["getting-started", "in-depth-auth-tutorial", "accessing-native-data"]
+      "pages": [
+        "getting-started",
+        "in-depth-auth-tutorial",
+        "accessing-native-data"
+      ]
     },
     {
       "group": "References",
@@ -205,7 +209,6 @@
             "api-reference/engagement/create-account",
             "api-reference/engagement/update-account",
             "api-reference/engagement/search-accounts"
-
           ]
         },
         {
@@ -241,7 +244,8 @@
           "group": "Email",
           "pages": [
             "api-reference/engagement/get-all-emails",
-            "api-reference/engagement/get-email"
+            "api-reference/engagement/get-email",
+            "api-reference/engagement/search-emails"
           ]
         },
         {
@@ -253,10 +257,9 @@
         },
         {
           "group": "Mailbox",
-          "pages": [
-            "api-reference/engagement/get-all-mailboxes"
-          ]
-        }
+          "pages": ["api-reference/engagement/get-all-mailboxes"]
+        },
+        "api-reference/engagement/authenticated-passthrough"
       ]
     },
     {
