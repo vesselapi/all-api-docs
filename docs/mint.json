@@ -38,7 +38,11 @@
       "pages": [
         "getting-started",
         "in-depth-auth-tutorial",
-        "accessing-native-data"
+        "accessing-native-data",
+        {
+          "group": "Integrations",
+          "pages": ["integrations/apollo"]
+        }
       ]
     },
     {
