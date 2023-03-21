@@ -202,7 +202,9 @@
             "api-reference/engagement/get-contact",
             "api-reference/engagement/create-contact",
             "api-reference/engagement/update-contact",
-            "api-reference/engagement/search-contacts"
+            "api-reference/engagement/search-contacts",
+            "api-reference/engagement/create-contact-customField",
+            "api-reference/engagement/get-all-contact-customFields"
           ]
         },
         {
