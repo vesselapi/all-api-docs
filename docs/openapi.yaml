@@ -37,6 +37,7 @@ tags:
   - name: engTasks
   - name: engActions
   - name: engDispositions
+  - name: engPassthrough
 x-speakeasy-name-override:
   - operationId: post-*
     methodNameOverride: create
@@ -6220,7 +6221,7 @@ paths:
     post:
       summary: Passthrough Request
       tags:
-        - passthrough
+        - engPassthrough
       operationId: post-engagement-passthrough
       responses:
         "200":
@@ -6243,8 +6244,6 @@ paths:
                   body:
                     AnyValue:
                       description: The body of the response from the downstream Sales Engagement Platform.
-                required:
-                  - id
               examples:
                 example-1:
                   value:
