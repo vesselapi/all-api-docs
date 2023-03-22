@@ -5204,6 +5204,7 @@ paths:
                         taskIds:
                           - 2322707bbc41577d9806400e2daa25de
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      customFields: {}
                       additional: {}
       operationId: get-one-engagement-contact
       parameters:
@@ -5259,6 +5260,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    customFields: {}
                     additional: {}
       description: Create a new contact.
     patch:
@@ -5319,6 +5321,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    customFields: {}
                     additional: {}
           application/xml:
             schema:
@@ -5384,6 +5387,7 @@ paths:
                           taskIds:
                             - 2322707bbc41577d9806400e2daa25de
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        customFields: {}
                         additional: {}
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       requestBody:
@@ -5420,6 +5424,77 @@ paths:
                       address:
                         equals: fake@email.com
       description: Search contacts.
+  /engagement/contact/custom-fields:
+    get:
+      summary: Get All Custom Fields
+      tags: 
+        - engCustomFields
+      operationId: get-all-engagement-customFields
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  customFields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngContactCustomField"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    customFields:
+                      - key: customField1
+                        type: string
+                        additional: {}
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      description: Get all contact custom fields
+  /engagement/contact/custom-field:
+    post:
+      summary: Create Custom Field
+      tags: 
+        - engCustomFields
+      operationId: post-engagement-customFields
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  key:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    key: "customField1"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                customField:
+                  $ref: "#/components/schemas/EngContactCustomFieldCreate"
+              required:
+                - accessToken
+                - customField
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  customField:
+                    key: "customField1"
+      description: Create a contact custom field
   /engagement/tasks:
     get:
       summary: Get All Tasks
@@ -6828,6 +6903,7 @@ components:
             taskIds:
               - 2322707bbc41577d9806400e2daa25de
             ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          customFields: {}
           additional: {}
       description: "An known individual affiliated with an Account, Deal, etc"
       properties:
@@ -6889,6 +6965,9 @@ components:
                 type: string
             ownerUserId:
               type: string
+        customFields:
+          type: object
+          description: "Any custom fields associated with this contact"
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
@@ -6897,6 +6976,28 @@ components:
         - createdTime
         - modifiedTime
         - associations
+    EngContactCustomField:
+      title: ContactCustomField
+      type: object
+      examples:
+        - key: "customField1"
+          type: string
+          additional: {}
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+            - string
+          description: "Only string custom fields are currently supported"
+        additional:
+          type: object
+          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream Engagement Platform"
+      required:
+        - key
+        - type
+        - additional
     EngTask:
       title: Task
       type: object
@@ -7294,6 +7395,7 @@ components:
             state: Pennsylvania
             postalCode: "281332"
             country: USA
+          customFields: {}
           additional: {}
       description: Properties that a contact can be created with
       properties:
@@ -7321,6 +7423,9 @@ components:
                   - personal
             required: 
               - address
+        customFields:
+          type: object
+          description: "Set any custom fields on this contact's creation."
         additional:
           type: object
           description: "Create any property in the downstream Engagement Platform, such as a custom property."
@@ -7338,6 +7443,7 @@ components:
             state: Pennsylvania
             postalCode: "281332"
             country: USA
+          customFields: {}
           additional: {}
       description: Properties that a contact can be updated with
       properties:
@@ -7349,9 +7455,22 @@ components:
           type: string
         address:
           $ref: "#/components/schemas/EngAddress"
+        customFields:
+          type: object
+          description: "Update any custom fields."
         additional:
           type: object
           description: "Update any property in the downstream Engagement Platform, such as a custom property."
+    EngContactCustomFieldCreate:
+      title: ContactCustomFieldCreate
+      type: object
+      examples:
+        - key: "customField1"
+      properties:
+        key:
+          type: string
+      required:
+        - key
     ActionComplete:
       title: ActionComplete
       type: object
