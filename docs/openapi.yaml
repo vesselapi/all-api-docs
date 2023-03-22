@@ -37,6 +37,7 @@ tags:
   - name: engTasks
   - name: engActions
   - name: engDispositions
+  - name: engPassthrough
 x-speakeasy-name-override:
   - operationId: post-*
     methodNameOverride: create
@@ -5085,7 +5086,6 @@ paths:
                       equals:
                         "Acme Co."
       description: Search accounts.
-
   /engagement/contacts:
     get:
       summary: Get All Contacts
@@ -5420,7 +5420,6 @@ paths:
                       address:
                         equals: fake@email.com
       description: Search contacts.
-
   /engagement/tasks:
     get:
       summary: Get All Tasks
@@ -5975,6 +5974,77 @@ paths:
         - $ref: '#/components/parameters/allFields'
       description: "Retrieve a Email by Id."
     parameters: []
+  /engagement/emails/search:
+    post:
+        summary: Search Emails
+        tags: 
+          - engEmails
+        operationId: search-engagement-email
+        responses:
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  title: responseBody
+                  type: object
+                  properties:
+                    emails:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/EngEmail"
+                    nextPageCursor:
+                      type: string
+                examples:
+                  example-1:
+                    value:
+                      emails:
+                        - id: 2322707bbc41577d9806400e2daa25de
+                          subject: "Re: Paper renewal"
+                          hasReplied: true
+                          isBounced: false
+                          openCount: 1
+                          clickCount: 2
+                          replyCount: null
+                          modifiedTime: "2019-08-24T14:15:22Z"
+                          createdTime: "2019-08-24T14:15:22Z"
+                          associations:
+                            sequenceId: d08f345ace24509e911a0ea8e3d2203c
+                            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                          additional: {}
+                      nextPageCursor: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  filters:
+                    type: object
+                    properties: 
+                      sequenceId:
+                        type: object
+                        properties:
+                          equals:
+                            type: string
+                      contactId:
+                        type: object
+                        properties:
+                          equals:
+                            type: string
+                required:
+                  - accessToken
+                  - filters
+              examples:
+                example-1:
+                  value:
+                    accessToken: string
+                    filters:
+                      sequenceId:
+                        equals: d08f345ace24509e911a0ea8e3d2203c
+        description: Search emails.
   /engagement/call-dispositions:
     get:
       summary: Get All Call Dispositions
@@ -6147,6 +6217,86 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
+  /engagement/passthrough:
+    post:
+      summary: Passthrough Request
+      tags:
+        - engPassthrough
+      operationId: post-engagement-passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream Sales Engagement Platform.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream Sales Engagement Platform.
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://app.apollo.io/api/v1/mixed_people/search
+                    statusCode: 200
+                    body:
+                      contacts:
+                        - id: "63bf5589de4b97008b7605e7"
+                          first_name: "John"
+                          last_name: "Doe"
+                          name: "John Doe"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain so for a request to Apollo instead of using `https://app.apollo.io/api/v1/mixed_people/search` you would use `mixed_people/search`."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: POST
+                  path: mixed_people/search
+                  body:
+                    - contact_label_ids: 
+                      - "637d308edd8600000128060e"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream Sales Engagement Platform. This is useful for making requests to endpoints that are not yet supported by Vessel.
   /link/token:
     post:
       summary: Create Link Token

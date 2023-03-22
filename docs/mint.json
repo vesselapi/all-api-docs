@@ -248,7 +248,8 @@
           "group": "Email",
           "pages": [
             "api-reference/engagement/get-all-emails",
-            "api-reference/engagement/get-email"
+            "api-reference/engagement/get-email",
+            "api-reference/engagement/search-emails"
           ]
         },
         {
@@ -261,7 +262,8 @@
         {
           "group": "Mailbox",
           "pages": ["api-reference/engagement/get-all-mailboxes"]
-        }
+        },
+        "api-reference/engagement/authenticated-passthrough"
       ]
     },
     {

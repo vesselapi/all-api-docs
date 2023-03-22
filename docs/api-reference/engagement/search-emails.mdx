@@ -1,0 +1,25 @@
+---
+openapi: "POST /engagement/emails/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/engagement/emails/search \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "filters": {
+  "sequenceId": {
+      "equals": "d08f345ace24509e911a0ea8e3d2203c"
+    }
+  }
+}'
+```
+
+</RequestExample>
+
+**Caveats**  
+Supported for Outreach and Salesloft
