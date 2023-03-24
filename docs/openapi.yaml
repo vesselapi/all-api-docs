@@ -2859,6 +2859,8 @@ paths:
                       $ref: "#/components/schemas/StringFilter"
                     isDone:
                       $ref: "#/components/schemas/BooleanFilter"
+                    ownerUserId:
+                      $ref: "#/components/schemas/StringFilter"
                     createdTime:
                       $ref: "#/components/schemas/DateFilter"
                     modifiedTime:
@@ -2890,6 +2892,7 @@ paths:
                         dueDate: "2019-09-24T14:15:22Z"
                         status: Not Done
                         priority: High
+                        ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         modifiedTime: "2019-08-24T14:15:22Z"
                         createdTime: "2019-08-24T14:15:22Z"
                         associations:
