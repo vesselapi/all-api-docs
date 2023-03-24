@@ -6255,6 +6255,98 @@ paths:
                     mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
       description: Complete an action to move a prospect to the next step of a sequence.
     parameters: []
+  /engagement/sequence:
+    post: 
+      summary: Create Sequence
+      tags: 
+        - engSequences
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "2322707bbc41577d9806400e2daa25de"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                sequence:
+                  $ref: "#/components/schemas/EngSequenceCreate"
+              required:
+                - accessToken
+                - sequence
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  sequence:
+                    name: "Email Sequence"
+                    shareType: "team"
+                    additional: {}
+      operationId: post-engagement-sequences
+      description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequence/step endpoint.
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /engagement/sequence/step:
+    post: 
+      summary: Create Sequence Step
+      tags: 
+        - engSequences
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                steps:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/EngSequenceStepCreate"
+              required:
+                - accessToken
+                - steps
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  steps:
+                    - name: "Step 1 (Automated Email)"
+                      type: "auto_email"
+                      daysAfter: 2
+                      settings: 
+                        templateName: "Email Template"
+                        isReply: false
+                        subject: "Hello from Dunder!"
+                        body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+                      additional: {}
+      operationId: post-engagement-sequences-steps
+      description: Create one or more steps in a sequence.
+      security:
+        - VesselAPIToken: []
+    parameters: []
   /engagement/mailboxes:
     get: 
       summary: Get All Mailboxes
@@ -7584,7 +7676,7 @@ components:
     EngSequence:
       title: Sequence
       type: object
-      description: "Sequences in the connected engagement platform. These are often used to schedule outbound emails, or other tasks."
+      description: Properties that a sequence can be created with
       examples:
         - id: "2322707bbc41577d9806400e2daa25de"
           isEnabled: true
@@ -7630,6 +7722,86 @@ components:
         modifiedTime:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified 
+    EngSequenceCreate:
+      title: Create Sequence
+      type: object
+      description: 
+      examples:
+        - name: "Email Sequence"
+          shareType: "team"
+          additional: {}
+      properties: 
+        name: 
+          type: string
+        shareType:
+          type: string
+          enum:
+            - team
+            - private
+          description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
+        additional:
+          type: object
+          description: "Create any property in the downstream Engagement Platform, such as a custom property."
+      required:
+        - name
+        - shareType
+    EngSequenceStepSettingsCreate:
+      title: Create Sequence Step Settings
+      type: object
+      properties:
+        templateName:
+          type: string
+          description: "The name for this template"  
+        isReply:
+          type: boolean
+          description: "Whether or not this email is a reply to the previous step's email"
+        subject:  
+          type: string
+          description: "The subject line for this email"
+        body:
+          type: string
+          description: "The body of the email"
+    EngSequenceStepCreate:
+      title: Create Sequence Steps
+      type: object
+      description: properties that a sequence step can be created with
+      examples:
+        - name: "Step 1 (Automated Email)"
+          type: "auto_email"
+          daysAfter: 2
+          settings: 
+            templateName: "Email Template"
+            isReply: false
+            subject: "Hello from Dunder!"
+            body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+          additional: {}
+      properties: 
+        name: 
+          type: string
+        type:
+          type: string
+          enum:
+            - auto_email
+            - manual_email
+        daysAfter:
+          type: number
+          description: The number of days after the previous step that this step should be sent.  
+        settings:
+          $ref: "#/components/schemas/EngSequenceStepSettingsCreate"
+        shareType:
+          type: string
+          enum:
+            - team
+            - private
+          description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
+        additional:
+          type: object
+          description: "Use the additional property to make updates to properties in the Engagement Platform not current supported by Vessel."
+      required:
+        - name
+        - type
+        - settings
+        - shareType 
     EngSequenceStart:
       title: SequenceStart
       type: object

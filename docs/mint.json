@@ -258,7 +258,9 @@
           "group": "Sequence",
           "pages": [
             "api-reference/engagement/get-all-sequences",
-            "api-reference/engagement/start-sequence"
+            "api-reference/engagement/start-sequence",
+            "api-reference/engagement/create-sequence",
+            "api-reference/engagement/create-sequence-step"
           ]
         },
         {
