@@ -7792,12 +7792,6 @@ components:
           description: The number of days after the previous step that this step should be sent.  
         settings:
           $ref: "#/components/schemas/EngSequenceStepSettingsCreate"
-        shareType:
-          type: string
-          enum:
-            - team
-            - private
-          description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
         additional:
           type: object
           description: "Use the additional property to make updates to properties in the Engagement Platform not current supported by Vessel."
