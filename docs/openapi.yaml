@@ -5453,6 +5453,7 @@ paths:
                   value:
                     customFields:
                       - key: customField1
+                        name: Custom Field
                         type: string
                         additional: {}
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
@@ -7076,10 +7077,13 @@ components:
       type: object
       examples:
         - key: "customField1"
+          name: "Custom Field"
           type: string
           additional: {}
       properties:
         key:
+          type: string
+        name:
           type: string
         type:
           type: string
