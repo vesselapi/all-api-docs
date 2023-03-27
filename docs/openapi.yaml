@@ -4541,7 +4541,7 @@ paths:
                   value:
                     lists:
                       - id: 006b4db16b6b50c981a174b02753c390
-                        nativeId: "34"
+                        nativeId: "006b4db16b6b50c981a174b02753c390"
                         name: California Leads
                         modifiedTime: "2019-08-24T14:15:22Z"
                         createdTime: "2019-08-24T14:15:22Z"
@@ -4589,6 +4589,21 @@ paths:
                 properties:
                   list:
                     $ref: "#/components/schemas/ListWithAssociations"
+              examples:
+                example-1:
+                  value:
+                    list:
+                      id: "006b4db16b6b50c981a174b02753c390"
+                      nativeId: "006b4db16b6b50c981a174b02753c390"
+                      name: California Leads
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        leadIds:
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: v.user.006b4db16b6b50c981a174b02753c390
+                      nextPageCursor: string
       operationId: get-one-crm-list
       parameters:
         - schema:
@@ -9789,6 +9804,8 @@ components:
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
+        nextPageCursor:
+          type: string
       required:
         - id
         - nativeId
