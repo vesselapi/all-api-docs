@@ -7335,7 +7335,7 @@ components:
           type: number
         replyCount:
           type: number
-          description: Not supported in Outreach - use `hasReplied`.
+          description: Not supported in Outreach & Apollo - use `hasReplied`.
         createdTime:
           type: string
           description: The timestamp that the email was created
