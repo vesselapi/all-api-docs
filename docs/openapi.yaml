@@ -5145,6 +5145,7 @@ paths:
                           taskIds:
                             - 2322707bbc41577d9806400e2daa25de
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        customFields: {}
                         additional: {}
                     nextPageCursor: string
       operationId: get-all-engagement-contacts
