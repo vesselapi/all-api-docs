@@ -4648,6 +4648,10 @@ paths:
           name: id
           required: true
         - schema:
+            type: string
+          in: query
+          name: cursor
+        - schema:
             type: boolean
           in: query
           name: allFields
