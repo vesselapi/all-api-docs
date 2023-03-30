@@ -319,7 +319,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/user/batch:
-    get:
+    post:
       summary: Get Batch Users
       tags:
         - users
@@ -364,24 +364,31 @@ paths:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
       operationId: get-batch-crm-user
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of User Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Users by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of user Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.user.abc', 'v.user.xyz']
+      description: Retrieve users by a set of Ids
     parameters: []
   /crm/contacts:
     get:
@@ -842,7 +849,7 @@ paths:
                 ids:
                   type: array
                   items: string
-                  description: Comma separated list of Contact Id's.
+                  description: List of contact Ids.
                 allFields:
                   type: boolean
                   description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
@@ -855,7 +862,7 @@ paths:
                   accessToken: string
                   ids: ['v.contact.abc', 'v.contact.xyz']
       parameters: []
-      description: Retrieve Contacts by a set of Id's
+      description: Retrieve contacts by a set of Ids
     parameters: []
   /crm/deals:
     get:
@@ -1259,7 +1266,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/deal/batch:
-    get:
+    post:
       summary: Get Batch Deals
       tags:
         - deals
@@ -1310,24 +1317,31 @@ paths:
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-deal
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Deal Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Deals by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of deal Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.deal.abc', 'v.deal.xyz']
+      description: Retrieve deals by a set of Ids
     parameters: []
   /crm/accounts:
     get:
@@ -1841,7 +1855,7 @@ paths:
                 ids:
                   type: array
                   items: string
-                  description: Comma separated list of Account Id's.
+                  description: List of account Ids.
                 allFields:
                   type: boolean
                   description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
@@ -1852,9 +1866,9 @@ paths:
               example-1:
                 value:
                   accessToken: string
-                  ids: ['v.contact.abc', 'v.contact.xyz']
+                  ids: ['v.account.abc', 'v.account.xyz']
       parameters: []
-      description: Retrieve Accounts by a set of Id's
+      description: Retrieve accounts by a set of Ids
     parameters: []
   /crm/leads:
     get:
@@ -2294,7 +2308,7 @@ paths:
                 - accessToken
                 - customField
   /crm/lead/batch:
-    get:
+    post:
       summary: Get Batch Leads
       tags:
         - leads
@@ -2345,24 +2359,31 @@ paths:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
       operationId: get-batch-crm-lead
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Lead Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Leads by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of lead Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.lead.abc', 'v.lead.xyz']
+      description: Retrieve leads by a set of Ids
     parameters: []
   /crm/notes:
     get:
@@ -2716,7 +2737,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/note/batch:
-    get:
+    post:
       summary: Get Batch Notes
       tags:
         - notes
@@ -2756,24 +2777,31 @@ paths:
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-note
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Note Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Notes by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of note Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.note.abc', 'v.note.xyz']
+      description: Retrieve notes by a set of Ids
     parameters: []
   /crm/tasks:
     get:
@@ -3167,7 +3195,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/task/batch:
-    get:
+    post:
       summary: Get Batch Tasks
       tags:
         - tasks
@@ -3212,24 +3240,31 @@ paths:
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-task
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Task Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Tasks by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of task Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.task.abc', 'v.task.xyz']
+      description: Retrieve tasks by a set of Ids
     parameters: []
   /crm/events:
     get:
@@ -3623,7 +3658,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/event/batch:
-    get:
+    post:
       summary: Get Batch Events
       tags:
         - events
@@ -3671,24 +3706,31 @@ paths:
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-event
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Event Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response.
-      description: Retrieve Events by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of event Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.event.abc', 'v.event.xyz']
+      description: Retrieve events by a set of Ids
     parameters: []
   /crm/event/attendees:
     get:
@@ -4464,7 +4506,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/email/batch:
-    get:
+    post:
       summary: Get Batch Emails
       tags:
         - emails
@@ -4518,24 +4560,31 @@ paths:
                         ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                       additional: {}
       operationId: get-batch-crm-email
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Email Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
-      description: Retrieve Email by a set of Id's
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of email ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.email.abc', 'v.email.xyz']
+      description: Retrieve emails by a set of Ids
     parameters: []
   /crm/lists:
     get:
