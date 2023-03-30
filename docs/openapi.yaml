@@ -4020,7 +4020,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/event/attendee/batch:
-    get:
+    post:
       summary: Get Batch Event Attendees
       tags:
         - attendees
@@ -4054,23 +4054,30 @@ paths:
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
                         additional: {}
       operationId: get-batch-crm-event-attendee
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Event Attendee Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of event attendee Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.attendee.abc', 'v.attendee.xyz']
       description: Retrieve Event Attendees by a set of Id's
     parameters: []
   /crm/emails:
