@@ -778,7 +778,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/contact/batch:
-    get:
+    post:
       summary: Get Batch Contacts
       tags:
         - contacts
@@ -830,23 +830,31 @@ paths:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
       operationId: get-batch-crm-contact
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Contact Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: Comma separated list of Contact Id's.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.contact.abc', 'v.contact.xyz']
+      parameters: []
       description: Retrieve Contacts by a set of Id's
     parameters: []
   /crm/deals:
@@ -1763,7 +1771,7 @@ paths:
           name: allFields
           description: 'Returns details about native fields.'
   /crm/account/batch:
-    get:
+    post:
       summary: Get Batch Accounts
       tags:
         - accounts
@@ -1821,23 +1829,31 @@ paths:
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-account
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Account Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: Comma separated list of Account Id's.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.contact.abc', 'v.contact.xyz']
+      parameters: []
       description: Retrieve Accounts by a set of Id's
     parameters: []
   /crm/leads:
