@@ -205,8 +205,6 @@ paths:
   /crm/users/associations:
     post:
       summary: Associations for Users
-      tags:
-        - users-associations
       requestBody:
         content:
           application/json:
@@ -224,7 +222,7 @@ paths:
                   type: string
                 cursor:
                   type: string
-      operationId: associations-crm-users
+      operationId: get-all-crm-users-associations
       description: Associations for given User Ids
   /crm/user:
     get:
