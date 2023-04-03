@@ -202,6 +202,30 @@ paths:
         - $ref: '#/components/parameters/cursor'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/allFields'
+  /crm/users/associations:
+    post:
+      summary: Associations for Users
+      tags:
+        - users-associations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                objectType:
+                  type: string
+                  enum: [account, contact, deal, note, email, event, task]
+                ids:
+                  type: array
+                  items:
+                    type: string
+                accessToken:
+                  type: string
+                cursor:
+                  type: string
+      operationId: associations-crm-users
+      description: Associations for given User Ids
   /crm/user:
     get:
       summary: Get User

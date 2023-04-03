@@ -63,7 +63,8 @@
             "api-reference/crm/get-user",
             "api-reference/crm/get-user-details",
             "api-reference/crm/get-batch-user",
-            "api-reference/crm/search-users"
+            "api-reference/crm/search-users",
+            "api-reference/crm/get-all-users-associations"
           ]
         },
         {
