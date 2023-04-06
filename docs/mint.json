@@ -18,8 +18,7 @@
     "pages/actions/salesloft/salesloft.yaml",
     "pages/actions/slack/slack.yaml",
     "pages/actions/mailchimp/mailchimp.yaml",
-    "pages/actions/teams/teams.yaml",
-    "hidden/hidden.yaml"
+    "pages/actions/teams/teams.yaml"
   ],
   "hideFeedbackButtons": true,
   "logo": {
@@ -93,10 +92,6 @@
     }
   ],
   "navigation": [
-    {
-      "group": "hidden",
-      "pages": ["hidden/engagement/update-contact"]
-    },
     {
       "group": "Home",
       "pages": [
