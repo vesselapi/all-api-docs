@@ -5,42 +5,21 @@ description: "Powerful native go-to-market integrations in minutes"
 
 <img src="/images/home-cover.png" />
 
-Vessel is a powerful embedded integrations OS that allows you to build and deploy native GTM (Go-to-market) integrations across a variety of use cases in minutes. At its core, the Vessel platform is a set of modules (actions, unification, and ETL) built on top of a rich [open soruce integrations library](https://github.com/vesselapi/integrations).
+Vessel is a powerful embedded integrations OS that allows you to build and deploy native GTM (Go-to-market) integrations to connect to your customer's tools in minutes. At its core, the Vessel platform is a set of modules (actions, unification, and ETL) built on top of a rich [open soruce integrations library](https://github.com/vesselapi/integrations).
 
 ## Modules
 
 Each module serves a different purpose and provides a different way to interact with the integration data:
 
-1. **Unification**: Unified APIs provide an abstraction ontop of an entire vertical such as CRMs or Marketing Automation tools. Unified APIs make it easy to set up integrations with a large number of tools in a few lines of code by providing a single data schema and interface across common operations in a vertical. For instance, enrolling a contact in a sequence in any Sales Engagement tool becomes as easy as calling a single `/sequence/start` endpoint. We love to use unification when we have a use case that's common across a bunch of tools in one vertical.
-2. **Actions**: Actions are abstractions on top of the integration's native APIs that provide an additional layer of schema validation, error handling, typing, and generally make working with the native integration's APIs far simpler. We love to use Actions in cases where the unified API might be too restrictive or when working with objects that are harder to unify.
+1. **Unification**: Unified APIs provide an abstraction on top of an entire vertical such as CRMs or Marketing Automation tools. Unified APIs make it easy to set up integrations with a large number of tools in a few lines of code by providing a single data schema and interface across common operations in a vertical.
+2. **Actions**: Actions are abstractions on top of the integration's native APIs that provide an additional layer of schema validation, error handling, typing, and generally make working with the native integration's APIs far simpler and safer.
 3. **Managed ETL**: ETL or Extract Transform and Load is the process of extracting data from one system and loading it into another, usually a database you have in-house. Vessel's ETL module provides a simple way to set up a data pipeline that will extract data (either raw or in a unified schema) from a connected integration and load it into a database of your choice.
 
-If there's ever a case not covered by the modules above (this is rare), you can use the `/passthrough` endpoint for any integration or unified API to make an authenticated API call of any shape directly to the downstream provider.
+If there's ever a case not covered by the modules (this is rare), Vessel provides a `/passthrough` endpoint for any integration or unified API to make an authenticated API call of any shape directly to the downstream provider.
 
 ## Integrations
 
-For a full list of integrations we support you can check out our [integrations page](https://www.vessel.dev/integrations). If there's an integration you need that we don't currently support, don't hesitate to reach out or add a request to our [Canny board](https://vesselapi.canny.io/).
-
-Our CRM APIs support additional features like webhooks and filtering that our other APIs currently do not so they have their own setup process.
-
-<CardGroup cols={2}>
-  <Card
-    title="CRM Integrations"
-    icon="database"
-    color="#2B2B2F"
-    href="pages/crm/getting-started"
-  >
-    CRM Quick Start
-  </Card>
-  <Card
-    title="Other Integrations"
-    icon="circle"
-    color="#2B2B2F"
-    href="pages/hom/quick-start"
-  >
-    Sales Engagement, Marketing, Dialer, and Chat Quick start
-  </Card>
-</CardGroup>
+For a full list of integrations we support you can check out our [integrations page](https://www.vessel.dev/integrations). We're adding new integrations constantly, but if there's an integration you need that we don't currently support you can add a [request here](https://vesselapi.canny.io/).
 
 ## About us
 
