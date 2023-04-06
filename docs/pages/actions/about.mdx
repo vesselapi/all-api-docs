@@ -1,0 +1,26 @@
+---
+title: "About"
+description: Build deep integration, support objects and properties that aren't unifiable.
+---
+
+# About
+
+Actions are a first class interface for interacting with the integrations we support. Actions provide a significantly better developer experience than making a raw API call to the downstream platform by:
+
+1. Validating API responses and request inputs with zod.
+2. Providing well documented APIs so you don't need to refer to the downstream provider's documentation.
+3. Applying standardization across common data types and fields
+   3a. All dates are returned as ISO strings
+   3b. All ids are returned as strings
+4. Simplifing use cases for common workflows and handling common quirks in the integration.
+5. [Future] Strongly typed SDK.
+
+In general, actions are meant to make interfacing with downstream providers as effortless and efficient as possible making use cases like the Universal API and Managed ETL easy to build.
+
+# OSS Repo
+
+Actions are located in our integrations library which is fully OSS. You can view all actions and contribute new ones [here](https://github.com/vesselapi/integrations)
+
+# Support
+
+To request a new integration please use our [Canny board](https://vesselapi.canny.io/)

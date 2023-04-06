@@ -1,0 +1,788 @@
+openapi: 3.1.0
+info:
+  title: Dialer API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev/api"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/unification/dialer/users/list:
+    post:
+      summary: Get All Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        role: "agent"
+                        isAvailable: true
+                        availabilityStatus: "available"
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      operationId: get-all-users
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Users
+    parameters: []
+  /api/unification/dialer/users/find:
+    post:
+      summary: Get User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  user:
+                    $ref: "#/components/schemas/User"
+              examples:
+                example-1:
+                  value:
+                    user:
+                      id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      firstName: Micheal
+                      lastName: Scott
+                      email: micheal@dundermifflin.com
+                      role: "agent"
+                      isAvailable: true
+                      availabilityStatus: "available"
+                      createdTime: "2019-08-24T14:15:22Z"
+      operationId: get-one-user
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a single User by Id
+    parameters: []
+  /api/unification/dialer/contacts/list:
+    post:
+      summary: Get All Contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: e5f32d4fd2115220bd20a2ccf81210ec
+                        firstName: Tom
+                        lastName: Smith
+                        companyName: Dunder Mifflin
+                        description: "Tom Smith is a sales rep at Dunder Mifflin"
+                        phones: 
+                          - number: "8192223333"
+                            type: "work"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      operationId: get-all-contacts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Contacts
+    parameters: []
+  /api/unification/dialer/contacts/find:
+    post:
+      summary: Get Contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contact:
+                    $ref: "#/components/schemas/Contact"
+              examples:
+                example-1:
+                  value:
+                    contact:
+                      id: e5f32d4fd2115220bd20a2ccf81210ec
+                      firstName: Tom
+                      lastName: Smith
+                      companyName: Dunder Mifflin
+                      description: "Tom Smith is a sales rep at Dunder Mifflin"
+                      phones: 
+                        - number: "8192223333"
+                          type: "work"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+      operationId: get-one-contact
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a single Contact by Id
+    parameters: []
+  /api/unification/dialer/contacts/create:
+    post:
+      summary: Create Contact
+      operationId: post-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contact:
+                  $ref: "#/components/schemas/ContactCreate"
+              required:
+                - contact
+            examples:
+              example-1:
+                value:
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    companyName: Dunder Mifflin
+                    description: "Tom Smith is a sales rep at Dunder Mifflin"
+                    phones: 
+                      - number: "8192223333"
+                        type: "work"
+                    createdTime: "2019-08-24T14:15:22Z"
+                    modifiedTime: "2019-08-24T14:15:22Z"
+      description: Create a Contact
+  /api/unification/dialer/contacts/update:
+    post:
+      summary: Update Contact
+      operationId: put-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                contact:
+                  $ref: "#/components/schemas/ContactCreate"
+              required:
+                - id
+                - contact
+            examples:
+              example-1:
+                value:
+                  id: string
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    companyName: Dunder Mifflin
+                    description: "Tom Smith is a sales rep at Dunder Mifflin"
+                    phones: 
+                      - number: "8192223333"
+                        type: "work"
+                    createdTime: "2019-08-24T14:15:22Z"
+                    modifiedTime: "2019-08-24T14:15:22Z"
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Contact
+    parameters: []
+  /api/unification/dialer/calls/list:
+    post:
+      summary: Get All Calls
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  calls:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Call"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    calls:
+                      - id: e5f32d4fd2115220bd20a2ccf81210ec
+                        to: 
+                          - number: "8192223333"
+                        from: 
+                          - number: "8192223333"
+                        direction: "outbound"
+                        startTime: "2019-08-24T14:15:22Z"
+                        connectedTime: "2019-08-24T14:15:22Z"
+                        endTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          users:
+                            - id: 34f5b4b0b6b650c981a174b02753c390
+                              number: "8192223333"
+                          contacts:
+                            - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                              number: "8192223334"
+                    nextPageCursor: string
+      operationId: get-all-calls
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Calls
+    parameters: []
+  /api/unification/dialer/calls/find:
+    post:
+      summary: Get Call
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  call:
+                    $ref: "#/components/schemas/Call"
+              examples:
+                example-1:
+                  value:
+                    call:
+                      id: e5f32d4fd2115220bd20a2ccf81210ec
+                      to: 
+                        - number: "8192223333"
+                      from: 
+                        - number: "8192223333"
+                      direction: "outbound"
+                      startTime: "2019-08-24T14:15:22Z"
+                      connectedTime: "2019-08-24T14:15:22Z"
+                      endTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        users:
+                          - id: 34f5b4b0b6b650c981a174b02753c390
+                            number: "8192223333"
+                        contacts:
+                          - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                            number: "8192223334"
+      operationId: get-one-call
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a single Call by Id
+    parameters: []
+  /api/unification/dialer/calls/start:
+    post:
+      summary: Start a Call
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  call:
+                    $ref: "#/components/schemas/Call"
+              examples:
+                example-1:
+                  value:
+                    call:
+                      id: e5f32d4fd2115220bd20a2ccf81210ec
+                      to: 
+                        - number: "8192223333"
+                      from: 
+                        - number: "8192223333"
+                      direction: "outbound"
+                      startTime: "2019-08-24T14:15:22Z"
+                      connectedTime: "2019-08-24T14:15:22Z"
+                      endTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        users:
+                          - id: 34f5b4b0b6b650c981a174b02753c390
+                            number: "8192223333"
+                        contacts:
+                          - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                            number: "8192223334"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      operationId: start-call
+      description: Start a Call
+    parameters: []
+  /api/passthrough/dialer:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
+components:
+  schemas:
+    Phone: 
+      title: Phone
+      type: object
+      properties:
+        number:
+          type: string
+          description: The phone number
+        type:
+          type: string
+      example:
+        number: "555-555-5555"
+        type: "work"
+    User:
+      title: User
+      type: object
+      description: "Users of the connected Dialer. These are *not* the contacts, but rather the user accounts from the connected Dialer."
+      examples:
+        - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+          firstName: Micheal
+          lastName: Scott
+          email: micheal@dundermifflin.com
+          role: "agent"
+          isAvailable: true
+          availabilityStatus: "available"
+          createdTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Dialer.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          format: email
+          type: string
+        role:
+          type: string
+          enum:
+            - agent
+            - admin
+        isAvailable:
+          type: boolean
+        availabilityStatus:
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the user was created
+      required:
+        - id
+        - createdTime
+    ContactCreate:
+      title: ContactCreate
+      type: object
+      examples:
+        - firstName: Tom
+          lastName: Smith
+          companyName: Dunder Mifflin
+          description: "Tom Smith is a sales rep at Dunder Mifflin"
+          phones: 
+            - number: "8192223333"
+              type: "work"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        description:
+          type: string
+        phones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+        createdTime:
+          type: string
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          description: The timestamp the contact was last modified
+      required:
+        - createdTime
+        - modifiedTime
+    Contact:
+      title: Contact
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          firstName: Tom
+          lastName: Smith
+          companyName: Dunder Mifflin
+          description: "Tom Smith is a sales rep at Dunder Mifflin"
+          phones: 
+            - number: "8192223333"
+              type: "work"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Dialer.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        description:
+          type: string
+        phones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+        createdTime:
+          type: string
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          description: The timestamp the contact was last modified
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+    Call:
+      title: Call
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          to: 
+            - number: "8192223333"
+          from: 
+            - number: "8192223333"
+          direction: "outbound"
+          startTime: "2019-08-24T14:15:22Z"
+          connectedTime: "2019-08-24T14:15:22Z"
+          endTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            users:
+              - id: 34f5b4b0b6b650c981a174b02753c390
+                number: "8192223333"
+            contacts:
+              - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+                number: "8192223334"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Dialer.
+        to:
+          type: array
+          items:
+            - number: 
+                type: string
+        from:
+          type: array
+          items:
+            - number: 
+                type: string
+        direction:
+          type: string
+          enum:
+            - inbound
+            - outbound
+        startTime:
+          type: string
+        connectedTime:
+          type: string
+        endTime:
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          description: The timestamp the contact was last modified
+        associations:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                - id: 
+                    type: string
+                  number:
+                    type: string
+            contacts:
+              type: array
+              items:
+                - id: 
+                    type: string
+                  number:
+                    type: string
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+  securitySchemes:
+    VesselAPIToken:
+      name: x-vessel-api-token
+      type: apiKey
+      in: header

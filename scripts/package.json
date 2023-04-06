@@ -1,0 +1,26 @@
+{
+  "name": "scripts",
+  "private": true,
+  "scripts": {
+    "build-docs": "ts-node ./src/replace-integrations-library.ts; ts-node ./src/build-docs.ts"
+  },
+  "dependencies": {
+    "@babel/register": "^7.21.0",
+    "@vesselapi/integrations": "latest",
+    "ajv": "^8.12.0",
+    "chalk": "^5.2.0",
+    "js-yaml": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rcv.46",
+    "minimist": "^1.2.8",
+    "openapi-zod-client": "^1.6.1",
+    "radash": "^10.8.1",
+    "zod-to-json-schema": "^3.20.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@types/babel__core": "^7.20.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/minimist": "^1.2.2"
+  }
+}

@@ -1,0 +1,33 @@
+---
+openapi: "POST /api/unificationengagement/sequences/steps/create"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/unificationengagement/sequences/steps/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "steps": [
+    {
+      "name": "Step 1 (Automated Email)",
+      "type": "auto_email",
+      "daysAfter": 2,
+      "settings": {
+        "templateName": "Email Template",
+        "isReply": false,
+        "subject": "Hello from Dunder!",
+        "body": "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+      }
+    }
+  ]
+}'
+```
+
+</RequestExample>
+
+
+      

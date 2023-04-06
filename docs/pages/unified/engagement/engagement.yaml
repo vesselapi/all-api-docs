@@ -1,0 +1,2043 @@
+openapi: 3.1.0
+info:
+  title: Sales Engagement API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev/api"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/unificationengagement/users/list:
+    post:
+      summary: Get All Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      operationId: get-all-users
+      description: Retrieve all Users
+    parameters: []
+  /api/unificationengagement/users/find:
+    post:
+      summary: Get User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  user:
+                    $ref: "#/components/schemas/User"
+              examples:
+                example-1:
+                  value:
+                    user:
+                      id: 34f5b4b0b6b650c981a174b02753c390
+                      firstName: Micheal
+                      lastName: Scott
+                      email: micheal@dundermifflin.com
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+      operationId: get-one-user
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a single User by Id
+    parameters: []
+  /api/unificationengagement/accounts/list:
+    post:
+      summary: Get All Accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: 59f5b4b0b6b650c981a174b02753c390
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        locality: Scranton
+                        address:
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-accounts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: |-
+        Retrieve all Accounts
+    parameters: []
+  /api/unificationengagement/accounts/find:
+    post:
+      summary: Get Account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  account:
+                    $ref: "#/components/schemas/Account"
+              examples:
+                example-1:
+                  value:
+                    account:
+                      - id: 59f5b4b0b6b650c981a174b02753c390
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        locality: Scranton
+                        address:
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-account
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a single Account by Id
+  /api/unificationengagement/accounts/create:
+    post:
+      summary: Create Account
+      operationId: post-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                account:
+                  $ref: "#/components/schemas/AccountCreate"
+              required:
+                - account
+            examples:
+              example-1:
+                value:
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+      description: Create a new Account
+  /api/unificationengagement/accounts/update:
+    post:
+      summary: Update Account
+      tags: 
+        - Accounts
+      operationId: put-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                account:
+                  $ref: "#/components/schemas/AccountUpdate"
+              required:
+                - id
+                - account
+            examples:
+              example-1:
+                value:
+                  id: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Account
+    parameters: []
+  /api/unificationengagement/accounts/search:
+    post:
+      summary: Search Accounts
+      operationId: search-account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: "15"
+                        name: "test account"
+                        createdTime: "2023-02-17T21:28:30.000Z"
+                        modifiedTime: "2023-02-18T01:57:12.000Z"
+                        description: null
+                        industry: null
+                        numberOfEmployees: null
+                        domain: "vessel.dev"
+                        website: null
+                        address: null
+                        phone: null
+                        locality: "San Francisco"
+                        associations:
+                            ownerUserId: "1"
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  properties: 
+                    name:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+                    domain:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+              required:
+                - filters
+            examples:
+              example-1:
+                value:
+                  filters:
+                    name:
+                      equals:
+                        "Acme Co."
+      description: Search Accounts
+  /api/unificationengagement/contacts/list:
+    post:
+      summary: Get All Contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phones: 
+                          - number: "8192223333"
+                            type: "work"
+                            isPrimary: true
+                        emails: 
+                          - address: "tom@dunder.com"
+                            type: "work"
+                            isPrimary: true
+                        address: 
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        openCount: 0
+                        clickCount: 3
+                        replyCount: 1
+                        bouncedCount: 1
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        customFields: {}
+                    nextPageCursor: string
+      operationId: get-all-contacts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Contacts
+    parameters: []
+  /api/unificationengagement/contacts/find:
+    post:
+      summary: Get Contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contact:
+                    $ref: "#/components/schemas/Contact"
+              examples:
+                example-1:
+                  value:
+                    contact:
+                      id: 34f5b4b0b6b650c981a174b02753c390
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      phones: 
+                        - number: "8192223333"
+                          type: "work"
+                          isPrimary: true
+                      emails: 
+                        - address: "tom@dunder.com"
+                          type: "work"
+                          isPrimary: true
+                      address: 
+                        line1: 100 Blue Dr
+                        line2: Suite 100
+                        city: Scranton
+                        state: Pennsylvania
+                        postalCode: "281332"
+                        country: USA
+                      openCount: 0
+                      clickCount: 3
+                      replyCount: 1
+                      bouncedCount: 1
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      customFields: {}
+      operationId: get-one-contact
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: Retrieve a Contact by Id
+  /api/unificationengagement/contacts/create:
+    post:
+      summary: Create Contact
+      operationId: post-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contact:
+                  $ref: "#/components/schemas/ContactCreate"
+              required:
+                - contact
+            examples:
+              example-1:
+                value:
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    address: 
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    customFields: {}
+      description: Create a Contact
+  /api/unificationengagement/contacts/update:
+    post:
+      summary: Update Contact
+      operationId: put-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                contact:
+                  $ref: "#/components/schemas/ContactUpdate"
+              required:
+                - id
+                - contact
+            examples:
+              example-1:
+                value:
+                  id: string
+                  contact:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    address: 
+                      line1: 100 Blue Dr
+                      line2: Suite 100
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+                    customFields: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Contact
+    parameters: []
+  /api/unificationengagement/contacts/search:
+    post:
+      summary: Search Contacts
+      operationId: search-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phones: 
+                          - number: "8192223333"
+                            type: "work"
+                            isPrimary: true
+                        emails: 
+                          - address: "tom@dunder.com"
+                            type: "work"
+                            isPrimary: true
+                        address: 
+                          line1: 100 Blue Dr
+                          line2: Suite 100
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        openCount: 0
+                        clickCount: 3
+                        replyCount: 1
+                        bouncedCount: 1
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                        customFields: {}
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  properties: 
+                    emails:
+                      type: object
+                      properties:
+                        address:
+                          type: object
+                          properties:
+                            equals:
+                              type: string
+                          required: equals
+                      required: address
+                  required: emails
+              required:
+                - filters
+            examples:
+              example-1:
+                value:
+                  filters:
+                    emails:
+                      address:
+                        equals: fake@email.com
+      description: Search Contacts
+  /api/unificationengagement/contact/custom-fields/list:
+    post:
+      summary: Get All Custom Fields
+      operationId: get-all-customFields
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  customFields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ContactCustomField"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    customFields:
+                      - key: customField1
+                        name: Custom Field
+                        type: string
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      description: Get all Contact Custom Fields
+  /api/unificationengagement/contact/custom-fields/create:
+    post:
+      summary: Create Custom Field
+      operationId: post-customFields
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  key:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    key: "customField1"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customField:
+                  $ref: "#/components/schemas/ContactCustomFieldCreate"
+              required:
+                - customField
+            examples:
+              example-1:
+                value:
+                  customField:
+                    key: "customField1"
+      description: Create a Contact Custom Field
+  /api/unificationengagement/emails/list:
+    post:
+      summary: Get All Emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        subject: "Re: Paper renewal"
+                        hasReplied: true
+                        isBounced: false
+                        openCount: 1
+                        clickCount: 2
+                        replyCount: null
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          sequenceId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-emails
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Emails
+    parameters: []
+  /api/unificationengagement/emails/find:
+    post:
+      summary: Get Email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  email:
+                    $ref: "#/components/schemas/Email"
+              examples:
+                example-1:
+                  value:
+                    email:
+                      id: 2322707bbc41577d9806400e2daa25de
+                      subject: "Re: Paper renewal"
+                      hasReplied: true
+                      isBounced: false
+                      openCount: 1
+                      clickCount: 2
+                      replyCount: null
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        sequenceId: d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-email
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: "123123"
+      description: "Retrieve a Email by Id"
+    parameters: []
+  /api/unificationengagement/emails/search:
+    post:
+        summary: Search Emails
+        operationId: search-email
+        responses:
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  title: responseBody
+                  type: object
+                  properties:
+                    emails:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/Email"
+                    nextPageCursor:
+                      type: string
+                examples:
+                  example-1:
+                    value:
+                      emails:
+                        - id: 2322707bbc41577d9806400e2daa25de
+                          subject: "Re: Paper renewal"
+                          hasReplied: true
+                          isBounced: false
+                          openCount: 1
+                          clickCount: 2
+                          replyCount: null
+                          modifiedTime: "2019-08-24T14:15:22Z"
+                          createdTime: "2019-08-24T14:15:22Z"
+                          associations:
+                            sequenceId: d08f345ace24509e911a0ea8e3d2203c
+                            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      nextPageCursor: string
+        parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filters:
+                    type: object
+                    properties: 
+                      sequenceId:
+                        type: object
+                        properties:
+                          equals:
+                            type: string
+                      contactId:
+                        type: object
+                        properties:
+                          equals:
+                            type: string
+                required:
+                  - filters
+              examples:
+                example-1:
+                  value:
+                    filters:
+                      sequenceId:
+                        equals: d08f345ace24509e911a0ea8e3d2203c
+        description: Search Emails
+  /api/unificationengagement/sequences/list:
+    post: 
+      summary: Get All Sequences
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  sequences:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Sequence"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    sequences:
+                      - id: "2322707bbc41577d9806400e2daa25de"
+                        isEnabled: true
+                        name: "Reaching out about My Company"
+                        tags: ["cold"]
+                        numSteps: 1
+                        scheduledCount: 0
+                        openedCount: 0
+                        optedOutCount: 0
+                        repliedCount: 0
+                        clickedCount: 0
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      operationId: get-all-sequences
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Sequences
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/unificationengagement/sequence/start:
+    post:
+      summary: Start Sequence
+      operationId: post-start-sequence
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id: 
+                  type: string
+                fields:
+                  $ref: "#/components/schemas/SequenceStart"
+              required:
+                - id
+                - fields  
+            examples:
+              example-1:
+                value:
+                  id: 939f3f91233b4b0e8f0f2a0f2a0f2a0f
+                  fields:
+                    contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
+                    mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
+      description: Start a contact on a sequence.
+    parameters: []
+  /api/unificationengagement/sequences/create:
+    post: 
+      summary: Create Sequence
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "2322707bbc41577d9806400e2daa25de"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sequence:
+                  $ref: "#/components/schemas/SequenceCreate"
+              required:
+                - sequence
+            examples:
+              example-1:
+                value:
+                  sequence:
+                    name: "Email Sequence"
+                    shareType: "team"
+      operationId: post-sequences
+      description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequences/steps/create endpoint.
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/unificationengagement/sequences/steps/create:
+    post: 
+      summary: Create Sequence Step
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                steps:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/SequenceStepCreate"
+              required:
+                - steps
+            examples:
+              example-1:
+                value:
+                  steps:
+                    - name: "Step 1 (Automated Email)"
+                      type: "auto_email"
+                      daysAfter: 2
+                      settings: 
+                        templateName: "Email Template"
+                        isReply: false
+                        subject: "Hello from Dunder!"
+                        body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+      operationId: post-sequences-steps
+      description: Create one or more steps in a sequence.
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/unificationengagement/mailboxes/list:
+    post: 
+      summary: Get All Mailboxes
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  mailboxes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Mailbox"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    mailboxes:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        email: fake@email.com
+                        isDefault: true
+                        associations: 
+                          ownerUserId: d9806400e2daa25de2322707bbc41577
+                    nextPageCursor: d9806400e2daa25de2322707bbc41577
+      operationId: get-all-mailboxes
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      description: Retrieve all Mailboxes
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/passthrough/engagement:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
+components:
+  schemas:
+    EmailAddress: 
+      title: EmailAddress
+      type: object
+      properties:
+        address:
+          type: string
+          description: The email address
+        type:
+          type: string
+          enum:
+            - work
+            - personal
+        isPrimary:
+          type: boolean
+          description: Whether this is the primary email address
+      example:
+        address: "tom@dunder.com"
+        type: "work"
+        isPrimary: true
+    Phone: 
+      title: Phone
+      type: object
+      properties:
+        number:
+          type: string
+          description: The phone number
+        type:
+          type: string
+          enum:
+            - work
+            - personal
+            - other
+        isPrimary:
+          type: boolean
+          description: Whether this is the primary phone number
+      example:
+        number: "555-555-5555"
+        type: "work"
+        isPrimary: true
+    Address:
+      title: Address
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+      examples:
+        - line1: 123 Main St
+          line2: Apt 1
+          city: San Francisco
+          state: CA
+          postalCode: 94105
+          country: US
+    Account:
+      title: Account
+      type: object
+      examples:
+        - id: "344"
+          name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
+          locality: Scranton
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          associations:
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: "(Alias: company, organization) An organization involved with your business."
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        locality:
+          type: string
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+        createdTime:
+          type: string
+          description: The timestamp that the account was created
+        modifiedTime:
+          type: string
+          description: The timestamp the account was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - ownerUserId
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Account
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    User:
+      title: User
+      type: object
+      description: "Users of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform."
+      examples:
+        - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+          firstName: Micheal
+          lastName: Scott
+          email: micheal@dundermifflin.com
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          format: email
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the user was created.
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified.
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+    Contact:
+      title: Contact
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          phones: 
+            - number: "8192223333"
+              type: "work"
+              isPrimary: true
+          emails: 
+            - address: "tom@dunder.com"
+              type: "work"
+              isPrimary: true
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          openCount: 0
+          clickCount: 3
+          replyCount: 1
+          bouncedCount: 1
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            accountId: 0dcb45e051315a6ea63b0f16e73689d9
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+          customFields: {}
+      description: "An known individual affiliated with an Account, Deal, etc"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+          description: "Not supported by Apollo"
+        emails:
+          type: array
+          items:
+            $ref: "#/components/schemas/EmailAddress"
+        phones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+        openCount: 
+          type: number
+          description: "Not supported by Apollo"
+        clickCount: 
+          type: number
+          description: "Not supported by Apollo"
+        replyCount: 
+          type: number
+          description: "Not supported by Apollo"
+        bouncedCount:
+          type: number
+          description: "Not supported by Outreach & Apollo"
+        createdTime:
+          type: string
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          description: The timestamp the contact was last modified
+        associations:
+          type: object
+          required:
+            - accountId
+            - ownerUserId
+          properties:
+            accountId:
+              type: string
+            ownerUserId:
+              type: string
+        customFields:
+          type: object
+          description: "Any custom fields associated with this contact"
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    ContactCustomField:
+      title: ContactCustomField
+      type: object
+      examples:
+        - key: "customField1"
+          name: "Custom Field"
+          type: string
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - string
+          description: "Only string custom fields are currently supported"
+      required:
+        - key
+        - type
+    Email:
+      title: Email
+      type: object
+      description: A email between a User and an external Contact
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          subject: "Re: Paper renewal"
+          hasReplied: true
+          isBounced: false
+          openCount: 1
+          clickCount: 2
+          replyCount: null
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            sequenceId: d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        subject:
+          type: string
+        isBounced:
+          type: boolean
+        hasReplied:
+          type: boolean
+        openCount:
+          type: number
+        clickCount:
+          type: number
+        replyCount:
+          type: number
+          description: Not supported in Outreach & Apollo - use `hasReplied`.
+        createdTime:
+          type: string
+          description: The timestamp that the email was created
+        modifiedTime:
+          type: string
+          description: The timestamp the email was last modified
+        associations:
+          type: object
+          required:
+            - sequenceId
+            - ownerUserId
+          properties:
+            sequenceId:
+              type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Action
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    AccountCreate:
+      title: AccountCreate
+      type: object
+      examples:
+        - name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          phone: "8192223333"
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+      description: Properties that an account can be created with
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+      required:
+        - name
+    AccountUpdate:
+      title: AccountUpdate
+      type: object
+      examples:
+        - name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          phone: "8192223333"
+          address:
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+      description: Properties that an account can be update with
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account.
+        industry:
+          type: string
+          description: The industry that this Account belongs to (e.g. "Healthcare", "Technology", etc.)
+        numberOfEmployees:
+          type: number
+        website:
+          type: string
+        phone:
+          type: string
+          description: The primary phone number.
+        address:
+          $ref: "#/components/schemas/Address"
+    ContactCreate:
+      title: ContactCreate
+      type: object
+      examples:
+        - firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          emails:
+            - address: fake@email.com
+              type: work
+              isPrimary: true
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          customFields: {}
+      description: Properties that a contact can be created with
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+        emails:
+          type: array
+          items: 
+            type: object
+            properties:
+              address: 
+                type: string
+              isPrimary:
+                type: boolean
+              type:
+                type: string
+                enum:
+                  - work
+                  - personal
+            required: 
+              - address
+        customFields:
+          type: object
+          description: "Set any custom fields on this contact's creation."
+    ContactUpdate:
+      title: ContactUpdate
+      type: object
+      examples:
+        - firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          address: 
+            line1: 100 Blue Dr
+            line2: Suite 100
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          customFields: {}
+      description: Properties that a contact can be updated with
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+        customFields:
+          type: object
+          description: "Update any custom fields."
+    ContactCustomFieldCreate:
+      title: ContactCustomFieldCreate
+      type: object
+      examples:
+        - key: "customField1"
+      properties:
+        key:
+          type: string
+      required:
+        - key
+    Sequence:
+      title: Sequence
+      type: object
+      description: Properties that a sequence can be created with
+      examples:
+        - id: "2322707bbc41577d9806400e2daa25de"
+          isEnabled: true
+          name: "Reaching out about My Company"
+          tags: ["cold"]
+          numSteps: 1
+          scheduledCount: 0
+          openedCount: 0
+          optedOutCount: 0
+          repliedCount: 0
+          clickedCount: 0
+      properties: 
+        id: 
+          type: string
+        isEnabled: 
+          type: boolean
+        name: 
+          type: string
+        tags: 
+          type: array
+          items:
+            type: string
+        numSteps: 
+          type: number
+          description: Not supported in Salesloft.
+        scheduledCount: 
+          type: number
+        openedCount: 
+          type: number
+          description: Not supported in Salesloft.
+        optedOutCount: 
+          type: number
+          description: Not supported in Salesloft.
+        repliedCount: 
+          type: number
+          description: Not supported in Salesloft.
+        clickedCount: 
+          type: number
+          description: Not supported in Salesloft.
+        createdTime:
+          type: string
+          description: The timestamp that the user was created
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified 
+    SequenceCreate:
+      title: Create Sequence
+      type: object
+      description: 
+      examples:
+        - name: "Email Sequence"
+          shareType: "team"
+      properties: 
+        name: 
+          type: string
+        shareType:
+          type: string
+          enum:
+            - team
+            - private
+          description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
+      required:
+        - name
+        - shareType
+    SequenceStepSettingsCreate:
+      title: Create Sequence Step Settings
+      type: object
+      properties:
+        templateName:
+          type: string
+          description: "The name for this template"  
+        isReply:
+          type: boolean
+          description: "Whether or not this email is a reply to the previous step's email"
+        subject:  
+          type: string
+          description: "The subject line for this email"
+        body:
+          type: string
+          description: "The body of the email"
+    SequenceStepCreate:
+      title: Create Sequence Steps
+      type: object
+      description: properties that a sequence step can be created with
+      examples:
+        - name: "Step 1 (Automated Email)"
+          type: "auto_email"
+          daysAfter: 2
+          settings: 
+            templateName: "Email Template"
+            isReply: false
+            subject: "Hello from Dunder!"
+            body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+      properties: 
+        name: 
+          type: string
+        type:
+          type: string
+          enum:
+            - auto_email
+            - manual_email
+        daysAfter:
+          type: number
+          description: The number of days after the previous step that this step should be sent.  
+        settings:
+          $ref: "#/components/schemas/SequenceStepSettingsCreate"
+      required:
+        - name
+        - type
+        - settings
+        - shareType 
+    SequenceStart:
+      title: SequenceStart
+      type: object
+      description: "Start a sequence"
+      examples: 
+        - contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
+          mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
+      properties: 
+        contactId: 
+          type: string
+        mailboxId:
+          type: string
+    Mailbox: 
+      title: Mailbox
+      type: object
+      description: "Mailboxes in the connected Engagement platform. These are email accounts that outbound emails will be sent from."
+      examples:
+        - id: 2322707bbc41577d9806400e2daa25de
+          email: fake@email.com
+          isDefault: true
+          associations: 
+            ownerUserId: d9806400e2daa25de2322707bbc41577
+      properties: 
+        id: 
+          type: string
+        email: 
+          type: string
+        isDefault: 
+          type: boolean
+          description: Not supported by Outreach.
+        createdTime:
+          type: string
+          description: Not supported by Apollo. The timestamp that the user was created
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified 
+        associations: 
+          type: object
+          properties:
+            ownerUserId: 
+              type: string
+  securitySchemes:
+    VesselAPIToken:
+      name: x-vessel-api-token
+      type: apiKey
+      in: header

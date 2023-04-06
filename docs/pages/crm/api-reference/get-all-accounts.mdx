@@ -1,0 +1,17 @@
+---
+openapi: "GET /crm/accounts"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request GET \
+  --url https://api.vessel.dev/crm/accounts \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: '
+```
+
+</RequestExample>
+
+**CRM Caveats**  
+Pipedrive: dealIds + contactIds not supported when querying for all accounts

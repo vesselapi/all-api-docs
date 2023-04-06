@@ -1,0 +1,35 @@
+---
+openapi: "POST /api/unification/dialer/contacts/update"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/unification/dialer/contacts/update \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "id": "string",
+  "contact": {
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "companyName": "Dunder Mifflin",
+    "description": "Tom Smith is a sales rep at Dunder Mifflin",
+    "phones": [
+      {
+        "number": "8192223333",
+        "type": "work"
+      }
+    ],
+    "createdTime": "2019-08-24T14:15:22Z",
+    "modifiedTime": "2019-08-24T14:15:22Z"
+  }
+}'
+```
+
+</RequestExample>
+
+
+      

@@ -1,0 +1,791 @@
+
+openapi: 3.1.0
+info:
+  title: Salesforce API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/salesforce/contacts/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: cillum
+                     $native:
+                       quis4: 4166194.849665314
+                       quiec_: qui ipsum
+                       in924: mollit officia ut laborum
+                       aute_a: 44252007.721065074
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 email:
+                   type: string
+                   format: email
+                 firstName:
+                   type: string
+                 lastName:
+                   type: string
+                 title:
+                   type: string
+                 phone:
+                   type: string
+                 mobilePhone:
+                   type: string
+                 accountId:
+                   type: string
+                 ownerId:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     email: pU1Fd6adYs2U@ZvoPVCifhmtZlZwBwpRNAwbCx.szhh
+                     firstName: elit Lorem anim
+                     lastName: incididunt cupidatat qui in magna
+                     title: nisi
+                     phone: ad cillum tempor nulla enim
+                     mobilePhone: sed in fugiat
+                     accountId: nisi elit veniam ad
+                     ownerId: sint mollit pariatur dolore id
+      operationId: create-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/contacts/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   title:
+                     type: string
+                   email:
+                     type: string
+                     format: email
+                   phone:
+                     type: string
+                   mobilePhone:
+                     type: string
+                   createdDate:
+                     type: string
+                     format: date-time
+                   lastModifiedDate:
+                     type: string
+                     format: date-time
+                   accountId:
+                     type: string
+                   ownerId:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: ut esse voluptate
+                     firstName: ea velit
+                     lastName: consequat non veniam do ea
+                     title: reprehenderit exercitation non mollit
+                     email: NNlws-I@A.sn
+                     phone: aliquip
+                     mobilePhone: velit dolore
+                     createdDate: '1988-03-25T23:51:31.0Z'
+                     lastModifiedDate: '1996-08-23T16:46:01.0Z'
+                     accountId: voluptate nulla occaecat
+                     ownerId: officia deserunt
+                     $native:
+                       in_9: fugiat ut ut
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: in labore consectetur adipisicing
+      operationId: find-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/contacts/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   records:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type: string
+                         lastName:
+                           type: string
+                         title:
+                           type: string
+                         email:
+                           type: string
+                           format: email
+                         phone:
+                           type: string
+                         mobilePhone:
+                           type: string
+                         createdDate:
+                           type: string
+                           format: date-time
+                         lastModifiedDate:
+                           type: string
+                           format: date-time
+                         accountId:
+                           type: string
+                         ownerId:
+                           type: string
+                       required:
+                         - Id
+                         - FirstName
+                         - LastName
+                         - Title
+                         - Email
+                         - Phone
+                         - MobilePhone
+                         - CreatedDate
+                         - LastModifiedDate
+                         - AccountId
+                         - OwnerId
+                   totalSize:
+                     type: number
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     records:
+                       - title: officia occaecat enim
+                         phone: dolor aute
+                         email: Lhc2A6ULXJ@qeWI.pakp
+                         lastModifiedDate: '1956-09-27T16:45:16.0Z'
+                         firstName: ad
+                         ownerId: do labore aute
+                         lastName: quis id
+                         mobilePhone: laborum eiusmod adipisicing
+                         createdDate: '1957-07-25T17:57:35.0Z'
+                         accountId: sed irure
+                         id: eiusmod esse ea
+                     totalSize: 55112992.98453528
+                     $native:
+                       voluptate_4: sit Excepteur
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: eu elit culpa
+      operationId: list-contacts
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/contacts/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   title:
+                     type: string
+                   email:
+                     type: string
+                     format: email
+                   phone:
+                     type: string
+                   mobilePhone:
+                     type: string
+                   createdDate:
+                     type: string
+                     format: date-time
+                   lastModifiedDate:
+                     type: string
+                     format: date-time
+                   accountId:
+                     type: string
+                   ownerId:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: id consequat amet est
+                     firstName: voluptate dolor
+                     lastName: velit quis consequat
+                     title: ipsum nostrud labore
+                     email: iTsEy-5YYR88y7F@hhRoAQMnMOYQAeXEcCGAC.tdim
+                     phone: elit ea
+                     mobilePhone: eu adipisicing
+                     createdDate: '1997-10-09T21:43:19.0Z'
+                     lastModifiedDate: '1945-06-18T16:26:30.0Z'
+                     accountId: Ut non
+                     ownerId: tempor officia Ut amet ullamco
+                     $native:
+                       pariaturb: reprehenderit amet exercitation in
+                       elit_657: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 contact:
+                   type: object
+                   properties:
+                     email:
+                       type: string
+                       format: email
+                     firstName:
+                       type: string
+                     lastName:
+                       type: string
+                     title:
+                       type: string
+                     phone:
+                       type: string
+                     mobilePhone:
+                       type: string
+                     accountId:
+                       type: string
+                     ownerId:
+                       type: string
+            examples:
+              example-1:
+                value:
+                     id: culpa enim
+                     contact:
+                       title: irure
+                       accountId: eiusmod
+                       phone: in aliquip
+                       lastName: eu laboris in
+                       ownerId: irure sint
+                       email: xXiQdjWjHWkqqx@rO.yvfw
+                       firstName: proident ut irure
+                       mobilePhone: do
+      operationId: update-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/list-views/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   name:
+                     type: string
+                   createdDate:
+                     type: string
+                     format: date-time
+                   lastModifiedDate:
+                     type: string
+                     format: date-time
+                   createdById:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: cupidatat culpa occaecat dolor non
+                     name: irure in et aute
+                     createdDate: '1975-09-09T17:43:42.0Z'
+                     lastModifiedDate: '1984-03-18T15:20:54.0Z'
+                     createdById: incididunt culpa
+                     $native:
+                       est_620: mollit proident nisi pariatur labore
+                       labore_13: id ex qui mollit dolore
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: fugiat incididunt et sint
+      operationId: find-list-view
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/list-views/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   records:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type: string
+                         createdDate:
+                           type: string
+                           format: date-time
+                         lastModifiedDate:
+                           type: string
+                           format: date-time
+                         createdById:
+                           type: string
+                       required:
+                         - Id
+                         - Name
+                         - CreatedDate
+                         - LastModifiedDate
+                         - CreatedById
+                   totalSize:
+                     type: number
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     records:
+                       - createdById: velit Ut
+                         id: laboris proident et
+                         name: deserunt fugiat enim laborum
+                         lastModifiedDate: '1962-03-22T20:15:16.0Z'
+                         createdDate: '1974-01-30T14:33:40.0Z'
+                     totalSize: 47994563.29908526
+                     $native:
+                       elit313: 32754430.207341388
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+                 objectType:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: ad Duis
+                     objectType: exercitation eiusmod ut
+      operationId: list-list-views
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/list-view-results/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   developerName:
+                     type: string
+                   done:
+                     type: boolean
+                   id:
+                     type: string
+                   label:
+                     type: string
+                   records:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         columns:
+                           type: array
+                           items:
+                             type: object
+                             properties:
+                               fieldNameOrPath:
+                                 type: string
+                               value:
+                                 type: string
+                             required:
+                               - fieldNameOrPath
+                               - value
+                       required:
+                         - columns
+                   size:
+                     type: number
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     developerName: sed cillum in sit fugiat
+                     done: true
+                     id: sunt labore sit
+                     label: in proident commodo
+                     records:
+                       - columns:
+                           - fieldNameOrPath: mollit velit quis incididunt et
+                             value: dolor ex sed
+                             fugiatd70: 54571962.706092894
+                             commodo_e: false
+                         Duis_8fc: non aliqua velit exercitation id
+                         ut7a_: 13418173.43562752
+                         ut_ed9: -29048737.023125604
+                         ad2: false
+                         sed_a06: -73624767
+                     size: 66494225.074311465
+                     $native:
+                       nostrud_084: true
+                       idc2_: false
+                       pariatur__b1: 63687294
+                       adipisicing_18a: -98094109
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 objectType:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: nostrud ut eu sint
+                     objectType: laborum eu veniam
+      operationId: find-list-view-results
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/users/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   records:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type: string
+                         lastName:
+                           type: string
+                         email:
+                           type: string
+                           format: email
+                         createdDate:
+                           type: string
+                           format: date-time
+                         lastModifiedDate:
+                           type: string
+                           format: date-time
+                       required:
+                         - Id
+                         - FirstName
+                         - LastName
+                         - Email
+                         - CreatedDate
+                         - LastModifiedDate
+                   totalSize:
+                     type: number
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     records:
+                       - id: cillum id elit qui
+                         email: Jci9@fNPZdjRalDiScUBAlRXWcF.wgg
+                         createdDate: '2003-03-17T20:48:01.0Z'
+                         lastName: nulla
+                         firstName: ullamco laboris labore
+                         lastModifiedDate: '1975-05-26T06:47:15.0Z'
+                     totalSize: -61649034.52955506
+                     $native:
+                       do_a52: non culpa ex ullamco
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: commodo
+      operationId: list-users
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/salesforce/users/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   email:
+                     type: string
+                     format: email
+                   createdDate:
+                     type: string
+                     format: date-time
+                   lastModifiedDate:
+                     type: string
+                     format: date-time
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: in eu exercitation velit officia
+                     firstName: Lorem non dolore aute
+                     lastName: dolor laboris velit amet commodo
+                     email: 2i0WkYHU@emndDqToPVlD.qr
+                     createdDate: '1974-02-10T16:48:09.0Z'
+                     lastModifiedDate: '2012-07-25T19:55:25.0Z'
+                     $native:
+                       officiad: true
+                       eiusmodd8: 49993207
+                       enim3: 59583148
+                       dolor5: false
+                       dolore_fc: 44304034.20376837
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: commodo
+      operationId: find-user
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/salesforce:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

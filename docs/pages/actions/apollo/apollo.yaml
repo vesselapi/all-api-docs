@@ -1,0 +1,2642 @@
+
+openapi: 3.1.0
+info:
+  title: Apollo API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/apollo/accounts/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   account:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       websiteUrl:
+                         type:
+                           - string
+                           - 'null'
+                       estimatedNumEmployees:
+                         type:
+                           - number
+                           - 'null'
+                       industry:
+                         type:
+                           - string
+                           - 'null'
+                       organizationRawAddress:
+                         type:
+                           - string
+                           - 'null'
+                       organizationCity:
+                         type:
+                           - string
+                           - 'null'
+                       organizationStreetAddress:
+                         type:
+                           - string
+                           - 'null'
+                       organizationState:
+                         type:
+                           - string
+                           - 'null'
+                       organizationCountry:
+                         type:
+                           - string
+                           - 'null'
+                       organizationPostalCode:
+                         type:
+                           - string
+                           - 'null'
+                       domain:
+                         type:
+                           - string
+                           - 'null'
+                       ownerId:
+                         type:
+                           - string
+                           - 'null'
+                       lastActivityDate:
+                         anyOf:
+                           - type: string
+                             format: date-time
+                           - type: 'null'
+                       sanitizedPhone:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - created_at
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     account:
+                       id: laborum pariatur labore et culpa
+                       sanitizedPhone: null
+                       domain: null
+                       createdAt: '1976-08-01T03:34:27.0Z'
+                       organizationState: null
+                       organizationStreetAddress: null
+                       organizationRawAddress: laboris culpa
+                       organizationCity: null
+                       name: null
+                       websiteUrl: null
+                       lastActivityDate: '1962-10-09T06:48:16.0Z'
+                       estimatedNumEmployees: -85491922.93611321
+                       organizationPostalCode: null
+                       ownerId: null
+                       organizationCountry: null
+                       industry: null
+                     $native:
+                       estab: nulla Ut officia sunt
+                       ipsum93: true
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 name:
+                   type:
+                     - string
+                     - 'null'
+                 domain:
+                   type:
+                     - string
+                     - 'null'
+                 phone:
+                   type:
+                     - string
+                     - 'null'
+            examples:
+              example-1:
+                value:
+                     name: null
+                     domain: Excepteur ex
+                     phone: null
+      operationId: create-account
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/accounts/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   accounts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type:
+                             - string
+                             - 'null'
+                         websiteUrl:
+                           type:
+                             - string
+                             - 'null'
+                         estimatedNumEmployees:
+                           type:
+                             - number
+                             - 'null'
+                         industry:
+                           type:
+                             - string
+                             - 'null'
+                         organizationRawAddress:
+                           type:
+                             - string
+                             - 'null'
+                         organizationCity:
+                           type:
+                             - string
+                             - 'null'
+                         organizationStreetAddress:
+                           type:
+                             - string
+                             - 'null'
+                         organizationState:
+                           type:
+                             - string
+                             - 'null'
+                         organizationCountry:
+                           type:
+                             - string
+                             - 'null'
+                         organizationPostalCode:
+                           type:
+                             - string
+                             - 'null'
+                         domain:
+                           type:
+                             - string
+                             - 'null'
+                         ownerId:
+                           type:
+                             - string
+                             - 'null'
+                         lastActivityDate:
+                           anyOf:
+                             - type: string
+                               format: date-time
+                             - type: 'null'
+                         sanitizedPhone:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - created_at
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     accounts:
+                       - id: exercitation Lorem tempor
+                         sanitizedPhone: pariatur
+                         organizationState: laboris ipsum dolore in mollit
+                         createdAt: '2013-03-31T14:35:27.0Z'
+                         organizationCountry: reprehenderit sunt
+                         organizationRawAddress: Duis anim
+                         organizationPostalCode: null
+                         estimatedNumEmployees: null
+                         name: null
+                         lastActivityDate: '2012-04-19T15:06:31.0Z'
+                         websiteUrl: null
+                         domain: Lorem
+                         organizationCity: anim pariatur qui
+                         industry: nisi
+                         organizationStreetAddress: nostrud aute
+                         ownerId: null
+                     pagination:
+                       page: 41058433.686415404
+                       perPage: 90804801.06792566
+                       totalPages: 29764959.838093445
+                       totalEntries: 47886680.01133925
+                     $native:
+                       reprehenderit5: false
+                       exercitation_fa: culpa non
+                       incididuntc: 51182450.61719978
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 qOrganizationName:
+                   type: string
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     qOrganizationName: non minim sunt aute
+                     page: -63764455.979300074
+      operationId: search-account
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/accounts/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   account:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       websiteUrl:
+                         type:
+                           - string
+                           - 'null'
+                       estimatedNumEmployees:
+                         type:
+                           - number
+                           - 'null'
+                       industry:
+                         type:
+                           - string
+                           - 'null'
+                       organizationRawAddress:
+                         type:
+                           - string
+                           - 'null'
+                       organizationCity:
+                         type:
+                           - string
+                           - 'null'
+                       organizationStreetAddress:
+                         type:
+                           - string
+                           - 'null'
+                       organizationState:
+                         type:
+                           - string
+                           - 'null'
+                       organizationCountry:
+                         type:
+                           - string
+                           - 'null'
+                       organizationPostalCode:
+                         type:
+                           - string
+                           - 'null'
+                       domain:
+                         type:
+                           - string
+                           - 'null'
+                       ownerId:
+                         type:
+                           - string
+                           - 'null'
+                       lastActivityDate:
+                         anyOf:
+                           - type: string
+                             format: date-time
+                           - type: 'null'
+                       sanitizedPhone:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - created_at
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     account:
+                       id: do amet id
+                       organizationCountry: incididunt dolore irure labore esse
+                       websiteUrl: fugiat ut
+                       ownerId: nulla enim
+                       domain: null
+                       industry: velit qui consectetur ipsum ex
+                       createdAt: '1943-10-10T23:36:01.0Z'
+                       name: null
+                       organizationStreetAddress: in eu id ex
+                       organizationState: null
+                       organizationCity: null
+                       organizationPostalCode: null
+                       organizationRawAddress: null
+                       estimatedNumEmployees: null
+                       sanitizedPhone: culpa Excepteur
+                       lastActivityDate: null
+                     $native:
+                       doloref5a: 90020102
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 name:
+                   type:
+                     - string
+                     - 'null'
+                 domain:
+                   type:
+                     - string
+                     - 'null'
+                 phone:
+                   type:
+                     - string
+                     - 'null'
+            examples:
+              example-1:
+                value:
+                     id: in
+                     name: eu sunt
+                     domain: null
+                     phone: null
+      operationId: update-account
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/activities/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   activities:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         type:
+                           type: string
+                         emailerMessageId:
+                           type: string
+                         emailerMessage:
+                           type: object
+                           properties:
+                             id:
+                               type: string
+                             bodyText:
+                               type:
+                                 - string
+                                 - 'null'
+                             bodyHtml:
+                               type:
+                                 - string
+                                 - 'null'
+                             bounce:
+                               type:
+                                 - boolean
+                                 - 'null'
+                             completedAt:
+                               anyOf:
+                                 - type: string
+                                   format: date-time
+                                 - type: 'null'
+                             contactId:
+                               type: string
+                             createdAt:
+                               type: string
+                               format: date-time
+                             emailerCampaignId:
+                               type:
+                                 - string
+                                 - 'null'
+                             fromEmail:
+                               type: string
+                             fromName:
+                               type:
+                                 - string
+                                 - 'null'
+                             numClicks:
+                               type:
+                                 - number
+                                 - 'null'
+                             numOpens:
+                               type:
+                                 - number
+                                 - 'null'
+                             replied:
+                               type:
+                                 - boolean
+                                 - 'null'
+                             status:
+                               type:
+                                 - string
+                                 - 'null'
+                             subject:
+                               type:
+                                 - string
+                                 - 'null'
+                             userId:
+                               type: string
+                           required:
+                             - id
+                             - contact_id
+                             - created_at
+                             - from_email
+                             - user_id
+                       required:
+                         - id
+                         - type
+                         - emailer_message_id
+                         - emailer_message
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     activities:
+                       - id: mollit
+                         type: dolore nisi amet commodo
+                         emailerMessage:
+                           id: exercitation
+                           contactId: eu
+                           bounce: true
+                           replied: null
+                           emailerCampaignId: enim ex sint
+                           subject: null
+                           status: voluptate culpa minim adipisicing eu
+                           createdAt: '2009-10-04T05:52:44.0Z'
+                           bodyText: ut do officia et
+                           numClicks: 76856523.451119
+                           userId: voluptate pariatur magna labore irure
+                           numOpens: null
+                           completedAt: null
+                           bodyHtml: minim laborum culpa
+                           fromName: cillum magna incididunt
+                           fromEmail: ipsum magna commodo fugiat
+                         emailerMessageId: ullamco cillum in adipisicing
+                     $native:
+                       cillum_2a0: in in nulla do
+                       ullamco5: deserunt do eu ullamco
+                       enim6_: 2544129
+                       sint_: false
+                       laboris7: id in irure
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 contactId:
+                   type: string
+                 types:
+                   type: array
+                   items:
+                     type: string
+            examples:
+              example-1:
+                value:
+                     contactId: ut ut sit elit
+                     types:
+                       - culpa
+      operationId: list-activities
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/contacts/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       firstName:
+                         type:
+                           - string
+                           - 'null'
+                       lastName:
+                         type:
+                           - string
+                           - 'null'
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       title:
+                         type:
+                           - string
+                           - 'null'
+                       ownerId:
+                         type:
+                           - string
+                           - 'null'
+                       presentRawAddress:
+                         type:
+                           - string
+                           - 'null'
+                       phoneNumbers:
+                         type: array
+                         items:
+                           type: object
+                           properties:
+                             rawNumber:
+                               type: string
+                             sanitizedNumber:
+                               type:
+                                 - string
+                                 - 'null'
+                             type:
+                               type: string
+                               enum:
+                                 - mobile
+                                 - home
+                                 - work_hq
+                                 - work_direct
+                                 - other
+                             position:
+                               type: number
+                             status:
+                               type:
+                                 - string
+                                 - 'null'
+                             dncStatus:
+                               type:
+                                 - string
+                                 - 'null'
+                           required:
+                             - raw_number
+                             - type
+                             - position
+                       organizationName:
+                         type:
+                           - string
+                           - 'null'
+                       email:
+                         type:
+                           - string
+                           - 'null'
+                       websiteUrl:
+                         type:
+                           - string
+                           - 'null'
+                       contactStageId:
+                         type:
+                           - string
+                           - 'null'
+                       accountId:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                       updatedAt:
+                         type: string
+                         format: date-time
+                       typedCustomFields:
+                         type: object
+                         properties: {}
+                     required:
+                       - id
+                       - phone_numbers
+                       - created_at
+                       - updated_at
+                       - typed_custom_fields
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contact:
+                       id: sed
+                       phoneNumbers:
+                         - type: mobile
+                           position: -11313214.445212647
+                           dncStatus: sed nisi
+                           sanitizedNumber: null
+                           status: null
+                           rawNumber: consequat
+                       typedCustomFields:
+                         cupidatat_2: -18809275
+                         exercitation_7: veniam
+                         nostrud_3: false
+                         officiafe2: 8320515
+                       organizationName: esse fugiat nostrud
+                       lastName: null
+                       email: null
+                       title: null
+                       createdAt: '1988-03-17T14:49:14.0Z'
+                       ownerId: null
+                       presentRawAddress: incididunt
+                       updatedAt: '1977-02-14T18:10:22.0Z'
+                       firstName: null
+                       websiteUrl: nostrud culpa aliqua dolore
+                       name: mollit Lorem fugiat sit anim
+                       accountId: ut
+                       contactStageId: esse eiusmod ex nostrud
+                     $native:
+                       eiusmod_9: -41138990
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 firstName:
+                   type:
+                     - string
+                     - 'null'
+                 lastName:
+                   type:
+                     - string
+                     - 'null'
+                 organizationName:
+                   type:
+                     - string
+                     - 'null'
+                 title:
+                   type:
+                     - string
+                     - 'null'
+                 ownerId:
+                   type:
+                     - string
+                     - 'null'
+                 accountId:
+                   type:
+                     - string
+                     - 'null'
+                 email:
+                   type:
+                     - string
+                     - 'null'
+                 websiteUrl:
+                   type:
+                     - string
+                     - 'null'
+                 contactStageId:
+                   type:
+                     - string
+                     - 'null'
+                 presentRawAddress:
+                   type:
+                     - string
+                     - 'null'
+                 labelNames:
+                   anyOf:
+                     - type: array
+                       items:
+                         type: string
+                     - type: 'null'
+            examples:
+              example-1:
+                value:
+                     firstName: null
+                     lastName: sunt nostrud sit
+                     organizationName: sint ea ipsum labore
+                     title: null
+                     ownerId: labore
+                     accountId: sint
+                     email: null
+                     websiteUrl: dolore
+                     contactStageId: null
+                     presentRawAddress: null
+                     labelNames:
+                       - id
+      operationId: create-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/contacts/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contacts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type:
+                             - string
+                             - 'null'
+                         lastName:
+                           type:
+                             - string
+                             - 'null'
+                         name:
+                           type:
+                             - string
+                             - 'null'
+                         title:
+                           type:
+                             - string
+                             - 'null'
+                         ownerId:
+                           type:
+                             - string
+                             - 'null'
+                         presentRawAddress:
+                           type:
+                             - string
+                             - 'null'
+                         phoneNumbers:
+                           type: array
+                           items:
+                             type: object
+                             properties:
+                               rawNumber:
+                                 type: string
+                               sanitizedNumber:
+                                 type:
+                                   - string
+                                   - 'null'
+                               type:
+                                 type: string
+                                 enum:
+                                   - mobile
+                                   - home
+                                   - work_hq
+                                   - work_direct
+                                   - other
+                               position:
+                                 type: number
+                               status:
+                                 type:
+                                   - string
+                                   - 'null'
+                               dncStatus:
+                                 type:
+                                   - string
+                                   - 'null'
+                             required:
+                               - raw_number
+                               - type
+                               - position
+                         organizationName:
+                           type:
+                             - string
+                             - 'null'
+                         email:
+                           type:
+                             - string
+                             - 'null'
+                         websiteUrl:
+                           type:
+                             - string
+                             - 'null'
+                         contactStageId:
+                           type:
+                             - string
+                             - 'null'
+                         accountId:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                         updatedAt:
+                           type: string
+                           format: date-time
+                         typedCustomFields:
+                           type: object
+                           properties: {}
+                       required:
+                         - id
+                         - phone_numbers
+                         - created_at
+                         - updated_at
+                         - typed_custom_fields
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contacts:
+                       - id: irure enim fugiat amet ex
+                         lastName: null
+                         websiteUrl: null
+                         accountId: null
+                         email: null
+                         presentRawAddress: null
+                         createdAt: '2018-01-17T16:37:42.0Z'
+                         contactStageId: null
+                         title: amet do mollit
+                         name: null
+                         updatedAt: '1975-07-20T03:20:42.0Z'
+                         organizationName: ut ea amet nisi
+                         phoneNumbers:
+                           - type: work_hq
+                             position: -1222835.7087614536
+                             status: null
+                             dncStatus: null
+                             rawNumber: proident sunt adipisicing aute laborum
+                             sanitizedNumber: in magna labore
+                         typedCustomFields:
+                           Lorem2da: 86206497.59649956
+                           dolore_b: -14512452
+                         ownerId: null
+                         firstName: null
+                     pagination:
+                       page: null
+                       totalPages: -70478775.72774523
+                       perPage: 99905907.59044617
+                       totalEntries: 76964383.63471487
+                     $native:
+                       dolor_ae: 94017404.47152123
+                       reprehenderit484: -7313970.001947552
+                       dolor_84e: voluptate quis sed exercitation
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+                 qKeywords:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     page: 48338813.768310875
+                     qKeywords: magna enim dolore Lorem tempor
+      operationId: search-contacts
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/contacts/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       firstName:
+                         type:
+                           - string
+                           - 'null'
+                       lastName:
+                         type:
+                           - string
+                           - 'null'
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       title:
+                         type:
+                           - string
+                           - 'null'
+                       ownerId:
+                         type:
+                           - string
+                           - 'null'
+                       presentRawAddress:
+                         type:
+                           - string
+                           - 'null'
+                       phoneNumbers:
+                         type: array
+                         items:
+                           type: object
+                           properties:
+                             rawNumber:
+                               type: string
+                             sanitizedNumber:
+                               type:
+                                 - string
+                                 - 'null'
+                             type:
+                               type: string
+                               enum:
+                                 - mobile
+                                 - home
+                                 - work_hq
+                                 - work_direct
+                                 - other
+                             position:
+                               type: number
+                             status:
+                               type:
+                                 - string
+                                 - 'null'
+                             dncStatus:
+                               type:
+                                 - string
+                                 - 'null'
+                           required:
+                             - raw_number
+                             - type
+                             - position
+                       organizationName:
+                         type:
+                           - string
+                           - 'null'
+                       email:
+                         type:
+                           - string
+                           - 'null'
+                       websiteUrl:
+                         type:
+                           - string
+                           - 'null'
+                       contactStageId:
+                         type:
+                           - string
+                           - 'null'
+                       accountId:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                       updatedAt:
+                         type: string
+                         format: date-time
+                       typedCustomFields:
+                         type: object
+                         properties: {}
+                     required:
+                       - id
+                       - phone_numbers
+                       - created_at
+                       - updated_at
+                       - typed_custom_fields
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contact:
+                       id: sint consectetur id qui nisi
+                       accountId: consectetur ipsum magna nostrud do
+                       organizationName: null
+                       ownerId: elit Lorem
+                       firstName: null
+                       presentRawAddress: null
+                       lastName: null
+                       updatedAt: '1985-06-25T20:23:17.0Z'
+                       name: cupidatat aute Ut
+                       typedCustomFields:
+                         dolore_77b: true
+                       title: quis exercitation labore deserunt velit
+                       email: minim occaecat Duis consectetur
+                       contactStageId: null
+                       createdAt: '2004-08-03T16:28:05.0Z'
+                       websiteUrl: enim
+                       phoneNumbers:
+                         - type: other
+                           position: 7053941.104728609
+                           sanitizedNumber: ad id nulla dolore eu
+                           status: null
+                           dncStatus: eu id
+                           rawNumber: in
+                     $native:
+                       nostrudca: amet Duis culpa eu
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 firstName:
+                   type:
+                     - string
+                     - 'null'
+                 lastName:
+                   type:
+                     - string
+                     - 'null'
+                 organizationName:
+                   type:
+                     - string
+                     - 'null'
+                 title:
+                   type:
+                     - string
+                     - 'null'
+                 ownerId:
+                   type:
+                     - string
+                     - 'null'
+                 accountId:
+                   type:
+                     - string
+                     - 'null'
+                 email:
+                   type:
+                     - string
+                     - 'null'
+                 websiteUrl:
+                   type:
+                     - string
+                     - 'null'
+                 presentRawAddress:
+                   type:
+                     - string
+                     - 'null'
+                 labelNames:
+                   anyOf:
+                     - type: array
+                       items:
+                         type: string
+                     - type: 'null'
+            examples:
+              example-1:
+                value:
+                     id: commodo
+                     firstName: null
+                     lastName: null
+                     organizationName: Excepteur voluptate tempor
+                     title: nulla magna occaecat dolore dolor
+                     ownerId: null
+                     accountId: in nulla esse elit
+                     email: amet fugiat tempor incididunt ut
+                     websiteUrl: null
+                     presentRawAddress: null
+                     labelNames:
+                       - deserunt
+      operationId: update-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/custom-fields/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   typedCustomField:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       modality:
+                         type: string
+                       name:
+                         type: string
+                       type:
+                         type: string
+                     required:
+                       - id
+                       - modality
+                       - name
+                       - type
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     typedCustomField:
+                       id: Excepteur veniam est magna
+                       modality: ad sed tempor veniam
+                       name: consequat Duis elit nostrud et
+                       type: commodo eu mollit nostrud
+                       aliquac55: -51336232
+                     $native:
+                       ut_8: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 modality:
+                   type: string
+                   enum:
+                     - contact
+                     - account
+                 name:
+                   type: string
+                 type:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     modality: contact
+                     name: cupidatat exercitation in
+                     type: qui in eiusmod dolor ea
+      operationId: create-custom-fields
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/custom-fields/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   typedCustomFields:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         modality:
+                           type: string
+                         name:
+                           type: string
+                         type:
+                           type: string
+                       required:
+                         - id
+                         - modality
+                         - name
+                         - type
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     typedCustomFields:
+                       - id: Ut
+                         modality: officia
+                         name: in
+                         type: ullamco nulla Ut ipsum
+                         dolore4: 96363665.6388076
+                         veniam_95f: 39774596
+                         nulla_ef: true
+                         animb28: true
+                         consequat_d: culpa exercitation enim eu mollit
+                         anim76: 96939682
+                         mollit_3b: proident
+                     $native:
+                       Ut2e: true
+                       consequatf23: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     page: -23687724.239376485
+      operationId: list-custom-fields
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/emails/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailerMessages:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         bodyText:
+                           type:
+                             - string
+                             - 'null'
+                         bodyHtml:
+                           type:
+                             - string
+                             - 'null'
+                         bounce:
+                           type:
+                             - boolean
+                             - 'null'
+                         completedAt:
+                           anyOf:
+                             - type: string
+                               format: date-time
+                             - type: 'null'
+                         contactId:
+                           type: string
+                         createdAt:
+                           type: string
+                           format: date-time
+                         emailerCampaignId:
+                           type:
+                             - string
+                             - 'null'
+                         fromEmail:
+                           type: string
+                         fromName:
+                           type:
+                             - string
+                             - 'null'
+                         numClicks:
+                           type:
+                             - number
+                             - 'null'
+                         numOpens:
+                           type:
+                             - number
+                             - 'null'
+                         replied:
+                           type:
+                             - boolean
+                             - 'null'
+                         status:
+                           type:
+                             - string
+                             - 'null'
+                         subject:
+                           type:
+                             - string
+                             - 'null'
+                         userId:
+                           type: string
+                       required:
+                         - id
+                         - contact_id
+                         - created_at
+                         - from_email
+                         - user_id
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailerMessages:
+                       - id: amet anim velit nisi Excepteur
+                         numOpens: null
+                         createdAt: '1962-10-16T11:20:47.0Z'
+                         fromName: null
+                         bodyHtml: null
+                         bodyText: ea ut est dolor proident
+                         replied: false
+                         numClicks: -89771214.69607212
+                         completedAt: null
+                         subject: sit id aute anim dolore
+                         fromEmail: dolor laboris
+                         status: sed aute in pariatur
+                         bounce: null
+                         emailerCampaignId: nisi minim pariatur et
+                         userId: officia proident consectetur
+                         contactId: irure in
+                     $native:
+                       aute_cdd: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+                 emailerCampaignId:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     page: 47078516.25177738
+                     emailerCampaignId: quis
+      operationId: search-emails
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/email-accounts/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailAccounts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         email:
+                           type:
+                             - string
+                             - 'null'
+                         default:
+                           type: boolean
+                         userId:
+                           type:
+                             - string
+                             - 'null'
+                       required:
+                         - id
+                         - default
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailAccounts:
+                       - id: in dolor ut est sunt
+                         default: true
+                         email: cillum pariatur labore dolor
+                         userId: non irure consequat
+                     $native:
+                       occaecat6: commodo cillum occaecat consequat in
+                       ea9e: true
+                       nisib_: true
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     page: -95524404.9540123
+      operationId: list-email-accounts
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/sequences/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailerCampaign:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                       active:
+                         type: boolean
+                       labelIds:
+                         type: array
+                         items:
+                           type: string
+                       numSteps:
+                         type:
+                           - number
+                           - 'null'
+                       userId:
+                         type:
+                           - string
+                           - 'null'
+                       uniqueScheduled:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueDelivered:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueBounced:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueOpened:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueReplied:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueDemoed:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueClicked:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueUnsubscribed:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       bounceRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       openRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       clickRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       replyRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       spamBlockedRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       optOutRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       demoRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                     required:
+                       - id
+                       - created_at
+                       - active
+                       - label_ids
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailerCampaign:
+                       id: mollit ea reprehenderit commodo
+                       active: true
+                       replyRate: null
+                       uniqueDemoed: ut nisi ea
+                       clickRate: 13201439.898492977
+                       createdAt: '2003-11-22T15:49:18.0Z'
+                       demoRate: null
+                       uniqueReplied: 3028081.2684356123
+                       uniqueClicked: et commodo dolore
+                       uniqueOpened: deserunt ea occaecat
+                       labelIds:
+                         - quis proident amet
+                       name: aliquip ullamco labore reprehenderit
+                       bounceRate: null
+                       uniqueDelivered: elit qui
+                       numSteps: null
+                       userId: null
+                       uniqueUnsubscribed: null
+                       spamBlockedRate: null
+                       optOutRate: null
+                       openRate: null
+                       uniqueScheduled: null
+                       uniqueBounced: null
+                     $native:
+                       officia_44_: consectetur est
+                       aute_9b: true
+                       sint_0df: 92516571
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 creationType:
+                   type: string
+                 name:
+                   type: string
+                 permissions:
+                   type: string
+                 type:
+                   type: string
+                 active:
+                   type: boolean
+            examples:
+              example-1:
+                value:
+                     creationType: Ut
+                     name: ut fugiat sunt cillum
+                     permissions: non culpa anim dolore
+                     type: sint
+                     active: false
+      operationId: create-sequences
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/sequences/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailerCampaigns:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                         active:
+                           type: boolean
+                         labelIds:
+                           type: array
+                           items:
+                             type: string
+                         numSteps:
+                           type:
+                             - number
+                             - 'null'
+                         userId:
+                           type:
+                             - string
+                             - 'null'
+                         uniqueScheduled:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueDelivered:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueBounced:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueOpened:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueReplied:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueDemoed:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueClicked:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         uniqueUnsubscribed:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         bounceRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         openRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         clickRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         replyRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         spamBlockedRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         optOutRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                         demoRate:
+                           anyOf:
+                             - type:
+                                 - number
+                                 - string
+                             - type: 'null'
+                       required:
+                         - id
+                         - created_at
+                         - active
+                         - label_ids
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailerCampaigns:
+                       - id: in mollit incididunt
+                         active: true
+                         spamBlockedRate: labore dolore
+                         uniqueOpened: est occaecat dolore ex
+                         createdAt: '1962-12-17T03:32:15.0Z'
+                         clickRate: sunt Lorem consequat
+                         numSteps: 67766170.46086451
+                         uniqueUnsubscribed: 26061676.019040763
+                         userId: non
+                         uniqueClicked: null
+                         uniqueBounced: null
+                         optOutRate: null
+                         openRate: -5053128.076814771
+                         name: aliquip cillum
+                         replyRate: null
+                         uniqueScheduled: null
+                         uniqueDelivered: elit minim non est
+                         uniqueReplied: -67180056.18163496
+                         bounceRate: null
+                         uniqueDemoed: null
+                         demoRate: null
+                         labelIds:
+                           - veniam aliquip consectetur
+                     pagination:
+                       page: 95482513.98308092
+                       totalEntries: -35755836.95197575
+                       perPage: 74930726.7270214
+                       totalPages: -73712595.13626227
+                     $native:
+                       est_aac: 73136517
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 qKeywords:
+                   type: string
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     qKeywords: eiusmod ut
+                     page: -5730275.70925428
+      operationId: search-sequences
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/sequences/start:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contacts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type:
+                             - string
+                             - 'null'
+                         lastName:
+                           type:
+                             - string
+                             - 'null'
+                         name:
+                           type:
+                             - string
+                             - 'null'
+                         title:
+                           type:
+                             - string
+                             - 'null'
+                         ownerId:
+                           type:
+                             - string
+                             - 'null'
+                         presentRawAddress:
+                           type:
+                             - string
+                             - 'null'
+                         phoneNumbers:
+                           type: array
+                           items:
+                             type: object
+                             properties:
+                               rawNumber:
+                                 type: string
+                               sanitizedNumber:
+                                 type:
+                                   - string
+                                   - 'null'
+                               type:
+                                 type: string
+                                 enum:
+                                   - mobile
+                                   - home
+                                   - work_hq
+                                   - work_direct
+                                   - other
+                               position:
+                                 type: number
+                               status:
+                                 type:
+                                   - string
+                                   - 'null'
+                               dncStatus:
+                                 type:
+                                   - string
+                                   - 'null'
+                             required:
+                               - raw_number
+                               - type
+                               - position
+                         organizationName:
+                           type:
+                             - string
+                             - 'null'
+                         email:
+                           type:
+                             - string
+                             - 'null'
+                         websiteUrl:
+                           type:
+                             - string
+                             - 'null'
+                         contactStageId:
+                           type:
+                             - string
+                             - 'null'
+                         accountId:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                         updatedAt:
+                           type: string
+                           format: date-time
+                         typedCustomFields:
+                           type: object
+                           properties: {}
+                       required:
+                         - id
+                         - phone_numbers
+                         - created_at
+                         - updated_at
+                         - typed_custom_fields
+                   emailerCampaign:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       name:
+                         type:
+                           - string
+                           - 'null'
+                       createdAt:
+                         type: string
+                         format: date-time
+                       active:
+                         type: boolean
+                       labelIds:
+                         type: array
+                         items:
+                           type: string
+                       numSteps:
+                         type:
+                           - number
+                           - 'null'
+                       userId:
+                         type:
+                           - string
+                           - 'null'
+                       uniqueScheduled:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueDelivered:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueBounced:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueOpened:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueReplied:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueDemoed:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueClicked:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       uniqueUnsubscribed:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       bounceRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       openRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       clickRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       replyRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       spamBlockedRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       optOutRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                       demoRate:
+                         anyOf:
+                           - type:
+                               - number
+                               - string
+                           - type: 'null'
+                     required:
+                       - id
+                       - created_at
+                       - active
+                       - label_ids
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contacts:
+                       - id: aute amet in irure
+                         accountId: null
+                         createdAt: '1945-10-17T14:45:16.0Z'
+                         name: sunt
+                         ownerId: velit dolor dolore proident in
+                         firstName: null
+                         typedCustomFields:
+                           minim6b_: 82393989.23991418
+                           culpad8: 90627127
+                         title: mollit officia
+                         contactStageId: sint officia ut fugiat
+                         email: null
+                         updatedAt: '2004-10-27T03:41:03.0Z'
+                         presentRawAddress: null
+                         organizationName: null
+                         phoneNumbers:
+                           - type: home
+                             position: 45889831.078090996
+                             sanitizedNumber: quis
+                             status: null
+                             rawNumber: ex nulla consequat velit qui
+                             dncStatus: null
+                         websiteUrl: null
+                         lastName: null
+                     emailerCampaign:
+                       id: nisi magna Lorem occaecat aute
+                       active: false
+                       createdAt: '1961-08-23T19:40:21.0Z'
+                       labelIds:
+                         - sed eu enim proident
+                       uniqueReplied: null
+                       uniqueDemoed: null
+                       uniqueDelivered: sint consequat laborum dolore proident
+                       uniqueOpened: null
+                       numSteps: null
+                       uniqueUnsubscribed: null
+                       uniqueScheduled: null
+                       uniqueClicked: -4734060.117644429
+                       replyRate: -20403210.669342935
+                       name: reprehenderit
+                       optOutRate: null
+                       spamBlockedRate: null
+                       demoRate: 24592676.27927874
+                       bounceRate: -17008276.64985627
+                       userId: in
+                       clickRate: -77964170.144178
+                       uniqueBounced: null
+                       openRate: null
+                     $native:
+                       sed723: reprehenderit elit nulla
+                       id6a4: -98420555
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 emailerCampaignId:
+                   type: string
+                 contactIds:
+                   type: array
+                   items:
+                     type: string
+                 sendEmailFromEmailAccountId:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     emailerCampaignId: tempor amet
+                     contactIds:
+                       - aute
+                     sendEmailFromEmailAccountId: consectetur nostrud dolor
+      operationId: start-sequences
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/sequence-steps/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailerStep:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                     required:
+                       - id
+                   emailerTouch:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                     required:
+                       - id
+                   emailerTemplate:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                     required:
+                       - id
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailerStep:
+                       id: ullamco
+                       esse_0e: 29865978.190185502
+                       dolore_b_: 98938523
+                       velit_2d: true
+                       sunt_a0e: deserunt voluptate Ut
+                       ipsumbf7: 11564948
+                       ad3: aliqua officia dolor
+                     emailerTouch:
+                       id: sit
+                       in_e85: cillum culpa ex in
+                     emailerTemplate:
+                       id: mollit anim fugiat est
+                       proidentdb0: false
+                       cillum72_: Ut pariatur Duis ex
+                       aliqua5: true
+                     $native:
+                       sint25: -60148649
+                       proident_266: ex
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 emailerCampaignId:
+                   type: string
+                 priority:
+                   type: string
+                 position:
+                   type: number
+                 type:
+                   type: string
+                 waitMode:
+                   type: string
+                 waitTime:
+                   type: number
+                 exactDatetime:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     emailerCampaignId: commodo labore et sunt
+                     priority: ipsum occaecat in ullamco laboris
+                     position: -68548263.03277206
+                     type: nulla do ut ullamco
+                     waitMode: ad
+                     waitTime: 98414349.47807807
+                     exactDatetime: minim cillum consectetur
+      operationId: create-sequence-steps
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/sequence-templates/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   emailerTouch:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                     required:
+                       - id
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     emailerTouch:
+                       id: esse aliquip
+                       ad_b: -32317039
+                     $native:
+                       eu8b: 68170661
+                       consectetur_94d: ex
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 emailerTemplate:
+                   type: object
+                   properties:
+                     name:
+                       type: string
+                     userId:
+                       type: string
+                     subject:
+                       type: string
+                     global:
+                       type: boolean
+                     bodyHtml:
+                       type: string
+                     bodyText:
+                       type: string
+                     creationType:
+                       type: string
+                     labelIds:
+                       type: array
+                       items:
+                         type: string
+                 emailerStepId:
+                   type: string
+                 emailerTemplateId:
+                   type: string
+                 status:
+                   type: string
+                 type:
+                   type: string
+                 includeSignature:
+                   type: boolean
+            examples:
+              example-1:
+                value:
+                     id: exercitation pariatur dolore esse
+                     emailerTemplate:
+                       name: laborum est
+                       userId: eiusmod sint non irure
+                       subject: Ut dolor dolore eu
+                       global: true
+                       creationType: laboris
+                       bodyHtml: et
+                       labelIds:
+                         - eiusmod anim ea
+                       bodyText: non laborum nulla dolor
+                     emailerStepId: laboris
+                     emailerTemplateId: mollit voluptate ullamco ut
+                     status: ullamco culpa ipsum
+                     type: Lorem laboris qui adipisicing
+                     includeSignature: true
+      operationId: update-sequence-templates
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/users/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   users:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type:
+                             - string
+                             - 'null'
+                         lastName:
+                           type:
+                             - string
+                             - 'null'
+                         email:
+                           type:
+                             - string
+                             - 'null'
+                         teamId:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - created_at
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     users:
+                       - id: ad sit mollit labore
+                         email: anim non ullamco
+                         teamId: null
+                         firstName: null
+                         lastName: Ut ea officia ut
+                         createdAt: '1943-05-22T01:24:47.0Z'
+                     pagination:
+                       page: null
+                       perPage: 44434957.90853098
+                       totalPages: 29586216.7864874
+                       totalEntries: 71489018.83018497
+                     $native:
+                       ut_9e6: 37411960
+                       elit_40: true
+                       ex_e8: 77088339.79425958
+                       tempor_58: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     page: 156787.71139784157
+      operationId: search-users
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/apollo:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

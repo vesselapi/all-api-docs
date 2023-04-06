@@ -1,0 +1,17 @@
+---
+openapi: "GET /crm/leads"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request GET \
+  --url https://api.vessel.dev/crm/leads \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: '
+```
+
+</RequestExample>
+
+**CRM Caveats**  
+Pipedrive: Only `jobTitle` is returned when querying for all leads

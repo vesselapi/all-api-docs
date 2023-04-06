@@ -1,0 +1,27 @@
+---
+openapi: "POST /api/unificationmarketing/contacts/create"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/unificationmarketing/contacts/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "contact": {
+    "email": "tom@dundermifflin.com",
+    "firstName": "Tom",
+    "lastName": "Haverford",
+    "phone": "8192223333",
+    "listId": "12"
+  }
+}'
+```
+
+</RequestExample>
+
+
+      

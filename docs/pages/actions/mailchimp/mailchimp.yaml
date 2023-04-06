@@ -1,0 +1,437 @@
+
+openapi: 3.1.0
+info:
+  title: Mailchimp API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/mailchimp/members/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: in cupidatat ex nostrud ullamco
+                     $native:
+                       nostrud79: laborum eiusmod do ut Ut
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 listId:
+                   type: string
+                 member:
+                   type: object
+                   properties:
+                     emailAddress:
+                       type: string
+                     fullName:
+                       type: string
+                     status:
+                       type: string
+                     lastChanged:
+                       type: string
+                       format: date-time
+                     timestampSignup:
+                       type: string
+                       format: date-time
+                   required:
+                     - email_address
+                     - status
+            examples:
+              example-1:
+                value:
+                     listId: sunt officia fugiat
+                     member:
+                       status: deserunt Duis
+                       fullName: labore
+                       timestampSignup: '1949-09-09T01:30:31.0Z'
+                       emailAddress: officia irure aliquip
+                       lastChanged: '1977-12-25T06:40:47.0Z'
+      operationId: create-member
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/mailchimp/members/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: ut ipsum
+                     $native:
+                       Utbe: false
+                       dolore_a4: -36701098.072534986
+                       pariatur9: -25066209
+                       esse_020: -91035884
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 listId:
+                   type: string
+                 member:
+                   type: object
+                   properties:
+                     id:
+                       type: string
+                     emailAddress:
+                       type: string
+                     fullName:
+                       type: string
+                     status:
+                       type: string
+                     lastChanged:
+                       type: string
+                       format: date-time
+                     timestampSignup:
+                       type: string
+                       format: date-time
+                   required:
+                     - id
+                     - email_address
+                     - status
+            examples:
+              example-1:
+                value:
+                     listId: culpa
+                     member:
+                       id: fugiat aliqua dolore
+                       status: dolore laborum
+                       fullName: sunt sint ut ut
+                       timestampSignup: '1959-06-03T12:33:47.0Z'
+                       emailAddress: deserunt reprehenderit incididunt in
+                       lastChanged: '1955-12-24T17:30:25.0Z'
+      operationId: update-member
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/mailchimp/members/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   exactMatches:
+                     type: object
+                     properties:
+                       members:
+                         type: array
+                         items:
+                           type: object
+                           properties:
+                             id:
+                               type: string
+                             emailAddress:
+                               type: string
+                             fullName:
+                               type: string
+                             status:
+                               type: string
+                             lastChanged:
+                               type: string
+                               format: date-time
+                             timestampSignup:
+                               type: string
+                               format: date-time
+                           required:
+                             - id
+                             - email_address
+                             - full_name
+                             - status
+                             - last_changed
+                             - timestamp_signup
+                     required:
+                       - members
+                   fullSearch:
+                     type: object
+                     properties:
+                       members:
+                         type: array
+                         items: {}
+                     required:
+                       - members
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     exactMatches:
+                       members:
+                         - id: elit ipsum
+                           status: tempor Lorem
+                           lastChanged: '1956-12-16T04:21:44.0Z'
+                           timestampSignup: '1952-02-15T19:58:19.0Z'
+                           emailAddress: reprehenderit tempor ut ea
+                           fullName: consequat nulla fugiat
+                       reprehenderit_d0: 49252803
+                       pariatur_d: nostrud deserunt dolor voluptate cupidatat
+                       sunt_bfc: -90888893
+                       dolor92: Duis tempor consectetur nisi et
+                       commodo_b8d: -84442796
+                     fullSearch:
+                       members: []
+                       dolore88c: dolor Duis
+                     $native:
+                       aliqua_e: true
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 listId:
+                   type: string
+                 fields:
+                   type: array
+                   items:
+                     type: string
+                 excludeFields:
+                   type: array
+                   items:
+                     type: string
+                 query:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     listId: consectetur
+                     fields:
+                       - nulla ut
+                     excludeFields:
+                       - dolore
+                     query: elit ad cupidatat tempor
+      operationId: search-members
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/mailchimp/lists/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     $native:
+                       pariatur_0f4: -50345930
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: elit qui
+      operationId: find-list
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/mailchimp/lists/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   lists:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type: string
+                         dateCreated:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - name
+                         - date_created
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     lists:
+                       - id: consequat proident elit magna fugiat
+                         name: cillum dolore ut irure
+                         dateCreated: '1955-07-20T16:48:39.0Z'
+                     $native:
+                       in_9: -20431138.4564694
+                       magna_8: sed velit
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 count:
+                   type: number
+                 offset:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     count: 3052962.8700054735
+                     offset: -89058559.91241443
+      operationId: list-lists
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/mailchimp:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

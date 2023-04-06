@@ -1,0 +1,1614 @@
+
+openapi: 3.1.0
+info:
+  title: Dialpad API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/dialpad/users/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   cursor:
+                     type: string
+                   items:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         adminOfficeIds:
+                           type: array
+                           items:
+                             type: string
+                         companyId:
+                           type: string
+                         country:
+                           type: string
+                         dateActive:
+                           type: string
+                           format: date-time
+                         dateAdded:
+                           type: string
+                           format: date-time
+                         dateFirstLogin:
+                           type: string
+                           format: date-time
+                         doNotDisturb:
+                           type: boolean
+                         emails:
+                           type: array
+                           items:
+                             type: string
+                         firstName:
+                           type: string
+                         id:
+                           type: string
+                         imageUrl:
+                           type: string
+                         isAdmin:
+                           type: boolean
+                         isAvailable:
+                           type: boolean
+                         isOnDuty:
+                           type: boolean
+                         isOnline:
+                           type: boolean
+                         isSuperAdmin:
+                           type: boolean
+                         language:
+                           type: string
+                         lastName:
+                           type: string
+                         license:
+                           type: string
+                         muted:
+                           type: boolean
+                         officeId:
+                           type: string
+                         phoneNumbers:
+                           type: array
+                           items:
+                             type: string
+                         state:
+                           type: string
+                         timezone:
+                           type: string
+                       required:
+                         - admin_office_ids
+                         - company_id
+                         - country
+                         - date_active
+                         - date_added
+                         - date_first_login
+                         - do_not_disturb
+                         - emails
+                         - first_name
+                         - id
+                         - image_url
+                         - is_admin
+                         - is_available
+                         - is_on_duty
+                         - is_online
+                         - is_super_admin
+                         - language
+                         - last_name
+                         - license
+                         - muted
+                         - office_id
+                         - phone_numbers
+                         - state
+                         - timezone
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     - - country: qui sed ea velit
+                         emails:
+                           - Lorem nostrud
+                         id: magna commodo
+                         language: esse sit aliqua
+                         license: ut
+                         muted: false
+                         state: eiusmod ut incididunt ullamco sint
+                         timezone: Lorem sit proident
+                         firstName: minim
+                         isAvailable: true
+                         imageUrl: tempor
+                         isOnline: false
+                         adminOfficeIds:
+                           - anim consequat
+                         dateAdded: '2003-07-13T17:04:27.0Z'
+                         phoneNumbers:
+                           - velit ut Excepteur
+                         isAdmin: true
+                         companyId: Ut minim velit consequat
+                         officeId: sed aliqua ipsum elit esse
+                         isOnDuty: true
+                         dateActive: '2007-02-09T18:08:47.0Z'
+                         dateFirstLogin: '1977-03-18T11:57:16.0Z'
+                         lastName: eiusmod dolor
+                         doNotDisturb: false
+                         isSuperAdmin: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: mollit veniam ad commodo
+      operationId: list-users
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/users/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   adminOfficeIds:
+                     type: array
+                     items:
+                       type: string
+                   companyId:
+                     type: string
+                   country:
+                     type: string
+                   dateActive:
+                     type: string
+                     format: date-time
+                   dateAdded:
+                     type: string
+                     format: date-time
+                   dateFirstLogin:
+                     type: string
+                     format: date-time
+                   doNotDisturb:
+                     type: boolean
+                   emails:
+                     type: array
+                     items:
+                       type: string
+                   firstName:
+                     type: string
+                   id:
+                     type: string
+                   imageUrl:
+                     type: string
+                   isAdmin:
+                     type: boolean
+                   isAvailable:
+                     type: boolean
+                   isOnDuty:
+                     type: boolean
+                   isOnline:
+                     type: boolean
+                   isSuperAdmin:
+                     type: boolean
+                   language:
+                     type: string
+                   lastName:
+                     type: string
+                   license:
+                     type: string
+                   muted:
+                     type: boolean
+                   officeId:
+                     type: string
+                   phoneNumbers:
+                     type: array
+                     items:
+                       type: string
+                   state:
+                     type: string
+                   timezone:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     adminOfficeIds:
+                       - elit est voluptate commodo
+                     companyId: et
+                     country: do laboris
+                     dateActive: '1953-11-12T02:37:41.0Z'
+                     dateAdded: '1984-10-17T04:20:58.0Z'
+                     dateFirstLogin: '1967-04-05T15:47:56.0Z'
+                     doNotDisturb: true
+                     emails:
+                       - nulla nisi eu anim culpa
+                     firstName: sunt laboris
+                     id: mollit amet
+                     imageUrl: veniam irure do nostrud
+                     isAdmin: true
+                     isAvailable: true
+                     isOnDuty: false
+                     isOnline: true
+                     isSuperAdmin: true
+                     language: eu commodo
+                     lastName: officia cillum
+                     license: sed qui incididunt dolore
+                     muted: true
+                     officeId: culpa mollit
+                     phoneNumbers:
+                       - sit
+                     state: in magna dolore in
+                     timezone: eu enim Duis
+                     $native:
+                       aliquip61: 21980806
+                       inad1: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: aliquip consequat dolore magna
+      operationId: find-user
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/contacts/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   companyName:
+                     type: string
+                   displayName:
+                     type: string
+                   emails:
+                     type: array
+                     items:
+                       type: string
+                   extension:
+                     type: string
+                   jobTitle:
+                     type: string
+                   ownerId:
+                     type: string
+                   phones:
+                     type: array
+                     items:
+                       type: string
+                   primaryEmail:
+                     type: string
+                   primaryPhone:
+                     type: string
+                   type:
+                     type: string
+                     enum:
+                       - shared
+                       - local
+                   urls:
+                     type: array
+                     items:
+                       type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: laborum
+                     firstName: Lorem adipisicing tempor
+                     lastName: ex
+                     companyName: dolore consectetur eiusmod
+                     displayName: cupidatat id ea
+                     emails:
+                       - esse ut exercitation incididunt velit
+                     extension: Ut quis aliqua qui eu
+                     jobTitle: dolor aute mollit in
+                     ownerId: ea voluptate laboris et qui
+                     phones:
+                       - Ut sit pariatur laborum exercitation
+                     primaryEmail: ad reprehenderit
+                     primaryPhone: sint incididunt sunt
+                     type: shared
+                     urls:
+                       - adipisicing
+                     $native:
+                       anim_dd: false
+                       et4c: true
+                       tempor5a: -44995047.3478848
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: sunt
+      operationId: find-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/contacts/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   cursor:
+                     type: string
+                   items:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type: string
+                         lastName:
+                           type: string
+                         companyName:
+                           type: string
+                         displayName:
+                           type: string
+                         emails:
+                           type: array
+                           items:
+                             type: string
+                         extension:
+                           type: string
+                         jobTitle:
+                           type: string
+                         ownerId:
+                           type: string
+                         phones:
+                           type: array
+                           items:
+                             type: string
+                         primaryEmail:
+                           type: string
+                         primaryPhone:
+                           type: string
+                         type:
+                           type: string
+                           enum:
+                             - shared
+                             - local
+                         urls:
+                           type: array
+                           items:
+                             type: string
+                       required:
+                         - id
+                         - first_name
+                         - last_name
+                         - company_name
+                         - display_name
+                         - emails
+                         - extension
+                         - job_title
+                         - owner_id
+                         - phones
+                         - primary_email
+                         - primary_phone
+                         - type
+                         - urls
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     - - id: eiusmod mollit ad
+                         emails:
+                           - quis sed Duis ipsum
+                         extension: sed in labore
+                         phones:
+                           - proident sunt nostrud
+                         type: shared
+                         urls:
+                           - eiusmod
+                         companyName: consectetur laborum dolore officia
+                         ownerId: enim deserunt ut
+                         firstName: Ut in veniam
+                         lastName: cillum mollit dolor ut nulla
+                         primaryPhone: anim nulla deserunt sunt
+                         primaryEmail: nulla tempor ea
+                         jobTitle: eiusmod amet elit
+                         displayName: aliqua velit
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: mollit velit ex
+      operationId: list-contacts
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/contacts/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   companyName:
+                     type: string
+                   displayName:
+                     type: string
+                   emails:
+                     type: array
+                     items:
+                       type: string
+                   extension:
+                     type: string
+                   jobTitle:
+                     type: string
+                   ownerId:
+                     type: string
+                   phones:
+                     type: array
+                     items:
+                       type: string
+                   primaryEmail:
+                     type: string
+                   primaryPhone:
+                     type: string
+                   type:
+                     type: string
+                     enum:
+                       - shared
+                       - local
+                   urls:
+                     type: array
+                     items:
+                       type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: dolore ex in
+                     firstName: amet Excepteur velit incididunt
+                     lastName: adipisicing amet incididunt est
+                     companyName: proident commodo tempor
+                     displayName: nostrud dolor ut
+                     emails:
+                       - sed
+                     extension: exercitation dolor voluptate aliqua
+                     jobTitle: amet commodo ea qui
+                     ownerId: dolore reprehenderit
+                     phones:
+                       - aliqua
+                     primaryEmail: ut Lorem nulla exercitation dolore
+                     primaryPhone: ut
+                     type: local
+                     urls:
+                       - nulla voluptate consectetur
+                     $native:
+                       in9d: consequat Excepteur nostrud
+                       laboris4: 7262937.4260673225
+                       eu_af: true
+                       id8: true
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 firstName:
+                   type: string
+                 lastName:
+                   type: string
+                 companyName:
+                   type: string
+                 emails:
+                   type: array
+                   items:
+                     type: string
+                 extension:
+                   type: string
+                 jobTitle:
+                   type: string
+                 phones:
+                   type: array
+                   items:
+                     type: string
+                 urls:
+                   type: array
+                   items:
+                     type: string
+            examples:
+              example-1:
+                value:
+                     firstName: fugiat Duis aliquip dolor ex
+                     lastName: veniam sint
+                     companyName: ut
+                     emails:
+                       - incididunt deserunt culpa aute ut
+                     extension: Excepteur ut in
+                     jobTitle: ea ullamco elit ex
+                     phones:
+                       - laboris
+                     urls:
+                       - nostrud Duis qui cillum in
+      operationId: contacts-create
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/contacts/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   firstName:
+                     type: string
+                   lastName:
+                     type: string
+                   companyName:
+                     type: string
+                   displayName:
+                     type: string
+                   emails:
+                     type: array
+                     items:
+                       type: string
+                   extension:
+                     type: string
+                   jobTitle:
+                     type: string
+                   ownerId:
+                     type: string
+                   phones:
+                     type: array
+                     items:
+                       type: string
+                   primaryEmail:
+                     type: string
+                   primaryPhone:
+                     type: string
+                   type:
+                     type: string
+                     enum:
+                       - shared
+                       - local
+                   urls:
+                     type: array
+                     items:
+                       type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: nostrud dolor
+                     firstName: Duis officia
+                     lastName: ad dolore exercitation enim
+                     companyName: veniam labore ut
+                     displayName: irure ullamco id eu
+                     emails:
+                       - minim aliqua
+                     extension: eiusmod ipsum
+                     jobTitle: proident minim
+                     ownerId: esse
+                     phones:
+                       - dolore voluptate anim
+                     primaryEmail: ex
+                     primaryPhone: elit ea amet aute
+                     type: shared
+                     urls:
+                       - in irure
+                     $native:
+                       anim8b5: false
+                       utb5b: true
+                       nisi_: -89042055.38762029
+                       sitd: mollit sit consectetur dolore Excepteur
+                       anim3: aliqua in
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 firstName:
+                   type: string
+                 lastName:
+                   type: string
+                 companyName:
+                   type: string
+                 emails:
+                   type: array
+                   items:
+                     type: string
+                 extension:
+                   type: string
+                 jobTitle:
+                   type: string
+                 phones:
+                   type: array
+                   items:
+                     type: string
+                 urls:
+                   type: array
+                   items:
+                     type: string
+                 uid:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     firstName: elit aliquip adipisicing dolore sint
+                     lastName: velit dolore
+                     companyName: deserunt dolor
+                     emails:
+                       - in exercitation sit Lorem
+                     extension: dolore officia
+                     jobTitle: qui mollit
+                     phones:
+                       - do
+                     urls:
+                       - nulla in consequat
+                     uid: culpa cupidatat veniam voluptate
+      operationId: contacts-update
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/calls/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   adminCallRecordingShareLinks:
+                     type: array
+                     items:
+                       type: string
+                   callId:
+                     type: number
+                   callRecordingIds:
+                     type: array
+                     items:
+                       type: number
+                   callRecordingShareLinks:
+                     type: array
+                     items:
+                       type: string
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       firstName:
+                         type: string
+                       lastName:
+                         type: string
+                       companyName:
+                         type: string
+                       displayName:
+                         type: string
+                       emails:
+                         type: array
+                         items:
+                           type: string
+                       extension:
+                         type: string
+                       jobTitle:
+                         type: string
+                       ownerId:
+                         type: string
+                       phones:
+                         type: array
+                         items:
+                           type: string
+                       primaryEmail:
+                         type: string
+                       primaryPhone:
+                         type: string
+                       type:
+                         type: string
+                         enum:
+                           - shared
+                           - local
+                       urls:
+                         type: array
+                         items:
+                           type: string
+                     required:
+                       - id
+                       - first_name
+                       - last_name
+                       - company_name
+                       - display_name
+                       - emails
+                       - extension
+                       - job_title
+                       - owner_id
+                       - phones
+                       - primary_email
+                       - primary_phone
+                       - type
+                       - urls
+                   csatRecordingUrls:
+                     type: array
+                     items:
+                       type: string
+                   csatScore:
+                     type: string
+                   csatTranscriptions:
+                     type: string
+                   customData:
+                     type: string
+                   dateConnected:
+                     type: number
+                   dateEnded:
+                     type: number
+                   dateRang:
+                     type: number
+                   dateStarted:
+                     type: number
+                   direction:
+                     type: string
+                     enum:
+                       - inbound
+                       - outbound
+                   duration:
+                     type: number
+                   entryPointCallId:
+                     type: number
+                   entryPointTarget:
+                     type: object
+                     properties:
+                       email:
+                         type: string
+                       id:
+                         type: string
+                       name:
+                         type: string
+                       phone:
+                         type: string
+                       type:
+                         type: string
+                     required:
+                       - email
+                       - id
+                       - name
+                       - phone
+                       - type
+                   eventTimestamp:
+                     type: number
+                   externalNumber:
+                     type: string
+                   groupId:
+                     type: string
+                   internalNumber:
+                     type: string
+                   isTransferred:
+                     type: boolean
+                   labels:
+                     type: array
+                     items:
+                       type: string
+                   masterCallId:
+                     type: number
+                   mosScore:
+                     type: number
+                   operatorCallId:
+                     type: number
+                   proxyTarget: {}
+                   recordingUrl:
+                     type: array
+                     items:
+                       type: string
+                   routingBreadcrumbs:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         breadcrumbType:
+                           type: string
+                         date:
+                           type: number
+                         request:
+                           type: object
+                           properties:
+                             body:
+                               type: string
+                             headers:
+                               type: string
+                             method:
+                               type: string
+                             url:
+                               type: string
+                           required:
+                             - body
+                             - headers
+                             - method
+                             - url
+                         response:
+                           type: object
+                           properties:
+                             body:
+                               type: string
+                             headers:
+                               type: string
+                             statusCode:
+                               type: number
+                           required:
+                             - body
+                             - headers
+                             - status_code
+                         targetId:
+                           type: number
+                         targetType:
+                           type: string
+                         url:
+                           type: string
+                       required:
+                         - breadcrumb_type
+                         - date
+                         - request
+                         - response
+                         - target_id
+                         - target_type
+                         - url
+                   screenRecordingUrls:
+                     type: array
+                     items:
+                       type: string
+                   state:
+                     type: string
+                   target: {}
+                   totalDuration:
+                     type: number
+                   transcriptionText:
+                     type: string
+                   voicemailLink:
+                     type: string
+                   voicemailRecordingId:
+                     type: string
+                   voicemailShareLink:
+                     type: string
+                   wasRecorded:
+                     type: boolean
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     adminCallRecordingShareLinks:
+                       - sunt
+                     callId: 78592035.67592731
+                     callRecordingIds:
+                       - 88506053.59150457
+                     callRecordingShareLinks:
+                       - ut
+                     contact:
+                       id: fugiat ut laborum Duis
+                       emails:
+                         - commodo amet nisi quis nostrud
+                       extension: irure occaecat cupidatat id est
+                       phones:
+                         - dolore nisi ullamco culpa aliqua
+                       type: shared
+                       urls:
+                         - voluptate dolor exercitation ut Ut
+                       jobTitle: anim voluptate pariatur
+                       firstName: aliquip dolore ut id
+                       companyName: incididunt
+                       primaryPhone: eiusmod aliqua do
+                       lastName: cupidatat consequat nulla eiusmod
+                       displayName: eu
+                       primaryEmail: dolor pariatur aliqua dolor
+                       ownerId: nostrud aliqua
+                     csatRecordingUrls:
+                       - laboris consectetur
+                     csatScore: consequat ea id nulla esse
+                     csatTranscriptions: aliquip
+                     customData: in enim incididunt
+                     dateConnected: 26935436.980015174
+                     dateEnded: 28691542.81816764
+                     dateRang: -24744048.103348345
+                     dateStarted: 55760956.15610036
+                     direction: inbound
+                     duration: -53682544.838010095
+                     entryPointCallId: -66057248.058901764
+                     entryPointTarget:
+                       email: et
+                       id: cupidatat laboris
+                       name: anim in ex Lorem incididunt
+                       phone: laboris laborum
+                       type: nisi exercitation non
+                       Lorem0: -78347710
+                       Excepteur__0: -56631700.50128881
+                       ipsume48: false
+                       et__cb: -42997693.99354027
+                     eventTimestamp: -14597218.965161264
+                     externalNumber: commodo ut voluptate fugiat
+                     groupId: labore
+                     internalNumber: ipsum voluptate Ut ea proident
+                     isTransferred: false
+                     labels:
+                       - elit qui
+                     masterCallId: 25462227.194840863
+                     mosScore: -93719995.89304543
+                     operatorCallId: -17304044.842886016
+                     proxyTarget: {}
+                     recordingUrl:
+                       - Excepteur sunt aliquip tempor qui
+                     routingBreadcrumbs:
+                       - date: 74749932.9709383
+                         request:
+                           body: in exercitation proident culpa dolore
+                           headers: amet ex eu sed dolore
+                           method: Ut
+                           url: magna ut laborum incididunt
+                           ut2ce: -71596031.48102792
+                           Duis2: -82369493
+                           velit59b: cupidatat eu consectetur aliquip
+                           quisbab: 66044814.04921222
+                           aliqua_d2a: false
+                           reprehenderit_2f1: 78864566
+                         response:
+                           body: veniam eiusmod aliquip
+                           headers: occaecat
+                           statusCode: -90993608.00423138
+                         url: sunt do sed culpa nostrud
+                         targetId: 94303085.36404857
+                         targetType: velit irure labore cupidatat veniam
+                         breadcrumbType: do magna
+                     screenRecordingUrls:
+                       - dolor nostrud consectetur aliquip veniam
+                     state: proident sed labore
+                     target: {}
+                     totalDuration: -85656604.99339613
+                     transcriptionText: officia laboris ex culpa
+                     voicemailLink: sint
+                     voicemailRecordingId: nisi laborum Ut ex occaecat
+                     voicemailShareLink: dolore deserunt culpa
+                     wasRecorded: false
+                     $native:
+                       ut_df: false
+                       laborefd: -74245065
+                       et_e: true
+                       adipisicing4c6: Duis
+                       commodo0c: -82848561
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: dolore
+      operationId: find-call
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/calls/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   cursor:
+                     type: string
+                   items:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         adminCallRecordingShareLinks:
+                           type: array
+                           items:
+                             type: string
+                         callId:
+                           type: number
+                         callRecordingIds:
+                           type: array
+                           items:
+                             type: number
+                         callRecordingShareLinks:
+                           type: array
+                           items:
+                             type: string
+                         contact:
+                           type: object
+                           properties:
+                             id:
+                               type: string
+                             firstName:
+                               type: string
+                             lastName:
+                               type: string
+                             companyName:
+                               type: string
+                             displayName:
+                               type: string
+                             emails:
+                               type: array
+                               items:
+                                 type: string
+                             extension:
+                               type: string
+                             jobTitle:
+                               type: string
+                             ownerId:
+                               type: string
+                             phones:
+                               type: array
+                               items:
+                                 type: string
+                             primaryEmail:
+                               type: string
+                             primaryPhone:
+                               type: string
+                             type:
+                               type: string
+                               enum:
+                                 - shared
+                                 - local
+                             urls:
+                               type: array
+                               items:
+                                 type: string
+                           required:
+                             - id
+                             - first_name
+                             - last_name
+                             - company_name
+                             - display_name
+                             - emails
+                             - extension
+                             - job_title
+                             - owner_id
+                             - phones
+                             - primary_email
+                             - primary_phone
+                             - type
+                             - urls
+                         csatRecordingUrls:
+                           type: array
+                           items:
+                             type: string
+                         csatScore:
+                           type: string
+                         csatTranscriptions:
+                           type: string
+                         customData:
+                           type: string
+                         dateConnected:
+                           type: number
+                         dateEnded:
+                           type: number
+                         dateRang:
+                           type: number
+                         dateStarted:
+                           type: number
+                         direction:
+                           type: string
+                           enum:
+                             - inbound
+                             - outbound
+                         duration:
+                           type: number
+                         entryPointCallId:
+                           type: number
+                         entryPointTarget:
+                           type: object
+                           properties:
+                             email:
+                               type: string
+                             id:
+                               type: string
+                             name:
+                               type: string
+                             phone:
+                               type: string
+                             type:
+                               type: string
+                           required:
+                             - email
+                             - id
+                             - name
+                             - phone
+                             - type
+                         eventTimestamp:
+                           type: number
+                         externalNumber:
+                           type: string
+                         groupId:
+                           type: string
+                         internalNumber:
+                           type: string
+                         isTransferred:
+                           type: boolean
+                         labels:
+                           type: array
+                           items:
+                             type: string
+                         masterCallId:
+                           type: number
+                         mosScore:
+                           type: number
+                         operatorCallId:
+                           type: number
+                         proxyTarget: {}
+                         recordingUrl:
+                           type: array
+                           items:
+                             type: string
+                         routingBreadcrumbs:
+                           type: array
+                           items:
+                             type: object
+                             properties:
+                               breadcrumbType:
+                                 type: string
+                               date:
+                                 type: number
+                               request:
+                                 type: object
+                                 properties:
+                                   body:
+                                     type: string
+                                   headers:
+                                     type: string
+                                   method:
+                                     type: string
+                                   url:
+                                     type: string
+                                 required:
+                                   - body
+                                   - headers
+                                   - method
+                                   - url
+                               response:
+                                 type: object
+                                 properties:
+                                   body:
+                                     type: string
+                                   headers:
+                                     type: string
+                                   statusCode:
+                                     type: number
+                                 required:
+                                   - body
+                                   - headers
+                                   - status_code
+                               targetId:
+                                 type: number
+                               targetType:
+                                 type: string
+                               url:
+                                 type: string
+                             required:
+                               - breadcrumb_type
+                               - date
+                               - request
+                               - response
+                               - target_id
+                               - target_type
+                               - url
+                         screenRecordingUrls:
+                           type: array
+                           items:
+                             type: string
+                         state:
+                           type: string
+                         target: {}
+                         totalDuration:
+                           type: number
+                         transcriptionText:
+                           type: string
+                         voicemailLink:
+                           type: string
+                         voicemailRecordingId:
+                           type: string
+                         voicemailShareLink:
+                           type: string
+                         wasRecorded:
+                           type: boolean
+                       required:
+                         - admin_call_recording_share_links
+                         - call_id
+                         - call_recording_ids
+                         - call_recording_share_links
+                         - contact
+                         - csat_recording_urls
+                         - csat_score
+                         - csat_transcriptions
+                         - custom_data
+                         - date_connected
+                         - date_ended
+                         - date_rang
+                         - date_started
+                         - direction
+                         - duration
+                         - entry_point_call_id
+                         - entry_point_target
+                         - event_timestamp
+                         - external_number
+                         - group_id
+                         - internal_number
+                         - is_transferred
+                         - labels
+                         - master_call_id
+                         - mos_score
+                         - operator_call_id
+                         - proxy_target
+                         - recording_url
+                         - routing_breadcrumbs
+                         - screen_recording_urls
+                         - state
+                         - target
+                         - total_duration
+                         - transcription_text
+                         - voicemail_link
+                         - voicemail_recording_id
+                         - voicemail_share_link
+                         - was_recorded
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     - - contact:
+                           id: enim
+                           emails:
+                             - non adipisicing magna voluptate sint
+                           extension: ut laborum enim
+                           phones:
+                             - deserunt fugiat
+                           type: local
+                           urls:
+                             - tempor cillum
+                           primaryPhone: laborum laboris aliqua Duis
+                           ownerId: incididunt aliqua eiusmod exercitation
+                           firstName: proident dolore
+                           lastName: incididunt proident nulla commodo in
+                           companyName: in labore consectetur esse
+                           jobTitle: esse
+                           primaryEmail: Excepteur Lorem eiusmod eu laborum
+                           displayName: qui Duis dolor consequat sit
+                         direction: inbound
+                         duration: -8348467.542265862
+                         labels:
+                           - est
+                         state: Ut eiusmod quis
+                         target: {}
+                         dateRang: 54304209.19574645
+                         csatScore: nostrud
+                         recordingUrl:
+                           - consequat nostrud sit
+                         callRecordingIds:
+                           - 93919108.5200628
+                         entryPointCallId: -26689013.10705167
+                         voicemailShareLink: reprehenderit occaecat ullamco commodo
+                         eventTimestamp: 23304626.064790532
+                         entryPointTarget:
+                           email: deserunt velit aliqua ex labore
+                           id: eu nulla
+                           name: ad adipisicing proident esse
+                           phone: ut deserunt pariatur cupidatat quis
+                           type: in dolore Lorem
+                           quis_a: 94107933.10720176
+                           sintb: 29479268.504288167
+                           elit0d: false
+                         callId: 54664182.71046859
+                         voicemailRecordingId: aliqua
+                         proxyTarget: {}
+                         operatorCallId: -13205536.221027225
+                         voicemailLink: Excepteur amet
+                         routingBreadcrumbs:
+                           - date: -9033242.16539292
+                             request:
+                               body: sunt non
+                               headers: ea esse ipsum irure fugiat
+                               method: adipisicing ex
+                               url: officia velit consequat proident
+                               Loremc2_: do
+                             response:
+                               body: anim
+                               headers: anim laborum consequat
+                               statusCode: -33848372.13903422
+                             url: nostrud esse dolore
+                             breadcrumbType: tempor quis in exercitation
+                             targetId: 49164792.280215204
+                             targetType: adipisicing consectetur ullamco fugiat ex
+                         screenRecordingUrls:
+                           - Duis dolor
+                         masterCallId: 12430193.983308196
+                         wasRecorded: false
+                         mosScore: 69421727.78996944
+                         totalDuration: -24541458.368856877
+                         csatRecordingUrls:
+                           - voluptate magna laborum labore exercitation
+                         dateEnded: 59432416.8472026
+                         dateStarted: 47199564.86605108
+                         groupId: pariatur nulla cillum tempor
+                         isTransferred: false
+                         callRecordingShareLinks:
+                           - enim in aliquip
+                         transcriptionText: nulla
+                         adminCallRecordingShareLinks:
+                           - dolor aute in ut
+                         externalNumber: velit amet
+                         customData: velit
+                         csatTranscriptions: sit ad esse nulla aliqua
+                         internalNumber: dolore anim amet non
+                         dateConnected: 9940393.407342717
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: aliqua sunt cillum amet
+      operationId: list-calls
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/dialpad/calls/start:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: in Excepteur magna velit aliquip
+                     $native:
+                       ut4e: magna officia laboris in nisi
+                       laborum579: true
+                       eu7f: elit
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 customData:
+                   type: string
+                 deviceId:
+                   type: string
+                 groupId:
+                   type: number
+                 groupType:
+                   type: string
+                 outboundCallerId:
+                   type: string
+                 phoneNumber:
+                   type: string
+                 userId:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     customData: qui sint veniam
+                     deviceId: id reprehenderit
+                     groupId: 75413741.09020352
+                     groupType: ullamco dolore
+                     outboundCallerId: Ut culpa
+                     phoneNumber: consequat
+                     userId: ullamco sit
+      operationId: start-call
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/dialpad:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

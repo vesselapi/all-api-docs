@@ -1,0 +1,24 @@
+---
+openapi: "POST /api/unificationengagement/sequences/create"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/unificationengagement/sequences/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "sequence": {
+    "name": "Email Sequence",
+    "shareType": "team"
+  }
+}'
+```
+
+</RequestExample>
+
+
+      

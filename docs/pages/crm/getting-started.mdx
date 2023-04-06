@@ -1,0 +1,188 @@
+---
+title: "Setting up the CRM API"
+---
+
+Step-by-step guide for getting up and running with the Vessel CRM APIs. If you get stuck or have trouble - email us at `support@vessel.dev`.
+
+## Get Access
+
+The first step to getting up and running with the Vessel CRM API is to get access to the API via an API-token. You can request an API-token by emailing `support@vessel.dev`.
+
+## Test API Call
+
+After receiving your API token, you can quickly gut-check that everything is working by making a request to the `/link/token` endpoint. Here's an example of how to make such a request via curl:
+
+```bash Terminal
+curl -X POST https://api.vessel.dev/link/token
+  --header "vessel-api-token: [YOUR_API_TOKEN]"
+```
+
+If you get linkToken back, everything's working and you're good to move on to the next step.
+
+```json
+{ "linkToken": "[SOME_TOKEN]" }
+```
+
+## Setup a Test Account
+
+The easiest way to test the Vessel CRM endpoints is to set up test accounts with at least one CRM provider. While you can technically test by installing Vessel into the CRM your company uses (assuming your company uses a supported CRM), it is **highly** advised that you create a dedicated testing environment. This ensures that the data in your company's CRM is preserved and also provides cleaner testing data.
+
+Here are links for setting up a test account with some of the CRMs we support:
+
+- [HubSpot](https://app.hubspot.com/signup-hubspot/developers?uuid=2b9d74df-b5e4-435c-9a92-4ba56485e827&step=landing_page) (_Recommended_)
+- [Salesforce](https://developer.salesforce.com/signup)
+- [Pipedrive](https://developers.pipedrive.com/start-here)
+- [Zoho](https://www.zoho.com/crm/developer/sandbox.html)
+
+It is vital that you create an account through the links above, otherwise you risk creating an account that will not have API access. Once you've set up an account with at least one of the above CRMs and loaded in some dummy data, you can move on to the next step.
+
+## Setup and Configure Vessel-link
+
+Next, use Vessel's drop-in UI component to quickly set up authentication for your users. This componet is used to open the Vessel modal which provides a UI for connecting to the CRMs we support.
+
+### Setup
+
+Start by installing the official [vessel-link npm package](https://www.npmjs.com/package/@vesselapi/react-vessel-link) in your FE service. In the next step, you'll see how to get a `linkToken` so you can summon the auth modal provided by the package.
+
+Once you've installed the `vessel-link` package and read the README, you can move on to the next step.
+
+## Creating a Connection to the user's CRM
+
+Next, we'll see how to connect to your user's CRM using the Vessel API.
+
+A connection consists of:
+
+1. An `accessToken`: The private secret used to query the Vessel API.
+2. A `connectionId`: The public identifier of the connection.
+
+During the authentication step, after your user has authenticated their CRM, Vessel will return a `publicToken` (_not_ the user's credentials) which can be exchanged for an `accessToken` to query the API with. This process plays an important part in ensuring the security of the Vessel API and you can read more about the `linkToken` / `accessToken` exchange [here](/authentication-and-security). The `accessToken` is used to query our APIs, it should be kept secret and stored securely.
+
+It is also recommended that you save the `connectionId`. The `connectionId` is used when referencing the state of the connection via the `/connection/` endpoints (e.g., to tell if the connection is still syncing or if it's fully synced).
+
+Here's some example code for how to exchange a `publicToken` for an `accessToken` and a `connectionId`:
+
+### BE Server
+
+```js NodeJS
+import express from "express";
+import fetch from "node-fetch";
+import db from "../utils/database";
+
+const app = express();
+const port = 3000;
+
+app.post("/link-token", async (req, res) => {
+  // @reference https://docs.vessel.dev/api-reference/link/create-link-token
+  const response = await fetch("https://api.vessel.dev/link/token", {
+    method: "POST",
+    headers: {
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
+    },
+  });
+
+  const body = await response.json();
+  res.send({ linkToken: body.linkToken });
+});
+
+app.post("/store-token", async (req, res) => {
+  const { publicToken } = req.body;
+  // @reference https://docs.vessel.dev/api-reference/link/exchange-tokens
+  const response = await fetch("https://api.vessel.dev/link/exchange", {
+    method: "POST",
+    headers: {
+      "vessel-api-token": process.env.VESSEL_API_TOKEN,
+    },
+    body: JSON.stringify({
+      publicToken,
+    }),
+  });
+  const { connectionId, accessToken } = await response.json();
+  await db.storeSecrets(accessToken, connectionId);
+
+  res.send({ success: true });
+});
+
+app.listen(port);
+```
+
+### FE Client
+
+```jsx Frontend
+import { useState } from "React";
+import { VesselConnectButton } from "@vesselapi/react-vessel-link";
+
+function App() {
+  return (
+    <VesselConnectButton
+      onSuccess={async (publicToken) => {
+        // Pass the publicToken back to the BE so it can be exchanged for an accessToken
+        await fetch("https://my-company.api.com/store-token", {
+          method: "POST",
+          body: JSON.stringify({
+            publicToken,
+          }),
+        });
+      }}
+      getLinkToken={async () => {
+        // Retrieve the linkToken
+        const response = await fetch("https://my-company.api.com/link-token", {
+          method: "POST",
+        });
+
+        const { linkToken } = await response.json();
+        return linkToken;
+      }}
+    />
+  );
+}
+```
+
+Try authenticating through the test account you set up in the [Setup a Test Account](#setup-a-test-account) step. If you're able to go through the authentication flow with no issues, and you're successfully storing the `accessToken` and `connectionId`, you can move on to the next step.
+
+## Connection status
+
+When a user first connects, the CRM APIs (`/crm/`) are blocked until the initial data pull completes. All other APIs, such as `/webhook/` and `/connection/`, will be available. You can [setup a webhook](/webhooks) to be notified when the data pull completes, so you'll know when you can start making `/crm/` APIs calls. Below is a summary of the various connection statuses.
+
+| Status           | Description                                                   |
+| ---------------- | ------------------------------------------------------------- |
+| `NEW_CONNECTION` | When a connection is newly created. All CRM APIs are blocked. |
+| `INITIAL_SYNCED` | First 30 days of data synced. CRM APIs are unblocked.         |
+| `READY`          | All data has been synced                                      |
+
+## Putting it all together
+
+Finally, we can tie the above pieces together and make an end-to-end request to the Vessel API!
+
+```js Example
+app.get("contacts", async (req, res) => {
+  const { user } = req.body;
+
+  const accessToken = await getAccessToken(user);
+
+  // @reference https://docs.vessel.dev/api-reference/crm/get-all-contacts
+  const response = await fetch(
+    `https://api.vessel.dev/crm/contacts?accessToken=${accessToken}`,
+    {
+      method: "GET",
+      headers: {
+        "vessel-api-token": process.env.VESSEL_API_TOKEN,
+      },
+    }
+  );
+
+  const { contacts } = await response.json();
+  res.send({ contacts });
+});
+```
+
+You can read the API reference for all supported operations.
+
+## Cleaning up Connections
+
+It's very important that you provide a way for your users to disconnect their CRM accounts from your app. This not only helps maintain good CRM hygiene (which your users will thank you for), but also allows Vessel to de-allocate resources for connections that are no longer in use. Additionally, development environments are allotted **five** connections, meaning that if you try to connect a sixth connection without first removing previous connection, the authentication call will fail with an error message indicating the connection limit has been reached.
+
+To disconnect a connection, call the [DELETE /connection/connection](https://docs.vessel.dev/api-reference/connection/remove-connection) endpoint.
+
+## Feedback
+
+Did this process take you longer than 1.5 hours? If so, want to hear about it. Please send an email to support@vessel.dev so we can inquire more about what went wrong, where we need to improve, and how we can help.
