@@ -1,0 +1,38 @@
+---
+openapi: "POST /api/actions/outreach/prospects/create"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/actions/outreach/prospects/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "attributes": {
+    "emails": [
+      "occaecat"
+    ],
+    "addressStreet2": null,
+    "addressCountry": null,
+    "addressZip": "magna amet",
+    "firstName": null,
+    "addressState": null,
+    "lastName": "voluptate aliquip ex non minim",
+    "addressCity": null,
+    "occupation": "ullamco occaecat velit dolore nostrud",
+    "addressStreet": "cillum adipisicing exercitation voluptate enim"
+  },
+  "relationships": {
+    "ownerId": 26490889.969132468,
+    "accountId": 95373781.59082234
+  }
+}'
+```
+
+</RequestExample>
+
+
+      

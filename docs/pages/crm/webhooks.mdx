@@ -1,0 +1,133 @@
+---
+title: "Webhooks"
+---
+
+Webhooks allow us to notify you when a relevant change has occurred in our system (or a downstream integration). This article contains only information relevant to Vessel webhooks; for a general overview of webhooks we recommend this [blog post](https://medium.com/hookdeck/webhooks-explained-what-are-webhooks-and-how-do-they-work-90c613c055a4).
+
+### Important Notes
+
+- Any time an object is updated/created/deleted, we'll send an event. You can use the `objectType` on the event payload to ignore objects that aren't relevant to your use case.
+- You can only create **one** webhook per connection. It's very important to save the `webhookId` when you create a webhook as that’s how you’ll delete/change your webhook should you need to.
+- Our webhooks are sent as `POST` requests over standard HTTPs and you must return `2xx` after receiving a webhook event.
+
+## Managing Webhooks
+
+| Description    | Endpoint             |
+| -------------- | -------------------- |
+| Get webhook    | [GET /webhook](/)    |
+| Create webhook | [POST /webhook](/)   |
+| Delete webhook | [DELETE /webhook](/) |
+
+## Event
+
+The shape of the event we send to your `webhookUrl`
+
+### Headers
+
+<Param query="x-vessel-timestamp" type="string">
+  unix timestamp
+</Param>
+<Param query="x-vessel-signature" type="string">
+  signature for authentication
+</Param>
+<Param query="x-vessel-connection-id" type="string">
+  connectionId of this webhook
+</Param>
+
+### Body
+
+General Shape of all events
+
+```json
+{
+  "eventId": string,
+  "type": string, // See event types below
+  "data": object // See possible shape based on type below
+}
+```
+
+_type="OBJECT_CHANGE"_
+
+```json
+{
+  "eventId": string,
+  "type": "OBJECT_CHANGE",
+  "data": {
+    "objectType": string, // "Contact" | "Account" | "Deal" | "Lead" | "User" | "Note" | "Task" | "Event" | "EventAttendee" | "Email"
+    "eventType": string, // "DELETE" | "CREATE" | "UPDATE"
+    "record": object
+  }
+}
+```
+
+_type="STATUS_CHANGE"_
+
+```json
+{
+  "eventId": string,
+  "type": "STATUS_CHANGE",
+  "data": {
+    "status": string; // "NEW_CONNECTION" | "INITIAL_SYNCED" | "READY"
+  }
+}
+```
+
+## Usage
+
+Common use cases/patterns.
+
+### Creating a webhook when an integration account is linked
+
+You can easily establish webhooks when an account is linked by immediately POST-ing to the `/connection/webhook` endpoint after exchanging the `publicToken` for an `accessToken` Here's an example of a possible endpoint on your BE server responsible for exchanging the `publicToken` when a new account is linked.
+
+```js
+app.post('crm/link-account', async (req, res) => {
+  const { accessToken } = await exchangeForAccessToken(req.body.publicToken)
+  ...
+  const { webhook } = await api.post('https://api.vessel.dev/connection/webhook', {
+    headers: {
+      "vessel-api-token": API_TOKEN
+    },
+    bodyParams: {
+      accessToken,
+      webhook: {
+        webhookUrl: WEBHOOK_URL
+      }
+    }
+  })
+  await saveWebhookMeta(webhook)
+  ...
+})
+```
+
+### Processing incoming webhook events
+
+Here's a possible endpoint that's responsible for processing the webhook events sent by Vessel. As seen below, to generate the authentication signature take the sha256 of the `accessToken`, response body, and `x-vessel-timestamp`.
+
+```js
+const hash = (s: string) => crypto.createHash('sha256').update(s).digest('hex')
+
+app.post(WEBHOOK_URL, async (req, res) => {
+  const timestamp = req.headers['x-vessel-timestamp']
+  const connectionId = req.headers['x-vessel-connection-id']
+  const accessToken = await getAccessTokenForConnection(connectionId)
+  const signature = `${accessToken}${JSON.stringify(req.body)}${timestamp}`
+
+  if (hash(signature) !== req.headers["x-vessel-signature"]) {
+    throw new Error("Unable to validate signature")
+  }
+
+  const event = req.body
+  ...
+  switch (event.type) {
+    case "OBJECT_CHANGE":
+      return processObjectChanges(event.data)
+    case "STATUS_CHANGE":
+      return processStatusChange(event.data)
+  }
+  ...
+
+  // !!IMPORTANT!! Must return 2xx or Vessel will keep retrying
+  return res.status(200)
+})
+```

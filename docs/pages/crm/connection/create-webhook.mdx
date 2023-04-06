@@ -1,0 +1,20 @@
+---
+openapi: "POST /connection/webhook"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.dev/connection/webhook \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "webhook": {
+    "webhookUrl": "https://acme.com/webhook"
+  }
+}'
+```
+
+</RequestExample>

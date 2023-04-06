@@ -1,0 +1,27 @@
+---
+openapi: "POST /api/passthrough/dialer"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/passthrough/dialer \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "method": "PATCH",
+  "path": "services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1",
+  "body": [
+    {
+      "Name": "Vessel"
+    }
+  ]
+}'
+```
+
+</RequestExample>
+
+
+      

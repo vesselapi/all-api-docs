@@ -1,0 +1,19 @@
+---
+openapi: "POST /crm/events/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.dev/crm/events/search \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "filters": {
+    "location": "1122 Tea Dr"
+  }
+```
+
+</RequestExample>

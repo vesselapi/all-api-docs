@@ -1,0 +1,107 @@
+---
+title: "Managing OAuth Apps"
+description: How to create, delete, and list your available OAuth apps
+---
+
+<Warning>
+  This feature is available for customers on our **Custom** plans.
+</Warning>
+
+# About OAuth Apps
+
+An OAuth application is a type of application that uses the OAuth protocol to authenticate and authorize access to resources on behalf of a user.
+
+OAuth apps show up when your user goes to connect their account
+
+<Frame caption="What your user sees when they connect their integration">
+  <img src="/images/auth/connection.png" />
+</Frame>
+
+Additionally, they will often be listed in a "connected apps" UI from within the connected platform.
+
+<Frame caption="The Hubspot Connected Apps page showing the Vessel App after the user connected">
+  <img src="/images/auth/connected-apps.png" />
+</Frame>
+
+OAuth apps are required for integrations that support OAuth authentication and often require some amount of configuration and management. For example, most integration providers will require your OAuth application go through an approval process before allowing customers to connect to your OAuth application.
+
+Luckily, we've already created OAuth apps and have gone through the approval process for most of the integrations we support.
+
+However, you might want to provide your own OAuth application for a few reasons:
+
+1. You want the OAuth app to use your branding.
+2. You want to narrow the scopes the OAuth app requests.
+3. You have an existing OAuth app some of your customers are already connected to.
+
+Learn how to allow Vessel to use your OAuth app when authenticating your user below.
+
+# Creating an OAuth App for an Integration
+
+To create an OAuth app for an integration follow these steps:
+
+**1 Create the OAuth app in the integration platform**
+
+You'll need to locate the documentation for creating an OAuth app in the platform itself. If you're unable to locate this information or are unsure how to create an OAuth app, please contact the integration provider directly or reach out to us at `support@vessel.dev` for assistance.
+
+<Warning>
+  Important: When you are creating the OAuth app, it's important to set the
+  Callback URL to `https://app.vessel.dev/api/auth/oauth-callback`.
+</Warning>
+
+**2 Add the OAuth app in Vessel**
+
+Once you've created the OAuth app and have gotten it approved, you can add it to Vessel by calling the [Create OAuth app](/pages/home/api-reference/post-oauth-app) endpoint.
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/auth/oauth-apps/create' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "clientSecret": [APP_CLIENT_SECRET],
+    "clientId": [APP_CLIENT_ID],
+    "integrationId": [INTEGRATION_ID],
+    "scopes": []
+}'
+```
+
+And that's it! In cases where you've only created one OAuth app for an integration, Vessel will automatically use that OAuth app when authenticating your user. If you need to provide multiple OAuth apps for a single integration (this is rare), you can read more below.
+
+# Creating Multiple OAuth Apps for the same Integration
+
+In certain situations, you may want to create multiple OAuth apps for a single integration, such as:
+
+1. You want separate OAuth apps for each environment (e.g. staging, production, etc.).
+2. You want separate OAuth apps for each customer.
+3. You want different OAuth apps with different scopes (e.g. read-only vs. read-write).
+
+Creating and managing these applications in Vessel is simple. Just follow these steps:
+
+**1 Create a the OAuth App**
+Use the same steps as above to create a new OAuth app in the integration platform. You should now see two OAuth apps when you call the [List OAuth apps](/pages/home/api-reference/get-all-oauth-apps) endpoint.
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/auth/oauth-apps/list' \
+--header 'x-vessel-api-token: [API_TOKEN]'
+```
+
+**2 Configure the modal **
+
+To configure the modal to use a particular oauth app, simply pass the `oauthAppId` to the modal `open` function.
+
+```jsx React
+  return (
+    <button
+      onClick={() =>
+        open({
+          integrationId: 'outreach',
+          oauthAppId: '...', // <-- Use the OAuth App Id here
+          getSessionToken: async () => { ... },
+        })
+      }
+    >
+      <h2>Connect Your Outreach Account</h2>
+    </button>
+  );
+```
+
+Now, when your user goes to connect their Outreach application, they will be presented with the OAuth app you configured.

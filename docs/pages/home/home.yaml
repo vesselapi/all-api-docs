@@ -1,0 +1,392 @@
+openapi: 3.1.0
+info:
+  title: API Reference
+  version: "1.0"
+  summary: API
+security:
+  - VesselAPIToken: []
+servers:
+  - url: "https://app.vessel.dev/api"
+paths:
+  /api/connections/list:
+    post:
+      summary: List Connections
+      operationId: get-all-connections
+      responses:
+        "200":
+          description: List Connections
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  connections:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Connection"
+              examples:
+                example-1:
+                  value:
+                    connections:
+                      - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
+                        environment: development
+                        integrationId: apollo
+                        createdTime: 2022-11-09T23:11:28.617Z
+      description: "List all connections associated with this api key."
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/connections/find:
+    post:
+      summary: Find Connection
+      operationId: get-one-connection
+      responses:
+        "200":
+          description: Find a Connection
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  connection:
+                    $ref: "#/components/schemas/Connection"
+              examples:
+                example-1:
+                  value:
+                    connection:
+                      id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
+                      environment: development
+                      integrationId: apollo
+                      createdTime: 2022-11-09T23:11:28.617Z
+      description: "Find a connection"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                  - id
+            examples:
+              example-1:
+                value:
+                  id: "v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/connections/delete:
+    post:
+      summary: Delete Connection
+      operationId: delete-one-connection
+      responses:
+        "200":
+          description: Delete a Connection
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  success: true
+              examples: {}
+      description: "Delete a connection"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                  - id
+            examples:
+              example-1:
+                value:
+                  id: "v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /integrations/list:
+    post:
+      summary: List Integrations
+      operationId: get-all-integrations
+      responses:
+        "200":
+          description: List Integrations
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  integrations:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Integration"
+              examples:
+                example-1:
+                  value:
+                    integrations:
+                      - id: apollo
+                        display:
+                          name: Apollo
+                          iconURI: "1f12532..."
+      description: "List all available Integrations."
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/access-token:
+    post:
+      summary: Get Access Token
+      operationId: get-one-access-token
+      responses:
+        "200":
+          description: Exchange Session Token for Access Token
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+              examples: {}
+      description: "Exchange the session token for an access token. The access token is the secret key used to refer to a specific connected integration."
+      parameters:
+        - in: header
+          name: x-vessel-session-token
+          schema:
+            type: string
+          required: true
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/session-token:
+    post:
+      summary: Get Session Token
+      operationId: get-one-session-token
+      responses:
+        "200":
+          description: Get Session Token
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  sessionToken:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    sessionToken: "v_session_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+      description: "Call this endpoint to start a new Authentication Session before authenticating your User's integration."
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/oauth-apps/list:
+    post:
+      summary: List OAuth Apps
+      operationId: get-all-oauth-apps
+      responses:
+        "200":
+          description: List OAuth Apps
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  oauthApps:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/OAuthApp"
+              examples: {}
+      description: "List all OAuth Apps."
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/oauth-apps/find:
+    post:
+      summary: Find OAuth App
+      operationId: get-one-oauth-app
+      responses:
+        "200":
+          description: Find an OAuth App
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  oauthApp:
+                    $ref: "#/components/schemas/OAuthApp"
+              examples: {}
+      description: "Find an OAuth App"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                  - id
+            examples:
+              example-1:
+                value:
+                  id: "v_oauthapp_apollo_12312312"
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/oauth-apps/create:
+    post:
+      summary: Create OAuth App
+      operationId: post-oauth-app
+      responses:
+        "200":
+          description: Create an OAuth App
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  oauthApp:
+                    $ref: "#/components/schemas/OAuthApp"
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                integrationId:
+                  type: string
+                clientId:
+                  type: string
+                clientSecret:
+                  type: string
+                scopes:
+                  type: array
+                  items:
+                    type: string
+              required:
+                  - integrationId
+                  - clientId
+                  - clientSecret
+            examples:
+              example-1:
+                value:
+                  integrationId: "apollo"
+                  clientId: "123123123"
+                  clientSecret: "123123123"
+                  scopes:
+                    - "read"
+                    - "write"
+      description: "Create an OAuth App"
+      security:
+        - VesselAPIToken: []
+    parameters: []
+  /api/auth/oauth-apps/delete:
+    post:
+      summary: Delete OAuth App
+      operationId: delete-oauth-app
+      responses:
+        "200":
+          description: Delete an OAuth App
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                  - id
+            examples:
+              example-1:
+                value:
+                  id: "v_oauthapp_apollo_12312312"
+      description: "Delete an OAuth App"
+      security:
+        - VesselAPIToken: []
+    parameters: []
+components:
+  securitySchemes:
+    VesselAPIToken:
+      name: x-vessel-api-token
+      type: apiKey
+      in: header
+  schemas:
+    Connection:
+      title: Connection
+      type: object
+      properties:
+        id:
+          type: string
+        integrationId:
+          type: string
+        environment:
+          type: string
+          enum: [development, production]
+        createdTime:
+          type: string
+      examples:
+        - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
+          environment: development
+          integrationId: apollo
+          createdTime: 2022-11-09T23:11:28.617Z
+    Integration:
+      title: Integration
+      type: object
+      properties:
+        id:
+          type: string
+        display:
+          type: object
+          properties:
+            name:
+              type: string
+            iconURI:
+              type: string
+      examples:
+        - id: apollo
+          display:
+            name: Apollo
+            iconURI: "1f12532..."
+    OAuthApp:
+      title: OAuthApp
+      type: object
+      properties:
+        id:
+          type: string
+        integrationId:
+          type: string
+        environment:
+          type: string
+        createdTime:
+          type: string
+      examples:
+        - id: v_oauthapp_apollo_12312312
+          integrationId: apollo
+          environment: development
+          createdTime: 2022-11-09T23:11:28.617Z
+          
+  

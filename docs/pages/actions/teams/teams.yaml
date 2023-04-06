@@ -1,0 +1,369 @@
+
+openapi: 3.1.0
+info:
+  title: Teams API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/teams/messages/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   id:
+                     type: string
+                   createdDateTime:
+                     type: string
+                     format: date-time
+                   body:
+                     type: object
+                     properties:
+                       content:
+                         type: string
+                     required:
+                       - content
+                   channelIdentity:
+                     type: object
+                     properties:
+                       teamId:
+                         type: string
+                       channelId:
+                         type: string
+                     required:
+                       - teamId
+                       - channelId
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     id: aliqua sunt ut
+                     createdDateTime: '1975-09-13T08:41:05.0Z'
+                     body:
+                       content: Lorem aute deserunt Excepteur laboris
+                       mollit_419: 32351530.44099866
+                       enimb0: ea adipisicing nisi
+                     channelIdentity:
+                       teamId: cupidatat aliqua in
+                       channelId: eiusmod anim Duis Excepteur eu
+                       adipisicing520: 87967833.81268618
+                     $native:
+                       incididunta: 76041550.25275347
+                       eaaa0: veniam Excepteur adipisicing dolor
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 text:
+                   type: string
+                 channelId:
+                   type: string
+                 teamId:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     text: Excepteur sunt aute laborum
+                     channelId: exercitation consequat
+                     teamId: cillum non commodo sit
+      operationId: create-message
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/teams/channels/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   value:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         displayName:
+                           type: string
+                         createdDateTime:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - displayName
+                         - createdDateTime
+                   '@odataNextLink':
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     value:
+                       - id: dolore minim
+                         displayName: magna
+                         createdDateTime: '1957-08-23T06:55:34.0Z'
+                         dolore_b3_: ad in nostrud enim velit
+                     '@odataNextLink': officia
+                     $native:
+                       est5: false
+                       ipsum9b0: true
+                       irure_c: false
+                       anim_52: occaecat et
+                       dolorebf6: -99386671.09609076
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 teamId:
+                   type: string
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     teamId: exercitation nostrud deserunt in Duis
+                     cursor: occaecat eiusmod
+      operationId: list-channels
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/teams/members/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   value:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         displayName:
+                           type: string
+                       required:
+                         - id
+                         - displayName
+                   '@odataNextLink':
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     value:
+                       - id: pariatur elit aliquip ut
+                         displayName: aliqua voluptate dolor deserunt sint
+                         Lorem_6bb: -50681876
+                         dolor_a: -92446461.43193634
+                         Duis_e9e: 76248784
+                         adipisicing__6: non irure fugiat esse
+                         Ut_627: -48275113
+                         sita6a: -70027011
+                     '@odataNextLink': elit Lorem cillum
+                     $native:
+                       veniam_65: -66316219.8003755
+                       adipisicing_e61: false
+                       inf15: 78836502
+                       labore_e81: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 teamId:
+                   type: string
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     teamId: aliquip dolor
+                     cursor: do ex ut elit reprehenderit
+      operationId: list-members
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/teams/teams/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   value:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         displayName:
+                           type: string
+                       required:
+                         - id
+                         - displayName
+                   '@odataNextLink':
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     value:
+                       - id: Ut nostrud aliquip
+                         displayName: minim
+                         consectetur_7: 61013929.921516
+                         consectetur_d1: 84161309
+                         ex_0cc: 24934292.489592552
+                         cupidatat23: exercitation
+                         inb4f: false
+                         aute9: pariatur esse
+                     '@odataNextLink': irure enim
+                     $native:
+                       nulla_3: 65324111.311409175
+                       mollit01: -78748783.34804061
+                       aliquad1f: eiusmod do ex fugiat
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: pariatur commodo ut aliqua ut
+      operationId: list-teams
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/teams:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

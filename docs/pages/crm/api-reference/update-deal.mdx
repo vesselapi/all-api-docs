@@ -1,0 +1,24 @@
+---
+openapi: "PATCH /crm/deal"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.dev/crm/deal \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "deal": {
+    "name": "Blue Cross Deal",
+    "amount": 10000,
+    "closeDate": "2020-08-23T00:00:00Z",
+    "probability": "0.4"
+  }
+}'
+```
+
+</RequestExample>

@@ -1,0 +1,354 @@
+openapi: 3.1.0
+info:
+  title: Chat API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/unificationchat/users/list:
+    post:
+      summary: List Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: e5f32d4fd2115220bd20a2ccf81210ec
+                        name: "Tom Haverford"
+                        isDeleted: false
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: "123123"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      operationId: get-all-users
+      description: List Users
+    parameters: []
+  /api/unificationchat/channels/list:
+    post:
+      summary: List Channels
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  channels:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Channel"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    channels:
+                      - id: e5f32d4fd2115220bd20a2ccf81210ec
+                        name: "Paper updates"
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: "123123"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+      operationId: get-all-channels
+      description: List Channel
+    parameters: []
+  /api/unificationchat/messages/create:
+    post:
+      summary: Create Message
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: e5f32d4fd2115220bd20a2ccf81210ec
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    channelId:
+                      type: string
+            examples:
+              example-1:
+                value:
+                  message:
+                    text: "New paper order"
+                    channelId: "34f5b4b0b6b650c981a174b02753c390"
+      operationId: post-message
+      description: Create Message
+    parameters: []
+  /api/unificationchat/messages/update:
+    post:
+      summary: Update Message
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: e5f32d4fd2115220bd20a2ccf81210ec
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                message:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    channelId:
+                      type: string
+            examples:
+              example-1:
+                value:
+                  id: e5f32d4fd2115220bd20a2ccf81210ec
+                  message:
+                    text: "New paper order"
+                    channelId: "34f5b4b0b6b650c981a174b02753c390"
+      operationId: put-message
+      description: Update Message
+    parameters: []
+  /api/passthrough/chat:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
+components:
+  schemas:
+     Message:
+      title: Message
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          text: "New paper order"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            channelId: 34f5b4b0b6b650c981a174b02753c390
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Chat tool.
+        text:
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the message was created
+        associations:
+          type: object
+          properties:
+            channelId:
+              type: string
+      required:
+        - id
+        - createdTime
+     User:
+      title: User
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          name: "Tom Haverford"
+          isDeleted: false
+          createdTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Chat tool.
+        name:
+          type: string
+        isDeleted:
+          type: boolean
+        createdTime:
+          type: string
+          description: The timestamp that the user was created
+      required:
+        - id
+        - createdTime
+     Channel:
+      title: Channel
+      type: object
+      examples:
+        - id: e5f32d4fd2115220bd20a2ccf81210ec
+          name: "Paper updates"
+          createdTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Chat tool.
+        name:
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the channel was created
+      required:
+        - id
+        - createdTime
+  securitySchemes:
+    VesselAPIToken:
+          name: x-vessel-api-token
+          type: apiKey
+          in: header

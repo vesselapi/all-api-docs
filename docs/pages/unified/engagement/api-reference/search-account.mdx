@@ -1,0 +1,25 @@
+---
+openapi: "POST /api/unificationengagement/accounts/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev//api/unificationengagement/accounts/search \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "filters": {
+    "name": {
+      "equals": "Acme Co."
+    }
+  }
+}'
+```
+
+</RequestExample>
+
+
+      

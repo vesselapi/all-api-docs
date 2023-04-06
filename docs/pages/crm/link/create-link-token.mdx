@@ -1,0 +1,61 @@
+---
+openapi: "POST /link/token"
+---
+
+<RequestExample>
+
+```bash Shell / cURL
+curl --request POST \
+  --url https://api.vessel.dev/link/token \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: '
+```
+
+```js JavaScript Fetch
+fetch("https://api.vessel.dev/link/token", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-vessel-api-token": "",
+  },
+  body: "false",
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+```python Python
+import http.client
+
+conn = http.client.HTTPSConnection("api.vessel.dev")
+
+payload = ""
+
+headers = {
+    'Content-Type': "application/json",
+    'x-vessel-api-token': ""
+    }
+
+conn.request("POST", "/link/token", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response Example
+{
+  "linkToken": "string"
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,329 @@
+
+openapi: 3.1.0
+info:
+  title: Slack API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/slack/messages/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   ts:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     ts: mollit voluptate occaecat id
+                     $native:
+                       reprehenderit__a: true
+                       sintb: -97383412
+                       ut_a3a: 82677950.40474972
+                       dolore59b: -52533871.192924716
+                       id_0e: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 text:
+                   type: string
+                 channel:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     text: aute nisi
+                     channel: sint cupidatat
+      operationId: create-message
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/slack/messages/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   ts:
+                     type: string
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     ts: ullamco est adipisicing sint
+                     $native:
+                       et7: -8335191.3447500765
+                       esse868: false
+                       essed5: -59380236.918241546
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 ts:
+                   type: string
+                 text:
+                   type: string
+                 channel:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     ts: consectetur mollit
+                     text: enim ipsum officia in
+                     channel: Lorem officia nulla in dolore
+      operationId: update-message
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/slack/users/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   members:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type: string
+                         deleted:
+                           type: boolean
+                       required:
+                         - id
+                         - name
+                         - deleted
+                   responseMetadata:
+                     type: object
+                     properties:
+                       nextCursor:
+                         type: string
+                     required:
+                       - next_cursor
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     members:
+                       - id: nisi dolor in
+                         name: id do occaecat sunt elit
+                         deleted: false
+                         Ut6b: aliquip cillum est Ut
+                         ut_5f7: nisi
+                         tempor7: true
+                         sint_e: true
+                     responseMetadata:
+                       nextCursor: consectetur eiusmod incididunt
+                     $native:
+                       dolor_983: true
+                       nostrud97a: -71829461.01163101
+                       anim95: 87194698.90439996
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: minim culpa dolor voluptate
+      operationId: list-users
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/slack/conversations/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   channels:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type: string
+                         created:
+                           type: number
+                       required:
+                         - id
+                         - name
+                         - created
+                   responseMetadata:
+                     type: object
+                     properties:
+                       nextCursor:
+                         type: string
+                     required:
+                       - next_cursor
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     channels:
+                       - id: in
+                         name: mollit
+                         created: -30812420.942993984
+                         laborum3: 91873308.67240217
+                     responseMetadata:
+                       nextCursor: in Duis ut
+                     $native:
+                       et__: -58859785.676521525
+                       aliquip8a9: true
+                       ut458: false
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 cursor:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     cursor: consectetur aliqua
+      operationId: list-conversations
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/slack:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

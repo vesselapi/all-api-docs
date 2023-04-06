@@ -1,0 +1,623 @@
+
+openapi: 3.1.0
+info:
+  title: Active Campaign API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/activecampaign/contacts/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       email:
+                         type: string
+                       phone:
+                         type: string
+                       firstName:
+                         type: string
+                       lastName:
+                         type: string
+                       udate:
+                         type: string
+                         format: date-time
+                       cdate:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - email
+                       - phone
+                       - firstName
+                       - lastName
+                       - udate
+                       - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contact:
+                       id: Excepteur officia
+                       email: Duis
+                       phone: Excepteur qui Ut deserunt in
+                       firstName: nulla consectetur non esse tempor
+                       lastName: ut
+                       udate: '1982-09-23T04:13:37.0Z'
+                       cdate: '1957-10-04T17:57:32.0Z'
+                       incididunt3: -90964753.04572946
+                     $native:
+                       enim_8: -20654731.153998137
+                       velite6: -13930264.165524602
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 email:
+                   type: string
+                 firstName:
+                   type: string
+                 lastName:
+                   type: string
+                 phone:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     email: est culpa consectetur qui sed
+                     firstName: sit in
+                     lastName: proident dolore
+                     phone: non laborum tempor occaecat
+      operationId: create-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/contacts/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       email:
+                         type: string
+                       phone:
+                         type: string
+                       firstName:
+                         type: string
+                       lastName:
+                         type: string
+                       udate:
+                         type: string
+                         format: date-time
+                       cdate:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - email
+                       - phone
+                       - firstName
+                       - lastName
+                       - udate
+                       - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contact:
+                       id: Ut
+                       email: fugiat adipisicing aute qui ut
+                       phone: mollit in
+                       firstName: aute pariatur id velit dolor
+                       lastName: occaecat ea commodo enim
+                       udate: '1970-01-29T20:42:44.0Z'
+                       cdate: '1964-09-23T07:45:25.0Z'
+                       ea_e: 43926058.175031275
+                       voluptate_f: true
+                       non9: true
+                       laboris_0: 43679214.92684427
+                       quis_cef: Lorem et ipsum veniam
+                       exercitation_e8: true
+                       veniam57: -17839058
+                     $native:
+                       et_b: -74597873.42865023
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: dolor
+      operationId: find-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/contacts/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contacts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         email:
+                           type: string
+                         phone:
+                           type: string
+                         firstName:
+                           type: string
+                         lastName:
+                           type: string
+                         udate:
+                           type: string
+                           format: date-time
+                         cdate:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - email
+                         - phone
+                         - firstName
+                         - lastName
+                         - udate
+                         - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contacts:
+                       - id: laboris adipisicing id reprehenderit
+                         email: eu
+                         phone: labore enim Lorem
+                         firstName: aliqua eiusmod ea ad consequat
+                         lastName: sunt
+                         udate: '1999-04-24T13:50:01.0Z'
+                         cdate: '1943-07-20T05:11:53.0Z'
+                         incididunt_1e: true
+                         fugiat79a: 60374454
+                     $native:
+                       tempor_f: -261551
+                       et_f: false
+                       essec87: 25547023
+                       quis__72: anim qui proident esse
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 {}
+            examples:
+              example-1:
+                value:
+                     {}
+      operationId: list-contacts
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/contacts/update:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   contact:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       email:
+                         type: string
+                       phone:
+                         type: string
+                       firstName:
+                         type: string
+                       lastName:
+                         type: string
+                       udate:
+                         type: string
+                         format: date-time
+                       cdate:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - email
+                       - phone
+                       - firstName
+                       - lastName
+                       - udate
+                       - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     contact:
+                       id: enim Excepteur dolore ad est
+                       email: dolor incididunt reprehenderit
+                       phone: voluptate velit ad nostrud culpa
+                       firstName: veniam amet proident mollit
+                       lastName: ad
+                       udate: '1948-03-30T03:14:52.0Z'
+                       cdate: '1986-10-25T06:05:32.0Z'
+                       laboriseb: aliqua minim culpa eu
+                     $native:
+                       dolore1_: true
+                       cupidatatee6: -37751365.93389692
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+                 email:
+                   type: string
+                 firstName:
+                   type: string
+                 lastName:
+                   type: string
+                 phone:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: non ullamco
+                     email: irure esse
+                     firstName: dolore sit culpa
+                     lastName: reprehenderit ea labore ad quis
+                     phone: in Duis proident
+      operationId: update-contact
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/lists/find:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   list:
+                     type: object
+                     properties:
+                       id:
+                         type: string
+                       name:
+                         type: string
+                       cdate:
+                         type: string
+                         format: date-time
+                     required:
+                       - id
+                       - name
+                       - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     list:
+                       id: ad occaecat ullamco proident
+                       name: ex mollit cupidatat Excepteur exercitation
+                       cdate: '2018-07-13T03:53:45.0Z'
+                       mollit_7: 61732815
+                       elit7c_: -4679373.810851529
+                       veniama1: 95396756.07192045
+                     $native:
+                       laboris8: -51785737
+                       sit_673: false
+                       anim_4e: true
+                       quis43: true
+                       nulla_c: -41488151.881120406
+                       est_19: 3493163
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 id:
+                   type: string
+            examples:
+              example-1:
+                value:
+                     id: cupidatat magna mollit ullamco quis
+      operationId: find-list
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/lists/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   lists:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         name:
+                           type: string
+                         cdate:
+                           type: string
+                           format: date-time
+                       required:
+                         - id
+                         - name
+                         - cdate
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     lists:
+                       - id: et occaecat dolore Ut
+                         name: commodo nulla officia quis Duis
+                         cdate: '1955-10-27T20:44:07.0Z'
+                         anim05e: -79192338.42313677
+                     $native:
+                       ine6: -69204119.42056495
+                       Excepteur_4: ut mollit
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 limit:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     limit: 36311053.64726704
+      operationId: list-lists
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/activecampaign/users/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   users:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         username:
+                           type: string
+                         firstName:
+                           type: string
+                         lastName:
+                           type: string
+                         email:
+                           type: string
+                         phone:
+                           type: string
+                       required:
+                         - id
+                         - username
+                         - firstName
+                         - lastName
+                         - email
+                         - phone
+                   $native:
+                     type: object
+                     description: The raw response from the integration, unmodified.
+              examples:
+                example-1:
+                  value:
+                     users:
+                       - id: dolor mollit in non
+                         username: mollit in ad eu non
+                         firstName: commodo
+                         lastName: officia laboris do in mollit
+                         email: in laborum ut aute ex
+                         phone: officia dolor
+                         ad277: true
+                         commodo__c: true
+                         fugiat0bf: -10205516
+                         tempor__f: false
+                         voluptate_3c: veniam eu tempor
+                     $native:
+                       incididunt_0: true
+                       Lorem29: false
+                       adipisicingf4: consectetur reprehenderit laborum cupidatat sint
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 {}
+            examples:
+              example-1:
+                value:
+                     {}
+      operationId: list-users
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/passthrough/activecampaign:
+    post:
+      summary: Passthrough Request
+      operationId: passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream system.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream system.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://sometool.com/api/v1/endpoint
+                    statusCode: 200
+                    body:
+                      id: 123123123123
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

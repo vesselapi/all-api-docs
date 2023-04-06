@@ -1,0 +1,27 @@
+---
+openapi: "PATCH /crm/email"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.dev/crm/email \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "email": {
+    "isIncoming": false,
+    "status": "SENT",
+    "ownerUserId": "v.user.5561946e7c65ba50544584543859074c"
+    "additional": {}
+  }
+}'
+```
+
+</RequestExample>
+
+**CRM Caveats**  
+Supported for HubSpot and Salesforce
