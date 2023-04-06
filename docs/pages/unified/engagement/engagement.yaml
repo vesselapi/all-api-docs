@@ -8,7 +8,7 @@ servers:
 security:
   - VesselAPIToken: []
 paths:
-  /api/unificationengagement/users/list:
+  /api/unification/engagement/users/list:
     post:
       summary: Get All Users
       responses:
@@ -59,7 +59,7 @@ paths:
       operationId: get-all-users
       description: Retrieve all Users
     parameters: []
-  /api/unificationengagement/users/find:
+  /api/unification/engagement/users/find:
     post:
       summary: Get User
       responses:
@@ -107,7 +107,7 @@ paths:
                   id: "123123"
       description: Retrieve a single User by Id
     parameters: []
-  /api/unificationengagement/accounts/list:
+  /api/unification/engagement/accounts/list:
     post:
       summary: Get All Accounts
       responses:
@@ -172,7 +172,7 @@ paths:
       description: |-
         Retrieve all Accounts
     parameters: []
-  /api/unificationengagement/accounts/find:
+  /api/unification/engagement/accounts/find:
     post:
       summary: Get Account
       responses:
@@ -232,7 +232,7 @@ paths:
                 value:
                   id: "123123"
       description: Retrieve a single Account by Id
-  /api/unificationengagement/accounts/create:
+  /api/unification/engagement/accounts/create:
     post:
       summary: Create Account
       operationId: post-account
@@ -286,10 +286,10 @@ paths:
                       postalCode: "281332"
                       country: USA
       description: Create a new Account
-  /api/unificationengagement/accounts/update:
+  /api/unification/engagement/accounts/update:
     post:
       summary: Update Account
-      tags: 
+      tags:
         - Accounts
       operationId: put-account
       responses:
@@ -358,7 +358,7 @@ paths:
         description: ""
       description: Update an existing Account
     parameters: []
-  /api/unificationengagement/accounts/search:
+  /api/unification/engagement/accounts/search:
     post:
       summary: Search Accounts
       operationId: search-account
@@ -394,7 +394,7 @@ paths:
                         phone: null
                         locality: "San Francisco"
                         associations:
-                            ownerUserId: "1"
+                          ownerUserId: "1"
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       parameters:
         - name: x-vessel-access-token
@@ -411,7 +411,7 @@ paths:
               properties:
                 filters:
                   type: object
-                  properties: 
+                  properties:
                     name:
                       type: object
                       properties:
@@ -431,10 +431,9 @@ paths:
                 value:
                   filters:
                     name:
-                      equals:
-                        "Acme Co."
+                      equals: "Acme Co."
       description: Search Accounts
-  /api/unificationengagement/contacts/list:
+  /api/unification/engagement/contacts/list:
     post:
       summary: Get All Contacts
       responses:
@@ -460,15 +459,15 @@ paths:
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
-                        phones: 
+                        phones:
                           - number: "8192223333"
                             type: "work"
                             isPrimary: true
-                        emails: 
+                        emails:
                           - address: "tom@dunder.com"
                             type: "work"
                             isPrimary: true
-                        address: 
+                        address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
@@ -508,7 +507,7 @@ paths:
                   cursor: "123123"
       description: Retrieve all Contacts
     parameters: []
-  /api/unificationengagement/contacts/find:
+  /api/unification/engagement/contacts/find:
     post:
       summary: Get Contact
       responses:
@@ -530,15 +529,15 @@ paths:
                       firstName: Tom
                       lastName: Smith
                       jobTitle: Director of Operations
-                      phones: 
+                      phones:
                         - number: "8192223333"
                           type: "work"
                           isPrimary: true
-                      emails: 
+                      emails:
                         - address: "tom@dunder.com"
                           type: "work"
                           isPrimary: true
-                      address: 
+                      address:
                         line1: 100 Blue Dr
                         line2: Suite 100
                         city: Scranton
@@ -578,7 +577,7 @@ paths:
                 value:
                   id: "123123"
       description: Retrieve a Contact by Id
-  /api/unificationengagement/contacts/create:
+  /api/unification/engagement/contacts/create:
     post:
       summary: Create Contact
       operationId: post-contact
@@ -621,7 +620,7 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    address: 
+                    address:
                       line1: 100 Blue Dr
                       line2: Suite 100
                       city: Scranton
@@ -630,7 +629,7 @@ paths:
                       country: USA
                     customFields: {}
       description: Create a Contact
-  /api/unificationengagement/contacts/update:
+  /api/unification/engagement/contacts/update:
     post:
       summary: Update Contact
       operationId: put-contact
@@ -683,7 +682,7 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    address: 
+                    address:
                       line1: 100 Blue Dr
                       line2: Suite 100
                       city: Scranton
@@ -698,7 +697,7 @@ paths:
         description: ""
       description: Update an existing Contact
     parameters: []
-  /api/unificationengagement/contacts/search:
+  /api/unification/engagement/contacts/search:
     post:
       summary: Search Contacts
       operationId: search-contact
@@ -725,15 +724,15 @@ paths:
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
-                        phones: 
+                        phones:
                           - number: "8192223333"
                             type: "work"
                             isPrimary: true
-                        emails: 
+                        emails:
                           - address: "tom@dunder.com"
                             type: "work"
                             isPrimary: true
-                        address: 
+                        address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
@@ -766,7 +765,7 @@ paths:
               properties:
                 filters:
                   type: object
-                  properties: 
+                  properties:
                     emails:
                       type: object
                       properties:
@@ -788,7 +787,7 @@ paths:
                       address:
                         equals: fake@email.com
       description: Search Contacts
-  /api/unificationengagement/contact/custom-fields/list:
+  /api/unification/engagement/contact/custom-fields/list:
     post:
       summary: Get All Custom Fields
       operationId: get-all-customFields
@@ -835,7 +834,7 @@ paths:
                         type: string
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       description: Get all Contact Custom Fields
-  /api/unificationengagement/contact/custom-fields/create:
+  /api/unification/engagement/contact/custom-fields/create:
     post:
       summary: Create Custom Field
       operationId: post-customFields
@@ -877,7 +876,7 @@ paths:
                   customField:
                     key: "customField1"
       description: Create a Contact Custom Field
-  /api/unificationengagement/emails/list:
+  /api/unification/engagement/emails/list:
     post:
       summary: Get All Emails
       responses:
@@ -934,7 +933,7 @@ paths:
                   cursor: "123123"
       description: Retrieve all Emails
     parameters: []
-  /api/unificationengagement/emails/find:
+  /api/unification/engagement/emails/find:
     post:
       summary: Get Email
       responses:
@@ -988,84 +987,84 @@ paths:
                   id: "123123"
       description: "Retrieve a Email by Id"
     parameters: []
-  /api/unificationengagement/emails/search:
+  /api/unification/engagement/emails/search:
     post:
-        summary: Search Emails
-        operationId: search-email
-        responses:
-          "200":
-            description: OK
-            content:
-              application/json:
-                schema:
-                  title: responseBody
-                  type: object
-                  properties:
+      summary: Search Emails
+      operationId: search-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
                     emails:
-                      type: array
-                      items:
-                        $ref: "#/components/schemas/Email"
-                    nextPageCursor:
-                      type: string
-                examples:
-                  example-1:
-                    value:
-                      emails:
-                        - id: 2322707bbc41577d9806400e2daa25de
-                          subject: "Re: Paper renewal"
-                          hasReplied: true
-                          isBounced: false
-                          openCount: 1
-                          clickCount: 2
-                          replyCount: null
-                          modifiedTime: "2019-08-24T14:15:22Z"
-                          createdTime: "2019-08-24T14:15:22Z"
-                          associations:
-                            sequenceId: d08f345ace24509e911a0ea8e3d2203c
-                            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                      nextPageCursor: string
-        parameters:
+                      - id: 2322707bbc41577d9806400e2daa25de
+                        subject: "Re: Paper renewal"
+                        hasReplied: true
+                        isBounced: false
+                        openCount: 1
+                        clickCount: 2
+                        replyCount: null
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          sequenceId: d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      parameters:
         - name: x-vessel-access-token
           in: header
           description: Access Token
           required: true
           schema:
             type: string
-        requestBody:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  properties:
+                    sequenceId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                    contactId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+              required:
+                - filters
+            examples:
+              example-1:
+                value:
                   filters:
-                    type: object
-                    properties: 
-                      sequenceId:
-                        type: object
-                        properties:
-                          equals:
-                            type: string
-                      contactId:
-                        type: object
-                        properties:
-                          equals:
-                            type: string
-                required:
-                  - filters
-              examples:
-                example-1:
-                  value:
-                    filters:
-                      sequenceId:
-                        equals: d08f345ace24509e911a0ea8e3d2203c
-        description: Search Emails
-  /api/unificationengagement/sequences/list:
-    post: 
+                    sequenceId:
+                      equals: d08f345ace24509e911a0ea8e3d2203c
+      description: Search Emails
+  /api/unification/engagement/sequences/list:
+    post:
       summary: Get All Sequences
-      responses: 
+      responses:
         "200":
           description: OK
-          content: 
+          content:
             application/json:
               schema:
                 title: responseBody
@@ -1116,7 +1115,7 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/unificationengagement/sequence/start:
+  /api/unification/engagement/sequence/start:
     post:
       summary: Start Sequence
       operationId: post-start-sequence
@@ -1148,13 +1147,13 @@ paths:
             schema:
               type: object
               properties:
-                id: 
+                id:
                   type: string
                 fields:
                   $ref: "#/components/schemas/SequenceStart"
               required:
                 - id
-                - fields  
+                - fields
             examples:
               example-1:
                 value:
@@ -1164,13 +1163,13 @@ paths:
                     mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
       description: Start a contact on a sequence.
     parameters: []
-  /api/unificationengagement/sequences/create:
-    post: 
+  /api/unification/engagement/sequences/create:
+    post:
       summary: Create Sequence
-      responses: 
+      responses:
         "200":
           description: OK
-          content: 
+          content:
             application/json:
               schema:
                 title: responseBody
@@ -1210,13 +1209,13 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/unificationengagement/sequences/steps/create:
-    post: 
+  /api/unification/engagement/sequences/steps/create:
+    post:
       summary: Create Sequence Step
-      responses: 
+      responses:
         "200":
           description: OK
-          content: 
+          content:
             application/json:
               schema:
                 title: responseBody
@@ -1246,7 +1245,7 @@ paths:
                     - name: "Step 1 (Automated Email)"
                       type: "auto_email"
                       daysAfter: 2
-                      settings: 
+                      settings:
                         templateName: "Email Template"
                         isReply: false
                         subject: "Hello from Dunder!"
@@ -1256,13 +1255,13 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/unificationengagement/mailboxes/list:
-    post: 
+  /api/unification/engagement/mailboxes/list:
+    post:
       summary: Get All Mailboxes
-      responses: 
+      responses:
         "200":
           description: OK
-          content: 
+          content:
             application/json:
               schema:
                 title: responseBody
@@ -1281,7 +1280,7 @@ paths:
                       - id: 2322707bbc41577d9806400e2daa25de
                         email: fake@email.com
                         isDefault: true
-                        associations: 
+                        associations:
                           ownerUserId: d9806400e2daa25de2322707bbc41577
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       operationId: get-all-mailboxes
@@ -1386,7 +1385,7 @@ paths:
       description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
-    EmailAddress: 
+    EmailAddress:
       title: EmailAddress
       type: object
       properties:
@@ -1405,7 +1404,7 @@ components:
         address: "tom@dunder.com"
         type: "work"
         isPrimary: true
-    Phone: 
+    Phone:
       title: Phone
       type: object
       properties:
@@ -1561,15 +1560,15 @@ components:
           firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
-          phones: 
+          phones:
             - number: "8192223333"
               type: "work"
               isPrimary: true
-          emails: 
+          emails:
             - address: "tom@dunder.com"
               type: "work"
               isPrimary: true
-          address: 
+          address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
@@ -1608,13 +1607,13 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Phone"
-        openCount: 
+        openCount:
           type: number
           description: "Not supported by Apollo"
-        clickCount: 
+        clickCount:
           type: number
           description: "Not supported by Apollo"
-        replyCount: 
+        replyCount:
           type: number
           description: "Not supported by Apollo"
         bouncedCount:
@@ -1805,7 +1804,7 @@ components:
             - address: fake@email.com
               type: work
               isPrimary: true
-          address: 
+          address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
@@ -1825,10 +1824,10 @@ components:
           $ref: "#/components/schemas/Address"
         emails:
           type: array
-          items: 
+          items:
             type: object
             properties:
-              address: 
+              address:
                 type: string
               isPrimary:
                 type: boolean
@@ -1837,7 +1836,7 @@ components:
                 enum:
                   - work
                   - personal
-            required: 
+            required:
               - address
         customFields:
           type: object
@@ -1849,7 +1848,7 @@ components:
         - firstName: Tom
           lastName: Smith
           jobTitle: Director of Operations
-          address: 
+          address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
@@ -1895,32 +1894,32 @@ components:
           optedOutCount: 0
           repliedCount: 0
           clickedCount: 0
-      properties: 
-        id: 
+      properties:
+        id:
           type: string
-        isEnabled: 
+        isEnabled:
           type: boolean
-        name: 
+        name:
           type: string
-        tags: 
+        tags:
           type: array
           items:
             type: string
-        numSteps: 
+        numSteps:
           type: number
           description: Not supported in Salesloft.
-        scheduledCount: 
+        scheduledCount:
           type: number
-        openedCount: 
-          type: number
-          description: Not supported in Salesloft.
-        optedOutCount: 
+        openedCount:
           type: number
           description: Not supported in Salesloft.
-        repliedCount: 
+        optedOutCount:
           type: number
           description: Not supported in Salesloft.
-        clickedCount: 
+        repliedCount:
+          type: number
+          description: Not supported in Salesloft.
+        clickedCount:
           type: number
           description: Not supported in Salesloft.
         createdTime:
@@ -1928,16 +1927,16 @@ components:
           description: The timestamp that the user was created
         modifiedTime:
           type: string
-          description: Not supported by Apollo. The timestamp the user was last modified 
+          description: Not supported by Apollo. The timestamp the user was last modified
     SequenceCreate:
       title: Create Sequence
       type: object
-      description: 
+      description:
       examples:
         - name: "Email Sequence"
           shareType: "team"
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
         shareType:
           type: string
@@ -1954,11 +1953,11 @@ components:
       properties:
         templateName:
           type: string
-          description: "The name for this template"  
+          description: "The name for this template"
         isReply:
           type: boolean
           description: "Whether or not this email is a reply to the previous step's email"
-        subject:  
+        subject:
           type: string
           description: "The subject line for this email"
         body:
@@ -1972,13 +1971,13 @@ components:
         - name: "Step 1 (Automated Email)"
           type: "auto_email"
           daysAfter: 2
-          settings: 
+          settings:
             templateName: "Email Template"
             isReply: false
             subject: "Hello from Dunder!"
             body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
         type:
           type: string
@@ -1987,27 +1986,27 @@ components:
             - manual_email
         daysAfter:
           type: number
-          description: The number of days after the previous step that this step should be sent.  
+          description: The number of days after the previous step that this step should be sent.
         settings:
           $ref: "#/components/schemas/SequenceStepSettingsCreate"
       required:
         - name
         - type
         - settings
-        - shareType 
+        - shareType
     SequenceStart:
       title: SequenceStart
       type: object
       description: "Start a sequence"
-      examples: 
+      examples:
         - contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
           mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
-      properties: 
-        contactId: 
+      properties:
+        contactId:
           type: string
         mailboxId:
           type: string
-    Mailbox: 
+    Mailbox:
       title: Mailbox
       type: object
       description: "Mailboxes in the connected Engagement platform. These are email accounts that outbound emails will be sent from."
@@ -2015,14 +2014,14 @@ components:
         - id: 2322707bbc41577d9806400e2daa25de
           email: fake@email.com
           isDefault: true
-          associations: 
+          associations:
             ownerUserId: d9806400e2daa25de2322707bbc41577
-      properties: 
-        id: 
+      properties:
+        id:
           type: string
-        email: 
+        email:
           type: string
-        isDefault: 
+        isDefault:
           type: boolean
           description: Not supported by Outreach.
         createdTime:
@@ -2030,11 +2029,11 @@ components:
           description: Not supported by Apollo. The timestamp that the user was created
         modifiedTime:
           type: string
-          description: Not supported by Apollo. The timestamp the user was last modified 
-        associations: 
+          description: Not supported by Apollo. The timestamp the user was last modified
+        associations:
           type: object
           properties:
-            ownerUserId: 
+            ownerUserId:
               type: string
   securitySchemes:
     VesselAPIToken:
