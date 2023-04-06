@@ -84,7 +84,7 @@ app.post("/session-token", async (req, res) => {
   );
 
   const json = await response.json();
-  res.send(json.sessionToken);
+  res.json(json.result);
 });
 ```
 
