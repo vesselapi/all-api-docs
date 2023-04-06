@@ -97,55 +97,26 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 34587515.4418962
+                       id: -73121789.77917258
                        attributes:
-                         companyType: velit aute Duis dolor culpa
-                         name: qui
-                         description: in dolore magna
-                         domain: null
+                         companyType: laborum
+                         name: proident in
+                         description: dolor consectetur
+                         domain: in ex
                          locality: null
                          numberOfEmployees: null
-                         websiteUrl: deserunt reprehenderit velit incididunt ipsum
+                         websiteUrl: Ut dolore do
                          industry: null
-                         createdAt: '2007-05-18T01:34:04.0Z'
-                         updatedAt: '1995-10-08T19:59:02.0Z'
-                         eiusmod_b85: irure nostrud dolore
-                         ullamco_a: false
-                         dolor_0c: quis ullamco ea incididunt
-                         anim_2b: -20133697
-                         quis40f: 66495168
-                         culpa68: true
-                         ipsum1a: 62220884.62372488
-                         magna_d83: ut occaecat anim id adipisicing
-                         enimb70: aliqua
-                         labore_742: 12943205.147282645
-                         anim_9b: -4398232
-                         velit_2d3: -59330742
-                         proidentab0: -97527952
+                         createdAt: '2018-05-09T17:28:41.0Z'
+                         updatedAt: '1978-08-28T14:27:24.0Z'
                        relationships:
                          owner:
                            data:
-                             id: id dolor
-                             do_89: enim
-                             quis_4: -12942980.053001568
-                           est_cde: true
-                           proident__d: -1699027
-                           mollit05f: -80622427
-                         eiusmod815: -42128747.91045684
-                       dolorea5f: ea
-                       fugiat14: nostrud reprehenderit commodo sit minim
-                     $native:
-                       ullamco_c1: proident
-                       minim5: -40041453.013886176
-                       occaecat_9: sed nostrud Excepteur ad
-                       id_aba: 84159640
+                             id: in tempor dolor ut
       requestBody: 
         content:
           application/json:
@@ -157,7 +128,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: 617417.8270751685
+                     id: -40966825.30895803
       operationId: find-account
       parameters:
       - name: x-vessel-access-token
@@ -273,42 +244,28 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: -94525728.28626731
+                       - id: -98779064.77779308
                          attributes:
-                           companyType: null
-                           name: occaecat sed
-                           description: null
-                           domain: Duis nostrud pariatur cupidatat
-                           locality: null
+                           companyType: sunt ullamco anim culpa mollit
+                           name: null
+                           description: adipisicing in ex magna
+                           domain: eu in nostrud dolor
+                           locality: mollit velit
                            numberOfEmployees: null
-                           websiteUrl: officia laborum ipsum in
-                           industry: cillum nostrud
-                           createdAt: '1964-04-08T11:22:40.0Z'
-                           updatedAt: '1979-03-03T09:45:12.0Z'
-                           dolore_e: -25304822
-                           quis_c: eiusmod
-                           elit_4bd: 65818831.30879614
+                           websiteUrl: null
+                           industry: null
+                           createdAt: '2014-12-13T04:12:21.0Z'
+                           updatedAt: '2001-05-08T17:14:16.0Z'
                          relationships:
                            owner:
                              data:
-                               id: magna minim velit
-                               aliqua1: -47374136
-                               mollit_7: true
-                               adipisicing8: -90819030.47141826
-                               ex326: mollit ut adipisicing nisi consectetur
-                             dolor_3: -46562940.961666845
-                             aliquip_ba6: false
-                             id_ca: -44343133.298686996
-                           indd8: anim
-                         Duis9f: -53061234.99106286
-                     links: null
+                               id: ullamco veniam fugiat
+                     links:
+                       next: deserunt dolore eiusmod non
       requestBody: 
         content:
           application/json:
@@ -328,9 +285,9 @@ paths:
               example-1:
                 value:
                      filters:
-                       name: in ad in
-                       domain: sit nostrud Duis
-                     cursor: qui sit
+                       name: non amet
+                       domain: consequat officia pariatur
+                     cursor: occaecat in cupidatat
       operationId: list-accounts
       parameters:
       - name: x-vessel-access-token
@@ -394,27 +351,18 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: 68814481.02525893
+                       - id: 13399360.674311906
                          attributes:
-                           email: do
-                           userId: 63587271.04938623
-                           createdAt: '2004-08-21T10:07:43.0Z'
-                           updatedAt: '1958-02-19T18:47:19.0Z'
-                           pariatur4f: -28066457
-                           nostrud_f5b: true
-                           non_c: 68303635.22320345
-                         cillum_31e: 62658600
-                         in0: -17107035.62249866
-                         Duisa: 56128763.3368161
-                         pariatur_ead: -46284299.26189339
-                     links: null
+                           email: ex et cillum Ut
+                           userId: 21821.89441342652
+                           createdAt: '2021-01-19T02:01:42.0Z'
+                           updatedAt: '2004-10-23T21:57:02.0Z'
+                     links:
+                       next: eiusmod velit sit adipisicing do
       requestBody: 
         content:
           application/json:
@@ -426,7 +374,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: irure cupidatat nostrud fugiat occaecat
+                     cursor: sint
       operationId: list-mailboxes
       parameters:
       - name: x-vessel-access-token
@@ -541,60 +489,28 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: -28953182.8437998
+                       id: 5137231.793693602
                        attributes:
-                         bodyHtml: null
+                         bodyHtml: cupidatat
                          bodyText: null
-                         bouncedAt: laboris minim nostrud magna occaecat
-                         clickCount: null
-                         clickedAt: magna
-                         deliveredAt: voluptate labore dolor est dolore
-                         openCount: null
-                         openedAt: incididunt est do Lorem sed
-                         repliedAt: velit quis consequat
-                         subject: null
-                         createdAt: '1978-05-27T07:04:19.0Z'
-                         updatedAt: '1988-01-03T12:01:28.0Z'
-                         in_6b: 17527380.93585746
-                         proidentc: proident
-                         sunt_88: quis irure ut ut amet
-                         et_f69: -8367675
-                         occaecat_2: true
-                         elit_0: true
-                         aute_0: false
-                         reprehenderit80: -50510804.34563096
-                         sint_e: 42103000.046136916
-                         in4f3: true
-                         deserunte: 86442351
-                         dolor54: 51958355.40153313
-                         labore28: 1431591
-                         voluptate1: proident officia
-                         veniamee2: false
+                         bouncedAt: null
+                         clickCount: 28489713.583598062
+                         clickedAt: exercitation laboris ut dolor
+                         deliveredAt: null
+                         openCount: 31207064.983144134
+                         openedAt: incididunt
+                         repliedAt: null
+                         subject: pariatur eiusmod proident cillum
+                         createdAt: '1982-08-17T16:44:39.0Z'
+                         updatedAt: '1979-10-11T23:52:57.0Z'
                        relationships:
                          user:
                            data:
-                             id: sint ad minim Ut dolore
-                             dolore_db: 79061963
-                           aliqua_5b8: false
-                         Lorem_c45: true
-                         sit9e: true
-                         velit_9b: -53751931.985289805
-                         laborum_2: -9357732
-                       labore4: fugiat minim anim sit
-                       magna15: true
-                       aliquipcb9: Ut dolore officia fugiat cillum
-                       ipsuma: aliquip
-                     $native:
-                       adipisicing_eb: esse
-                       voluptate_6aa: true
-                       deserunt_7e: -59329399
+                             id: ullamco sunt aliqua
       requestBody: 
         content:
           application/json:
@@ -606,7 +522,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: 70182299.02149978
+                     id: 10015340.752246797
       operationId: find-mailing
       parameters:
       - name: x-vessel-access-token
@@ -739,45 +655,30 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: -41640769.18818216
+                       - id: 17365327.076577142
                          attributes:
-                           bodyHtml: null
+                           bodyHtml: commodo culpa
                            bodyText: null
                            bouncedAt: null
                            clickCount: null
-                           clickedAt: enim aliquip
-                           deliveredAt: null
-                           openCount: 22321136.141238093
-                           openedAt: null
-                           repliedAt: aliqua esse ullamco irure do
+                           clickedAt: null
+                           deliveredAt: Ut et Excepteur ex tempor
+                           openCount: 52168259.10125035
+                           openedAt: in exercitation et minim do
+                           repliedAt: tempor pariatur
                            subject: null
-                           createdAt: '2006-01-16T13:34:34.0Z'
-                           updatedAt: '1998-02-02T01:52:19.0Z'
-                           dolor_5: veniam culpa
-                           dolore_d: -55914356.01788284
-                           reprehenderit_9: et
-                           officiaf6: esse in
-                           laboris_fce: 35636137.14400643
-                           dolore_9: -30868896.954577312
-                           culpa_6: -4002344.7501123846
-                           cupidatat_2_e: 73581809.08430189
-                           nulla_7bf: 41489443
-                           mollit_15: 39199736
+                           createdAt: '1989-10-21T22:32:09.0Z'
+                           updatedAt: '2004-05-03T11:32:44.0Z'
                          relationships:
-                           user: null
-                           sequence: null
-                           nonc: cupidatat tempor aliquip in
-                           esse699: -50104817
-                           laborum8_: non Ut ad
-                         in9: laboris dolor elit officia nulla
-                     links: null
+                           user:
+                             data:
+                               id: aliqua Duis incididunt
+                     links:
+                       next: null
       requestBody: 
         content:
           application/json:
@@ -796,10 +697,10 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: elit
+                     cursor: deserunt esse
                      filters:
-                       sequenceId: 88417253.85434097
-                       prospectId: 90742482.87270197
+                       sequenceId: -57639451.95482893
+                       prospectId: -23727739.721193954
       operationId: list-mailings
       parameters:
       - name: x-vessel-access-token
@@ -956,58 +857,36 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: -42727473.72084647
+                       id: 80591692.27684051
                        attributes:
                          firstName: null
-                         lastName: sit
+                         lastName: null
                          occupation: null
-                         addressCity: null
+                         addressCity: enim sed Excepteur commodo
                          addressCountry: null
-                         addressState: in
-                         addressStreet: null
-                         addressStreet2: eiusmod Ut
-                         addressZip: ea dolore sed
+                         addressState: null
+                         addressStreet: occaecat cupidatat in dolor ut
+                         addressStreet2: null
+                         addressZip: null
                          emails:
-                           - sunt ut qui
-                         homePhones: null
-                         mobilePhones: null
-                         otherPhones:
-                           - consectetur
-                         workPhones:
-                           - dolor
-                         clickCount: 32919794.811437696
-                         openCount: null
+                           - laboris ad dolore
+                         homePhones:
+                           - sed culpa commodo esse anim
+                         mobilePhones:
+                           - velit ullamco ut
+                         otherPhones: null
+                         workPhones: null
+                         clickCount: null
+                         openCount: 28404165.844468072
                          replyCount: null
-                         createdAt: '2002-02-22T15:20:18.0Z'
-                         updatedAt: '2001-12-01T06:58:07.0Z'
-                         quis16a: false
-                         ut_cf: -23952165
-                         aliquaf: 58848762.403493315
+                         createdAt: '2001-07-27T03:37:06.0Z'
+                         updatedAt: '2006-10-31T01:02:06.0Z'
                        relationships:
-                         owner:
-                           data:
-                             id: veniam sunt
-                             esse_: -62586739.67654671
-                             irured: 93565643.83116174
-                             cupidatat_6: ad Excepteur dolor nisi
-                           ut_9: -1942419
-                           fugiat_7e7: true
-                       et_5: 52292448
-                       nisi_c: false
-                       dolore_6c: 50666209.189216584
-                       aliqua19: -79810010.26446459
-                       est_7: 26958984.419749975
-                     $native:
-                       id_71: labore
-                       aliqua_4: true
-                       ipsum_5e: -37434371.54797151
+                         owner: null
       requestBody: 
         content:
           application/json:
@@ -1068,20 +947,20 @@ paths:
               example-1:
                 value:
                      attributes:
-                       emails:
-                         - occaecat
-                       addressStreet2: null
-                       addressCountry: null
-                       addressZip: magna amet
                        firstName: null
-                       addressState: null
-                       lastName: voluptate aliquip ex non minim
                        addressCity: null
-                       occupation: ullamco occaecat velit dolore nostrud
-                       addressStreet: cillum adipisicing exercitation voluptate enim
+                       addressStreet2: commodo do anim Excepteur in
+                       emails:
+                         - velit
+                       occupation: null
+                       addressState: dolore elit culpa qui aute
+                       addressCountry: sit enim id veniam
+                       lastName: amet proident aliquip
+                       addressStreet: magna non laboris nisi
+                       addressZip: do dolore
                      relationships:
-                       ownerId: 26490889.969132468
-                       accountId: 95373781.59082234
+                       accountId: 79232671.17152092
+                       ownerId: 76293205.50088212
       operationId: create-prospect
       parameters:
       - name: x-vessel-access-token
@@ -1238,60 +1117,38 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 85746952.90912911
+                       id: 68184234.67225495
                        attributes:
-                         firstName: sint ipsum enim
+                         firstName: null
                          lastName: null
-                         occupation: consectetur sunt in ut
+                         occupation: null
                          addressCity: null
-                         addressCountry: ut
-                         addressState: Ut non laboris deserunt
-                         addressStreet: labore dolor eiusmod fugiat
-                         addressStreet2: pariatur cillum mollit voluptate exercitation
-                         addressZip: tempor magna ea ut
+                         addressCountry: exercitation dolor eiusmod
+                         addressState: null
+                         addressStreet: ut eu dolore
+                         addressStreet2: tempor laboris nulla do
+                         addressZip: proident aliquip in
                          emails: null
-                         homePhones:
-                           - mollit dolore amet veniam
+                         homePhones: null
                          mobilePhones: null
-                         otherPhones: null
-                         workPhones: null
-                         clickCount: null
+                         otherPhones:
+                           - deserunt Lorem occaecat Duis nostrud
+                         workPhones:
+                           - cillum aliquip
+                         clickCount: -62776367.167051636
                          openCount: null
-                         replyCount: null
-                         createdAt: '1945-06-28T04:21:19.0Z'
-                         updatedAt: '1965-08-20T23:51:28.0Z'
-                         qui_0: -55178285.60525349
-                         aute_fc: velit est
-                         et_18: ea qui amet anim
-                         sint82: tempor sint sed
-                         nulla_2: -48353014.92688262
-                         ea_18d: 59927532.51607922
-                         mollit_ac: -61040549
+                         replyCount: -42069278.108680755
+                         createdAt: '1974-05-01T23:03:44.0Z'
+                         updatedAt: '1988-11-03T01:31:22.0Z'
                        relationships:
                          owner:
                            data:
-                             id: irure
-                             ametf8: ut minim
-                           occaecat_3: 69213746.32692662
-                           exercitation78: -66824114.27143462
-                           dolore0: 23193949.98037128
-                           nulla3: consequat Duis nulla
-                           nostrud__eb: false
-                       anim177: 89316868
-                     $native:
-                       dolor_e_3: false
-                       consectetur__b: 78629032.50678462
-                       elit_72a: dolore proident cillum dolore
-                       esse_4fb: -93379247.65388247
-                       voluptateae: -14250561.009360448
-                       velit_99: mollit voluptate in ex
+                             id: commodo
+                         account: null
       requestBody: 
         content:
           application/json:
@@ -1303,7 +1160,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: -5918958.492123932
+                     id: 39770475.74343881
       operationId: find-prospect
       parameters:
       - name: x-vessel-access-token
@@ -1478,65 +1335,36 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: 11447042.935755774
+                       - id: -44768200.32322064
                          attributes:
-                           firstName: null
-                           lastName: reprehenderit qui adipisicing eu
-                           occupation: null
-                           addressCity: in eu culpa
+                           firstName: aliquip dolore ullamco irure fugiat
+                           lastName: est non ex sit elit
+                           occupation: Excepteur laboris consectetur consequat
+                           addressCity: null
                            addressCountry: null
                            addressState: null
                            addressStreet: null
-                           addressStreet2: aliqua deserunt Excepteur esse
+                           addressStreet2: cupidatat exercitation id sunt laborum
                            addressZip: null
-                           emails:
-                             - proident sed aliquip
-                           homePhones:
-                             - voluptate
+                           emails: null
+                           homePhones: null
                            mobilePhones:
-                             - dolor consectetur anim amet
-                           otherPhones:
-                             - veniam ex dolore sit
+                             - Excepteur adipisicing
+                           otherPhones: null
                            workPhones: null
                            clickCount: null
-                           openCount: 88931830.9645069
-                           replyCount: -81131846.0882267
-                           createdAt: '1992-10-02T11:19:05.0Z'
-                           updatedAt: '1961-12-14T07:21:30.0Z'
-                           sit_46: -70689662.54688172
-                           sunt9: 12605061
-                           fugiat8_9: 76340270.98246375
-                           eu_1e0: cupidatat voluptate aute
-                           nostrud_f0: commodo mollit
-                           anime: true
-                           sint__1: ea do adipisicing
-                           incididunta92: 53688897.69180757
-                           euf99: nulla eu minim dolore ea
-                           aute06c: -23300222
-                           consectetur_4_6: false
-                           qui459: false
-                           ut230: 13203495
-                           pariatur_66: incididunt tempor esse
-                           elit_e: cillum ut
-                           consequat_2ea: -82330563.36818647
-                           eiusmod3: true
+                           openCount: null
+                           replyCount: null
+                           createdAt: '2008-07-04T02:44:33.0Z'
+                           updatedAt: '2001-01-18T15:16:23.0Z'
                          relationships:
                            owner:
                              data:
-                               id: ad esse do Ut occaecat
-                               id_6ac: -21422066.780663624
-                             nulla_3: -74125573.04202351
-                             adipisicinge: 47367278
-                             pariatur86: voluptate
-                             ea2a: 6239644.059999257
-                         in_148: false
+                               id: Ut
                      links: null
       requestBody: 
         content:
@@ -1557,13 +1385,8 @@ paths:
               example-1:
                 value:
                      filters:
-                       emails: reprehenderit dolore cillum dolore mollit
-                       deserunt47_: false
-                       magnaff: -34878324
-                       eiusmod_a5c: -12052787.437308326
-                       Lorem89: 78313175
-                       deserunt_c34: 4527742
-                     cursor: nulla
+                       emails: elit ut velit
+                     cursor: sit aliquip occaecat
       operationId: list-prospects
       parameters:
       - name: x-vessel-access-token
@@ -1720,72 +1543,38 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: -62989421.94351458
+                       id: -58545856.5729291
                        attributes:
-                         firstName: aliqua in nisi dolore
-                         lastName: anim magna in adipisicing proident
+                         firstName: null
+                         lastName: aute sint dolore
                          occupation: null
                          addressCity: null
                          addressCountry: null
-                         addressState: aliquip aute incididunt
+                         addressState: null
                          addressStreet: null
                          addressStreet2: null
-                         addressZip: null
+                         addressZip: aliquip voluptate fugiat id
                          emails: null
                          homePhones: null
                          mobilePhones:
-                           - proident aliqua dolore reprehenderit
+                           - adipisicing aliquip velit deserunt
                          otherPhones:
-                           - magna est
+                           - cillum aliquip velit
                          workPhones:
-                           - tempor nulla ea consectetur elit
-                         clickCount: -10734105.936064616
-                         openCount: 56608740.579456985
+                           - commodo ipsum
+                         clickCount: 49204853.20410663
+                         openCount: 46550608.29722616
                          replyCount: null
-                         createdAt: '2019-03-18T16:37:51.0Z'
-                         updatedAt: '1998-06-06T03:48:19.0Z'
-                         ut_1: false
-                         consectetur1: dolore exercitation
-                         exercitation_8: -26827082
-                         utcb: 15696332
-                         cillumc91: false
-                         magna0: -74649970
-                         do_f: aliqua anim incididunt
-                         occaecat1b: 70983050
-                         incididunt01: 58424053.06318587
-                         culpa_8: true
-                         qui34: 98147615
-                         dolor43e: true
-                         eu_dd6: 87624912.38745335
-                         minim_8: 62329104
-                         Loremf: true
-                         pariatur_5: -2175882
-                         Excepteur19: -36174647.044110395
-                         Excepteur_0: -71212307
-                         eiusmod_f: -1854245
-                         inb7: true
-                         magna_05: cillum esse sit in
-                         amet_6: -23597238
+                         createdAt: '1953-03-23T11:07:20.0Z'
+                         updatedAt: '1966-04-10T01:22:26.0Z'
                        relationships:
                          owner:
                            data:
-                             id: reprehenderit irure voluptate ut
-                             ut_2f: 20556322
-                           ut_8: false
-                       incididunt32: 73113125.91549695
-                       Ut_: false
-                     $native:
-                       in_1: 63895151
-                       ullamco_da: officia eiusmod tempor enim
-                       quis_1: 37839619
-                       sit22a: -15797835
+                             id: magna elit reprehenderit aliquip
       requestBody: 
         content:
           application/json:
@@ -1836,17 +1625,17 @@ paths:
             examples:
               example-1:
                 value:
-                     id: -28941054.871041775
+                     id: 23284383.97091639
                      attributes:
-                       addressStreet2: null
-                       addressCity: laboris deserunt
-                       addressZip: tempor laborum aliquip dolore
-                       addressCountry: null
-                       occupation: magna voluptate eiusmod dolor ipsum
+                       addressStreet2: esse
+                       addressState: ipsum quis
                        firstName: null
-                       lastName: adipisicing enim id magna in
+                       addressCountry: in officia nulla in
+                       lastName: est labore
                        addressStreet: null
-                       addressState: null
+                       addressCity: ut
+                       occupation: incididunt dolor magna laborum
+                       addressZip: et ex
       operationId: update-prospect
       parameters:
       - name: x-vessel-access-token
@@ -1899,37 +1688,16 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 92541796.76454946
-                       attributes:
-                         nostrud_9a4: 5682084
-                         nulla_b0: Ut voluptate ad culpa
+                       id: 63804386.34817743
+                       attributes: {}
                        relationships:
                          prospect:
                            data:
-                             id: proident consectetur dolor esse pariatur
-                             occaecat__2: reprehenderit id laboris dolore
-                           Excepteur6: 10938435
-                           est_6_: false
-                         occaecat6: -16139549
-                         nostrud_3: deserunt laboris
-                         labore4f2: do ad deserunt et Excepteur
-                         sed_c22: 15010662.584262311
-                       non_071: 91794069
-                       nisib: true
-                       elitb8f: -87220438.53011851
-                       suntb5e: true
-                       laboris3: et sed quis
-                       qui_cde: -74420629
-                       qui4_: true
-                     $native:
-                       fugiat_37: elit reprehenderit
+                             id: exercitation commodo
       requestBody: 
         content:
           application/json:
@@ -1953,11 +1721,9 @@ paths:
               example-1:
                 value:
                      relationships:
-                       prospectId: -67211059.23488273
-                       sequenceId: 42420304.48660138
-                       mailboxId: 99708780.65390071
-                       dolor_c: dolore laborum Lorem dolore
-                       sed_8a: true
+                       prospectId: -70103019.51049876
+                       sequenceId: 93699420.55675119
+                       mailboxId: 45691285.64025861
       operationId: create-sequence-state
       parameters:
       - name: x-vessel-access-token
@@ -2041,45 +1807,28 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 73832727.8154071
+                       id: -88688637.86527786
                        attributes:
-                         name: sunt sint
-                         bounceCount: -92867316.70328239
-                         clickCount: 31894307.074671417
-                         deliverCount: 40146257.22244921
-                         description: voluptate dolor
+                         name: ex veniam dolor in
+                         bounceCount: -84594399.34797852
+                         clickCount: -67364965.20228843
+                         deliverCount: 59766267.891215146
+                         description: null
                          enabled: false
-                         openCount: -8158997.834382474
-                         optOutCount: -73854341.73461163
-                         replyCount: 22859431.39975868
-                         scheduleCount: -68350430.0256315
-                         sequenceStepCount: 27829577.622132048
+                         openCount: 89312604.12766996
+                         optOutCount: -33785129.26377697
+                         replyCount: 55594000.38105786
+                         scheduleCount: -15140271.236715779
+                         sequenceStepCount: 42862179.63476524
                          tags:
-                           - aute et enim dolor
-                         createdAt: '1998-04-27T18:52:20.0Z'
-                         updatedAt: '1978-03-20T22:39:52.0Z'
-                         quis_8: veniam
-                         ipsum_1: 89919103
-                         voluptatef: false
-                         nostrud_c: 1495327
-                         id_760: 35872491.23722881
-                         quise99: adipisicing exercitation cupidatat minim sit
-                         dolore6: -29052112.282166302
-                         ut_eee: 34136695
-                       relationships:
-                         velitf1: 26289022.74766469
-                         magna_79: -62443766
-                         et_f: deserunt amet consequat pariatur
-                       elit2d: true
-                     $native:
-                       culpa_b6: true
+                           - reprehenderit ullamco do Lorem
+                         createdAt: '1962-07-27T19:01:29.0Z'
+                         updatedAt: '1997-11-28T05:51:44.0Z'
+                       relationships: {}
       requestBody: 
         content:
           application/json:
@@ -2091,7 +1840,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: 309133.4980453551
+                     id: 23070234.56027913
       operationId: find-sequence
       parameters:
       - name: x-vessel-access-token
@@ -2193,42 +1942,30 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: 99086451.66687942
+                       - id: -4317515.007753372
                          attributes:
-                           name: veniam
-                           bounceCount: 20619498.61246392
-                           clickCount: 68288773.1782563
-                           deliverCount: -87223521.12272973
+                           name: non proident incididunt ipsum laborum
+                           bounceCount: 2645223.4464615136
+                           clickCount: 86024256.1611695
+                           deliverCount: 25691750.276609376
                            description: null
-                           enabled: false
-                           openCount: 58877861.314321965
-                           optOutCount: -97015959.17867932
-                           replyCount: 5945689.889261052
-                           scheduleCount: 99794947.72307342
-                           sequenceStepCount: -25392886.309430152
+                           enabled: true
+                           openCount: -37314450.80330684
+                           optOutCount: 10295368.58562529
+                           replyCount: 66884542.30809149
+                           scheduleCount: 54406252.23085269
+                           sequenceStepCount: 72393889.40702525
                            tags:
-                             - voluptate
-                           createdAt: '1944-12-13T11:50:43.0Z'
-                           updatedAt: '1963-05-17T06:02:53.0Z'
-                           laborumebe: -82937150.60062948
-                           nonba: true
-                         relationships:
-                           incididunt_84: nisi
-                         adipisicing_b_: -28702110.402346686
-                         veniam_b2: -19202412.72329943
-                         ex70: 90566008
-                         veniam_e4: -47310569.923127234
+                             - Duis occaecat magna
+                           createdAt: '1950-06-23T15:23:55.0Z'
+                           updatedAt: '1969-04-07T20:05:22.0Z'
+                         relationships: {}
                      links:
                        next: null
-                       irure23d: aliquip voluptate
-                       in_d80: amet in
       requestBody: 
         content:
           application/json:
@@ -2240,7 +1977,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: ut pariatur esse culpa
+                     cursor: irure reprehenderit elit officia ullamco
       operationId: list-sequences
       parameters:
       - name: x-vessel-access-token
@@ -2293,38 +2030,18 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 929003.600548178
+                       id: -30901637.883632958
                        attributes:
-                         firstName: aliqua
-                         lastName: sint laborum
-                         email: anim est tempor proident
-                         createdAt: '1945-02-09T23:48:02.0Z'
-                         updatedAt: '1951-03-30T16:51:38.0Z'
-                         consecteture0: true
-                         voluptate_736: -59761179
-                         Excepteur_8_: -83296048.74257241
-                         euca: sint sit qui Duis ut
-                         aute_6bc: 82679339.71899119
-                       relationships:
-                         occaecat971: -78942198
-                         consectetur_4a: false
-                       Excepteur930: false
-                       Loremfcf: -50750274.54146608
-                       commodo3e5: -53529808
-                       anim__8: -65994279.40427667
-                       dolor_2: 15959089
-                     $native:
-                       est_434: dolor Duis consectetur sed
-                       nisi_b: 34547257.57445982
-                       eu_e6: 85625652.00634968
-                       exercitation_be6: -43075166
+                         firstName: tempor
+                         lastName: ad laborum consequat
+                         email: est Duis occaecat
+                         createdAt: '1963-01-08T13:01:41.0Z'
+                         updatedAt: '1975-02-17T21:42:10.0Z'
+                       relationships: {}
       requestBody: 
         content:
           application/json:
@@ -2336,7 +2053,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: -22863362.679962844
+                     id: -88922724.81974715
       operationId: find-user
       parameters:
       - name: x-vessel-access-token
@@ -2407,29 +2124,20 @@ paths:
                                      - string
                                      - 'null'
                              - type: 'null'
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       - id: -53617594.030465245
+                       - id: -17979996.475858465
                          attributes:
-                           firstName: cupidatat ut dolore
-                           lastName: fugiat pariatur cupidatat eiusmod
-                           email: est et cupidatat minim pariatur
-                           createdAt: '1977-06-05T23:36:53.0Z'
-                           updatedAt: '1954-12-02T05:20:19.0Z'
-                           cillum773: 11731922
-                           voluptatead: cillum in sint aliquip anim
-                           voluptate_8fa: true
-                           voluptate_f: 66547155
-                         relationships:
-                           aliquip86: false
-                         culpa1: 91887730
-                         dolor__: 16397027.926717117
-                     links: null
+                           firstName: nostrud et in ex enim
+                           lastName: Ut laboris amet ipsum
+                           email: Duis aute nulla Lorem
+                           createdAt: '2010-02-10T04:26:16.0Z'
+                           updatedAt: '1993-08-07T21:22:04.0Z'
+                         relationships: {}
+                     links:
+                       next: fugiat culpa
       requestBody: 
         content:
           application/json:
@@ -2441,7 +2149,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: velit exercitation mollit
+                     cursor: enim
       operationId: list-users
       parameters:
       - name: x-vessel-access-token
@@ -2525,59 +2233,28 @@ paths:
                        - id
                        - attributes
                        - relationships
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 83208971.16372126
+                       id: -63777477.74138864
                        attributes:
-                         name: nisi sunt Excepteur ut
-                         bounceCount: 43329620.01337063
-                         clickCount: 78275809.82664993
-                         deliverCount: -61289024.308450826
-                         description: nostrud est et
+                         name: dolore in
+                         bounceCount: -98350643.1525964
+                         clickCount: 74572831.23432362
+                         deliverCount: 2726754.36776568
+                         description: null
                          enabled: false
-                         openCount: -59423501.632950515
-                         optOutCount: -4336971.025464281
-                         replyCount: 73913135.2955952
-                         scheduleCount: 15589170.82041873
-                         sequenceStepCount: -62845840.78200188
+                         openCount: 3765773.9645832926
+                         optOutCount: 99843628.57939288
+                         replyCount: 19056627.477946937
+                         scheduleCount: 80495941.69729298
+                         sequenceStepCount: 84887685.23504916
                          tags:
-                           - mollit
-                         createdAt: '1961-04-17T02:42:37.0Z'
-                         updatedAt: '2016-02-06T07:18:31.0Z'
-                         ea_0f: false
-                         magna5c2: 46230720
-                         ullamco3b: 77202236
-                         in9b3: amet do Duis enim
-                         sint_f8: in
-                         dolor_8f: 79704186
-                         consequat_64: 73550535
-                         tempor842: -94841532
-                         laborum_fab: -57128091
-                         elit86: 33029522
-                         irurecdf: Lorem cupidatat
-                         magna7bf: est velit irure adipisicing culpa
-                         dolore: adipisicing quis consectetur dolore cillum
-                         sed5: consectetur fugiat irure
-                         ut3ed: true
-                         mollitea: -28802259.732042134
-                         aute_35: Lorem incididunt aute
-                         laborea: 75298458.60597408
-                       relationships:
-                         enima59: sunt
-                         sed8e8: -9637195.119833961
-                         Lorem59b: 66191050.23140594
-                       ex33: -42058779.37266496
-                       ametf: false
-                       labore8: true
-                       ad8d: 33266360.97043872
-                     $native:
-                       sed_0: 4594481
-                       laborisc: -30337029
+                           - fugiat ut est
+                         createdAt: '2018-04-30T08:35:51.0Z'
+                         updatedAt: '1982-07-28T04:57:44.0Z'
+                       relationships: {}
       requestBody: 
         content:
           application/json:
@@ -2608,15 +2285,9 @@ paths:
               example-1:
                 value:
                      attributes:
-                       name: sint id occaecat
-                       sequenceType: date
-                       shareType: read_only
-                       officia80_: -28273753
-                       dolor59: eiusmod sint culpa
-                       mollit_4: exercitation
-                       culpa_40: false
-                       ex_1: mollit nostrud
-                       velit_b1: 72012871.5413622
+                       name: non in
+                       sequenceType: interval
+                       shareType: shared
       operationId: create-sequence
       parameters:
       - name: x-vessel-access-token
@@ -2643,22 +2314,11 @@ paths:
                          type: number
                      required:
                        - id
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: -77873776.48979685
-                       officia__: dolor id sint
-                       aliquipbb: true
-                       reprehenderit_8a7: 97206787.83291423
-                       elit05d: false
-                       veniam_8b: sunt anim incididunt laborum
-                     $native:
-                       cupidatat_7: 89920697.76922098
-                       pariatur8: false
+                       id: 67955629.79071575
       requestBody: 
         content:
           application/json:
@@ -2685,10 +2345,10 @@ paths:
               example-1:
                 value:
                      attributes:
-                       bodyHtml: ipsum dolor ex labore aliquip
-                       name: in quis
-                       subject: aliquip commodo dolor
-                       trackOpens: false
+                       bodyHtml: eiusmod nulla anim eu
+                       name: Excepteur
+                       trackOpens: true
+                       subject: nisi minim consectetur irure
       operationId: create-template
       parameters:
       - name: x-vessel-access-token
@@ -2715,18 +2375,11 @@ paths:
                          type: number
                      required:
                        - id
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      data:
-                       id: 7535079.965151951
-                       anim_3: 44041038
-                     $native:
-                       eaf: 32631321.085971937
-                       exercitationbb: 26527747.36931108
+                       id: 52648232.56628111
       requestBody: 
         content:
           application/json:
@@ -2755,11 +2408,9 @@ paths:
                 value:
                      attributes:
                        isReply: false
-                       velit__: 48624245
                      relationships:
-                       sequenceStepId: -24667176.097356513
-                       templateId: -15452581.282190055
-                       Duis__6: qui voluptate
+                       sequenceStepId: -25342478.74707681
+                       templateId: 88822467.83166945
       operationId: create-sequence-template
       parameters:
       - name: x-vessel-access-token

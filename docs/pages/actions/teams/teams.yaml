@@ -41,25 +41,16 @@ paths:
                      required:
                        - teamId
                        - channelId
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: aliqua sunt ut
-                     createdDateTime: '1975-09-13T08:41:05.0Z'
+                     id: elit incididunt
+                     createdDateTime: '1956-05-16T12:13:57.0Z'
                      body:
-                       content: Lorem aute deserunt Excepteur laboris
-                       mollit_419: 32351530.44099866
-                       enimb0: ea adipisicing nisi
+                       content: exercitation est laborum irure quis
                      channelIdentity:
-                       teamId: cupidatat aliqua in
-                       channelId: eiusmod anim Duis Excepteur eu
-                       adipisicing520: 87967833.81268618
-                     $native:
-                       incididunta: 76041550.25275347
-                       eaaa0: veniam Excepteur adipisicing dolor
+                       teamId: enim
+                       channelId: dolor sint ea tempor
       requestBody: 
         content:
           application/json:
@@ -75,9 +66,9 @@ paths:
             examples:
               example-1:
                 value:
-                     text: Excepteur sunt aute laborum
-                     channelId: exercitation consequat
-                     teamId: cillum non commodo sit
+                     text: sunt enim consequat ea dolore
+                     channelId: fugiat cupidatat
+                     teamId: enim commodo eiusmod laborum in
       operationId: create-message
       parameters:
       - name: x-vessel-access-token
@@ -115,24 +106,15 @@ paths:
                          - createdDateTime
                    '@odataNextLink':
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      value:
-                       - id: dolore minim
-                         displayName: magna
-                         createdDateTime: '1957-08-23T06:55:34.0Z'
-                         dolore_b3_: ad in nostrud enim velit
-                     '@odataNextLink': officia
-                     $native:
-                       est5: false
-                       ipsum9b0: true
-                       irure_c: false
-                       anim_52: occaecat et
-                       dolorebf6: -99386671.09609076
+                       - id: aliquip
+                         displayName: in Duis velit pariatur irure
+                         createdDateTime: '2012-06-04T02:06:01.0Z'
+                         idea_: false
+                     '@odataNextLink': laboris Excepteur dolor cillum
       requestBody: 
         content:
           application/json:
@@ -146,8 +128,8 @@ paths:
             examples:
               example-1:
                 value:
-                     teamId: exercitation nostrud deserunt in Duis
-                     cursor: occaecat eiusmod
+                     teamId: sint dolor consequat ex
+                     cursor: mollit non cillum
       operationId: list-channels
       parameters:
       - name: x-vessel-access-token
@@ -181,27 +163,13 @@ paths:
                          - displayName
                    '@odataNextLink':
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      value:
-                       - id: pariatur elit aliquip ut
-                         displayName: aliqua voluptate dolor deserunt sint
-                         Lorem_6bb: -50681876
-                         dolor_a: -92446461.43193634
-                         Duis_e9e: 76248784
-                         adipisicing__6: non irure fugiat esse
-                         Ut_627: -48275113
-                         sita6a: -70027011
-                     '@odataNextLink': elit Lorem cillum
-                     $native:
-                       veniam_65: -66316219.8003755
-                       adipisicing_e61: false
-                       inf15: 78836502
-                       labore_e81: false
+                       - id: sit in voluptate velit
+                         displayName: magna laboris sint Lorem elit
+                     '@odataNextLink': ea reprehenderit laboris Lorem dolore
       requestBody: 
         content:
           application/json:
@@ -215,8 +183,8 @@ paths:
             examples:
               example-1:
                 value:
-                     teamId: aliquip dolor
-                     cursor: do ex ut elit reprehenderit
+                     teamId: incididunt Lorem ad ex Ut
+                     cursor: aute Duis dolore anim
       operationId: list-members
       parameters:
       - name: x-vessel-access-token
@@ -250,26 +218,13 @@ paths:
                          - displayName
                    '@odataNextLink':
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      value:
-                       - id: Ut nostrud aliquip
-                         displayName: minim
-                         consectetur_7: 61013929.921516
-                         consectetur_d1: 84161309
-                         ex_0cc: 24934292.489592552
-                         cupidatat23: exercitation
-                         inb4f: false
-                         aute9: pariatur esse
-                     '@odataNextLink': irure enim
-                     $native:
-                       nulla_3: 65324111.311409175
-                       mollit01: -78748783.34804061
-                       aliquad1f: eiusmod do ex fugiat
+                       - id: in sunt
+                         displayName: sunt amet dolore
+                     '@odataNextLink': Excepteur non laboris
       requestBody: 
         content:
           application/json:
@@ -281,7 +236,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: pariatur commodo ut aliqua ut
+                     cursor: ea commodo irure in
       operationId: list-teams
       parameters:
       - name: x-vessel-access-token

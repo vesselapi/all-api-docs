@@ -21,15 +21,10 @@ paths:
                 properties:
                    id:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: in cupidatat ex nostrud ullamco
-                     $native:
-                       nostrud79: laborum eiusmod do ut Ut
+                     id: consectetur
       requestBody: 
         content:
           application/json:
@@ -59,13 +54,13 @@ paths:
             examples:
               example-1:
                 value:
-                     listId: sunt officia fugiat
+                     listId: Ut sed ut pariatur incididunt
                      member:
-                       status: deserunt Duis
-                       fullName: labore
-                       timestampSignup: '1949-09-09T01:30:31.0Z'
-                       emailAddress: officia irure aliquip
-                       lastChanged: '1977-12-25T06:40:47.0Z'
+                       status: ea Duis
+                       lastChanged: '1954-10-28T17:22:43.0Z'
+                       timestampSignup: '1995-01-30T07:20:15.0Z'
+                       emailAddress: mollit qui
+                       fullName: laboris mollit sint dolore
       operationId: create-member
       parameters:
       - name: x-vessel-access-token
@@ -87,18 +82,10 @@ paths:
                 properties:
                    id:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: ut ipsum
-                     $native:
-                       Utbe: false
-                       dolore_a4: -36701098.072534986
-                       pariatur9: -25066209
-                       esse_020: -91035884
+                     id: aute dolor anim Excepteur
       requestBody: 
         content:
           application/json:
@@ -131,14 +118,14 @@ paths:
             examples:
               example-1:
                 value:
-                     listId: culpa
+                     listId: do Ut
                      member:
-                       id: fugiat aliqua dolore
-                       status: dolore laborum
-                       fullName: sunt sint ut ut
-                       timestampSignup: '1959-06-03T12:33:47.0Z'
-                       emailAddress: deserunt reprehenderit incididunt in
-                       lastChanged: '1955-12-24T17:30:25.0Z'
+                       id: fugiat anim in ipsum
+                       status: eiusmod consectetur sint exercitation officia
+                       emailAddress: consectetur Excepteur sint exercitation amet
+                       timestampSignup: '2020-11-25T11:08:14.0Z'
+                       lastChanged: '1955-10-03T03:46:38.0Z'
+                       fullName: dolor et anim sed
       operationId: update-member
       parameters:
       - name: x-vessel-access-token
@@ -197,30 +184,19 @@ paths:
                          items: {}
                      required:
                        - members
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      exactMatches:
                        members:
-                         - id: elit ipsum
-                           status: tempor Lorem
-                           lastChanged: '1956-12-16T04:21:44.0Z'
-                           timestampSignup: '1952-02-15T19:58:19.0Z'
-                           emailAddress: reprehenderit tempor ut ea
-                           fullName: consequat nulla fugiat
-                       reprehenderit_d0: 49252803
-                       pariatur_d: nostrud deserunt dolor voluptate cupidatat
-                       sunt_bfc: -90888893
-                       dolor92: Duis tempor consectetur nisi et
-                       commodo_b8d: -84442796
+                         - id: qui
+                           status: enim dolor do
+                           timestampSignup: '1982-03-03T03:33:27.0Z'
+                           fullName: irure Ut dolor est
+                           emailAddress: amet enim laborum ad incididunt
+                           lastChanged: '1965-10-11T05:54:19.0Z'
                      fullSearch:
                        members: []
-                       dolore88c: dolor Duis
-                     $native:
-                       aliqua_e: true
       requestBody: 
         content:
           application/json:
@@ -242,12 +218,12 @@ paths:
             examples:
               example-1:
                 value:
-                     listId: consectetur
+                     listId: velit sit
                      fields:
-                       - nulla ut
+                       - culpa dolore
                      excludeFields:
-                       - dolore
-                     query: elit ad cupidatat tempor
+                       - culpa enim eu
+                     query: eu
       operationId: search-members
       parameters:
       - name: x-vessel-access-token
@@ -267,14 +243,30 @@ paths:
               schema:
                 type: object
                 properties:
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
+                  list:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      dateCreated:
+                        type: string
+                        format: date-time
+                    required:
+                      - id
+                      - name
+                      - date_created
               examples:
                 example-1:
                   value:
-                     $native:
-                       pariatur_0f4: -50345930
+                     list:
+                        listId: velit sit
+                        fields:
+                          - culpa dolore
+                        excludeFields:
+                          - culpa enim eu
+                        query: eu
       requestBody: 
         content:
           application/json:
@@ -286,7 +278,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: elit qui
+                     id: fugiat mollit Excepteur nulla
       operationId: find-list
       parameters:
       - name: x-vessel-access-token
@@ -322,19 +314,13 @@ paths:
                          - id
                          - name
                          - date_created
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      lists:
-                       - id: consequat proident elit magna fugiat
-                         name: cillum dolore ut irure
-                         dateCreated: '1955-07-20T16:48:39.0Z'
-                     $native:
-                       in_9: -20431138.4564694
-                       magna_8: sed velit
+                       - id: enim consequat
+                         name: et Ut Lorem cupidatat labore
+                         dateCreated: '1965-06-15T22:12:43.0Z'
       requestBody: 
         content:
           application/json:
@@ -348,8 +334,8 @@ paths:
             examples:
               example-1:
                 value:
-                     count: 3052962.8700054735
-                     offset: -89058559.91241443
+                     count: -87514915.5288328
+                     offset: 45925499.292773694
       operationId: list-lists
       parameters:
       - name: x-vessel-access-token

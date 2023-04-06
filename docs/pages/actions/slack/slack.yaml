@@ -21,19 +21,10 @@ paths:
                 properties:
                    ts:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     ts: mollit voluptate occaecat id
-                     $native:
-                       reprehenderit__a: true
-                       sintb: -97383412
-                       ut_a3a: 82677950.40474972
-                       dolore59b: -52533871.192924716
-                       id_0e: false
+                     ts: sit ullamco consectetur
       requestBody: 
         content:
           application/json:
@@ -47,8 +38,8 @@ paths:
             examples:
               example-1:
                 value:
-                     text: aute nisi
-                     channel: sint cupidatat
+                     text: ipsum in
+                     channel: minim
       operationId: create-message
       parameters:
       - name: x-vessel-access-token
@@ -70,17 +61,10 @@ paths:
                 properties:
                    ts:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     ts: ullamco est adipisicing sint
-                     $native:
-                       et7: -8335191.3447500765
-                       esse868: false
-                       essed5: -59380236.918241546
+                     ts: exercitation eiusmod
       requestBody: 
         content:
           application/json:
@@ -96,9 +80,9 @@ paths:
             examples:
               example-1:
                 value:
-                     ts: consectetur mollit
-                     text: enim ipsum officia in
-                     channel: Lorem officia nulla in dolore
+                     ts: deserunt pariatur eiusmod esse
+                     text: reprehenderit enim
+                     channel: minim ex sunt aliquip
       operationId: update-message
       parameters:
       - name: x-vessel-access-token
@@ -140,26 +124,15 @@ paths:
                          type: string
                      required:
                        - next_cursor
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      members:
-                       - id: nisi dolor in
-                         name: id do occaecat sunt elit
+                       - id: sint laborum
+                         name: sint consectetur aliquip laboris commodo
                          deleted: false
-                         Ut6b: aliquip cillum est Ut
-                         ut_5f7: nisi
-                         tempor7: true
-                         sint_e: true
                      responseMetadata:
-                       nextCursor: consectetur eiusmod incididunt
-                     $native:
-                       dolor_983: true
-                       nostrud97a: -71829461.01163101
-                       anim95: 87194698.90439996
+                       nextCursor: mollit commodo dolore
       requestBody: 
         content:
           application/json:
@@ -171,7 +144,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: minim culpa dolor voluptate
+                     cursor: do
       operationId: list-users
       parameters:
       - name: x-vessel-access-token
@@ -213,23 +186,15 @@ paths:
                          type: string
                      required:
                        - next_cursor
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      channels:
-                       - id: in
-                         name: mollit
-                         created: -30812420.942993984
-                         laborum3: 91873308.67240217
+                       - id: nisi
+                         name: reprehenderit labore
+                         created: -11244916.177287444
                      responseMetadata:
-                       nextCursor: in Duis ut
-                     $native:
-                       et__: -58859785.676521525
-                       aliquip8a9: true
-                       ut458: false
+                       nextCursor: ea commodo nisi proident sunt
       requestBody: 
         content:
           application/json:
@@ -241,7 +206,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: consectetur aliqua
+                     cursor: et
       operationId: list-conversations
       parameters:
       - name: x-vessel-access-token

@@ -102,7 +102,9 @@
     },
     {
       "group": "Integrations",
-      "pages": ["pages/home/api-reference/get-all-integrations"]
+      "pages": [
+        "pages/home/api-reference/get-all-integrations"
+      ]
     },
     {
       "group": "Auth",
@@ -131,11 +133,15 @@
     },
     {
       "group": "ETL",
-      "pages": ["pages/managed-etl/about"]
+      "pages": [
+        "pages/managed-etl/about"
+      ]
     },
     {
       "group": "CRM APIs",
-      "pages": ["pages/crm/about"]
+      "pages": [
+        "pages/crm/about"
+      ]
     },
     {
       "group": "How-To Guides",
@@ -147,11 +153,15 @@
     },
     {
       "group": "References",
-      "pages": ["pages/crm/authentication-and-security"]
+      "pages": [
+        "pages/crm/authentication-and-security"
+      ]
     },
     {
       "group": "Tutorials",
-      "pages": ["pages/crm/webhooks"]
+      "pages": [
+        "pages/crm/webhooks"
+      ]
     },
     {
       "group": "Link",
@@ -306,7 +316,9 @@
     },
     {
       "group": "Unified APIs",
-      "pages": ["pages/unified/about"]
+      "pages": [
+        "pages/unified/about"
+      ]
     },
     {
       "group": "Dialer API",
@@ -342,24 +354,24 @@
       "group": "Marketing Automation API",
       "pages": [
         {
-          "group": "List",
+          "group": "Users",
           "pages": [
-            "pages/unified/marketing-automation/api-reference/get-all-users",
+            "pages/unified/marketing-automation/api-reference/get-all-users"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "pages": [
             "pages/unified/marketing-automation/api-reference/get-all-contacts",
-            "pages/unified/marketing-automation/api-reference/get-all-lists"
-          ]
-        },
-        {
-          "group": "Find",
-          "pages": [
             "pages/unified/marketing-automation/api-reference/get-one-contact",
-            "pages/unified/marketing-automation/api-reference/get-one-list"
+            "pages/unified/marketing-automation/api-reference/post-contact"
           ]
         },
         {
-          "group": "Create",
+          "group": "Lists",
           "pages": [
-            "pages/unified/marketing-automation/api-reference/post-contact"
+            "pages/unified/marketing-automation/api-reference/get-all-lists",
+            "pages/unified/marketing-automation/api-reference/get-one-list"
           ]
         },
         {
@@ -375,66 +387,63 @@
       "group": "Engagement API",
       "pages": [
         {
-          "group": "List",
+          "group": "Users",
           "pages": [
             "pages/unified/engagement/api-reference/get-all-users",
+            "pages/unified/engagement/api-reference/get-one-user"
+          ]
+        },
+        {
+          "group": "Accounts",
+          "pages": [
             "pages/unified/engagement/api-reference/get-all-accounts",
-            "pages/unified/engagement/api-reference/get-all-contacts",
-            "pages/unified/engagement/api-reference/get-all-emails",
-            "pages/unified/engagement/api-reference/get-all-sequences",
-            "pages/unified/engagement/api-reference/get-all-mailboxes"
-          ]
-        },
-        {
-          "group": "Find",
-          "pages": [
-            "pages/unified/engagement/api-reference/get-one-user",
             "pages/unified/engagement/api-reference/get-one-account",
-            "pages/unified/engagement/api-reference/get-one-contact",
-            "pages/unified/engagement/api-reference/get-one-email"
-          ]
-        },
-        {
-          "group": "Create",
-          "pages": [
-            "pages/unified/engagement/api-reference/post-account",
-            "pages/unified/engagement/api-reference/post-contact",
-            "pages/unified/engagement/api-reference/post-sequences"
-          ]
-        },
-        {
-          "group": "Update",
-          "pages": [
             "pages/unified/engagement/api-reference/put-account",
-            "pages/unified/engagement/api-reference/put-contact"
+            "pages/unified/engagement/api-reference/post-account",
+            "pages/unified/engagement/api-reference/search-account"
           ]
         },
         {
-          "group": "Search",
+          "group": "Contacts",
           "pages": [
-            "pages/unified/engagement/api-reference/search-account",
-            "pages/unified/engagement/api-reference/search-contact",
+            "pages/unified/engagement/api-reference/get-all-contacts",
+            "pages/unified/engagement/api-reference/get-one-contact",
+            "pages/unified/engagement/api-reference/post-contact",
+            "pages/unified/engagement/api-reference/put-contact",
+            "pages/unified/engagement/api-reference/search-contact"
+          ]
+        },
+        {
+          "group": "Emails",
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-emails",
+            "pages/unified/engagement/api-reference/get-one-email",
             "pages/unified/engagement/api-reference/search-email"
           ]
         },
         {
-          "group": "Custom Fields",
+          "group": "Sequences",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-customFields"
-          ]
-        },
-        {
-          "group": "Custom Fields",
-          "pages": ["pages/unified/engagement/api-reference/post-customFields"]
-        },
-        {
-          "group": "Start",
-          "pages": [
+            "pages/unified/engagement/api-reference/get-all-sequences",
+            "pages/unified/engagement/api-reference/post-sequences",
             "pages/unified/engagement/api-reference/post-start-sequence"
           ]
         },
         {
-          "group": "Steps",
+          "group": "Custom Fields",
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-customFields",
+            "pages/unified/engagement/api-reference/post-customFields"
+          ]
+        },
+        {
+          "group": "Mailboxes",
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-mailboxes"
+          ]
+        },
+        {
+          "group": "Sequence Steps",
           "pages": [
             "pages/unified/engagement/api-reference/post-sequences-steps"
           ]
@@ -446,26 +455,32 @@
       "group": "Chat API",
       "pages": [
         {
-          "group": "List",
+          "group": "Users",
           "pages": [
-            "pages/unified/chat/api-reference/get-all-users",
-            "pages/unified/chat/api-reference/get-all-channels"
+            "pages/unified/chat/api-reference/get-all-users"
           ]
         },
         {
-          "group": "Create",
-          "pages": ["pages/unified/chat/api-reference/post-message"]
+          "group": "Message",
+          "pages": [
+            "pages/unified/chat/api-reference/put-message",
+            "pages/unified/chat/api-reference/post-message"
+          ]
         },
         {
-          "group": "Update",
-          "pages": ["pages/unified/chat/api-reference/put-message"]
+          "group": "Channels",
+          "pages": [
+            "pages/unified/chat/api-reference/get-all-channels"
+          ]
         },
         "pages/unified/chat/api-reference/passthrough"
       ]
     },
     {
       "group": "Action APIs",
-      "pages": ["pages/actions/about"]
+      "pages": [
+        "pages/actions/about"
+      ]
     },
     {
       "group": "Aircall",
@@ -518,7 +533,9 @@
         },
         {
           "group": "Users",
-          "pages": ["pages/actions/activecampaign/api-reference/list-users"]
+          "pages": [
+            "pages/actions/activecampaign/api-reference/list-users"
+          ]
         },
         "pages/actions/activecampaign/api-reference/passthrough"
       ]
@@ -536,7 +553,9 @@
         },
         {
           "group": "Activities",
-          "pages": ["pages/actions/apollo/api-reference/list-activities"]
+          "pages": [
+            "pages/actions/apollo/api-reference/list-activities"
+          ]
         },
         {
           "group": "Contacts",
@@ -548,19 +567,27 @@
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/apollo/api-reference/create-custom-fields"]
+          "pages": [
+            "pages/actions/apollo/api-reference/create-custom-fields"
+          ]
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/apollo/api-reference/list-custom-fields"]
+          "pages": [
+            "pages/actions/apollo/api-reference/list-custom-fields"
+          ]
         },
         {
           "group": "Emails",
-          "pages": ["pages/actions/apollo/api-reference/search-emails"]
+          "pages": [
+            "pages/actions/apollo/api-reference/search-emails"
+          ]
         },
         {
           "group": "Email Accounts",
-          "pages": ["pages/actions/apollo/api-reference/list-email-accounts"]
+          "pages": [
+            "pages/actions/apollo/api-reference/list-email-accounts"
+          ]
         },
         {
           "group": "Sequences",
@@ -572,7 +599,9 @@
         },
         {
           "group": "Sequence Steps",
-          "pages": ["pages/actions/apollo/api-reference/create-sequence-steps"]
+          "pages": [
+            "pages/actions/apollo/api-reference/create-sequence-steps"
+          ]
         },
         {
           "group": "Sequence Templates",
@@ -582,7 +611,9 @@
         },
         {
           "group": "Users",
-          "pages": ["pages/actions/apollo/api-reference/search-users"]
+          "pages": [
+            "pages/actions/apollo/api-reference/search-users"
+          ]
         },
         "pages/actions/apollo/api-reference/passthrough"
       ]
@@ -629,7 +660,9 @@
         },
         {
           "group": "Mailboxes",
-          "pages": ["pages/actions/outreach/api-reference/list-mailboxes"]
+          "pages": [
+            "pages/actions/outreach/api-reference/list-mailboxes"
+          ]
         },
         {
           "group": "Mailings",
@@ -670,7 +703,9 @@
         },
         {
           "group": "Templates",
-          "pages": ["pages/actions/outreach/api-reference/create-template"]
+          "pages": [
+            "pages/actions/outreach/api-reference/create-template"
+          ]
         },
         {
           "group": "Sequence Templates",
@@ -694,11 +729,15 @@
         },
         {
           "group": "Call Logs",
-          "pages": ["pages/actions/ringcentral/api-reference/list-call-logs"]
+          "pages": [
+            "pages/actions/ringcentral/api-reference/list-call-logs"
+          ]
         },
         {
           "group": "Call Logs",
-          "pages": ["pages/actions/ringcentral/api-reference/find-call-log"]
+          "pages": [
+            "pages/actions/ringcentral/api-reference/find-call-log"
+          ]
         },
         {
           "group": "Contacts",
@@ -726,11 +765,15 @@
         },
         {
           "group": "List Views",
-          "pages": ["pages/actions/salesforce/api-reference/find-list-view"]
+          "pages": [
+            "pages/actions/salesforce/api-reference/find-list-view"
+          ]
         },
         {
           "group": "List Views",
-          "pages": ["pages/actions/salesforce/api-reference/list-list-views"]
+          "pages": [
+            "pages/actions/salesforce/api-reference/list-list-views"
+          ]
         },
         {
           "group": "List View Results",
@@ -766,15 +809,21 @@
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/salesloft/api-reference/create-custom-field"]
+          "pages": [
+            "pages/actions/salesloft/api-reference/create-custom-field"
+          ]
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/salesloft/api-reference/list-custom-fields"]
+          "pages": [
+            "pages/actions/salesloft/api-reference/list-custom-fields"
+          ]
         },
         {
           "group": "Emailbodies",
-          "pages": ["pages/actions/salesloft/api-reference/find-email-body"]
+          "pages": [
+            "pages/actions/salesloft/api-reference/find-email-body"
+          ]
         },
         {
           "group": "Emails",
@@ -814,11 +863,15 @@
         },
         {
           "group": "Users",
-          "pages": ["pages/actions/slack/api-reference/list-users"]
+          "pages": [
+            "pages/actions/slack/api-reference/list-users"
+          ]
         },
         {
           "group": "Conversations",
-          "pages": ["pages/actions/slack/api-reference/list-conversations"]
+          "pages": [
+            "pages/actions/slack/api-reference/list-conversations"
+          ]
         },
         "pages/actions/slack/api-reference/passthrough"
       ]
@@ -849,19 +902,797 @@
       "pages": [
         {
           "group": "Messages",
-          "pages": ["pages/actions/teams/api-reference/create-message"]
+          "pages": [
+            "pages/actions/teams/api-reference/create-message"
+          ]
         },
         {
           "group": "Channels",
-          "pages": ["pages/actions/teams/api-reference/list-channels"]
+          "pages": [
+            "pages/actions/teams/api-reference/list-channels"
+          ]
         },
         {
           "group": "Members",
-          "pages": ["pages/actions/teams/api-reference/list-members"]
+          "pages": [
+            "pages/actions/teams/api-reference/list-members"
+          ]
         },
         {
           "group": "Teams",
-          "pages": ["pages/actions/teams/api-reference/list-teams"]
+          "pages": [
+            "pages/actions/teams/api-reference/list-teams"
+          ]
+        },
+        "pages/actions/teams/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Dialer API",
+      "id": "dialer",
+      "order": 1,
+      "pages": [
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 1,
+          "pages": [
+            "pages/unified/dialer/api-reference/get-all-users",
+            "pages/unified/dialer/api-reference/get-one-user"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 1,
+          "pages": [
+            "pages/unified/dialer/api-reference/get-all-contacts",
+            "pages/unified/dialer/api-reference/get-one-contact",
+            "pages/unified/dialer/api-reference/post-contact",
+            "pages/unified/dialer/api-reference/put-contact"
+          ]
+        },
+        {
+          "group": "Calls",
+          "id": "Calls",
+          "order": 1,
+          "pages": [
+            "pages/unified/dialer/api-reference/get-all-calls",
+            "pages/unified/dialer/api-reference/get-one-call",
+            "pages/unified/dialer/api-reference/start-call"
+          ]
+        },
+        "pages/unified/dialer/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Marketing Automation API",
+      "id": "marketing-automation",
+      "order": 1,
+      "pages": [
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 1,
+          "pages": [
+            "pages/unified/marketing-automation/api-reference/get-all-users"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 1,
+          "pages": [
+            "pages/unified/marketing-automation/api-reference/get-all-contacts",
+            "pages/unified/marketing-automation/api-reference/get-one-contact",
+            "pages/unified/marketing-automation/api-reference/post-contact",
+            "pages/unified/marketing-automation/api-reference/put-contact"
+          ]
+        },
+        {
+          "group": "Lists",
+          "id": "Lists",
+          "order": 1,
+          "pages": [
+            "pages/unified/marketing-automation/api-reference/get-all-lists",
+            "pages/unified/marketing-automation/api-reference/get-one-list"
+          ]
+        },
+        "pages/unified/marketing-automation/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Engagement API",
+      "id": "engagement",
+      "order": 1,
+      "pages": [
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-users",
+            "pages/unified/engagement/api-reference/get-one-user"
+          ]
+        },
+        {
+          "group": "Accounts",
+          "id": "Accounts",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-accounts",
+            "pages/unified/engagement/api-reference/get-one-account",
+            "pages/unified/engagement/api-reference/post-account",
+            "pages/unified/engagement/api-reference/put-account",
+            "pages/unified/engagement/api-reference/search-account"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-contacts",
+            "pages/unified/engagement/api-reference/get-one-contact",
+            "pages/unified/engagement/api-reference/post-contact",
+            "pages/unified/engagement/api-reference/put-contact",
+            "pages/unified/engagement/api-reference/search-contact"
+          ]
+        },
+        {
+          "group": "Contact",
+          "id": "Contact",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-customFields",
+            "pages/unified/engagement/api-reference/post-customFields"
+          ]
+        },
+        {
+          "group": "Emails",
+          "id": "Emails",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-emails",
+            "pages/unified/engagement/api-reference/get-one-email",
+            "pages/unified/engagement/api-reference/search-email"
+          ]
+        },
+        {
+          "group": "Sequences",
+          "id": "Sequences",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-sequences",
+            "pages/unified/engagement/api-reference/post-sequences",
+            "pages/unified/engagement/api-reference/post-sequences-steps"
+          ]
+        },
+        {
+          "group": "Sequence",
+          "id": "Sequence",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/post-start-sequence"
+          ]
+        },
+        {
+          "group": "Mailboxes",
+          "id": "Mailboxes",
+          "order": 1,
+          "pages": [
+            "pages/unified/engagement/api-reference/get-all-mailboxes"
+          ]
+        },
+        "pages/unified/engagement/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Chat API",
+      "id": "chat",
+      "order": 1,
+      "pages": [
+        {
+          "group": "List",
+          "id": "List",
+          "order": 1,
+          "pages": [
+            "pages/unified/chat/api-reference/get-all-users",
+            "pages/unified/chat/api-reference/get-all-channels"
+          ]
+        },
+        {
+          "group": "Create",
+          "id": "Create",
+          "order": 1,
+          "pages": [
+            "pages/unified/chat/api-reference/post-message"
+          ]
+        },
+        {
+          "group": "Update",
+          "id": "Update",
+          "order": 1,
+          "pages": [
+            "pages/unified/chat/api-reference/put-message"
+          ]
+        },
+        "pages/unified/chat/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Aircall",
+      "id": "aircall",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/aircall/api-reference/list-users",
+            "pages/actions/aircall/api-reference/find-user",
+            "pages/actions/aircall/api-reference/start-user-call"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/aircall/api-reference/create-contact",
+            "pages/actions/aircall/api-reference/find-contact",
+            "pages/actions/aircall/api-reference/list-contacts",
+            "pages/actions/aircall/api-reference/update-contact"
+          ]
+        },
+        {
+          "group": "Calls",
+          "id": "Calls",
+          "order": 2,
+          "pages": [
+            "pages/actions/aircall/api-reference/find-call",
+            "pages/actions/aircall/api-reference/list-calls"
+          ]
+        },
+        "pages/actions/aircall/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Active Campaign",
+      "id": "activecampaign",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/activecampaign/api-reference/create-contact",
+            "pages/actions/activecampaign/api-reference/find-contact",
+            "pages/actions/activecampaign/api-reference/list-contacts",
+            "pages/actions/activecampaign/api-reference/update-contact"
+          ]
+        },
+        {
+          "group": "Lists",
+          "id": "Lists",
+          "order": 2,
+          "pages": [
+            "pages/actions/activecampaign/api-reference/find-list",
+            "pages/actions/activecampaign/api-reference/list-lists"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/activecampaign/api-reference/list-users"
+          ]
+        },
+        "pages/actions/activecampaign/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Apollo",
+      "id": "apollo",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Accounts",
+          "id": "Accounts",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/create-account",
+            "pages/actions/apollo/api-reference/search-account",
+            "pages/actions/apollo/api-reference/update-account"
+          ]
+        },
+        {
+          "group": "Activities",
+          "id": "Activities",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/list-activities"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/create-contact",
+            "pages/actions/apollo/api-reference/search-contacts",
+            "pages/actions/apollo/api-reference/update-contact"
+          ]
+        },
+        {
+          "group": "Custom Fields",
+          "id": "Custom-fields",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/create-custom-fields"
+          ]
+        },
+        {
+          "group": "Custom Fields",
+          "id": "Custom-fields",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/list-custom-fields"
+          ]
+        },
+        {
+          "group": "Emails",
+          "id": "Emails",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/search-emails"
+          ]
+        },
+        {
+          "group": "Email Accounts",
+          "id": "Email-accounts",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/list-email-accounts"
+          ]
+        },
+        {
+          "group": "Sequences",
+          "id": "Sequences",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/create-sequences",
+            "pages/actions/apollo/api-reference/search-sequences",
+            "pages/actions/apollo/api-reference/start-sequences"
+          ]
+        },
+        {
+          "group": "Sequence Steps",
+          "id": "Sequence-steps",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/create-sequence-steps"
+          ]
+        },
+        {
+          "group": "Sequence Templates",
+          "id": "Sequence-templates",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/update-sequence-templates"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/apollo/api-reference/search-users"
+          ]
+        },
+        "pages/actions/apollo/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Dialpad",
+      "id": "dialpad",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/dialpad/api-reference/list-users",
+            "pages/actions/dialpad/api-reference/find-user"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/dialpad/api-reference/find-contact",
+            "pages/actions/dialpad/api-reference/list-contacts",
+            "pages/actions/dialpad/api-reference/contacts-create",
+            "pages/actions/dialpad/api-reference/contacts-update"
+          ]
+        },
+        {
+          "group": "Calls",
+          "id": "Calls",
+          "order": 2,
+          "pages": [
+            "pages/actions/dialpad/api-reference/find-call",
+            "pages/actions/dialpad/api-reference/list-calls",
+            "pages/actions/dialpad/api-reference/start-call"
+          ]
+        },
+        "pages/actions/dialpad/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Outreach",
+      "id": "outreach",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Accounts",
+          "id": "Accounts",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/find-account",
+            "pages/actions/outreach/api-reference/list-accounts"
+          ]
+        },
+        {
+          "group": "Mailboxes",
+          "id": "Mailboxes",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/list-mailboxes"
+          ]
+        },
+        {
+          "group": "Mailings",
+          "id": "Mailings",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/find-mailing",
+            "pages/actions/outreach/api-reference/list-mailings"
+          ]
+        },
+        {
+          "group": "Prospects",
+          "id": "Prospects",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/create-prospect",
+            "pages/actions/outreach/api-reference/find-prospect",
+            "pages/actions/outreach/api-reference/list-prospects",
+            "pages/actions/outreach/api-reference/update-prospect"
+          ]
+        },
+        {
+          "group": "Sequence States",
+          "id": "Sequence-states",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/create-sequence-state"
+          ]
+        },
+        {
+          "group": "Sequences",
+          "id": "Sequences",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/find-sequence",
+            "pages/actions/outreach/api-reference/list-sequences",
+            "pages/actions/outreach/api-reference/create-sequence"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/find-user",
+            "pages/actions/outreach/api-reference/list-users"
+          ]
+        },
+        {
+          "group": "Templates",
+          "id": "Templates",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/create-template"
+          ]
+        },
+        {
+          "group": "Sequence Templates",
+          "id": "Sequence-templates",
+          "order": 2,
+          "pages": [
+            "pages/actions/outreach/api-reference/create-sequence-template"
+          ]
+        },
+        "pages/actions/outreach/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Ringcentral",
+      "id": "ringcentral",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Extensions",
+          "id": "Extensions",
+          "order": 2,
+          "pages": [
+            "pages/actions/ringcentral/api-reference/find-extension",
+            "pages/actions/ringcentral/api-reference/list-extensions",
+            "pages/actions/ringcentral/api-reference/extension-ring-out"
+          ]
+        },
+        {
+          "group": "Call Logs",
+          "id": "Call-logs",
+          "order": 2,
+          "pages": [
+            "pages/actions/ringcentral/api-reference/list-call-logs"
+          ]
+        },
+        {
+          "group": "Call Logs",
+          "id": "Call-logs",
+          "order": 2,
+          "pages": [
+            "pages/actions/ringcentral/api-reference/find-call-log"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/ringcentral/api-reference/list-contacts",
+            "pages/actions/ringcentral/api-reference/find-contact",
+            "pages/actions/ringcentral/api-reference/create-contact",
+            "pages/actions/ringcentral/api-reference/update-contact"
+          ]
+        },
+        "pages/actions/ringcentral/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Salesforce",
+      "id": "salesforce",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Contacts",
+          "id": "Contacts",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesforce/api-reference/create-contact",
+            "pages/actions/salesforce/api-reference/find-contact",
+            "pages/actions/salesforce/api-reference/list-contacts",
+            "pages/actions/salesforce/api-reference/update-contact"
+          ]
+        },
+        {
+          "group": "List Views",
+          "id": "List-views",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesforce/api-reference/find-list-view"
+          ]
+        },
+        {
+          "group": "List Views",
+          "id": "List-views",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesforce/api-reference/list-list-views"
+          ]
+        },
+        {
+          "group": "List View Results",
+          "id": "List-view-results",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesforce/api-reference/find-list-view-results"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesforce/api-reference/list-users",
+            "pages/actions/salesforce/api-reference/find-user"
+          ]
+        },
+        "pages/actions/salesforce/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Salesloft",
+      "id": "salesloft",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Cadence Memberships",
+          "id": "Cadence-memberships",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/create-cadence-memberships"
+          ]
+        },
+        {
+          "group": "Cadences",
+          "id": "Cadences",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/import-cadences",
+            "pages/actions/salesloft/api-reference/list-cadences"
+          ]
+        },
+        {
+          "group": "Custom Fields",
+          "id": "Custom-fields",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/create-custom-field"
+          ]
+        },
+        {
+          "group": "Custom Fields",
+          "id": "Custom-fields",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/list-custom-fields"
+          ]
+        },
+        {
+          "group": "Emailbodies",
+          "id": "Emailbodies",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/find-email-body"
+          ]
+        },
+        {
+          "group": "Emails",
+          "id": "Emails",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/list-emails",
+            "pages/actions/salesloft/api-reference/find-email"
+          ]
+        },
+        {
+          "group": "People",
+          "id": "People",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/create-people",
+            "pages/actions/salesloft/api-reference/list-people",
+            "pages/actions/salesloft/api-reference/find-people",
+            "pages/actions/salesloft/api-reference/update-people"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/salesloft/api-reference/find-user",
+            "pages/actions/salesloft/api-reference/list-users"
+          ]
+        },
+        "pages/actions/salesloft/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Slack",
+      "id": "slack",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Messages",
+          "id": "Messages",
+          "order": 2,
+          "pages": [
+            "pages/actions/slack/api-reference/create-message",
+            "pages/actions/slack/api-reference/update-message"
+          ]
+        },
+        {
+          "group": "Users",
+          "id": "Users",
+          "order": 2,
+          "pages": [
+            "pages/actions/slack/api-reference/list-users"
+          ]
+        },
+        {
+          "group": "Conversations",
+          "id": "Conversations",
+          "order": 2,
+          "pages": [
+            "pages/actions/slack/api-reference/list-conversations"
+          ]
+        },
+        "pages/actions/slack/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Mailchimp",
+      "id": "mailchimp",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Members",
+          "id": "Members",
+          "order": 2,
+          "pages": [
+            "pages/actions/mailchimp/api-reference/create-member",
+            "pages/actions/mailchimp/api-reference/update-member",
+            "pages/actions/mailchimp/api-reference/search-members"
+          ]
+        },
+        {
+          "group": "Lists",
+          "id": "Lists",
+          "order": 2,
+          "pages": [
+            "pages/actions/mailchimp/api-reference/find-list",
+            "pages/actions/mailchimp/api-reference/list-lists"
+          ]
+        },
+        "pages/actions/mailchimp/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Teams",
+      "id": "teams",
+      "order": 2,
+      "pages": [
+        {
+          "group": "Messages",
+          "id": "Messages",
+          "order": 2,
+          "pages": [
+            "pages/actions/teams/api-reference/create-message"
+          ]
+        },
+        {
+          "group": "Channels",
+          "id": "Channels",
+          "order": 2,
+          "pages": [
+            "pages/actions/teams/api-reference/list-channels"
+          ]
+        },
+        {
+          "group": "Members",
+          "id": "Members",
+          "order": 2,
+          "pages": [
+            "pages/actions/teams/api-reference/list-members"
+          ]
+        },
+        {
+          "group": "Teams",
+          "id": "Teams",
+          "order": 2,
+          "pages": [
+            "pages/actions/teams/api-reference/list-teams"
+          ]
         },
         "pages/actions/teams/api-reference/passthrough"
       ]

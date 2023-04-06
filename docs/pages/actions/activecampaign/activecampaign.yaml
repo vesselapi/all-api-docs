@@ -46,24 +46,17 @@ paths:
                        - lastName
                        - udate
                        - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: Excepteur officia
-                       email: Duis
-                       phone: Excepteur qui Ut deserunt in
-                       firstName: nulla consectetur non esse tempor
-                       lastName: ut
-                       udate: '1982-09-23T04:13:37.0Z'
-                       cdate: '1957-10-04T17:57:32.0Z'
-                       incididunt3: -90964753.04572946
-                     $native:
-                       enim_8: -20654731.153998137
-                       velite6: -13930264.165524602
+                       id: magna nostrud aute ex
+                       email: dolor Duis voluptate
+                       phone: quis magna minim veniam
+                       firstName: Duis dolore irure
+                       lastName: ea sed
+                       udate: '1993-06-09T04:48:55.0Z'
+                       cdate: '1968-04-09T23:04:27.0Z'
       requestBody: 
         content:
           application/json:
@@ -81,10 +74,10 @@ paths:
             examples:
               example-1:
                 value:
-                     email: est culpa consectetur qui sed
-                     firstName: sit in
-                     lastName: proident dolore
-                     phone: non laborum tempor occaecat
+                     email: commodo nulla fugiat
+                     firstName: officia commodo do ipsum
+                     lastName: sint consequat tempor enim incididunt
+                     phone: quis magna non laboris culpa
       operationId: create-contact
       parameters:
       - name: x-vessel-access-token
@@ -131,29 +124,17 @@ paths:
                        - lastName
                        - udate
                        - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: Ut
-                       email: fugiat adipisicing aute qui ut
-                       phone: mollit in
-                       firstName: aute pariatur id velit dolor
-                       lastName: occaecat ea commodo enim
-                       udate: '1970-01-29T20:42:44.0Z'
-                       cdate: '1964-09-23T07:45:25.0Z'
-                       ea_e: 43926058.175031275
-                       voluptate_f: true
-                       non9: true
-                       laboris_0: 43679214.92684427
-                       quis_cef: Lorem et ipsum veniam
-                       exercitation_e8: true
-                       veniam57: -17839058
-                     $native:
-                       et_b: -74597873.42865023
+                       id: dolore
+                       email: minim Ut eu qui
+                       phone: cupidatat
+                       firstName: occaecat laborum
+                       lastName: commodo pariatur culpa Ut ea
+                       udate: '1974-11-24T02:14:27.0Z'
+                       cdate: '1948-12-31T17:23:58.0Z'
       requestBody: 
         content:
           application/json:
@@ -165,7 +146,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: dolor
+                     id: ipsum sit
       operationId: find-contact
       parameters:
       - name: x-vessel-access-token
@@ -214,27 +195,17 @@ paths:
                          - lastName
                          - udate
                          - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contacts:
-                       - id: laboris adipisicing id reprehenderit
-                         email: eu
-                         phone: labore enim Lorem
-                         firstName: aliqua eiusmod ea ad consequat
-                         lastName: sunt
-                         udate: '1999-04-24T13:50:01.0Z'
-                         cdate: '1943-07-20T05:11:53.0Z'
-                         incididunt_1e: true
-                         fugiat79a: 60374454
-                     $native:
-                       tempor_f: -261551
-                       et_f: false
-                       essec87: 25547023
-                       quis__72: anim qui proident esse
+                       - id: laborum Lorem
+                         email: ut incididunt Duis in
+                         phone: amet consectetur sit
+                         firstName: ea tempor consectetur veniam
+                         lastName: Lorem
+                         udate: '1997-04-13T17:24:29.0Z'
+                         cdate: '2012-11-08T11:04:48.0Z'
       requestBody: 
         content:
           application/json:
@@ -292,24 +263,17 @@ paths:
                        - lastName
                        - udate
                        - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: enim Excepteur dolore ad est
-                       email: dolor incididunt reprehenderit
-                       phone: voluptate velit ad nostrud culpa
-                       firstName: veniam amet proident mollit
-                       lastName: ad
-                       udate: '1948-03-30T03:14:52.0Z'
-                       cdate: '1986-10-25T06:05:32.0Z'
-                       laboriseb: aliqua minim culpa eu
-                     $native:
-                       dolore1_: true
-                       cupidatatee6: -37751365.93389692
+                       id: id et qui eiusmod do
+                       email: ipsum reprehenderit
+                       phone: in
+                       firstName: deserunt ut sed pariatur
+                       lastName: sunt
+                       udate: '1994-10-25T07:04:39.0Z'
+                       cdate: '1952-03-02T20:22:37.0Z'
       requestBody: 
         content:
           application/json:
@@ -329,11 +293,11 @@ paths:
             examples:
               example-1:
                 value:
-                     id: non ullamco
-                     email: irure esse
-                     firstName: dolore sit culpa
-                     lastName: reprehenderit ea labore ad quis
-                     phone: in Duis proident
+                     id: in minim
+                     email: dolore sunt laborum adipisicing
+                     firstName: dolor cupidatat
+                     lastName: dolore nisi laboris
+                     phone: pariatur in
       operationId: update-contact
       parameters:
       - name: x-vessel-access-token
@@ -367,26 +331,13 @@ paths:
                        - id
                        - name
                        - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      list:
-                       id: ad occaecat ullamco proident
-                       name: ex mollit cupidatat Excepteur exercitation
-                       cdate: '2018-07-13T03:53:45.0Z'
-                       mollit_7: 61732815
-                       elit7c_: -4679373.810851529
-                       veniama1: 95396756.07192045
-                     $native:
-                       laboris8: -51785737
-                       sit_673: false
-                       anim_4e: true
-                       quis43: true
-                       nulla_c: -41488151.881120406
-                       est_19: 3493163
+                       id: labore cillum irure aliqua
+                       name: sed ut sit
+                       cdate: '1993-09-24T02:40:23.0Z'
       requestBody: 
         content:
           application/json:
@@ -398,7 +349,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: cupidatat magna mollit ullamco quis
+                     id: aliquip aute in dolor reprehenderit
       operationId: find-list
       parameters:
       - name: x-vessel-access-token
@@ -434,20 +385,13 @@ paths:
                          - id
                          - name
                          - cdate
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      lists:
-                       - id: et occaecat dolore Ut
-                         name: commodo nulla officia quis Duis
-                         cdate: '1955-10-27T20:44:07.0Z'
-                         anim05e: -79192338.42313677
-                     $native:
-                       ine6: -69204119.42056495
-                       Excepteur_4: ut mollit
+                       - id: non ad
+                         name: sed sint non laboris
+                         cdate: '1976-07-20T17:09:24.0Z'
       requestBody: 
         content:
           application/json:
@@ -459,7 +403,7 @@ paths:
             examples:
               example-1:
                 value:
-                     limit: 36311053.64726704
+                     limit: 71740595.36603016
       operationId: list-lists
       parameters:
       - name: x-vessel-access-token
@@ -503,28 +447,16 @@ paths:
                          - lastName
                          - email
                          - phone
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      users:
-                       - id: dolor mollit in non
-                         username: mollit in ad eu non
-                         firstName: commodo
-                         lastName: officia laboris do in mollit
-                         email: in laborum ut aute ex
-                         phone: officia dolor
-                         ad277: true
-                         commodo__c: true
-                         fugiat0bf: -10205516
-                         tempor__f: false
-                         voluptate_3c: veniam eu tempor
-                     $native:
-                       incididunt_0: true
-                       Lorem29: false
-                       adipisicingf4: consectetur reprehenderit laborum cupidatat sint
+                       - id: non
+                         username: non
+                         firstName: commodo laborum
+                         lastName: veniam
+                         email: aute
+                         phone: Duis mollit eu cupidatat
       requestBody: 
         content:
           application/json:

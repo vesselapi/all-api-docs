@@ -69,50 +69,25 @@ paths:
                      required:
                        - admin
                        - internationalCalling
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: culpa fugiat
-                     extensionNumber: in aliquip amet veniam in
+                     id: dolor id pariatur consequat Lorem
+                     extensionNumber: sunt labore aliqua mollit
                      contact:
-                       firstName: irure officia voluptate
-                       lastName: exercitation est nisi anim aute
-                       email: nostrud dolor
-                       company: magna aliquip laboris consequat culpa
-                       jobTitle: cillum reprehenderit
-                       businessPhone: consectetur dolore
-                       dolor9a: 57397112.4622592
-                       amet__d: -2256498
-                       enim69b: 1380674.0039562732
-                       labore_b: ad eu commodo adipisicing
-                       magna_a_: 68434106.98878533
-                       nisi116: 75665523
-                     status: Ut ut
-                     type: tempor culpa veniam quis
+                       firstName: culpa
+                       lastName: commodo ullamco aute
+                       email: culpa voluptate
+                       company: aliqua sed sint
+                       jobTitle: sed
+                       businessPhone: velit pariatur
+                     status: deserunt laboris eu velit
+                     type: quis aliqua mollit laborum
                      permissions:
                        admin:
                          enabled: true
-                         sint_0f: true
-                         est_a: sint Excepteur ut do ex
-                         commodo_4: -61918757
-                         ut_55: true
-                         in__: Ut dolore irure sit
                        internationalCalling:
                          enabled: true
-                         consequat_8eb: 69468937
-                         dolore_48: -7227074
-                         utea3: false
-                         adipisicing84: -85395950.95896813
-                       sunt_a1: 92677853
-                       nulla_a3: 25838647
-                       commodo702: -18804429.927413672
-                       in_29: false
-                     $native:
-                       nulla_e4: eiusmod pariatur ex laborum veniam
-                       labore_e42: 39110211
       requestBody: 
         content:
           application/json:
@@ -124,7 +99,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: cupidatat esse pariatur dolore
+                     id: qui mollit do magna pariatur
       operationId: find-extension
       parameters:
       - name: x-vessel-access-token
@@ -247,80 +222,38 @@ paths:
                        - totalElements
                        - pageStart
                        - pageEnd
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - id: laborum ullamco aliqua
-                         extensionNumber: dolore non Ut
-                         status: consectetur
-                         type: quis commodo
+                       - id: tempor nulla officia
+                         extensionNumber: cupidatat amet qui in
+                         status: consequat
+                         type: quis nulla laborum laboris incididunt
                          permissions:
                            admin:
                              enabled: false
-                             Duis__: Excepteur voluptate cillum
-                             in_823: 47423853.60645062
-                             nostrud_3f: incididunt ad dolore
-                             ad_dd7: false
                            internationalCalling:
                              enabled: true
-                             ea68: 73979842.4139064
-                             in_5: 48148656.33653346
-                             culpa_2b: elit sint et deserunt
-                           culpa__b: 4561805.9472344965
-                           sunt_ea0: et
                          contact:
-                           firstName: sed ut
-                           lastName: exercitation eiusmod do magna
-                           email: aliqua
-                           company: deserunt cillum
-                           jobTitle: id
-                           businessPhone: sint eu fugiat
-                           voluptate8: 13363780.167174786
-                           veniam2e: 19588571.89601791
-                           quis_5cd: id deserunt in dolore non
-                           ut9e: false
-                           sinte: 83413384
-                           voluptate5b3: true
-                           velitc: eu in consectetur
-                           minim9: sed
-                           quis4: false
-                           nulla_1__: fugiat
-                           nulla9e: -73378757.6896498
+                           firstName: sint nostrud
+                           lastName: nulla
+                           email: dolor aute officia pariatur
+                           company: sint quis
+                           jobTitle: ullamco
+                           businessPhone: Excepteur amet
                      navigation:
                        firstPage:
-                         uri: amet occaecat dolore
-                         irure_d9: true
-                         essee04: sint tempor deserunt dolore laboris
+                         uri: eu Lorem aliquip et proident
                        lastPage:
-                         uri: culpa exercitation consequat
-                         id5: 54982400
-                         minim14: -36836030.94411274
-                         laboris_5: proident
-                       minim_6_6: -43109659
-                       inbd: ipsum Lorem sint Excepteur
+                         uri: ad cupidatat Ut incididunt voluptate
                      paging:
-                       page: 22212433.288738474
-                       totalPages: -22903167.7459123
-                       perPage: -24847492.674597442
-                       totalElements: 57677860.120405376
-                       pageStart: 30492068.72452776
-                       pageEnd: -76266254.4186694
-                       dolore_1b: cillum
-                       tempor0: 586078.837962091
-                       laborume3f: -21456201.131891012
-                       veniam_5: -74198148.2364111
-                       sit_1e: -69627712
-                       ullamco_93: 58938540.86269793
-                       laborum6: -29939464.873271108
-                       laboris_065: false
-                       veniam1: -4929459.949301943
-                     $native:
-                       dolor_0: false
-                       commodo1e: true
+                       page: 33072865.43367645
+                       totalPages: -60870314.004288994
+                       perPage: 25910406.691145703
+                       totalElements: 84326421.54368293
+                       pageStart: -38641881.53976351
+                       pageEnd: 10083083.209457293
       requestBody: 
         content:
           application/json:
@@ -334,8 +267,8 @@ paths:
             examples:
               example-1:
                 value:
-                     page: -82966083.32402249
-                     perPage: -2565033.572512567
+                     page: 47116707.53491646
+                     perPage: 6726509.48037678
       operationId: list-extensions
       parameters:
       - name: x-vessel-access-token
@@ -372,23 +305,15 @@ paths:
                        - callStatus
                        - callerStatus
                        - calleeStatus
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     uri: sint elit eu
-                     id: in Excepteur cupidatat Lorem
+                     uri: adipisicing
+                     id: veniam dolore minim aute amet
                      status:
-                       callStatus: id consectetur in
-                       callerStatus: ullamco ad sint et culpa
-                       calleeStatus: pariatur ex
-                       cupidatat865: true
-                       non_f: -43712046
-                     $native:
-                       eiusmod_5: -97850920.55821937
-                       minim_4: -58618495
+                       callStatus: anim do proident
+                       callerStatus: do aliqua eu
+                       calleeStatus: labore reprehenderit enim eu veniam
       requestBody: 
         content:
           application/json:
@@ -444,35 +369,20 @@ paths:
             examples:
               example-1:
                 value:
-                     extensionId: ut ea incididunt in
+                     extensionId: labore Excepteur est aliquip ut
                      from:
-                       phoneNumber: fugiat elit amet
-                       ad1: -81609735
-                       dolore_12: -81935732.9564133
-                       sed_8: -535698.7044362128
-                       sed0: 1589670.1828126013
+                       phoneNumber: minim Lorem dolore elit est
                      to:
-                       phoneNumber: Ut Duis dolore
-                       indb4: -36986314.701006375
-                     playPrompt: true
+                       phoneNumber: ex ullamco veniam
+                     playPrompt: false
                      callerId:
-                       phoneNumber: consequat dolor nisi sit
-                       voluptate_16e: true
-                       laboruma: -4191407
-                       velit0: -88368239
-                       doloree8b: false
-                       est_b2: 13424147.583729252
-                       qui9f: dolor aliqua cillum
-                       nulla_cc: 79561181.78695258
-                     callId: Excepteur irure commodo ullamco
+                       phoneNumber: voluptate mollit aliquip proident
+                     callId: sunt nostrud aute cillum labore
                      sipInfo:
-                       - transport: adipisicing in
-                         uri: ullamco tempor ipsum magna
-                         username: velit in commodo occaecat anim
-                         password: dolore amet eu
-                         nullaf95: ipsum Duis Excepteur sunt eiusmod
-                         dolore_461: 61198601.101932764
-                         Duis_2f: mollit ea sit
+                       - transport: dolor consectetur ea
+                         uri: ea
+                         username: consectetur
+                         password: velit veniam in magna proident
       operationId: extension-ring-out
       parameters:
       - name: x-vessel-access-token
@@ -592,69 +502,38 @@ paths:
                        - totalElements
                        - pageStart
                        - pageEnd
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - id: in exercitation ipsum culpa pariatur
-                         sessionId: in exercitation est
-                         startTime: '1991-09-15T05:22:16.0Z'
-                         duration: -48702176.48879933
-                         type: proident cupidatat consequat laboris nulla
+                       - id: aliquip Ut nisi aliqua consectetur
+                         sessionId: id incididunt ex
+                         startTime: '1968-03-21T05:33:09.0Z'
+                         duration: 93187647.87376991
+                         type: culpa
                          direction: Inbound
-                         action: labore qui
-                         result: in qui enim
+                         action: cillum velit sunt
+                         result: ex commodo est laborum
                          from:
-                           phoneNumber: sint magna officia cillum Ut
-                           name: fugiat ullamco
-                           extensionId: ipsum in est
+                           phoneNumber: nisi quis deserunt Ut
+                           extensionId: ex elit aliqua id
+                           name: pariatur mollit sed
                          to:
-                           phoneNumber: sed
-                           name: do
-                           extensionId: consectetur Lorem
-                         Loremcf: 99117838.23855296
-                         Ute0: 75448656
-                         mollit6: dolor
-                         in_c5: true
+                           phoneNumber: fugiat elit id
+                           extensionId: ut
+                           name: Duis ea
                      navigation:
                        firstPage:
-                         uri: eiusmod ex do veniam
-                         voluptatee: qui laborum anim
-                         velite5: true
-                         pariatur465: -80594122
-                         pariature3: true
+                         uri: ex sint laborum non reprehenderit
                        lastPage:
-                         uri: anim quis
-                         culpad: magna reprehenderit consectetur occaecat veniam
-                         magnaf3: true
-                       Ut_3: 4723195
-                       ad0b5: proident nostrud commodo
-                       culpa__: culpa minim id Excepteur sit
-                       sed32: 95292257
-                       tempor_2: -53768303
-                       sunt34: -98887028.37711811
+                         uri: consectetur quis velit
                      paging:
-                       page: 17567854.22107941
-                       totalPages: -59212517.650427185
-                       perPage: -51036224.05813657
-                       totalElements: -52043742.68832046
-                       pageStart: -48694962.03987436
-                       pageEnd: 96655572.15404812
-                       ex_1_: 83586766
-                       aliquipd: -2601252
-                       adipisicing_a: dolore
-                       aute6a: 86451676.87240574
-                       consequat_c: 32948457
-                       ex_450: true
-                       dolor_0b: true
-                       ut_06: true
-                       in_3: -45335441
-                     $native:
-                       dolor0: 28807109.106284827
-                       dolore_0e: nostrud sunt Duis ullamco
+                       page: 36495239.3854146
+                       totalPages: -2248060.29560183
+                       perPage: -11657628.161641657
+                       totalElements: -5697191.809851572
+                       pageStart: -7964861.725046158
+                       pageEnd: 50683088.381227255
       requestBody: 
         content:
           application/json:
@@ -668,8 +547,8 @@ paths:
             examples:
               example-1:
                 value:
-                     page: -32801613.397388518
-                     perPage: -50302575.604409136
+                     page: 5457071.296896696
+                     perPage: 75920347.9896104
       operationId: list-call-logs
       parameters:
       - name: x-vessel-access-token
@@ -731,33 +610,25 @@ paths:
                          type: string
                      required:
                        - phoneNumber
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: adipisicing sit cupidatat proident
-                     sessionId: anim fugiat
-                     startTime: '2008-10-15T16:07:51.0Z'
-                     duration: 64389869.40268409
-                     type: velit mollit Ut
-                     direction: Inbound
-                     action: qui do veniam est
-                     result: officia labore ipsum anim
+                     id: ad commodo culpa
+                     sessionId: nulla
+                     startTime: '2011-04-30T05:03:08.0Z'
+                     duration: 53759700.54297939
+                     type: occaecat dolor amet velit
+                     direction: Outbound
+                     action: pariatur dolor officia laborum
+                     result: nostrud
                      from:
-                       phoneNumber: cillum Excepteur eu
-                       name: in non commodo
-                       extensionId: ea mollit ipsum
+                       phoneNumber: ullamco quis
+                       extensionId: sed
+                       name: mollit est nostrud occaecat
                      to:
-                       phoneNumber: eiusmod Lorem
-                       extensionId: commodo
-                       name: officia consequat adipisicing
-                     $native:
-                       fugiat_2: false
-                       nostrud3d3: false
-                       officia__7: -88675258.2788981
-                       enim_a71: 64032097
+                       phoneNumber: irure in
+                       name: ea
+                       extensionId: fugiat eiusmod
       requestBody: 
         content:
           application/json:
@@ -769,7 +640,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: tempor exercitation Excepteur in eu
+                     id: cupidatat fugiat esse ex
       operationId: find-call-log
       parameters:
       - name: x-vessel-access-token
@@ -853,51 +724,28 @@ paths:
                        - totalElements
                        - pageStart
                        - pageEnd
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - id: fugiat nulla laborum reprehenderit
-                         firstName: cupidatat veniam dolor nisi cillum
-                         lastName: proident adipisicing sit ipsum amet
-                         businessPhone: labore voluptate fugiat
-                         email: quis culpa irure anim non
-                         company: ut esse cillum
+                       - id: nisi
+                         firstName: ipsum
+                         lastName: ea
+                         businessPhone: laboris ex dolore velit
+                         email: consectetur sint incididunt magna
+                         company: incididunt dolor esse pariatur et
                      navigation:
                        firstPage:
-                         uri: nostrud sit id
-                         utf4a: nisi id
+                         uri: consectetur
                        lastPage:
-                         uri: aliquip
-                         ut8: -55543472
-                         eiusmod_50: 66958035.559120685
-                         amet_3f: et reprehenderit culpa
-                         aliquac: -97311780.06925556
-                       consecteture2: 99450156
-                       culpa_b3a: 56901502
-                       velita3: true
-                       laborumf: sint labore
-                       dolor__: -36956399.264087066
+                         uri: exercitation ex mollit aliqua eu
                      paging:
-                       page: -91381620.62885207
-                       totalPages: -500121.59022538364
-                       perPage: 37461682.74930039
-                       totalElements: -27992426.183314383
-                       pageStart: -42613369.72266161
-                       pageEnd: -22144139.653837815
-                       fugiat9: adipisicing occaecat magna
-                       aute_d: 43352154
-                       Ut_d: true
-                       ad_b29: true
-                       aute_2: 8509186
-                       Lorem0aa: -76708833.30476443
-                     $native:
-                       cillum_0: 50449483
-                       nulla_fb: id officia
-                       Ut_19f: 46890609.812753946
+                       page: 94186522.12574443
+                       totalPages: 84738298.98033732
+                       perPage: -75460480.56643744
+                       totalElements: 34088262.239090115
+                       pageStart: 79835565.66606507
+                       pageEnd: 15002986.66306512
       requestBody: 
         content:
           application/json:
@@ -911,8 +759,8 @@ paths:
             examples:
               example-1:
                 value:
-                     page: -25293073.43091491
-                     perPage: -13676892.417151272
+                     page: 45710349.24480158
+                     perPage: -86985892.37188657
       operationId: list-contacts
       parameters:
       - name: x-vessel-access-token
@@ -944,23 +792,15 @@ paths:
                      type: string
                    businessPhone:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: amet ut esse aliqua
-                     firstName: elit aliquip commodo ipsum laboris
-                     lastName: eu ipsum
-                     company: dolore
-                     email: voluptate dolor ad in
-                     businessPhone: ullamco
-                     $native:
-                       qui_7: 27962695.45115298
-                       quis_e: 7161101.541309118
-                       dolore_0: 94799266
-                       doe5: do velit anim
+                     id: consectetur est Ut
+                     firstName: reprehenderit in officia Lorem
+                     lastName: in
+                     company: tempor amet deserunt adipisicing
+                     email: voluptate veniam sed in
+                     businessPhone: dolor eiusmod
       requestBody: 
         content:
           application/json:
@@ -972,7 +812,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: non esse culpa
+                     id: Duis sint et esse est
       operationId: find-contact
       parameters:
       - name: x-vessel-access-token
@@ -1004,21 +844,15 @@ paths:
                      type: string
                    businessPhone:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: fugiat irure elit Lorem
-                     firstName: laboris anim ea voluptate elit
-                     lastName: voluptate amet
-                     company: dolore ad cupidatat
-                     email: consectetur irure in dolor
-                     businessPhone: nulla amet ipsum sint irure
-                     $native:
-                       nostrud81: true
-                       nostrud34: true
+                     id: velit
+                     firstName: ipsum eiusmod
+                     lastName: proident sit magna
+                     company: culpa nisi ea aliqua
+                     email: amet nostrud irure
+                     businessPhone: Ut
       requestBody: 
         content:
           application/json:
@@ -1038,11 +872,11 @@ paths:
             examples:
               example-1:
                 value:
-                     firstName: consequat exercitation ut
-                     lastName: ex Ut ut
-                     company: culpa velit aute cupidatat Ut
-                     email: cillum in eu do
-                     businessPhone: mollit consectetur ut
+                     firstName: ullamco
+                     lastName: in id sunt magna
+                     company: dolor aliquip
+                     email: nostrud cillum
+                     businessPhone: dolore dolor ullamco
       operationId: create-contact
       parameters:
       - name: x-vessel-access-token
@@ -1074,21 +908,15 @@ paths:
                      type: string
                    businessPhone:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: sint
-                     firstName: consequat ad aliquip
-                     lastName: aliquip ad
-                     company: exercitation nulla
-                     email: laboris mollit aliquip velit ea
-                     businessPhone: mollit reprehenderit exercitation dolore
-                     $native:
-                       exercitation_4: 58357228
-                       sunt_bb0: -57585059.08135305
+                     id: irure et dolor magna qui
+                     firstName: commodo
+                     lastName: amet Ut Lorem sit in
+                     company: pariatur voluptate
+                     email: in non dolore
+                     businessPhone: mollit dolore
       requestBody: 
         content:
           application/json:
@@ -1110,12 +938,12 @@ paths:
             examples:
               example-1:
                 value:
-                     id: ullamco
-                     firstName: magna
-                     lastName: adipisicing culpa consequat magna reprehenderit
-                     company: ex
-                     email: ex ea nostrud in
-                     businessPhone: mollit
+                     id: incididunt minim cillum Excepteur Lorem
+                     firstName: Excepteur anim nulla id dolor
+                     lastName: velit laborum sint nostrud
+                     company: cupidatat cillum magna veniam culpa
+                     email: officia Excepteur esse exercitation
+                     businessPhone: aliquip elit ea cupidatat
       operationId: update-contact
       parameters:
       - name: x-vessel-access-token

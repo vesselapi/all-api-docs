@@ -87,32 +87,26 @@ paths:
                      required:
                        - id
                        - created_at
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      account:
-                       id: laborum pariatur labore et culpa
-                       sanitizedPhone: null
-                       domain: null
-                       createdAt: '1976-08-01T03:34:27.0Z'
-                       organizationState: null
-                       organizationStreetAddress: null
-                       organizationRawAddress: laboris culpa
-                       organizationCity: null
-                       name: null
-                       websiteUrl: null
-                       lastActivityDate: '1962-10-09T06:48:16.0Z'
-                       estimatedNumEmployees: -85491922.93611321
+                       id: in deserunt Ut reprehenderit
+                       estimatedNumEmployees: null
+                       websiteUrl: fugiat sed nostrud sit incididunt
                        organizationPostalCode: null
-                       ownerId: null
-                       organizationCountry: null
+                       createdAt: '1968-11-11T09:51:40.0Z'
+                       organizationState: veniam sit
+                       lastActivityDate: null
                        industry: null
-                     $native:
-                       estab: nulla Ut officia sunt
-                       ipsum93: true
+                       name: null
+                       organizationStreetAddress: null
+                       ownerId: null
+                       organizationCity: tempor laboris cillum
+                       organizationRawAddress: voluptate sed ullamco exercitation
+                       organizationCountry: null
+                       sanitizedPhone: null
+                       domain: nulla quis cupidatat eiusmod
       requestBody: 
         content:
           application/json:
@@ -134,8 +128,8 @@ paths:
             examples:
               example-1:
                 value:
-                     name: null
-                     domain: Excepteur ex
+                     name: fugiat eiusmod est
+                     domain: minim pariatur
                      phone: null
       operationId: create-account
       parameters:
@@ -244,38 +238,31 @@ paths:
                        - per_page
                        - total_entries
                        - total_pages
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      accounts:
-                       - id: exercitation Lorem tempor
-                         sanitizedPhone: pariatur
-                         organizationState: laboris ipsum dolore in mollit
-                         createdAt: '2013-03-31T14:35:27.0Z'
-                         organizationCountry: reprehenderit sunt
-                         organizationRawAddress: Duis anim
+                       - id: ex
                          organizationPostalCode: null
-                         estimatedNumEmployees: null
+                         websiteUrl: Lorem in cillum commodo
                          name: null
-                         lastActivityDate: '2012-04-19T15:06:31.0Z'
-                         websiteUrl: null
-                         domain: Lorem
-                         organizationCity: anim pariatur qui
-                         industry: nisi
-                         organizationStreetAddress: nostrud aute
                          ownerId: null
+                         organizationRawAddress: null
+                         sanitizedPhone: laborum magna ipsum
+                         organizationState: null
+                         domain: sint irure cillum et sunt
+                         organizationCity: Duis culpa nisi non tempor
+                         organizationStreetAddress: null
+                         lastActivityDate: null
+                         createdAt: '1998-02-13T02:51:42.0Z'
+                         organizationCountry: occaecat cillum laboris voluptate
+                         estimatedNumEmployees: 67370679.50048807
+                         industry: laboris occaecat elit eiusmod
                      pagination:
-                       page: 41058433.686415404
-                       perPage: 90804801.06792566
-                       totalPages: 29764959.838093445
-                       totalEntries: 47886680.01133925
-                     $native:
-                       reprehenderit5: false
-                       exercitation_fa: culpa non
-                       incididuntc: 51182450.61719978
+                       page: null
+                       totalEntries: -94639301.4333235
+                       totalPages: 17734680.960502043
+                       perPage: 92941126.84197268
       requestBody: 
         content:
           application/json:
@@ -289,8 +276,8 @@ paths:
             examples:
               example-1:
                 value:
-                     qOrganizationName: non minim sunt aute
-                     page: -63764455.979300074
+                     qOrganizationName: aliqua
+                     page: 70115309.38806385
       operationId: search-account
       parameters:
       - name: x-vessel-access-token
@@ -378,31 +365,26 @@ paths:
                      required:
                        - id
                        - created_at
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      account:
-                       id: do amet id
-                       organizationCountry: incididunt dolore irure labore esse
-                       websiteUrl: fugiat ut
-                       ownerId: nulla enim
-                       domain: null
-                       industry: velit qui consectetur ipsum ex
-                       createdAt: '1943-10-10T23:36:01.0Z'
-                       name: null
-                       organizationStreetAddress: in eu id ex
-                       organizationState: null
-                       organizationCity: null
+                       id: ut quis
                        organizationPostalCode: null
                        organizationRawAddress: null
-                       estimatedNumEmployees: null
-                       sanitizedPhone: culpa Excepteur
-                       lastActivityDate: null
-                     $native:
-                       doloref5a: 90020102
+                       websiteUrl: ex id Lorem Excepteur elit
+                       industry: null
+                       sanitizedPhone: null
+                       organizationState: Ut et
+                       organizationStreetAddress: null
+                       createdAt: '1973-11-02T14:42:50.0Z'
+                       organizationCity: null
+                       lastActivityDate: '1987-10-26T21:47:10.0Z'
+                       name: null
+                       organizationCountry: null
+                       domain: eiusmod aliqua adipisicing amet
+                       estimatedNumEmployees: 4961864.883238703
+                       ownerId: fugiat aliquip laboris dolor
       requestBody: 
         content:
           application/json:
@@ -426,10 +408,10 @@ paths:
             examples:
               example-1:
                 value:
-                     id: in
-                     name: eu sunt
+                     id: Duis sint laboris proident
+                     name: nisi magna in Excepteur
                      domain: null
-                     phone: null
+                     phone: commodo ex Excepteur ut
       operationId: update-account
       parameters:
       - name: x-vessel-access-token
@@ -530,39 +512,30 @@ paths:
                          - type
                          - emailer_message_id
                          - emailer_message
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      activities:
-                       - id: mollit
-                         type: dolore nisi amet commodo
+                       - id: incididunt quis ad cillum sunt
+                         type: mollit laborum dolore culpa Excepteur
                          emailerMessage:
-                           id: exercitation
-                           contactId: eu
-                           bounce: true
+                           id: dolor ea consequat
+                           numOpens: 42325172.37951955
+                           userId: dolore dolor non anim
+                           bodyText: null
+                           createdAt: '2014-10-25T01:10:35.0Z'
+                           subject: esse
+                           numClicks: null
                            replied: null
-                           emailerCampaignId: enim ex sint
-                           subject: null
-                           status: voluptate culpa minim adipisicing eu
-                           createdAt: '2009-10-04T05:52:44.0Z'
-                           bodyText: ut do officia et
-                           numClicks: 76856523.451119
-                           userId: voluptate pariatur magna labore irure
-                           numOpens: null
+                           contactId: adipisicing labore Lorem veniam
+                           fromEmail: dolor reprehenderit labore ut
+                           fromName: ex aliquip
+                           emailerCampaignId: null
                            completedAt: null
-                           bodyHtml: minim laborum culpa
-                           fromName: cillum magna incididunt
-                           fromEmail: ipsum magna commodo fugiat
-                         emailerMessageId: ullamco cillum in adipisicing
-                     $native:
-                       cillum_2a0: in in nulla do
-                       ullamco5: deserunt do eu ullamco
-                       enim6_: 2544129
-                       sint_: false
-                       laboris7: id in irure
+                           status: null
+                           bounce: null
+                           bodyHtml: null
+                         emailerMessageId: eu in esse enim
       requestBody: 
         content:
           application/json:
@@ -578,9 +551,9 @@ paths:
             examples:
               example-1:
                 value:
-                     contactId: ut ut sit elit
+                     contactId: dolor irure Duis quis
                      types:
-                       - culpa
+                       - dolore adipisicing nulla sit
       operationId: list-activities
       parameters:
       - name: x-vessel-access-token
@@ -697,41 +670,32 @@ paths:
                        - created_at
                        - updated_at
                        - typed_custom_fields
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: sed
+                       id: aliquip ea eu Ut
+                       websiteUrl: exercitation in sit culpa occaecat
+                       presentRawAddress: incididunt reprehenderit est qui dolore
                        phoneNumbers:
-                         - type: mobile
-                           position: -11313214.445212647
-                           dncStatus: sed nisi
-                           sanitizedNumber: null
+                         - type: work_hq
+                           position: 47457977.40565795
+                           sanitizedNumber: cupidatat eu
                            status: null
-                           rawNumber: consequat
-                       typedCustomFields:
-                         cupidatat_2: -18809275
-                         exercitation_7: veniam
-                         nostrud_3: false
-                         officiafe2: 8320515
-                       organizationName: esse fugiat nostrud
+                           rawNumber: culpa in velit adipisicing sint
+                           dncStatus: nisi Excepteur Lorem
+                       name: elit deserunt ut
+                       accountId: null
+                       typedCustomFields: {}
+                       organizationName: non adipisicing ipsum ut Excepteur
                        lastName: null
-                       email: null
-                       title: null
-                       createdAt: '1988-03-17T14:49:14.0Z'
-                       ownerId: null
-                       presentRawAddress: incididunt
-                       updatedAt: '1977-02-14T18:10:22.0Z'
-                       firstName: null
-                       websiteUrl: nostrud culpa aliqua dolore
-                       name: mollit Lorem fugiat sit anim
-                       accountId: ut
-                       contactStageId: esse eiusmod ex nostrud
-                     $native:
-                       eiusmod_9: -41138990
+                       contactStageId: Ut fugiat
+                       title: cillum Excepteur irure
+                       firstName: do non Lorem amet veniam
+                       email: mollit nostrud do
+                       ownerId: adipisicing quis
+                       createdAt: '1994-03-12T21:38:45.0Z'
+                       updatedAt: '1946-09-21T20:11:15.0Z'
       requestBody: 
         content:
           application/json:
@@ -787,18 +751,17 @@ paths:
             examples:
               example-1:
                 value:
-                     firstName: null
-                     lastName: sunt nostrud sit
-                     organizationName: sint ea ipsum labore
+                     firstName: consequat in
+                     lastName: null
+                     organizationName: null
                      title: null
-                     ownerId: labore
-                     accountId: sint
-                     email: null
-                     websiteUrl: dolore
+                     ownerId: null
+                     accountId: laboris proident
+                     email: in cillum laboris reprehenderit sed
+                     websiteUrl: deserunt
                      contactStageId: null
-                     presentRawAddress: null
-                     labelNames:
-                       - id
+                     presentRawAddress: ipsum ex
+                     labelNames: null
       operationId: create-contact
       parameters:
       - name: x-vessel-access-token
@@ -935,46 +898,37 @@ paths:
                        - per_page
                        - total_entries
                        - total_pages
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contacts:
-                       - id: irure enim fugiat amet ex
-                         lastName: null
-                         websiteUrl: null
+                       - id: Duis
                          accountId: null
+                         websiteUrl: est nostrud
                          email: null
-                         presentRawAddress: null
-                         createdAt: '2018-01-17T16:37:42.0Z'
-                         contactStageId: null
-                         title: amet do mollit
-                         name: null
-                         updatedAt: '1975-07-20T03:20:42.0Z'
-                         organizationName: ut ea amet nisi
-                         phoneNumbers:
-                           - type: work_hq
-                             position: -1222835.7087614536
-                             status: null
-                             dncStatus: null
-                             rawNumber: proident sunt adipisicing aute laborum
-                             sanitizedNumber: in magna labore
-                         typedCustomFields:
-                           Lorem2da: 86206497.59649956
-                           dolore_b: -14512452
                          ownerId: null
-                         firstName: null
+                         updatedAt: '1956-08-24T19:27:02.0Z'
+                         title: qui
+                         phoneNumbers:
+                           - type: mobile
+                             position: -79905883.55043063
+                             status: in dolor enim id qui
+                             dncStatus: null
+                             sanitizedNumber: null
+                             rawNumber: deserunt veniam aute
+                         createdAt: '2014-09-16T10:23:05.0Z'
+                         name: null
+                         contactStageId: dolore nisi voluptate incididunt consectetur
+                         lastName: null
+                         typedCustomFields: {}
+                         presentRawAddress: null
+                         organizationName: null
+                         firstName: in Ut veniam sint
                      pagination:
                        page: null
-                       totalPages: -70478775.72774523
-                       perPage: 99905907.59044617
-                       totalEntries: 76964383.63471487
-                     $native:
-                       dolor_ae: 94017404.47152123
-                       reprehenderit484: -7313970.001947552
-                       dolor_84e: voluptate quis sed exercitation
+                       perPage: -27721305.236202195
+                       totalEntries: -2828745.2465189993
+                       totalPages: -83465761.89624675
       requestBody: 
         content:
           application/json:
@@ -988,8 +942,8 @@ paths:
             examples:
               example-1:
                 value:
-                     page: 48338813.768310875
-                     qKeywords: magna enim dolore Lorem tempor
+                     page: -72296540.97571659
+                     qKeywords: sed Lorem non sunt nisi
       operationId: search-contacts
       parameters:
       - name: x-vessel-access-token
@@ -1106,38 +1060,32 @@ paths:
                        - created_at
                        - updated_at
                        - typed_custom_fields
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: sint consectetur id qui nisi
-                       accountId: consectetur ipsum magna nostrud do
-                       organizationName: null
-                       ownerId: elit Lorem
+                       id: culpa cupidatat anim ullamco ex
                        firstName: null
+                       email: cupidatat nulla laborum Excepteur
+                       createdAt: '1971-03-20T06:22:45.0Z'
+                       websiteUrl: null
+                       contactStageId: in eiusmod
+                       title: null
                        presentRawAddress: null
-                       lastName: null
-                       updatedAt: '1985-06-25T20:23:17.0Z'
-                       name: cupidatat aute Ut
-                       typedCustomFields:
-                         dolore_77b: true
-                       title: quis exercitation labore deserunt velit
-                       email: minim occaecat Duis consectetur
-                       contactStageId: null
-                       createdAt: '2004-08-03T16:28:05.0Z'
-                       websiteUrl: enim
                        phoneNumbers:
                          - type: other
-                           position: 7053941.104728609
-                           sanitizedNumber: ad id nulla dolore eu
+                           position: -28564938.283136547
                            status: null
-                           dncStatus: eu id
-                           rawNumber: in
-                     $native:
-                       nostrudca: amet Duis culpa eu
+                           dncStatus: null
+                           rawNumber: pariatur
+                           sanitizedNumber: null
+                       ownerId: laboris
+                       updatedAt: '1959-10-11T17:19:01.0Z'
+                       organizationName: proident incididunt anim cupidatat
+                       name: null
+                       accountId: labore
+                       typedCustomFields: {}
+                       lastName: Excepteur amet esse est
       requestBody: 
         content:
           application/json:
@@ -1191,18 +1139,18 @@ paths:
             examples:
               example-1:
                 value:
-                     id: commodo
-                     firstName: null
+                     id: exercitation id nostrud ea eiusmod
+                     firstName: aliquip officia
                      lastName: null
-                     organizationName: Excepteur voluptate tempor
-                     title: nulla magna occaecat dolore dolor
-                     ownerId: null
-                     accountId: in nulla esse elit
-                     email: amet fugiat tempor incididunt ut
-                     websiteUrl: null
-                     presentRawAddress: null
+                     organizationName: null
+                     title: null
+                     ownerId: amet
+                     accountId: ad incididunt amet sunt
+                     email: null
+                     websiteUrl: amet irure
+                     presentRawAddress: ea id
                      labelNames:
-                       - deserunt
+                       - enim
       operationId: update-contact
       parameters:
       - name: x-vessel-access-token
@@ -1238,20 +1186,14 @@ paths:
                        - modality
                        - name
                        - type
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      typedCustomField:
-                       id: Excepteur veniam est magna
-                       modality: ad sed tempor veniam
-                       name: consequat Duis elit nostrud et
-                       type: commodo eu mollit nostrud
-                       aliquac55: -51336232
-                     $native:
-                       ut_8: false
+                       id: dolore et
+                       modality: elit quis deserunt occaecat consequat
+                       name: mollit
+                       type: veniam eiusmod Ut adipisicing
       requestBody: 
         content:
           application/json:
@@ -1270,9 +1212,9 @@ paths:
             examples:
               example-1:
                 value:
-                     modality: contact
-                     name: cupidatat exercitation in
-                     type: qui in eiusmod dolor ea
+                     modality: account
+                     name: enim id do culpa
+                     type: veniam laborum et sed ullamco
       operationId: create-custom-fields
       parameters:
       - name: x-vessel-access-token
@@ -1310,27 +1252,14 @@ paths:
                          - modality
                          - name
                          - type
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      typedCustomFields:
-                       - id: Ut
-                         modality: officia
-                         name: in
-                         type: ullamco nulla Ut ipsum
-                         dolore4: 96363665.6388076
-                         veniam_95f: 39774596
-                         nulla_ef: true
-                         animb28: true
-                         consequat_d: culpa exercitation enim eu mollit
-                         anim76: 96939682
-                         mollit_3b: proident
-                     $native:
-                       Ut2e: true
-                       consequatf23: false
+                       - id: incididunt magna labore dolor
+                         modality: cupidatat ad
+                         name: reprehenderit enim dolore
+                         type: elit esse anim eiusmod est
       requestBody: 
         content:
           application/json:
@@ -1342,7 +1271,7 @@ paths:
             examples:
               example-1:
                 value:
-                     page: -23687724.239376485
+                     page: -82950308.47222939
       operationId: list-custom-fields
       parameters:
       - name: x-vessel-access-token
@@ -1429,31 +1358,26 @@ paths:
                          - created_at
                          - from_email
                          - user_id
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailerMessages:
-                       - id: amet anim velit nisi Excepteur
+                       - id: esse ea in sit
                          numOpens: null
-                         createdAt: '1962-10-16T11:20:47.0Z'
-                         fromName: null
+                         bodyText: elit
+                         emailerCampaignId: eiusmod officia deserunt
+                         contactId: adipisicing quis
+                         status: laborum Lorem
+                         completedAt: '2013-10-13T14:39:57.0Z'
+                         createdAt: '1995-01-19T11:53:49.0Z'
+                         bounce: true
+                         numClicks: null
+                         replied: null
+                         userId: in voluptate
                          bodyHtml: null
-                         bodyText: ea ut est dolor proident
-                         replied: false
-                         numClicks: -89771214.69607212
-                         completedAt: null
-                         subject: sit id aute anim dolore
-                         fromEmail: dolor laboris
-                         status: sed aute in pariatur
-                         bounce: null
-                         emailerCampaignId: nisi minim pariatur et
-                         userId: officia proident consectetur
-                         contactId: irure in
-                     $native:
-                       aute_cdd: false
+                         subject: elit ut in eiusmod dolore
+                         fromEmail: tempor consequat minim non
+                         fromName: null
       requestBody: 
         content:
           application/json:
@@ -1467,8 +1391,8 @@ paths:
             examples:
               example-1:
                 value:
-                     page: 47078516.25177738
-                     emailerCampaignId: quis
+                     page: -19616594.168063402
+                     emailerCampaignId: do Lorem ad
       operationId: search-emails
       parameters:
       - name: x-vessel-access-token
@@ -1508,21 +1432,14 @@ paths:
                        required:
                          - id
                          - default
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailAccounts:
-                       - id: in dolor ut est sunt
+                       - id: magna amet elit
                          default: true
-                         email: cillum pariatur labore dolor
-                         userId: non irure consequat
-                     $native:
-                       occaecat6: commodo cillum occaecat consequat in
-                       ea9e: true
-                       nisib_: true
+                         userId: null
+                         email: reprehenderit ipsum id
       requestBody: 
         content:
           application/json:
@@ -1534,7 +1451,7 @@ paths:
             examples:
               example-1:
                 value:
-                     page: -95524404.9540123
+                     page: -49703180.58754239
       operationId: list-email-accounts
       parameters:
       - name: x-vessel-access-token
@@ -1675,40 +1592,33 @@ paths:
                        - created_at
                        - active
                        - label_ids
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailerCampaign:
-                       id: mollit ea reprehenderit commodo
+                       id: fugiat
                        active: true
-                       replyRate: null
-                       uniqueDemoed: ut nisi ea
-                       clickRate: 13201439.898492977
-                       createdAt: '2003-11-22T15:49:18.0Z'
-                       demoRate: null
-                       uniqueReplied: 3028081.2684356123
-                       uniqueClicked: et commodo dolore
-                       uniqueOpened: deserunt ea occaecat
-                       labelIds:
-                         - quis proident amet
-                       name: aliquip ullamco labore reprehenderit
-                       bounceRate: null
-                       uniqueDelivered: elit qui
-                       numSteps: null
-                       userId: null
-                       uniqueUnsubscribed: null
+                       uniqueClicked: null
+                       optOutRate: 11598126.325158864
                        spamBlockedRate: null
-                       optOutRate: null
-                       openRate: null
+                       name: Excepteur id sit
+                       demoRate: -1470897.7760232985
+                       clickRate: -97191880.10046276
                        uniqueScheduled: null
-                       uniqueBounced: null
-                     $native:
-                       officia_44_: consectetur est
-                       aute_9b: true
-                       sint_0df: 92516571
+                       openRate: null
+                       uniqueDelivered: -60301467.46348391
+                       bounceRate: null
+                       userId: null
+                       replyRate: null
+                       uniqueReplied: Excepteur nostrud ut aute ut
+                       uniqueBounced: non labore
+                       labelIds:
+                         - est incididunt voluptate
+                       uniqueOpened: cupidatat
+                       uniqueDemoed: veniam
+                       uniqueUnsubscribed: 60839769.018630564
+                       createdAt: '2021-12-29T02:12:31.0Z'
+                       numSteps: null
       requestBody: 
         content:
           application/json:
@@ -1728,11 +1638,11 @@ paths:
             examples:
               example-1:
                 value:
-                     creationType: Ut
-                     name: ut fugiat sunt cillum
-                     permissions: non culpa anim dolore
-                     type: sint
-                     active: false
+                     creationType: culpa dolore ex nisi
+                     name: consequat ullamco do
+                     permissions: elit anim exercitation
+                     type: adipisicing
+                     active: true
       operationId: create-sequences
       parameters:
       - name: x-vessel-access-token
@@ -1893,43 +1803,38 @@ paths:
                        - per_page
                        - total_entries
                        - total_pages
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailerCampaigns:
-                       - id: in mollit incididunt
+                       - id: ullamco Excepteur
                          active: true
-                         spamBlockedRate: labore dolore
-                         uniqueOpened: est occaecat dolore ex
-                         createdAt: '1962-12-17T03:32:15.0Z'
-                         clickRate: sunt Lorem consequat
-                         numSteps: 67766170.46086451
-                         uniqueUnsubscribed: 26061676.019040763
-                         userId: non
-                         uniqueClicked: null
-                         uniqueBounced: null
-                         optOutRate: null
-                         openRate: -5053128.076814771
-                         name: aliquip cillum
-                         replyRate: null
-                         uniqueScheduled: null
-                         uniqueDelivered: elit minim non est
-                         uniqueReplied: -67180056.18163496
+                         clickRate: -61736818.674721316
+                         userId: in id laborum nisi
                          bounceRate: null
                          uniqueDemoed: null
-                         demoRate: null
+                         uniqueDelivered: null
+                         demoRate: 29528060.39477016
+                         optOutRate: minim in elit nisi quis
+                         openRate: -20479075.177627772
+                         name: null
+                         uniqueReplied: null
+                         uniqueUnsubscribed: aute fugiat
+                         uniqueOpened: reprehenderit
+                         uniqueScheduled: culpa dolor deserunt
+                         replyRate: null
+                         numSteps: null
                          labelIds:
-                           - veniam aliquip consectetur
+                           - irure
+                         spamBlockedRate: commodo do est
+                         createdAt: '1999-12-07T08:53:05.0Z'
+                         uniqueClicked: null
+                         uniqueBounced: null
                      pagination:
-                       page: 95482513.98308092
-                       totalEntries: -35755836.95197575
-                       perPage: 74930726.7270214
-                       totalPages: -73712595.13626227
-                     $native:
-                       est_aac: 73136517
+                       page: null
+                       totalEntries: -95622675.08575992
+                       perPage: 80845744.49505061
+                       totalPages: -12938224.005571365
       requestBody: 
         content:
           application/json:
@@ -1943,8 +1848,8 @@ paths:
             examples:
               example-1:
                 value:
-                     qKeywords: eiusmod ut
-                     page: -5730275.70925428
+                     qKeywords: laboris amet consequat dolore
+                     page: 53513713.01563096
       operationId: search-sequences
       parameters:
       - name: x-vessel-access-token
@@ -2184,64 +2089,56 @@ paths:
                        - created_at
                        - active
                        - label_ids
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contacts:
-                       - id: aute amet in irure
-                         accountId: null
-                         createdAt: '1945-10-17T14:45:16.0Z'
-                         name: sunt
-                         ownerId: velit dolor dolore proident in
-                         firstName: null
-                         typedCustomFields:
-                           minim6b_: 82393989.23991418
-                           culpad8: 90627127
-                         title: mollit officia
-                         contactStageId: sint officia ut fugiat
-                         email: null
-                         updatedAt: '2004-10-27T03:41:03.0Z'
-                         presentRawAddress: null
-                         organizationName: null
+                       - id: cupidatat ullamco sit deserunt laborum
+                         websiteUrl: velit exercitation
                          phoneNumbers:
-                           - type: home
-                             position: 45889831.078090996
-                             sanitizedNumber: quis
+                           - type: other
+                             position: 12922556.550570622
+                             rawNumber: dolor
                              status: null
-                             rawNumber: ex nulla consequat velit qui
+                             sanitizedNumber: anim minim sit incididunt ex
                              dncStatus: null
-                         websiteUrl: null
+                         typedCustomFields: {}
+                         organizationName: non Duis id exercitation reprehenderit
+                         accountId: null
                          lastName: null
+                         email: null
+                         createdAt: '1977-10-18T15:52:14.0Z'
+                         title: sint cillum consectetur
+                         ownerId: Ut in sunt
+                         name: null
+                         updatedAt: '2001-10-01T05:23:56.0Z'
+                         presentRawAddress: null
+                         contactStageId: pariatur
+                         firstName: reprehenderit magna eiusmod dolor
                      emailerCampaign:
-                       id: nisi magna Lorem occaecat aute
-                       active: false
-                       createdAt: '1961-08-23T19:40:21.0Z'
-                       labelIds:
-                         - sed eu enim proident
-                       uniqueReplied: null
-                       uniqueDemoed: null
-                       uniqueDelivered: sint consequat laborum dolore proident
-                       uniqueOpened: null
+                       id: dolor velit do Duis laboris
+                       active: true
                        numSteps: null
-                       uniqueUnsubscribed: null
-                       uniqueScheduled: null
-                       uniqueClicked: -4734060.117644429
-                       replyRate: -20403210.669342935
-                       name: reprehenderit
+                       userId: null
+                       spamBlockedRate: -19102971.522516698
+                       uniqueBounced: 42891496.357764095
+                       uniqueScheduled: fugiat labore Lorem anim
+                       uniqueDelivered: null
+                       name: et anim aliqua amet laborum
+                       createdAt: '2000-02-07T18:39:49.0Z'
+                       uniqueClicked: -40021535.75435989
+                       uniqueReplied: magna est nulla dolore sint
+                       openRate: -6107377.485056847
+                       clickRate: null
+                       uniqueOpened: 18334622.995652556
+                       replyRate: ad officia est in cillum
+                       uniqueDemoed: -95228997.13662559
+                       demoRate: null
                        optOutRate: null
-                       spamBlockedRate: null
-                       demoRate: 24592676.27927874
-                       bounceRate: -17008276.64985627
-                       userId: in
-                       clickRate: -77964170.144178
-                       uniqueBounced: null
-                       openRate: null
-                     $native:
-                       sed723: reprehenderit elit nulla
-                       id6a4: -98420555
+                       uniqueUnsubscribed: -16386402.351016745
+                       labelIds:
+                         - magna mollit
+                       bounceRate: null
       requestBody: 
         content:
           application/json:
@@ -2259,10 +2156,10 @@ paths:
             examples:
               example-1:
                 value:
-                     emailerCampaignId: tempor amet
+                     emailerCampaignId: deserunt
                      contactIds:
-                       - aute
-                     sendEmailFromEmailAccountId: consectetur nostrud dolor
+                       - aliquip Lorem Duis labore ea
+                     sendEmailFromEmailAccountId: exercitation reprehenderit aliqua nulla
       operationId: start-sequences
       parameters:
       - name: x-vessel-access-token
@@ -2303,31 +2200,15 @@ paths:
                          type: string
                      required:
                        - id
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailerStep:
-                       id: ullamco
-                       esse_0e: 29865978.190185502
-                       dolore_b_: 98938523
-                       velit_2d: true
-                       sunt_a0e: deserunt voluptate Ut
-                       ipsumbf7: 11564948
-                       ad3: aliqua officia dolor
+                       id: id cillum
                      emailerTouch:
-                       id: sit
-                       in_e85: cillum culpa ex in
+                       id: ea Lorem reprehenderit magna
                      emailerTemplate:
-                       id: mollit anim fugiat est
-                       proidentdb0: false
-                       cillum72_: Ut pariatur Duis ex
-                       aliqua5: true
-                     $native:
-                       sint25: -60148649
-                       proident_266: ex
+                       id: exercitation ea elit
       requestBody: 
         content:
           application/json:
@@ -2351,13 +2232,13 @@ paths:
             examples:
               example-1:
                 value:
-                     emailerCampaignId: commodo labore et sunt
-                     priority: ipsum occaecat in ullamco laboris
-                     position: -68548263.03277206
-                     type: nulla do ut ullamco
-                     waitMode: ad
-                     waitTime: 98414349.47807807
-                     exactDatetime: minim cillum consectetur
+                     emailerCampaignId: minim esse
+                     priority: Excepteur ea elit dolore
+                     position: -49452973.170277394
+                     type: aliqua
+                     waitMode: in enim aliquip
+                     waitTime: -32576063.94506967
+                     exactDatetime: magna id
       operationId: create-sequence-steps
       parameters:
       - name: x-vessel-access-token
@@ -2384,18 +2265,11 @@ paths:
                          type: string
                      required:
                        - id
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      emailerTouch:
-                       id: esse aliquip
-                       ad_b: -32317039
-                     $native:
-                       eu8b: 68170661
-                       consectetur_94d: ex
+                       id: aliquip
       requestBody: 
         content:
           application/json:
@@ -2438,21 +2312,21 @@ paths:
             examples:
               example-1:
                 value:
-                     id: exercitation pariatur dolore esse
+                     id: laborum do ut aliqua nostrud
                      emailerTemplate:
-                       name: laborum est
-                       userId: eiusmod sint non irure
-                       subject: Ut dolor dolore eu
+                       name: anim
+                       subject: sint Excepteur est id
                        global: true
-                       creationType: laboris
-                       bodyHtml: et
+                       bodyHtml: sit
+                       creationType: do Lorem tempor irure mollit
+                       bodyText: exercitation anim in
                        labelIds:
-                         - eiusmod anim ea
-                       bodyText: non laborum nulla dolor
-                     emailerStepId: laboris
-                     emailerTemplateId: mollit voluptate ullamco ut
-                     status: ullamco culpa ipsum
-                     type: Lorem laboris qui adipisicing
+                         - eu deserunt
+                       userId: aute laborum in
+                     emailerStepId: qui nostrud magna
+                     emailerTemplateId: non
+                     status: ullamco
+                     type: tempor velit
                      includeSignature: true
       operationId: update-sequence-templates
       parameters:
@@ -2520,29 +2394,21 @@ paths:
                        - per_page
                        - total_entries
                        - total_pages
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      users:
-                       - id: ad sit mollit labore
-                         email: anim non ullamco
+                       - id: cupidatat ut eu pariatur ullamco
                          teamId: null
-                         firstName: null
-                         lastName: Ut ea officia ut
-                         createdAt: '1943-05-22T01:24:47.0Z'
+                         email: null
+                         lastName: null
+                         createdAt: '1979-11-28T09:15:41.0Z'
+                         firstName: eiusmod dolor proident sed in
                      pagination:
                        page: null
-                       perPage: 44434957.90853098
-                       totalPages: 29586216.7864874
-                       totalEntries: 71489018.83018497
-                     $native:
-                       ut_9e6: 37411960
-                       elit_40: true
-                       ex_e8: 77088339.79425958
-                       tempor_58: false
+                       totalEntries: -71403084.01006079
+                       totalPages: 68295959.37075621
+                       perPage: -65745786.56235261
       requestBody: 
         content:
           application/json:
@@ -2554,7 +2420,7 @@ paths:
             examples:
               example-1:
                 value:
-                     page: 156787.71139784157
+                     page: 82504012.17147711
       operationId: search-users
       parameters:
       - name: x-vessel-access-token
