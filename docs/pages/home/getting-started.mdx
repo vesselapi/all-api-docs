@@ -42,6 +42,9 @@ export default function App() {
     const getIntegrations = async () => {
       const res = await fetch("https://app.vessel.dev/api/integrations/list", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const json = await res.json();
       setIntegrations(json.result.integrations);
