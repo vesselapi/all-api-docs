@@ -208,7 +208,7 @@ app.post("/access-token", async (req, res) => {
   const response = await fetch("https://app.vessel.dev/api/auth/access-token", {
     headers: {
       "Content-Type": "application/json",
-      "x-vessel-api-token": API_TOKEN,
+      "x-vessel-api-token": process.env.VESSEL_API_KEY,
       "x-vessel-session-token": sessionToken,
     },
     method: "POST",
