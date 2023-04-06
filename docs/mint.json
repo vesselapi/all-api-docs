@@ -58,7 +58,8 @@
   },
   "topAnchor": {
     "name": "Home",
-    "icon": "home"
+    "icon": "house",
+    "iconType": "duotone"
   },
   "anchors": [
     {
