@@ -42,17 +42,13 @@
   "hideFeedbackButtons": true,
   "topbarLinks": [
     {
-      "name": "Request an Integration",
-      "url": "https://vesselapi.canny.io/"
-    },
-    {
       "name": "Get API Keys",
       "url": "https://www.vessel.dev"
     }
   ],
   "topbarCtaButton": {
     "type": "github",
-    "url": "https://github.com/vesselapi/react-vessel-link"
+    "url": "https://github.com/vesselapi/integrations"
   },
   "footerSocials": {
     "twitter": "https://twitter.com/vesselapi",
