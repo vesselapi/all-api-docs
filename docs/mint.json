@@ -97,8 +97,6 @@
   "navigation": [
     {
       "group": "Home",
-      "id": "home",
-      "order": -5,
       "pages": [
         "pages/home/about",
         "pages/home/quick-start",
@@ -107,14 +105,10 @@
     },
     {
       "group": "Integrations",
-      "id": "integrations",
-      "order": -4,
       "pages": ["pages/home/api-reference/get-all-integrations"]
     },
     {
       "group": "Auth",
-      "id": "auth",
-      "order": -3,
       "pages": [
         "pages/home/api-reference/get-one-access-token",
         "pages/home/api-reference/get-one-session-token"
@@ -122,8 +116,6 @@
     },
     {
       "group": "Connections",
-      "id": "connections",
-      "order": -2,
       "pages": [
         "pages/home/api-reference/get-all-connections",
         "pages/home/api-reference/get-one-connection",
@@ -132,8 +124,6 @@
     },
     {
       "group": "OAuth Apps",
-      "id": "ouath",
-      "order": -1,
       "pages": [
         "pages/home/managing-oauth-apps",
         "pages/home/api-reference/get-all-oauth-apps",
@@ -323,13 +313,9 @@
     },
     {
       "group": "Dialer API",
-      "id": "dialer",
-      "order": 1,
       "pages": [
         {
           "group": "Users",
-          "id": "Users",
-          "order": 1,
           "pages": [
             "pages/unified/dialer/api-reference/get-all-users",
             "pages/unified/dialer/api-reference/get-one-user"
@@ -337,8 +323,6 @@
         },
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 1,
           "pages": [
             "pages/unified/dialer/api-reference/get-all-contacts",
             "pages/unified/dialer/api-reference/get-one-contact",
@@ -348,8 +332,6 @@
         },
         {
           "group": "Calls",
-          "id": "Calls",
-          "order": 1,
           "pages": [
             "pages/unified/dialer/api-reference/get-all-calls",
             "pages/unified/dialer/api-reference/get-one-call",
@@ -361,13 +343,9 @@
     },
     {
       "group": "Marketing Automation API",
-      "id": "marketing-automation",
-      "order": 1,
       "pages": [
         {
           "group": "List",
-          "id": "List",
-          "order": 1,
           "pages": [
             "pages/unified/marketing-automation/api-reference/get-all-users",
             "pages/unified/marketing-automation/api-reference/get-all-contacts",
@@ -376,8 +354,6 @@
         },
         {
           "group": "Find",
-          "id": "Find",
-          "order": 1,
           "pages": [
             "pages/unified/marketing-automation/api-reference/get-one-contact",
             "pages/unified/marketing-automation/api-reference/get-one-list"
@@ -385,16 +361,12 @@
         },
         {
           "group": "Create",
-          "id": "Create",
-          "order": 1,
           "pages": [
             "pages/unified/marketing-automation/api-reference/post-contact"
           ]
         },
         {
           "group": "Update",
-          "id": "Update",
-          "order": 1,
           "pages": [
             "pages/unified/marketing-automation/api-reference/put-contact"
           ]
@@ -404,13 +376,9 @@
     },
     {
       "group": "Engagement API",
-      "id": "engagement",
-      "order": 1,
       "pages": [
         {
           "group": "List",
-          "id": "List",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/get-all-users",
             "pages/unified/engagement/api-reference/get-all-accounts",
@@ -422,8 +390,6 @@
         },
         {
           "group": "Find",
-          "id": "Find",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/get-one-user",
             "pages/unified/engagement/api-reference/get-one-account",
@@ -433,8 +399,6 @@
         },
         {
           "group": "Create",
-          "id": "Create",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/post-account",
             "pages/unified/engagement/api-reference/post-contact",
@@ -443,8 +407,6 @@
         },
         {
           "group": "Update",
-          "id": "Update",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/put-account",
             "pages/unified/engagement/api-reference/put-contact"
@@ -452,8 +414,6 @@
         },
         {
           "group": "Search",
-          "id": "Search",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/search-account",
             "pages/unified/engagement/api-reference/search-contact",
@@ -462,30 +422,22 @@
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/get-all-customFields"
           ]
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 1,
           "pages": ["pages/unified/engagement/api-reference/post-customFields"]
         },
         {
           "group": "Start",
-          "id": "Start",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/post-start-sequence"
           ]
         },
         {
           "group": "Steps",
-          "id": "Steps",
-          "order": 1,
           "pages": [
             "pages/unified/engagement/api-reference/post-sequences-steps"
           ]
@@ -495,13 +447,9 @@
     },
     {
       "group": "Chat API",
-      "id": "chat",
-      "order": 1,
       "pages": [
         {
           "group": "List",
-          "id": "List",
-          "order": 1,
           "pages": [
             "pages/unified/chat/api-reference/get-all-users",
             "pages/unified/chat/api-reference/get-all-channels"
@@ -509,14 +457,10 @@
         },
         {
           "group": "Create",
-          "id": "Create",
-          "order": 1,
           "pages": ["pages/unified/chat/api-reference/post-message"]
         },
         {
           "group": "Update",
-          "id": "Update",
-          "order": 1,
           "pages": ["pages/unified/chat/api-reference/put-message"]
         },
         "pages/unified/chat/api-reference/passthrough"
@@ -528,13 +472,9 @@
     },
     {
       "group": "Aircall",
-      "id": "aircall",
-      "order": 2,
       "pages": [
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": [
             "pages/actions/aircall/api-reference/list-users",
             "pages/actions/aircall/api-reference/find-user",
@@ -543,8 +483,6 @@
         },
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/aircall/api-reference/create-contact",
             "pages/actions/aircall/api-reference/find-contact",
@@ -554,8 +492,6 @@
         },
         {
           "group": "Calls",
-          "id": "Calls",
-          "order": 2,
           "pages": [
             "pages/actions/aircall/api-reference/find-call",
             "pages/actions/aircall/api-reference/list-calls"
@@ -566,13 +502,9 @@
     },
     {
       "group": "Active Campaign",
-      "id": "activecampaign",
-      "order": 2,
       "pages": [
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/activecampaign/api-reference/create-contact",
             "pages/actions/activecampaign/api-reference/find-contact",
@@ -582,8 +514,6 @@
         },
         {
           "group": "Lists",
-          "id": "Lists",
-          "order": 2,
           "pages": [
             "pages/actions/activecampaign/api-reference/find-list",
             "pages/actions/activecampaign/api-reference/list-lists"
@@ -591,8 +521,6 @@
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": ["pages/actions/activecampaign/api-reference/list-users"]
         },
         "pages/actions/activecampaign/api-reference/passthrough"
@@ -600,13 +528,9 @@
     },
     {
       "group": "Apollo",
-      "id": "apollo",
-      "order": 2,
       "pages": [
         {
           "group": "Accounts",
-          "id": "Accounts",
-          "order": 2,
           "pages": [
             "pages/actions/apollo/api-reference/create-account",
             "pages/actions/apollo/api-reference/search-account",
@@ -615,14 +539,10 @@
         },
         {
           "group": "Activities",
-          "id": "Activities",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/list-activities"]
         },
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/apollo/api-reference/create-contact",
             "pages/actions/apollo/api-reference/search-contacts",
@@ -631,32 +551,22 @@
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/create-custom-fields"]
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/list-custom-fields"]
         },
         {
           "group": "Emails",
-          "id": "Emails",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/search-emails"]
         },
         {
           "group": "Email Accounts",
-          "id": "Email-accounts",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/list-email-accounts"]
         },
         {
           "group": "Sequences",
-          "id": "Sequences",
-          "order": 2,
           "pages": [
             "pages/actions/apollo/api-reference/create-sequences",
             "pages/actions/apollo/api-reference/search-sequences",
@@ -665,22 +575,16 @@
         },
         {
           "group": "Sequence Steps",
-          "id": "Sequence-steps",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/create-sequence-steps"]
         },
         {
           "group": "Sequence Templates",
-          "id": "Sequence-templates",
-          "order": 2,
           "pages": [
             "pages/actions/apollo/api-reference/update-sequence-templates"
           ]
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": ["pages/actions/apollo/api-reference/search-users"]
         },
         "pages/actions/apollo/api-reference/passthrough"
@@ -688,13 +592,9 @@
     },
     {
       "group": "Dialpad",
-      "id": "dialpad",
-      "order": 2,
       "pages": [
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": [
             "pages/actions/dialpad/api-reference/list-users",
             "pages/actions/dialpad/api-reference/find-user"
@@ -702,8 +602,6 @@
         },
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/dialpad/api-reference/find-contact",
             "pages/actions/dialpad/api-reference/list-contacts",
@@ -713,8 +611,6 @@
         },
         {
           "group": "Calls",
-          "id": "Calls",
-          "order": 2,
           "pages": [
             "pages/actions/dialpad/api-reference/find-call",
             "pages/actions/dialpad/api-reference/list-calls",
@@ -726,13 +622,9 @@
     },
     {
       "group": "Outreach",
-      "id": "outreach",
-      "order": 2,
       "pages": [
         {
           "group": "Accounts",
-          "id": "Accounts",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/find-account",
             "pages/actions/outreach/api-reference/list-accounts"
@@ -740,14 +632,10 @@
         },
         {
           "group": "Mailboxes",
-          "id": "Mailboxes",
-          "order": 2,
           "pages": ["pages/actions/outreach/api-reference/list-mailboxes"]
         },
         {
           "group": "Mailings",
-          "id": "Mailings",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/find-mailing",
             "pages/actions/outreach/api-reference/list-mailings"
@@ -755,8 +643,6 @@
         },
         {
           "group": "Prospects",
-          "id": "Prospects",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/create-prospect",
             "pages/actions/outreach/api-reference/find-prospect",
@@ -766,16 +652,12 @@
         },
         {
           "group": "Sequence States",
-          "id": "Sequence-states",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/create-sequence-state"
           ]
         },
         {
           "group": "Sequences",
-          "id": "Sequences",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/find-sequence",
             "pages/actions/outreach/api-reference/list-sequences",
@@ -784,8 +666,6 @@
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/find-user",
             "pages/actions/outreach/api-reference/list-users"
@@ -793,14 +673,10 @@
         },
         {
           "group": "Templates",
-          "id": "Templates",
-          "order": 2,
           "pages": ["pages/actions/outreach/api-reference/create-template"]
         },
         {
           "group": "Sequence Templates",
-          "id": "Sequence-templates",
-          "order": 2,
           "pages": [
             "pages/actions/outreach/api-reference/create-sequence-template"
           ]
@@ -810,13 +686,9 @@
     },
     {
       "group": "Ringcentral",
-      "id": "ringcentral",
-      "order": 2,
       "pages": [
         {
           "group": "Extensions",
-          "id": "Extensions",
-          "order": 2,
           "pages": [
             "pages/actions/ringcentral/api-reference/find-extension",
             "pages/actions/ringcentral/api-reference/list-extensions",
@@ -825,20 +697,14 @@
         },
         {
           "group": "Call Logs",
-          "id": "Call-logs",
-          "order": 2,
           "pages": ["pages/actions/ringcentral/api-reference/list-call-logs"]
         },
         {
           "group": "Call Logs",
-          "id": "Call-logs",
-          "order": 2,
           "pages": ["pages/actions/ringcentral/api-reference/find-call-log"]
         },
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/ringcentral/api-reference/list-contacts",
             "pages/actions/ringcentral/api-reference/find-contact",
@@ -851,13 +717,9 @@
     },
     {
       "group": "Salesforce",
-      "id": "salesforce",
-      "order": 2,
       "pages": [
         {
           "group": "Contacts",
-          "id": "Contacts",
-          "order": 2,
           "pages": [
             "pages/actions/salesforce/api-reference/create-contact",
             "pages/actions/salesforce/api-reference/find-contact",
@@ -867,28 +729,20 @@
         },
         {
           "group": "List Views",
-          "id": "List-views",
-          "order": 2,
           "pages": ["pages/actions/salesforce/api-reference/find-list-view"]
         },
         {
           "group": "List Views",
-          "id": "List-views",
-          "order": 2,
           "pages": ["pages/actions/salesforce/api-reference/list-list-views"]
         },
         {
           "group": "List View Results",
-          "id": "List-view-results",
-          "order": 2,
           "pages": [
             "pages/actions/salesforce/api-reference/find-list-view-results"
           ]
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": [
             "pages/actions/salesforce/api-reference/list-users",
             "pages/actions/salesforce/api-reference/find-user"
@@ -899,21 +753,15 @@
     },
     {
       "group": "Salesloft",
-      "id": "salesloft",
-      "order": 2,
       "pages": [
         {
           "group": "Cadence Memberships",
-          "id": "Cadence-memberships",
-          "order": 2,
           "pages": [
             "pages/actions/salesloft/api-reference/create-cadence-memberships"
           ]
         },
         {
           "group": "Cadences",
-          "id": "Cadences",
-          "order": 2,
           "pages": [
             "pages/actions/salesloft/api-reference/import-cadences",
             "pages/actions/salesloft/api-reference/list-cadences"
@@ -921,26 +769,18 @@
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 2,
           "pages": ["pages/actions/salesloft/api-reference/create-custom-field"]
         },
         {
           "group": "Custom Fields",
-          "id": "Custom-fields",
-          "order": 2,
           "pages": ["pages/actions/salesloft/api-reference/list-custom-fields"]
         },
         {
           "group": "Emailbodies",
-          "id": "Emailbodies",
-          "order": 2,
           "pages": ["pages/actions/salesloft/api-reference/find-email-body"]
         },
         {
           "group": "Emails",
-          "id": "Emails",
-          "order": 2,
           "pages": [
             "pages/actions/salesloft/api-reference/list-emails",
             "pages/actions/salesloft/api-reference/find-email"
@@ -948,8 +788,6 @@
         },
         {
           "group": "People",
-          "id": "People",
-          "order": 2,
           "pages": [
             "pages/actions/salesloft/api-reference/create-people",
             "pages/actions/salesloft/api-reference/list-people",
@@ -959,8 +797,6 @@
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": [
             "pages/actions/salesloft/api-reference/find-user",
             "pages/actions/salesloft/api-reference/list-users"
@@ -971,13 +807,9 @@
     },
     {
       "group": "Slack",
-      "id": "slack",
-      "order": 2,
       "pages": [
         {
           "group": "Messages",
-          "id": "Messages",
-          "order": 2,
           "pages": [
             "pages/actions/slack/api-reference/create-message",
             "pages/actions/slack/api-reference/update-message"
@@ -985,14 +817,10 @@
         },
         {
           "group": "Users",
-          "id": "Users",
-          "order": 2,
           "pages": ["pages/actions/slack/api-reference/list-users"]
         },
         {
           "group": "Conversations",
-          "id": "Conversations",
-          "order": 2,
           "pages": ["pages/actions/slack/api-reference/list-conversations"]
         },
         "pages/actions/slack/api-reference/passthrough"
@@ -1000,13 +828,9 @@
     },
     {
       "group": "Mailchimp",
-      "id": "mailchimp",
-      "order": 2,
       "pages": [
         {
           "group": "Members",
-          "id": "Members",
-          "order": 2,
           "pages": [
             "pages/actions/mailchimp/api-reference/create-member",
             "pages/actions/mailchimp/api-reference/update-member",
@@ -1015,8 +839,6 @@
         },
         {
           "group": "Lists",
-          "id": "Lists",
-          "order": 2,
           "pages": [
             "pages/actions/mailchimp/api-reference/find-list",
             "pages/actions/mailchimp/api-reference/list-lists"
@@ -1027,31 +849,21 @@
     },
     {
       "group": "Teams",
-      "id": "teams",
-      "order": 2,
       "pages": [
         {
           "group": "Messages",
-          "id": "Messages",
-          "order": 2,
           "pages": ["pages/actions/teams/api-reference/create-message"]
         },
         {
           "group": "Channels",
-          "id": "Channels",
-          "order": 2,
           "pages": ["pages/actions/teams/api-reference/list-channels"]
         },
         {
           "group": "Members",
-          "id": "Members",
-          "order": 2,
           "pages": ["pages/actions/teams/api-reference/list-members"]
         },
         {
           "group": "Teams",
-          "id": "Teams",
-          "order": 2,
           "pages": ["pages/actions/teams/api-reference/list-teams"]
         },
         "pages/actions/teams/api-reference/passthrough"
