@@ -6,16 +6,16 @@ openapi: "POST /link/exchange"
 
 ```bash Shell / cURL
 curl --request POST \
-  --url https://api.vessel.dev/link/exchange \
+  --url https://api.vessel.land/link/exchange \
   --header 'Content-Type: application/json' \
-  --header 'x-vessel-api-token: ' \
+  --header 'vessel-api-token: ' \
   --data '{
   "publicToken": "string"
 }'
 ```
 
 ```js JavaScript Fetch
-fetch("https://api.vessel.dev/link/exchange", {
+fetch("https://api.vessel.land/link/exchange", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -34,13 +34,13 @@ fetch("https://api.vessel.dev/link/exchange", {
 ```python Python
 import http.client
 
-conn = http.client.HTTPSConnection("api.vessel.dev")
+conn = http.client.HTTPSConnection("api.vessel.land")
 
 payload = "{\n  \"publicToken\": \"string\"\n}"
 
 headers = {
     'Content-Type': "application/json",
-    'x-vessel-api-token': ""
+    'vessel-api-token': ""
     }
 
 conn.request("POST", "/link/exchange", payload, headers)
