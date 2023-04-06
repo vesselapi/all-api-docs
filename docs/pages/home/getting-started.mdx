@@ -208,7 +208,7 @@ app.post("/access-token", async (req, res) => {
   const response = await fetch("https://app.vessel.dev/api/auth/access-token", {
     headers: {
       "Content-Type": "application/json",
-      "x-vessel-api-token": API_TOKEN,
+      "x-vessel-api-token": process.env.VESSEL_API_KEY,
       "x-vessel-session-token": sessionToken,
     },
     method: "POST",
@@ -231,7 +231,7 @@ You're now ready to make an API call, feel free to browse one of the many [unifi
 Example: Get all Users from a connect sales engagement tool.
 
 ```bash Terminal
-curl POST 'https://app.vessel.dev/api/unification/engagement/users/list' \
+curl --location --request POST 'https://app.vessel.dev/api/unification/engagement/users/list' \
 --header 'x-vessel-api-token: [API_KEY]' \
 --header 'x-vessel-access-token: [ACCESS_TOKEN]' \
 --header 'Content-Type: application/json' \
