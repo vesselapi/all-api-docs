@@ -104,33 +104,27 @@ paths:
                        - per_page
                        - next_page_link
                        - previous_page_link
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      users:
-                       - id: -33663660.05313388
-                         name: cillum
-                         email: null
-                         available: true
+                       - id: -89270352.46227905
+                         name: Ut
+                         email: consequat fugiat dolor ut
+                         available: null
                          language: null
-                         wrapUpTime: -78604412.41828622
-                         availabilityStatus: proident in aute
-                         createdAt: '1972-05-28T05:31:39.0Z'
-                         timeZone: in dolor mollit
+                         wrapUpTime: 77299649.46462867
+                         timeZone: esse ea et nostrud elit
+                         createdAt: '2018-10-13T10:10:16.0Z'
                          directLink: null
+                         availabilityStatus: esse ex
                      meta:
-                       count: null
-                       total: -47023249.91677842
-                       nextPageLink: incididunt irure dolore
-                       perPage: -75578687.29975605
-                       currentPage: null
-                       previousPageLink: adipisicing
-                     $native:
-                       laboris4: -52981849
-                       aliqua_c: 6838530.798674241
+                       count: -84061575.0836465
+                       total: null
+                       previousPageLink: in veniam mollit fugiat
+                       currentPage: -57299537.317396656
+                       perPage: null
+                       nextPageLink: ut
       requestBody: 
         content:
           application/json:
@@ -146,9 +140,9 @@ paths:
             examples:
               example-1:
                 value:
-                     from: mollit occaecat incididunt qui aliqua
-                     perPage: 46075536.92259362
-                     nextPageLink: Excepteur reprehenderit incididunt
+                     from: dolore fugiat
+                     perPage: -62917728.630286396
+                     nextPageLink: aliqua
       operationId: list-users
       parameters:
       - name: x-vessel-access-token
@@ -217,26 +211,20 @@ paths:
                        - language
                        - wrap_up_time
                        - created_at
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      user:
-                       id: 70025088.34994268
-                       name: esse Lorem
+                       id: -55279769.4802079
+                       name: ipsum nulla sit qui
                        email: null
-                       available: false
+                       available: null
                        language: null
-                       wrapUpTime: 98861531.38362011
-                       timeZone: dolore nisi tempor Duis sint
-                       createdAt: '2003-01-23T07:18:51.0Z'
-                       directLink: null
-                       availabilityStatus: mollit occaecat elit enim sed
-                     $native:
-                       Lorem_9: in incididunt
-                       dolore24e: 83586843.5423631
+                       availabilityStatus: Excepteur eu minim irure cillum
+                       directLink: nostrud do exercitation in in
+                       wrapUpTime: null
+                       timeZone: ullamco ut ex
+                       createdAt: '1961-04-23T09:09:34.0Z'
       requestBody: 
         content:
           application/json:
@@ -250,7 +238,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: 66790056.71490127
+                     id: dolore
       operationId: find-user
       parameters:
       - name: x-vessel-access-token
@@ -270,14 +258,11 @@ paths:
               schema:
                 type: object
                 properties:
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
+                   {}
               examples:
                 example-1:
                   value:
-                     $native:
-                       est58: 88516384.97008473
+                     {}
       requestBody: 
         content:
           application/json:
@@ -297,9 +282,9 @@ paths:
             examples:
               example-1:
                 value:
-                     id: -15138961.830627948
-                     numberId: laborum consectetur sunt dolore tempor
-                     to: proident irure consectetur est
+                     id: consequat
+                     numberId: enim
+                     to: labore id ut eu officia
       operationId: start-user-call
       parameters:
       - name: x-vessel-access-token
@@ -402,41 +387,26 @@ paths:
                        - updated_at
                        - emails
                        - phone_numbers
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: 97737789.01729459
-                       information: nulla
+                       id: -4310924.4277355075
+                       information: consectetur
                        emails:
-                         - id: -63301901.08326051
-                           label: veniam sunt ullamco
-                           value: mollit laborum laboris cupidatat
-                           reprehenderit4: occaecat culpa minim elit dolore
-                           dolore59f: -74460168.00947879
-                           magna3d: ipsum labore
-                           ullamco_054: 30991937
-                           dolor_dc5: -68150473.68720561
-                       createdAt: 66747582.51788062
-                       directLink: null
-                       phoneNumbers:
-                         - id: -68513465.56949402
+                         - id: -64046885.245729744
                            label: null
-                           value: ullamco nulla anim officia exercitation
-                           consequat_3: 65291893.44378063
-                           eta3: 78089381
-                           dob: 34320083
-                           eiusmod_7: -38907583.04136095
-                       updatedAt: -32535736.486290023
-                       firstName: ut commodo Duis occaecat et
-                       isShared: false
+                           value: commodo
+                           aute66: 49947290
+                           velit_40: false
+                       phoneNumbers: null
+                       directLink: null
+                       isShared: null
+                       updatedAt: 2237749.0678489953
+                       createdAt: 51588572.78623724
+                       firstName: irure aliqua consequat
                        lastName: null
                        companyName: null
-                     $native:
-                       in8a: irure esse adipisicing eiusmod
       requestBody: 
         content:
           application/json:
@@ -476,16 +446,16 @@ paths:
             examples:
               example-1:
                 value:
-                     firstName: anim velit tempor nulla
-                     lastName: dolor tempor
-                     companyName: quis ullamco ea labore
-                     information: fugiat quis occaecat adipisicing
+                     firstName: adipisicing sed dolor Lorem officia
+                     lastName: Lorem
+                     companyName: laboris nulla ex mollit
+                     information: tempor
                      emails:
-                       - value: elit ad reprehenderit consequat
-                         label: sed enim labore
+                       - value: occaecat eu sint
+                         label: non occaecat incididunt
                      phoneNumbers:
-                       - value: culpa minim velit cillum
-                         label: mollit sint dolore laboris
+                       - value: ex exercitation
+                         label: in
       operationId: create-contact
       parameters:
       - name: x-vessel-access-token
@@ -588,27 +558,21 @@ paths:
                        - updated_at
                        - emails
                        - phone_numbers
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: -82642507.17660487
-                       information: commodo irure
+                       id: 99345447.36392054
+                       information: anim magna
                        emails: null
-                       companyName: labore culpa mollit fugiat
-                       updatedAt: -45131200.31796465
-                       lastName: elit sunt consequat nulla
-                       firstName: null
-                       createdAt: 73441571.1241177
-                       phoneNumbers: null
                        directLink: null
-                       isShared: null
-                     $native:
-                       amet_1: false
-                       dolor_8: -84071082.65699796
+                       firstName: null
+                       lastName: esse dolor elit
+                       phoneNumbers: null
+                       updatedAt: 68223509.77328452
+                       createdAt: 80664193.9649893
+                       isShared: false
+                       companyName: Lorem et
       requestBody: 
         content:
           application/json:
@@ -622,7 +586,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: adipisicing
+                     id: -36096015.86504509
       operationId: find-contact
       parameters:
       - name: x-vessel-access-token
@@ -761,41 +725,38 @@ paths:
                        - per_page
                        - next_page_link
                        - previous_page_link
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contacts:
-                       - id: 94693249.73381156
+                       - id: 57434312.2139124
                          information: null
-                         emails: null
-                         directLink: null
-                         isShared: null
-                         lastName: null
-                         updatedAt: -6500692.366332486
-                         firstName: null
+                         emails:
+                           - id: -30375498.88328086
+                             label: null
+                             value: proident in occaecat quis cillum
+                             cupidatat__: false
+                             Ut6b4: est laboris
+                             irure__: est mollit
+                             dolor_28: veniam exercitation Excepteur
+                         companyName: Ut eiusmod pariatur dolore
+                         isShared: true
                          phoneNumbers:
-                           - id: -76829273.30558695
-                             label: ipsum incididunt dolore id in
-                             value: officia
-                             eiusmod44: 78613572
-                             Ut_: true
-                             labore4: sunt aliquip
-                             commodoa3: 39794577
-                             fugiat99f: false
-                         createdAt: 92386773.60706791
-                         companyName: null
+                           - id: 27001835.037813306
+                             label: Excepteur ea cillum amet mollit
+                             value: id ipsum sit est anim
+                         updatedAt: 41043219.67213011
+                         firstName: null
+                         directLink: aliqua
+                         lastName: null
+                         createdAt: 29886562.004416466
                      meta:
-                       count: 31216389.72549446
-                       total: 26453977.127147168
+                       count: 79154511.47519681
+                       total: null
+                       nextPageLink: velit dolor commodo
+                       previousPageLink: nisi aliqua
                        perPage: null
-                       nextPageLink: null
                        currentPage: null
-                       previousPageLink: null
-                     $native:
-                       qui_ac7: false
       requestBody: 
         content:
           application/json:
@@ -811,9 +772,9 @@ paths:
             examples:
               example-1:
                 value:
-                     from: ut commodo et fugiat
-                     perPage: -27025917.285287976
-                     nextPageLink: aliqua
+                     from: ad
+                     perPage: -7016389.1691586375
+                     nextPageLink: sed adipisicing ad culpa
       operationId: list-contacts
       parameters:
       - name: x-vessel-access-token
@@ -916,35 +877,24 @@ paths:
                        - updated_at
                        - emails
                        - phone_numbers
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      contact:
-                       id: -14170509.373531058
-                       information: ad in sunt Duis
-                       emails:
-                         - id: 35662048.787085265
-                           label: null
-                           value: do
-                           ullamcof: -1364592.123697415
-                           sinteaf: false
-                           reprehenderit_c: false
-                       lastName: Excepteur aliquip aliqua qui
-                       createdAt: -37709610.47760322
+                       id: -89158428.57605143
+                       information: id
+                       emails: null
+                       createdAt: -74604828.86311862
+                       updatedAt: 99775715.99888128
+                       directLink: ad
+                       companyName: magna dolor
                        isShared: null
-                       updatedAt: -77326379.0345054
-                       phoneNumbers: null
-                       companyName: null
-                       firstName: qui eu anim elit irure
-                       directLink: null
-                     $native:
-                       dolorb: 94636189
-                       ad_dd: 89500644
-                       pariatur_8d: 87193920
-                       nulla17e: -84032968
+                       phoneNumbers:
+                         - id: -20111456.690393314
+                           label: null
+                           value: Excepteur Ut nisi
+                       firstName: null
+                       lastName: null
       requestBody: 
         content:
           application/json:
@@ -966,11 +916,11 @@ paths:
             examples:
               example-1:
                 value:
-                     id: Ut exercitation
-                     firstName: do laborum
-                     lastName: incididunt
-                     companyName: amet in
-                     information: aute fugiat est proident
+                     id: -57164264.11440763
+                     firstName: proident
+                     lastName: anim
+                     companyName: exercitation
+                     information: et
       operationId: update-contact
       parameters:
       - name: x-vessel-access-token
@@ -1226,77 +1176,43 @@ paths:
                        - user
                        - contact
                        - number
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      call:
-                       id: 92658420.51286212
+                       id: 76973404.07882455
                        direction: outbound
-                       status: Excepteur laboris ut do in
-                       duration: 28897109.219976127
-                       voicemail: sunt ullamco
+                       status: null
+                       duration: 51302934.868718445
+                       voicemail: null
                        recording: null
                        user:
-                         id: -30288649.15655403
-                         name: nulla ullamco esse irure
-                         email: null
-                         available: null
+                         id: 74099454.77302057
+                         name: officia in Ut Lorem
+                         email: dolor aliquip
+                         available: true
                          language: null
-                         availabilityStatus: tempor
-                         createdAt: '1971-01-24T17:08:43.0Z'
-                         wrapUpTime: null
-                         timeZone: qui non anim
-                         directLink: adipisicing Excepteur anim deserunt
-                       contact:
-                         id: 96806213.4479143
-                         information: null
-                         emails:
-                           - id: -6666866.520154312
-                             label: commodo laborum adipisicing
-                             value: elit
-                             consequat8ef: true
-                             nostrud_8: -82459053
-                             dolor_b3_: false
-                             tempor__00: true
-                             aliquip_43: 95594070.55757573
-                             in5b: -92643525
-                             fugiat_a: 99044693.36201188
-                         companyName: null
-                         lastName: proident
-                         updatedAt: 27119889.639940903
-                         createdAt: 2411044.9165854156
+                         wrapUpTime: 23688321.605538264
+                         timeZone: null
                          directLink: null
-                         phoneNumbers:
-                           - id: -93604297.73839298
-                             label: est
-                             value: id magna mollit
-                             sint3: -44219795
-                             suntd95: -12517329
-                             id8c3: 81448335.52456993
-                             ad_715: 63899833.15713343
-                         firstName: null
-                         isShared: null
+                         availabilityStatus: null
+                         createdAt: '1964-01-30T09:26:09.0Z'
+                       contact: null
                        number:
-                         id: -23795547.879491255
-                         name: null
-                         digits: ullamco ad laborum ut Duis
-                         createdAt: '1986-09-19T10:11:42.0Z'
-                       answeredAt: 90337685.21898615
-                       rawDigits: aliquip ex consectetur laboris
-                       endedAt: -6283404.882710412
-                       directLink: magna veniam nulla
+                         id: -16598077.18119803
+                         name: voluptate Ut
+                         digits: null
+                         createdAt: '1971-01-18T18:59:09.0Z'
                        participants:
-                         - id: -44004412.91965347
+                         - id: 91322388.92238086
                            type: user
-                           name: non
+                           name: null
                            phoneNumber: null
-                       startedAt: -67320587.45696032
-                     $native:
-                       sunt_4: laboris fugiat
-                       consectetur_117: Duis
+                       rawDigits: labore nostrud voluptate Excepteur aliqua
+                       directLink: null
+                       endedAt: 77737922.9855662
+                       answeredAt: -52119061.94518017
+                       startedAt: -85399918.58678864
       requestBody: 
         content:
           application/json:
@@ -1310,7 +1226,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: -67112731.287104
+                     id: 94701425.10324454
       operationId: find-call
       parameters:
       - name: x-vessel-access-token
@@ -1602,56 +1518,64 @@ paths:
                        - per_page
                        - next_page_link
                        - previous_page_link
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      calls:
-                       - id: -89924944.93689023
+                       - id: -75376073.69676214
                          direction: null
                          status: null
-                         duration: null
-                         voicemail: null
-                         recording: minim nostrud Ut quis sit
+                         duration: -57347375.44697053
+                         voicemail: nostrud
+                         recording: do reprehenderit
                          user:
-                           id: 27834682.013874575
-                           name: id dolor cupidatat
-                           email: null
-                           available: null
-                           language: null
-                           availabilityStatus: null
-                           wrapUpTime: 19656661.754283845
-                           timeZone: null
+                           id: 18089884.18484439
+                           name: mollit esse
+                           email: pariatur
+                           available: false
+                           language: eiusmod amet dolor consectetur
+                           createdAt: '1982-02-25T05:02:38.0Z'
+                           wrapUpTime: null
+                           availabilityStatus: occaecat nisi proident
+                           timeZone: fugiat mollit pariatur non
                            directLink: null
-                           createdAt: '1955-07-30T03:33:53.0Z'
-                         contact: null
+                         contact:
+                           id: -80586999.36226827
+                           information: null
+                           emails:
+                             - id: 58053087.984629005
+                               label: sed
+                               value: nulla Lorem
+                           firstName: null
+                           directLink: aute eiusmod
+                           companyName: dolore nulla
+                           phoneNumbers: null
+                           lastName: nostrud Ut incididunt amet quis
+                           createdAt: -41802029.006895445
+                           updatedAt: -66405885.980554745
+                           isShared: false
                          number:
-                           id: -85699807.23428619
-                           name: cupidatat Ut
-                           digits: occaecat consectetur
-                           createdAt: '1977-02-18T03:44:12.0Z'
+                           id: 50178920.37031323
+                           name: ad
+                           digits: quis anim labore Ut
+                           createdAt: '1979-12-09T15:58:42.0Z'
+                         rawDigits: Lorem aliqua nulla ullamco
+                         directLink: null
                          participants:
-                           - id: 83018449.25107598
-                             type: contact
+                           - id: 48614791.61519435
+                             type: external
                              name: null
                              phoneNumber: null
-                         directLink: null
-                         answeredAt: 53561781.032003134
-                         startedAt: 20297379.468884856
-                         endedAt: 56660689.96748939
-                         rawDigits: nisi sint elit non
+                         answeredAt: 80830968.84168652
+                         endedAt: -37500350.467588015
+                         startedAt: -24821882.62971157
                      meta:
                        count: null
-                       total: 93492041.28646848
-                       perPage: null
-                       previousPageLink: null
-                       nextPageLink: minim
+                       total: null
+                       perPage: -21536160.552566707
                        currentPage: null
-                     $native:
-                       cupidatat64e: -89190404.1225752
-                       sunt2d: -51747914
+                       nextPageLink: null
+                       previousPageLink: null
       requestBody: 
         content:
           application/json:
@@ -1667,9 +1591,9 @@ paths:
             examples:
               example-1:
                 value:
-                     from: nulla sunt adipisicing
-                     perPage: -91050972.06295638
-                     nextPageLink: laboris quis
+                     from: ut esse
+                     perPage: 48568655.0099569
+                     nextPageLink: ex mollit Ut
       operationId: list-calls
       parameters:
       - name: x-vessel-access-token

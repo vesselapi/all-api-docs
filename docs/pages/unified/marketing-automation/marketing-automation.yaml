@@ -8,7 +8,7 @@ servers:
 security:
   - VesselAPIToken: []
 paths:
-  /api/unificationmarketing/users/list:
+  /api/unification/marketing/users/list:
     post:
       summary: List Users
       responses:
@@ -59,7 +59,7 @@ paths:
       operationId: get-all-users
       description: List Users
     parameters: []
-  /api/unificationmarketing/contacts/list:
+  /api/unification/marketing/contacts/list:
     post:
       summary: List Contacts
       responses:
@@ -111,7 +111,7 @@ paths:
       operationId: get-all-contacts
       description: List Contacts
     parameters: []
-  /api/unificationmarketing/contacts/find:
+  /api/unification/marketing/contacts/find:
     post:
       summary: Find Contact
       responses:
@@ -160,7 +160,7 @@ paths:
       operationId: get-one-contact
       description: Find Contact
     parameters: []
-  /api/unificationmarketing/contacts/create:
+  /api/unification/marketing/contacts/create:
     post:
       summary: Create Contact
       operationId: post-contact
@@ -206,7 +206,7 @@ paths:
                     phone: "8192223333"
                     listId: "12"
       description: Create a Contact
-  /api/unificationmarketing/contacts/update:
+  /api/unification/marketing/contacts/update:
     post:
       summary: Update Contact
       operationId: put-contact
@@ -267,7 +267,7 @@ paths:
         description: ""
       description: Update an existing Contact
     parameters: []
-  /api/unificationmarketing/lists/list:
+  /api/unification/marketing/lists/list:
     post:
       summary: List Lists
       responses:
@@ -316,7 +316,7 @@ paths:
       operationId: get-all-lists
       description: List Lists
     parameters: []
-  /api/unificationmarketing/lists/find:
+  /api/unification/marketing/lists/find:
     post:
       summary: Find List
       responses:

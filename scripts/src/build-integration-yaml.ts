@@ -144,11 +144,6 @@ security:
       );
     }
 
-    responseYaml.$native = {
-      type: "object",
-      description: "The raw response from the integration, unmodified.",
-    };
-
     yamlPaths += `  /api/actions/${integration.id}/${action.resource}/${
       action.operation
     }:

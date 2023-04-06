@@ -21,18 +21,10 @@ paths:
                 properties:
                    id:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: cillum
-                     $native:
-                       quis4: 4166194.849665314
-                       quiec_: qui ipsum
-                       in924: mollit officia ut laborum
-                       aute_a: 44252007.721065074
+                     id: incididunt amet
       requestBody: 
         content:
           application/json:
@@ -59,14 +51,14 @@ paths:
             examples:
               example-1:
                 value:
-                     email: pU1Fd6adYs2U@ZvoPVCifhmtZlZwBwpRNAwbCx.szhh
-                     firstName: elit Lorem anim
-                     lastName: incididunt cupidatat qui in magna
-                     title: nisi
-                     phone: ad cillum tempor nulla enim
-                     mobilePhone: sed in fugiat
-                     accountId: nisi elit veniam ad
-                     ownerId: sint mollit pariatur dolore id
+                     email: LjNrr@LrrFgCyBnuLYB.jq
+                     firstName: do labore minim sed et
+                     lastName: culpa pariatur quis magna eu
+                     title: do consequat non
+                     phone: nostrud consequat dolore ea amet
+                     mobilePhone: adipisicing esse ullamco
+                     accountId: consequat quis dolore laborum tempor
+                     ownerId: do
       operationId: create-contact
       parameters:
       - name: x-vessel-access-token
@@ -111,25 +103,20 @@ paths:
                      type: string
                    ownerId:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: ut esse voluptate
-                     firstName: ea velit
-                     lastName: consequat non veniam do ea
-                     title: reprehenderit exercitation non mollit
-                     email: NNlws-I@A.sn
-                     phone: aliquip
-                     mobilePhone: velit dolore
-                     createdDate: '1988-03-25T23:51:31.0Z'
-                     lastModifiedDate: '1996-08-23T16:46:01.0Z'
-                     accountId: voluptate nulla occaecat
-                     ownerId: officia deserunt
-                     $native:
-                       in_9: fugiat ut ut
+                     id: proident amet aute
+                     firstName: enim proident
+                     lastName: aute nulla nisi
+                     title: dolore velit esse ipsum
+                     email: UYHWlhtmc5V-Bw@xRhixCoQDAvCPPMqLEqRjtz.idt
+                     phone: aliquip laboris Duis
+                     mobilePhone: in in
+                     createdDate: '1979-10-07T13:17:14.0Z'
+                     lastModifiedDate: '1948-11-29T05:09:02.0Z'
+                     accountId: do ex
+                     ownerId: Excepteur pariatur
       requestBody: 
         content:
           application/json:
@@ -141,7 +128,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: in labore consectetur adipisicing
+                     id: minim tempor Excepteur adipisicing
       operationId: find-contact
       parameters:
       - name: x-vessel-access-token
@@ -205,27 +192,22 @@ paths:
                          - OwnerId
                    totalSize:
                      type: number
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - title: officia occaecat enim
-                         phone: dolor aute
-                         email: Lhc2A6ULXJ@qeWI.pakp
-                         lastModifiedDate: '1956-09-27T16:45:16.0Z'
-                         firstName: ad
-                         ownerId: do labore aute
-                         lastName: quis id
-                         mobilePhone: laborum eiusmod adipisicing
-                         createdDate: '1957-07-25T17:57:35.0Z'
-                         accountId: sed irure
-                         id: eiusmod esse ea
-                     totalSize: 55112992.98453528
-                     $native:
-                       voluptate_4: sit Excepteur
+                       - mobilePhone: est
+                         lastName: do eu nisi sed
+                         title: cillum enim ex sint
+                         ownerId: Ut
+                         phone: dolor sit nostrud irure
+                         createdDate: '1950-02-25T16:34:16.0Z'
+                         id: ex nisi
+                         email: yKE4mgV@bixrK.oj
+                         lastModifiedDate: '2014-06-08T19:31:49.0Z'
+                         firstName: sed ut voluptate in
+                         accountId: commodo Lorem tempor reprehenderit pariatur
+                     totalSize: -40874731.60621861
       requestBody: 
         content:
           application/json:
@@ -237,7 +219,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: eu elit culpa
+                     cursor: consectetur in enim nulla occaecat
       operationId: list-contacts
       parameters:
       - name: x-vessel-access-token
@@ -282,26 +264,20 @@ paths:
                      type: string
                    ownerId:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: id consequat amet est
-                     firstName: voluptate dolor
-                     lastName: velit quis consequat
-                     title: ipsum nostrud labore
-                     email: iTsEy-5YYR88y7F@hhRoAQMnMOYQAeXEcCGAC.tdim
-                     phone: elit ea
-                     mobilePhone: eu adipisicing
-                     createdDate: '1997-10-09T21:43:19.0Z'
-                     lastModifiedDate: '1945-06-18T16:26:30.0Z'
-                     accountId: Ut non
-                     ownerId: tempor officia Ut amet ullamco
-                     $native:
-                       pariaturb: reprehenderit amet exercitation in
-                       elit_657: false
+                     id: anim
+                     firstName: commodo nisi ex
+                     lastName: veniam minim eiusmod in velit
+                     title: occaecat tempor sed
+                     email: 8fGmgOB3g3@WCdbTLhGhPvjNLbPE.iyo
+                     phone: Lorem do ut
+                     mobilePhone: aliqua labore dolore eiusmod
+                     createdDate: '1965-01-19T17:20:36.0Z'
+                     lastModifiedDate: '2008-09-11T07:16:49.0Z'
+                     accountId: officia adipisicing eiusmod
+                     ownerId: sint in deserunt sit voluptate
       requestBody: 
         content:
           application/json:
@@ -333,16 +309,16 @@ paths:
             examples:
               example-1:
                 value:
-                     id: culpa enim
+                     id: nostrud proident do aliqua
                      contact:
-                       title: irure
-                       accountId: eiusmod
-                       phone: in aliquip
-                       lastName: eu laboris in
-                       ownerId: irure sint
-                       email: xXiQdjWjHWkqqx@rO.yvfw
-                       firstName: proident ut irure
-                       mobilePhone: do
+                       lastName: minim sed
+                       firstName: in veniam voluptate Lorem adipisicing
+                       phone: ad labore do minim pariatur
+                       email: h-NsmggtDj@ydCskIbOHlwtzcEfgcjIVuLFJYcvD.rv
+                       title: quis veniam id exercitation
+                       accountId: quis occaecat labore Ut ea
+                       mobilePhone: quis sunt ea
+                       ownerId: exercitation sed nulla sint et
       operationId: update-contact
       parameters:
       - name: x-vessel-access-token
@@ -374,20 +350,14 @@ paths:
                      format: date-time
                    createdById:
                      type: string
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: cupidatat culpa occaecat dolor non
-                     name: irure in et aute
-                     createdDate: '1975-09-09T17:43:42.0Z'
-                     lastModifiedDate: '1984-03-18T15:20:54.0Z'
-                     createdById: incididunt culpa
-                     $native:
-                       est_620: mollit proident nisi pariatur labore
-                       labore_13: id ex qui mollit dolore
+                     id: consectetur dolor minim ea in
+                     name: ex sit ut qui officia
+                     createdDate: '1989-08-24T05:06:45.0Z'
+                     lastModifiedDate: '1963-07-03T11:25:18.0Z'
+                     createdById: culpa laborum Lorem anim
       requestBody: 
         content:
           application/json:
@@ -399,7 +369,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: fugiat incididunt et sint
+                     id: dolor commodo sint incididunt
       operationId: find-list-view
       parameters:
       - name: x-vessel-access-token
@@ -444,21 +414,16 @@ paths:
                          - CreatedById
                    totalSize:
                      type: number
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - createdById: velit Ut
-                         id: laboris proident et
-                         name: deserunt fugiat enim laborum
-                         lastModifiedDate: '1962-03-22T20:15:16.0Z'
-                         createdDate: '1974-01-30T14:33:40.0Z'
-                     totalSize: 47994563.29908526
-                     $native:
-                       elit313: 32754430.207341388
+                       - createdById: culpa proident
+                         lastModifiedDate: '1947-12-22T17:17:44.0Z'
+                         name: Lorem dolor eu Ut
+                         createdDate: '1992-06-23T04:42:21.0Z'
+                         id: do esse
+                     totalSize: 22160176.21787159
       requestBody: 
         content:
           application/json:
@@ -472,8 +437,8 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: ad Duis
-                     objectType: exercitation eiusmod ut
+                     cursor: consectetur
+                     objectType: pariatur in
       operationId: list-list-views
       parameters:
       - name: x-vessel-access-token
@@ -522,33 +487,18 @@ paths:
                          - columns
                    size:
                      type: number
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     developerName: sed cillum in sit fugiat
-                     done: true
-                     id: sunt labore sit
-                     label: in proident commodo
+                     developerName: cupidatat magna non mollit culpa
+                     done: false
+                     id: nulla reprehenderit ullamco consectetur adipisicing
+                     label: enim
                      records:
                        - columns:
-                           - fieldNameOrPath: mollit velit quis incididunt et
-                             value: dolor ex sed
-                             fugiatd70: 54571962.706092894
-                             commodo_e: false
-                         Duis_8fc: non aliqua velit exercitation id
-                         ut7a_: 13418173.43562752
-                         ut_ed9: -29048737.023125604
-                         ad2: false
-                         sed_a06: -73624767
-                     size: 66494225.074311465
-                     $native:
-                       nostrud_084: true
-                       idc2_: false
-                       pariatur__b1: 63687294
-                       adipisicing_18a: -98094109
+                           - fieldNameOrPath: proident quis tempor ipsum id
+                             value: ea aliqua ut in do
+                     size: 11093394.578945532
       requestBody: 
         content:
           application/json:
@@ -562,8 +512,8 @@ paths:
             examples:
               example-1:
                 value:
-                     id: nostrud ut eu sint
-                     objectType: laborum eu veniam
+                     id: et velit dolor proident
+                     objectType: exercitation
       operationId: find-list-view-results
       parameters:
       - name: x-vessel-access-token
@@ -612,22 +562,17 @@ paths:
                          - LastModifiedDate
                    totalSize:
                      type: number
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
                      records:
-                       - id: cillum id elit qui
-                         email: Jci9@fNPZdjRalDiScUBAlRXWcF.wgg
-                         createdDate: '2003-03-17T20:48:01.0Z'
-                         lastName: nulla
-                         firstName: ullamco laboris labore
-                         lastModifiedDate: '1975-05-26T06:47:15.0Z'
-                     totalSize: -61649034.52955506
-                     $native:
-                       do_a52: non culpa ex ullamco
+                       - email: HUp@WhLSrUPqDJLAqsEYiGAIcxFkwUoha.wtwr
+                         lastName: nostrud veniam consequat ad
+                         id: exercitation Ut
+                         lastModifiedDate: '1966-12-31T10:48:54.0Z'
+                         createdDate: '1951-04-12T18:32:40.0Z'
+                         firstName: labore ut
+                     totalSize: -31617201.024693653
       requestBody: 
         content:
           application/json:
@@ -639,7 +584,7 @@ paths:
             examples:
               example-1:
                 value:
-                     cursor: commodo
+                     cursor: elit Duis tempor
       operationId: list-users
       parameters:
       - name: x-vessel-access-token
@@ -674,24 +619,15 @@ paths:
                    lastModifiedDate:
                      type: string
                      format: date-time
-                   $native:
-                     type: object
-                     description: The raw response from the integration, unmodified.
               examples:
                 example-1:
                   value:
-                     id: in eu exercitation velit officia
-                     firstName: Lorem non dolore aute
-                     lastName: dolor laboris velit amet commodo
-                     email: 2i0WkYHU@emndDqToPVlD.qr
-                     createdDate: '1974-02-10T16:48:09.0Z'
-                     lastModifiedDate: '2012-07-25T19:55:25.0Z'
-                     $native:
-                       officiad: true
-                       eiusmodd8: 49993207
-                       enim3: 59583148
-                       dolor5: false
-                       dolore_fc: 44304034.20376837
+                     id: dolore dolor ex occaecat
+                     firstName: cillum labore Duis reprehenderit Ut
+                     lastName: commodo laboris do
+                     email: bvH@K.regs
+                     createdDate: '1990-05-03T09:31:29.0Z'
+                     lastModifiedDate: '1969-01-06T02:10:47.0Z'
       requestBody: 
         content:
           application/json:
@@ -703,7 +639,7 @@ paths:
             examples:
               example-1:
                 value:
-                     id: commodo
+                     id: sit ipsum Duis
       operationId: find-user
       parameters:
       - name: x-vessel-access-token
