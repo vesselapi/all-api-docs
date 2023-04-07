@@ -155,25 +155,6 @@
       "pages": ["pages/crm/webhooks"]
     },
     {
-      "group": "Link",
-      "pages": [
-        "pages/crm/link/create-link-token",
-        "pages/crm/link/exchange-tokens"
-      ]
-    },
-    {
-      "group": "Connection",
-      "pages": [
-        "pages/crm/connection/get-all-crm-integrations",
-        "pages/crm/connection/get-connection",
-        "pages/crm/connection/remove-connection",
-        "pages/crm/connection/get-all-connections",
-        "pages/crm/connection/create-webhook",
-        "pages/crm/connection/get-webhook",
-        "pages/crm/connection/remove-webhook"
-      ]
-    },
-    {
       "group": "Unified API",
       "pages": [
         {
@@ -308,6 +289,25 @@
     {
       "group": "Unified APIs",
       "pages": ["pages/unified/about"]
+    },
+    {
+      "group": "Link",
+      "pages": [
+        "pages/crm/link/create-link-token",
+        "pages/crm/link/exchange-tokens"
+      ]
+    },
+    {
+      "group": "Connection",
+      "pages": [
+        "pages/crm/connection/get-all-crm-integrations",
+        "pages/crm/connection/get-connection",
+        "pages/crm/connection/remove-connection",
+        "pages/crm/connection/get-all-connections",
+        "pages/crm/connection/create-webhook",
+        "pages/crm/connection/get-webhook",
+        "pages/crm/connection/remove-webhook"
+      ]
     },
     {
       "group": "Dialer API",
