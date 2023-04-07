@@ -4698,8 +4698,10 @@ paths:
                       - outreach
                   nativeOrgId:
                     type: string
+                    description: Supported in HubSpot, Salesforce, and Pipedrive
                   nativeUserId:
                     type: string
+                    description: Supported in HubSpot, Salesforce, and Pipedrive
                   nativeOrgURL:
                     type: string
                 required:
