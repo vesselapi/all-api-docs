@@ -4488,7 +4488,7 @@ paths:
                 example-1:
                   value:
                     calls:
-                      - id: v.email.3ab3a9562af957228c1019127e3c81e1
+                      - id: v.call.3ab3a9562af957228c1019127e3c81e1
                         nativeId: "23"
                         subject: BlueCross <> Dunder Mifflin
                         disposition: "ANSWERED"
@@ -4581,8 +4581,8 @@ paths:
               examples:
                 example-1:
                   value:
-                    emails:
-                      - id: v.email.3ab3a9562af957228c1019127e3c81e1
+                    calls:
+                      - id: v.call.3ab3a9562af957228c1019127e3c81e1
                         nativeId: "23"
                         subject: BlueCross <> Dunder Mifflin
                         disposition: "ANSWERED"
@@ -4627,8 +4627,8 @@ paths:
               examples:
                 example-1:
                   value:
-                    email:
-                        id: v.email.3ab3a9562af957228c1019127e3c81e1
+                    call:
+                        id: v.call.3ab3a9562af957228c1019127e3c81e1
                         nativeId: "23"
                         subject: BlueCross <> Dunder Mifflin
                         disposition: "ANSWERED"
@@ -4755,7 +4755,7 @@ paths:
                   type: string
                 id:
                   type: string
-                email:
+                call:
                   $ref: "#/components/schemas/CallUpdate"
               required:
                 - accessToken
@@ -4767,7 +4767,6 @@ paths:
                   accessToken: string
                   id: string
                   call:
-                      id: v.email.3ab3a9562af957228c1019127e3c81e1
                       nativeId: "23"
                       subject: BlueCross <> Dunder Mifflin
                       disposition: "ANSWERED"
@@ -4851,8 +4850,8 @@ paths:
               examples:
                 example-1:
                   value:
-                    email:
-                        id: v.email.3ab3a9562af957228c1019127e3c81e1
+                    call:
+                        id: v.call.3ab3a9562af957228c1019127e3c81e1
                         nativeId: "23"
                         subject: BlueCross <> Dunder Mifflin
                         disposition: "ANSWERED"
@@ -4884,7 +4883,7 @@ paths:
             type: string
           in: query
           name: ids
-          description: Comma separated list of Email Id's.
+          description: Comma separated list of Call Id's.
         - schema:
             type: boolean
           in: query

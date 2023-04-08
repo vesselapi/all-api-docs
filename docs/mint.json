@@ -253,6 +253,18 @@
           ]
         },
         {
+          "group": "Call",
+          "pages": [
+            "pages/crm/api-reference/get-all-calls",
+            "pages/crm/api-reference/get-call",
+            "pages/crm/api-reference/create-call",
+            "pages/crm/api-reference/update-call",
+            "pages/crm/api-reference/get-call-details",
+            "pages/crm/api-reference/get-batch-call",
+            "pages/crm/api-reference/search-calls"
+          ]
+        },
+        {
           "group": "Event",
           "pages": [
             "pages/crm/api-reference/get-all-events",
