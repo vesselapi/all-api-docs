@@ -1,0 +1,25 @@
+---
+openapi: "PATCH /crm/call"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request PATCH \
+  --url https://api.vessel.land/crm/call \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "id": "string",
+  "call": {
+    "ownerUserId": "v.user.56f653659ea9524b9e0fb0ba67e6f8a0"
+    "disposition": "ANSWERED"
+    "additional": {}
+  }
+}'
+```
+
+</RequestExample>
+
+Supported for HubSpot & Salesforce

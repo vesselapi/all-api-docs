@@ -1,0 +1,22 @@
+---
+openapi: "POST /crm/calls/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/calls/search \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "filters": {
+    "subject": {
+      "equals": "string"
+    }
+  }
+```
+
+</RequestExample>
+Supported for HubSpot & Salesforce

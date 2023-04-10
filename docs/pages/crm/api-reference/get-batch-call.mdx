@@ -1,0 +1,20 @@
+---
+openapi: "POST /crm/call/batch"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/call/batch \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
+   --data '{
+    "accessToken": "string",
+    "ids": ["v.call.abc", "v.call.xyz"]
+  }'
+```
+
+</RequestExample>
+
+Supported for HubSpot & Salesforce
