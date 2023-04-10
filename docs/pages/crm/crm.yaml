@@ -4767,11 +4767,8 @@ paths:
                   accessToken: string
                   id: string
                   call:
-                      nativeId: "23"
-                      subject: BlueCross <> Dunder Mifflin
+                      ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                       disposition: "ANSWERED"
-                      direction: "INBOUND"
-                      description: "Call from Greg"
                       additional: {}
       description: |-
         Update an Call by Id.
@@ -6592,18 +6589,8 @@ components:
       title: CallCreate
       type: object
       properties:
-        subject:
-          type: string
         disposition:
           type: string
-        direction:
-          type: string
-          description: If the call was inbound, outbound, etc
-        description:
-          type: string
-        date:
-          type: string
-          description: The date the call occurred
         ownerUserId:
           type: string
     EmailCreate:

@@ -6,13 +6,13 @@ openapi: "POST /link/token"
 
 ```bash Shell / cURL
 curl --request POST \
-  --url https://api.vessel.land/link/token \
+  --url https://api.vessel.dev/link/token \
   --header 'Content-Type: application/json' \
   --header 'vessel-api-token: '
 ```
 
 ```js JavaScript Fetch
-fetch("https://api.vessel.land/link/token", {
+fetch("https://api.vessel.dev/link/token", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ fetch("https://api.vessel.land/link/token", {
 ```python Python
 import http.client
 
-conn = http.client.HTTPSConnection("api.vessel.land")
+conn = http.client.HTTPSConnection("api.vessel.dev")
 
 payload = ""
 

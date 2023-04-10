@@ -84,7 +84,7 @@ You can easily establish webhooks when an account is linked by immediately POST-
 app.post('crm/link-account', async (req, res) => {
   const { accessToken } = await exchangeForAccessToken(req.body.publicToken)
   ...
-  const { webhook } = await api.post('https://api.vessel.land/connection/webhook', {
+  const { webhook } = await api.post('https://api.vessel.dev/connection/webhook', {
     headers: {
       "vessel-api-token": API_TOKEN
     },

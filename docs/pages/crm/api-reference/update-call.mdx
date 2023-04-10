@@ -6,18 +6,15 @@ openapi: "PATCH /crm/call"
 
 ```bash Request
 curl --request PATCH \
-  --url https://api.vessel.land/crm/call \
+  --url https://api.vessel.dev/crm/call \
   --header 'Content-Type: application/json' \
   --header 'vessel-api-token: ' \
   --data '{
   "accessToken": "string",
   "id": "string",
   "call": {
-    "nativeId": "23"
-    "subject": "BlueCross <> Dunder Mifflin"
+    "ownerUserId": "v.user.56f653659ea9524b9e0fb0ba67e6f8a0"
     "disposition": "ANSWERED"
-    "direction": "INBOUND"
-    "description": "Call from Greg"
     "additional": {}
   }
 }'
