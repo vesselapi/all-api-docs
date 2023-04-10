@@ -6418,7 +6418,7 @@ components:
           type: string
         disposition:
           type: string
-          description: See /details endpoint for possible values.
+          description: Possibly an enum, See /details endpoint for values.
         direction:
           type: string
           enum:
