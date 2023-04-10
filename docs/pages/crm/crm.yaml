@@ -6427,6 +6427,7 @@ components:
           type: string
         disposition:
           type: string
+          description: See /details endpoint for possible values.
         direction:
           type: string
           enum:
@@ -6457,15 +6458,7 @@ components:
               type: array
               items:
                 type: string
-            leadIds:
-              type: array
-              items:
-                type: string
             contactIds:
-              type: array
-              items:
-                type: string
-            dealIds:
               type: array
               items:
                 type: string
@@ -6571,6 +6564,7 @@ components:
           type: string
         disposition:
           type: string
+          description: See /details endpoint for possible values.
         direction:
           type: string
           enum:
@@ -6591,14 +6585,20 @@ components:
           type: string
         ownerUserId:
           type: string
+      required:
+        - disposition
+        - direction
     CallUpdate:
       title: CallCreate
       type: object
       properties:
         disposition:
           type: string
+          description: See /details endpoint for possible values.
         ownerUserId:
           type: string
+      required:
+        - disposition
     EmailCreate:
       title: EmailCreate
       type: object
