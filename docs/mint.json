@@ -28,7 +28,7 @@
   },
   "api": {
     "baseUrl": "https://app.vessel.dev",
-    "playground": { "mode": "hidden" },
+    "playground": { "mode": "hide" },
     "auth": {
       "method": "key",
       "name": "x-vessel-api-token"
