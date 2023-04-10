@@ -4500,12 +4500,8 @@ paths:
                         associations:
                           accountIds:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -4594,12 +4590,8 @@ paths:
                         associations:
                           accountIds:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -4640,12 +4632,8 @@ paths:
                         associations:
                           accountIds:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-one-crm-call
@@ -4827,8 +4815,8 @@ paths:
           name: allFields
           description: "Returns details about native fields."
   /crm/call/batch:
-    get:
-      summary: Get Batch Calls
+    post:
+      summary: Batch Calls
       responses:
         "200":
           description: OK
@@ -4860,32 +4848,35 @@ paths:
                         associations:
                           accountIds:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-call
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: accessToken
-          required: true
-          description: The token for the customer's CRM account. This was generated when they connected their account.
-        - schema:
-            type: string
-          in: query
-          name: ids
-          description: Comma separated list of Call Id's.
-        - schema:
-            type: boolean
-          in: query
-          name: allFields
-          description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  description: The token for the customer's CRM account. This was generated when they connected their account.
+                ids:
+                  type: array
+                  items: string
+                  description: List of call Ids.
+                allFields:
+                  type: boolean
+                  description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+              required:
+                - accessToken
+                - ids
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  ids: ['v.call.abc', 'v.call.xyz']
       description: Retrieve Call by a set of Id's
     parameters: []
   /crm/lists:
