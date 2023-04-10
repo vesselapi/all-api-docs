@@ -4500,8 +4500,12 @@ paths:
                         associations:
                           accountIds:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -4592,6 +4596,10 @@ paths:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -4634,6 +4642,10 @@ paths:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-one-crm-call
@@ -4850,6 +4862,10 @@ paths:
                             - v.account.0dcb45e051315a6ea63b0f16e73689d9
                           contactIds:
                             - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                          leadIds:
+                            - v.lead.d08f345ace24509e911a0ea8e3d2203c
+                          dealIds:
+                            - v.deal.497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-call

@@ -365,6 +365,7 @@
           "pages": [
             "pages/unified/marketing-automation/api-reference/get-all-contacts",
             "pages/unified/marketing-automation/api-reference/get-one-contact",
+            "pages/unified/marketing-automation/api-reference/put-contact",
             "pages/unified/marketing-automation/api-reference/post-contact"
           ]
         },
@@ -373,12 +374,6 @@
           "pages": [
             "pages/unified/marketing-automation/api-reference/get-all-lists",
             "pages/unified/marketing-automation/api-reference/get-one-list"
-          ]
-        },
-        {
-          "group": "Update",
-          "pages": [
-            "pages/unified/marketing-automation/api-reference/put-contact"
           ]
         },
         "pages/unified/marketing-automation/api-reference/passthrough"
