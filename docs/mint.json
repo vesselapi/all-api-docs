@@ -962,6 +962,13 @@
           "group": "Mailbox",
           "pages": ["pages/old-engagement/api-reference/get-all-mailboxes"]
         },
+        {
+          "group": "Custom Field",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-contact-customFields",
+            "pages/old-engagement/api-reference/create-contact-customField"
+          ]
+        },
         "pages/old-engagement/api-reference/authenticated-passthrough"
       ]
     },
