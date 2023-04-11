@@ -1,0 +1,23 @@
+---
+openapi: "POST /engagement/contact/custom-field"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/engagement/contact/custom-field \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "customField": {
+    "key": "customField1",
+  }
+}'
+```
+
+</RequestExample>
+
+**Caveats**  
+Custom Fields are statically defined in Outreach, use `GET /engagement/contact/custom-fields` to get a list of pre-defined custom fields.

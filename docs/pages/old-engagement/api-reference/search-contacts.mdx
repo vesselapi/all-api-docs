@@ -1,0 +1,24 @@
+---
+openapi: "POST /engagement/contacts/search"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/engagement/contacts/search \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "filters": {
+    "emails": {
+      "address": {
+        "equals": "fake@email.com"
+      }
+    }
+  }
+}'
+```
+
+</RequestExample>

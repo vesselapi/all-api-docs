@@ -72,9 +72,10 @@
     },
     {
       "name": "Engagement APIs",
-      "icon": "database",
+      "icon": "paper-plane",
       "color": "#2B2B2F",
       "iconType": "duotone",
+      "isDefaultHidden": true,
       "url": "pages/old-engagement"
     },
     {
@@ -874,6 +875,93 @@
           "pages": ["pages/actions/teams/api-reference/list-teams"]
         },
         "pages/actions/teams/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Engagement API",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-users",
+            "pages/old-engagement/api-reference/get-user"
+          ]
+        },
+        {
+          "group": "Contact",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-contacts",
+            "pages/old-engagement/api-reference/get-contact",
+            "pages/old-engagement/api-reference/create-contact",
+            "pages/old-engagement/api-reference/update-contact",
+            "pages/old-engagement/api-reference/search-contacts",
+            "pages/old-engagement/api-reference/create-contact-customField",
+            "pages/old-engagement/api-reference/get-all-contact-customFields"
+          ]
+        },
+        {
+          "group": "Account",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-accounts",
+            "pages/old-engagement/api-reference/get-account",
+            "pages/old-engagement/api-reference/create-account",
+            "pages/old-engagement/api-reference/update-account",
+            "pages/old-engagement/api-reference/search-accounts"
+          ]
+        },
+        {
+          "group": "Action",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-actions",
+            "pages/old-engagement/api-reference/get-action",
+            "pages/old-engagement/api-reference/complete-action"
+          ]
+        },
+        {
+          "group": "Task",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-tasks",
+            "pages/old-engagement/api-reference/get-task",
+            "pages/old-engagement/api-reference/create-task",
+            "pages/old-engagement/api-reference/update-task",
+            "pages/old-engagement/api-reference/complete-task"
+          ]
+        },
+        {
+          "group": "Call",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-calls",
+            "pages/old-engagement/api-reference/get-call"
+          ]
+        },
+        {
+          "group": "Call Disposition",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-call-dispositions"
+          ]
+        },
+        {
+          "group": "Email",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-emails",
+            "pages/old-engagement/api-reference/get-email",
+            "pages/old-engagement/api-reference/search-emails"
+          ]
+        },
+        {
+          "group": "Sequence",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-sequences",
+            "pages/old-engagement/api-reference/start-sequence",
+            "pages/old-engagement/api-reference/create-sequence",
+            "pages/old-engagement/api-reference/create-sequence-step"
+          ]
+        },
+        {
+          "group": "Mailbox",
+          "pages": ["pages/old-engagement/api-reference/get-all-mailboxes"]
+        },
+        "pages/old-engagement/api-reference/authenticated-passthrough"
       ]
     }
   ]
