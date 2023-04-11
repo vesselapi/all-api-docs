@@ -28,7 +28,7 @@
   },
   "api": {
     "baseUrl": "https://app.vessel.dev",
-    "playground": { "mode": "hide" },
+    "playground": { "mode": "simple" },
     "auth": {
       "method": "key",
       "name": "x-vessel-api-token"
@@ -69,6 +69,13 @@
       "color": "#2B2B2F",
       "iconType": "duotone",
       "url": "pages/crm"
+    },
+    {
+      "name": "Engagement APIs",
+      "icon": "database",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "url": "pages/old-engagement"
     },
     {
       "name": "Unified APIs",
