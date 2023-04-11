@@ -1,0 +1,59 @@
+---
+openapi: "GET /connection/engagement/integrations"
+---
+
+<RequestExample>
+
+```bash Shell / cURL
+curl --request GET \
+  --url https://api.vessel.land/connection/engagement/integrations \
+  --header 'Content-Type: application/json'
+```
+
+```js JavaScript Fetch
+fetch("https://api.vessel.land/connection/engagement/integrations", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+```python Python
+import http.client
+
+conn = http.client.HTTPSConnection("api.vessel.land")
+
+headers = { 'Content-Type': "application/json" }
+
+conn.request("GET", "/connection/engagement/integrations", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response Example
+{
+  "integrations": [
+    {
+      "integrationId": "outreach",
+      "name": "Outreach",
+      "iconURL": "string"
+    }
+  ]
+}
+```
+
+</ResponseExample>

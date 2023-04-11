@@ -4,6 +4,7 @@
   "openapi": [
     "pages/home/home.yaml",
     "pages/crm/crm.yaml",
+    "pages/old-engagement/old-engagement.yaml",
     "pages/unified/chat/chat.yaml",
     "pages/unified/marketing-automation/marketing-automation.yaml",
     "pages/unified/engagement/engagement.yaml",
@@ -878,7 +879,7 @@
       ]
     },
     {
-      "group": "Engagement API",
+      "group": "Unified API",
       "pages": [
         {
           "group": "User",
@@ -962,6 +963,25 @@
           "pages": ["pages/old-engagement/api-reference/get-all-mailboxes"]
         },
         "pages/old-engagement/api-reference/authenticated-passthrough"
+      ]
+    },
+    {
+      "group": "Link",
+      "pages": [
+        "pages/old-engagement/link/create-link-token",
+        "pages/old-engagement/link/exchange-tokens"
+      ]
+    },
+    {
+      "group": "Connection",
+      "pages": [
+        "pages/old-engagement/connection/get-all-engagement-integrations",
+        "pages/old-engagement/connection/get-connection",
+        "pages/old-engagement/connection/remove-connection",
+        "pages/old-engagement/connection/get-all-connections",
+        "pages/old-engagement/connection/create-webhook",
+        "pages/old-engagement/connection/get-webhook",
+        "pages/old-engagement/connection/remove-webhook"
       ]
     }
   ]
