@@ -1205,13 +1205,13 @@ paths:
                     name: "Email Sequence"
                     shareType: "team"
       operationId: post-sequences
-      description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequences/steps/create endpoint.
+      description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequence-steps/batch-create endpoint.
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/unification/engagement/sequences/steps/create:
+  /api/unification/engagement/sequence-steps/batch-create:
     post:
-      summary: Create Sequence Step
+      summary: Batch Create Sequence Steps
       responses:
         "200":
           description: OK

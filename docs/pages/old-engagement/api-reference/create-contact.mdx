@@ -1,0 +1,37 @@
+---
+openapi: "POST /engagement/contact"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/engagement/contact \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "contact": {
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "jobTitle": "Director of Operations",
+    "address": {
+      "line1": "100 Blue Dr",
+      "line2": "Suite 100",
+      "city": "Scranton",
+      "state": "Pennsylvania",
+      "postalCode": "281332",
+      "country": "USA"
+    },
+    "emails": [{
+      "address": "fake@email.com",
+      "isPrimary": true,
+      "type": "work"
+    }],
+    "customFields": {},
+    "additional": {},
+  }
+}'
+```
+
+</RequestExample>

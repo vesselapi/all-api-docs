@@ -4,6 +4,7 @@
   "openapi": [
     "pages/home/home.yaml",
     "pages/crm/crm.yaml",
+    "pages/old-engagement/old-engagement.yaml",
     "pages/unified/chat/chat.yaml",
     "pages/unified/marketing-automation/marketing-automation.yaml",
     "pages/unified/engagement/engagement.yaml",
@@ -28,7 +29,7 @@
   },
   "api": {
     "baseUrl": "https://app.vessel.dev",
-    "playground": { "mode": "hide" },
+    "playground": { "mode": "simple" },
     "auth": {
       "method": "key",
       "name": "x-vessel-api-token"
@@ -69,6 +70,14 @@
       "color": "#2B2B2F",
       "iconType": "duotone",
       "url": "pages/crm"
+    },
+    {
+      "name": "Engagement APIs",
+      "icon": "paper-plane",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "isDefaultHidden": true,
+      "url": "pages/old-engagement"
     },
     {
       "name": "Unified APIs",
@@ -867,6 +876,119 @@
           "pages": ["pages/actions/teams/api-reference/list-teams"]
         },
         "pages/actions/teams/api-reference/passthrough"
+      ]
+    },
+    {
+      "group": "Unified API",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-users",
+            "pages/old-engagement/api-reference/get-user"
+          ]
+        },
+        {
+          "group": "Contact",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-contacts",
+            "pages/old-engagement/api-reference/get-contact",
+            "pages/old-engagement/api-reference/create-contact",
+            "pages/old-engagement/api-reference/update-contact",
+            "pages/old-engagement/api-reference/search-contacts",
+            "pages/old-engagement/api-reference/create-contact-customField",
+            "pages/old-engagement/api-reference/get-all-contact-customFields"
+          ]
+        },
+        {
+          "group": "Account",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-accounts",
+            "pages/old-engagement/api-reference/get-account",
+            "pages/old-engagement/api-reference/create-account",
+            "pages/old-engagement/api-reference/update-account",
+            "pages/old-engagement/api-reference/search-accounts"
+          ]
+        },
+        {
+          "group": "Action",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-actions",
+            "pages/old-engagement/api-reference/get-action",
+            "pages/old-engagement/api-reference/complete-action"
+          ]
+        },
+        {
+          "group": "Task",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-tasks",
+            "pages/old-engagement/api-reference/get-task",
+            "pages/old-engagement/api-reference/create-task",
+            "pages/old-engagement/api-reference/update-task",
+            "pages/old-engagement/api-reference/complete-task"
+          ]
+        },
+        {
+          "group": "Call",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-calls",
+            "pages/old-engagement/api-reference/get-call"
+          ]
+        },
+        {
+          "group": "Call Disposition",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-call-dispositions"
+          ]
+        },
+        {
+          "group": "Email",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-emails",
+            "pages/old-engagement/api-reference/get-email",
+            "pages/old-engagement/api-reference/search-emails"
+          ]
+        },
+        {
+          "group": "Sequence",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-sequences",
+            "pages/old-engagement/api-reference/start-sequence",
+            "pages/old-engagement/api-reference/create-sequence",
+            "pages/old-engagement/api-reference/create-sequence-step"
+          ]
+        },
+        {
+          "group": "Mailbox",
+          "pages": ["pages/old-engagement/api-reference/get-all-mailboxes"]
+        },
+        {
+          "group": "Custom Field",
+          "pages": [
+            "pages/old-engagement/api-reference/get-all-contact-customFields",
+            "pages/old-engagement/api-reference/create-contact-customField"
+          ]
+        },
+        "pages/old-engagement/api-reference/authenticated-passthrough"
+      ]
+    },
+    {
+      "group": "Link",
+      "pages": [
+        "pages/old-engagement/link/create-link-token",
+        "pages/old-engagement/link/exchange-tokens"
+      ]
+    },
+    {
+      "group": "Connection",
+      "pages": [
+        "pages/old-engagement/connection/get-all-engagement-integrations",
+        "pages/old-engagement/connection/get-connection",
+        "pages/old-engagement/connection/remove-connection",
+        "pages/old-engagement/connection/get-all-connections",
+        "pages/old-engagement/connection/create-webhook",
+        "pages/old-engagement/connection/get-webhook",
+        "pages/old-engagement/connection/remove-webhook"
       ]
     }
   ]
