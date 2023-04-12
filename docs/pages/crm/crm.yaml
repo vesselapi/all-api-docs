@@ -4968,6 +4968,8 @@ paths:
                 properties:
                   list:
                     $ref: "#/components/schemas/ListWithAssociations"
+                  nextPageCursor:
+                    type: string
       operationId: get-one-crm-list
       parameters:
         - schema:
@@ -4990,6 +4992,11 @@ paths:
           in: query
           name: id
           required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+          description: Provide the `nextPageCursor` value from the previous request to retrieve the next set of ids
         - schema:
             type: boolean
           in: query
