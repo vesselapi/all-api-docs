@@ -4968,6 +4968,22 @@ paths:
                 properties:
                   list:
                     $ref: "#/components/schemas/ListWithAssociations"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    list:
+                      - id: 006b4db16b6b50c981a174b02753c390
+                        nativeId: "34"
+                        name: California Leads
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          - contactIds:
+                            - v.contact.e5f32d4fd2115220bd20a2ccf81210ec
+                            - v.contact.2d20a2ccf81210ecddf32d4fd2115221
+                    nextPageCursor: string
       operationId: get-one-crm-list
       parameters:
         - schema:
@@ -4990,6 +5006,11 @@ paths:
           in: query
           name: id
           required: true
+        - schema:
+            type: string
+          in: query
+          name: cursor
+          description: Provide the `nextPageCursor` value from the previous request to retrieve the next set of ids
         - schema:
             type: boolean
           in: query
