@@ -6516,6 +6516,10 @@ components:
           type: array
           items:
             type: string
+        mode:
+          type: string
+          examples:
+            - insensitive
     BooleanFilter:
       type: object
       properties:
