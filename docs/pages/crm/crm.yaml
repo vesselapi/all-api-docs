@@ -6518,7 +6518,7 @@ components:
             type: string
         mode:
           type: string
-          examples:
+          enum:
             - insensitive
     BooleanFilter:
       type: object
