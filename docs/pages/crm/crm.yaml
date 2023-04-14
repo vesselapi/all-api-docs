@@ -5668,7 +5668,6 @@ components:
         - id
         - nativeId
         - name
-        - stage
         - closeDate
         - createdTime
         - modifiedTime
