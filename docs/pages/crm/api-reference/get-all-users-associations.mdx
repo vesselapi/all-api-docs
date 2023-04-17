@@ -1,0 +1,53 @@
+---
+openapi: "POST /crm/users/associations"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/users/associations \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
+  --data '{
+    "accessToken": "string",
+    "objectType": "account",
+    "ids": [
+      "v.user.56f653659ea9524b9e0fb0ba67e6f8a0",
+      "v.user.79d154aa0c7a571295a157369d448e65",
+    ]
+  }'
+```
+
+</RequestExample>
+
+### Response
+
+The response shape depends on the `objectType` parameter.
+For example, if `objectType` is `contact`, the response will be
+
+```
+{
+  "contacts": [
+    {
+      "id": "v.contact.56f653659ea9524b9e0fb0ba67e6f8a0",
+      "nativeId": "23",
+      "email": "tom@bluecross.com",
+      "firstName": "Tom",
+      "lastName": "Smith",
+      ...
+    },
+    ...
+  ],
+  "nextPageCursor": "string"
+}
+```
+
+See the documentation for the other object types:
+[accounts](https://docs.vessel.land/api-reference/crm/get-all-accounts#response),
+[contacts](https://docs.vessel.land/api-reference/crm/get-all-contacts#response),
+[deals](https://docs.vessel.land/api-reference/crm/get-all-deals#response),
+[notes](https://docs.vessel.land/api-reference/crm/get-all-notes#response),
+[tasks](https://docs.vessel.land/api-reference/crm/get-all-tasks#response),
+[events](https://docs.vessel.land/api-reference/crm/get-all-events#response),
+[emails](https://docs.vessel.land/api-reference/crm/get-all-emails#response)
