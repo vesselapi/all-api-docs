@@ -2792,6 +2792,9 @@ components:
         phone:
           type: string
           description: The primary phone number.
+        locality: 
+          type: string
+          description: The locality of the account (e.g. "Scranton", "New York City", etc.)
         address:
           $ref: "#/components/schemas/EngAddress"
         additional:
@@ -2834,6 +2837,9 @@ components:
         phone:
           type: string
           description: The primary phone number.
+        locality:
+          type: string
+          description: The locality of the account (e.g. "Scranton", "New York City", etc.)
         address:
           $ref: "#/components/schemas/EngAddress"
         additional:
