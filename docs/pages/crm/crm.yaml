@@ -74,7 +74,7 @@ paths:
               properties:
                 objectType:
                   type: string
-                  enum: [account, contact, deal, note, email, event, task]
+                  enum: [account, contact, deal, note, email, event, task, call]
                 ids:
                   type: array
                   items:
