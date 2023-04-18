@@ -37,19 +37,6 @@ paths:
                         email: micheal@dundermifflin.com
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          taskIds:
-                            - v.task.2322707bbc41577d9806400e2daa25de
-                          noteIds:
-                            - v.note.006b4db16b6b50c981a174b02753c390
-                          eventIds:
-                            - v.event.0000d2e83d6c5d52a61f2fb860666477
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
-                          accountIds:
-                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          emailIds:
-                            - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
                     nextPageCursor: string
       operationId: get-all-crm-users
@@ -76,6 +63,28 @@ paths:
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
       description: Retrieve all Users
     parameters: []
+  /crm/users/associations:
+    post:
+      summary: Associations for Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                objectType:
+                  type: string
+                  enum: [account, contact, deal, note, email, event, task, call]
+                ids:
+                  type: array
+                  items:
+                    type: string
+                accessToken:
+                  type: string
+                cursor:
+                  type: string
+      operationId: get-all-crm-users-associations
+      description: Associations for given User Ids
   /crm/users/search:
     post:
       summary: Search Users
@@ -130,19 +139,6 @@ paths:
                         email: micheal@dundermifflin.com
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          taskIds:
-                            - v.task.2322707bbc41577d9806400e2daa25de
-                          noteIds:
-                            - v.note.006b4db16b6b50c981a174b02753c390
-                          eventIds:
-                            - v.event.0000d2e83d6c5d52a61f2fb860666477
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
-                          accountIds:
-                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          emailIds:
-                            - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
                     nextPageCursor: string
       operationId: search-crm-users
@@ -179,19 +175,6 @@ paths:
                       email: micheal@dundermifflin.com
                       createdTime: "2019-08-24T14:15:22Z"
                       modifiedTime: "2019-08-24T14:15:22Z"
-                      associations:
-                        taskIds:
-                          - v.task.2322707bbc41577d9806400e2daa25de
-                        noteIds:
-                          - v.note.006b4db16b6b50c981a174b02753c390
-                        eventIds:
-                          - v.event.0000d2e83d6c5d52a61f2fb860666477
-                        dealIds:
-                          - v.deal.497fb529e6805351b5dc8057c74a4a52
-                        accountIds:
-                          - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                        emailIds:
-                          - v.email.3ab3a9562af957228c1019127e3c81e1
                       additional: {}
       operationId: get-one-crm-user
       parameters:
@@ -299,19 +282,6 @@ paths:
                         email: micheal@dundermifflin.com
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          taskIds:
-                            - v.task.2322707bbc41577d9806400e2daa25de
-                          noteIds:
-                            - v.note.006b4db16b6b50c981a174b02753c390
-                          eventIds:
-                            - v.event.0000d2e83d6c5d52a61f2fb860666477
-                          dealIds:
-                            - v.deal.497fb529e6805351b5dc8057c74a4a52
-                          accountIds:
-                            - v.account.0dcb45e051315a6ea63b0f16e73689d9
-                          emailIds:
-                            - v.email.3ab3a9562af957228c1019127e3c81e1
                         additional: {}
       operationId: get-batch-crm-user
       parameters:
@@ -5362,17 +5332,6 @@ components:
           email: micheal@dundermifflin.com
           createdTime: "2019-08-24T14:15:22Z"
           modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            taskIds:
-              - v.task.2322707bbc41577d9806400e2daa25de
-            noteIds:
-              - v.note.006b4db16b6b50c981a174b02753c390
-            eventIds:
-              - v.event.0000d2e83d6c5d52a61f2fb860666477
-            dealIds:
-              - v.deal.497fb529e6805351b5dc8057c74a4a52
-            accountIds:
-              - v.account.0dcb45e051315a6ea63b0f16e73689d9
           additional: {}
       properties:
         id:
@@ -5394,35 +5353,6 @@ components:
         modifiedTime:
           type: string
           description: The timestamp the user was last modified
-        associations:
-          type: object
-          required:
-            - taskIds
-            - noteIds
-            - eventIds
-            - dealIds
-            - accountIds
-          properties:
-            taskIds:
-              type: array
-              items:
-                type: string
-            noteIds:
-              type: array
-              items:
-                type: string
-            eventIds:
-              type: array
-              items:
-                type: string
-            dealIds:
-              type: array
-              items:
-                type: string
-            accountIds:
-              type: array
-              items:
-                type: string
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
