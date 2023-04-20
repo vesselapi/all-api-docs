@@ -1,0 +1,18 @@
+---
+title: "Error FAQ"
+description: "FAQ for common errors you might encounter."
+---
+
+## "Maximum number of connections reached for development account"
+
+**Problem:**
+Every Vessel customer is issued two API keys: A development API Key and a production API Key.
+Development API keys are intended for testing and development purposes only and are allowed to make up to 5 connections.
+If you encounter this error, you've exceeded the maximum number of allowed connections for your development API key.
+
+**Solution:**
+To remedy this problem, you can delete the development connections you're no longer using by following these steps:
+
+1. List off all connections for your development API key by making an API call to [connection/connections](pages/crm/connection/get-all-connections) using your development API key.
+2. Find the `connectionId` of the connection you want to delete.
+3. Call DELETE [connection/connection](pages/crm/connection/remove-connection) with that `connectionId`.
