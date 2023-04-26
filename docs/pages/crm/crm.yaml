@@ -6551,7 +6551,7 @@ components:
           type: string
         date:
           type: string
-          description: The date the call occurred
+          description: ISO Formatted date for when the call occurred
         contactIds:
           type: array
           description: The participants involved in this call. If this is an inbound call, this is the contacts that called, if this is an outbound call, this is the contacts that were called.
@@ -6564,8 +6564,9 @@ components:
       required:
         - disposition
         - direction
+        - date
     CallUpdate:
-      title: CallCreate
+      title: CallUpdate
       type: object
       properties:
         disposition:
@@ -6844,6 +6845,7 @@ components:
           type: string
         dueDate:
           type: string
+          description: ISO Formatted Date for the due date of the task
         ownerUserId:
           type: string
           description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
