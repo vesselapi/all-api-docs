@@ -461,6 +461,8 @@ paths:
                             - v.attendee.f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -518,6 +520,8 @@ paths:
                           - v.attendee.f63c1bd7215f5150b332d31d9509752f
                         emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                       additional: {}
       operationId: get-one-crm-contact
@@ -751,6 +755,8 @@ paths:
                             - v.attendee.f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                         additional: {}
       operationId: get-batch-crm-contact
       parameters:
@@ -821,6 +827,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -930,6 +938,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -984,7 +994,9 @@ paths:
                         eventIds:
                           - v.event.0000d2e83d6c5d52a61f2fb860666477
                         emailIds:
-                            - v.email.3ab3a9562af957228c1019127e3c81e1
+                          - v.email.3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - v.call.1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                       additional: {}
       operationId: get-one-crm-deal
@@ -1222,6 +1234,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-deal
@@ -1300,6 +1314,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -1425,6 +1441,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
                     nextPageCursor: string
@@ -1487,6 +1505,8 @@ paths:
                           - v.event.0000d2e83d6c5d52a61f2fb860666477
                         emailIds:
                           - v.email.3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - v.call.1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                       additional: {}
       operationId: get-one-crm-account
@@ -1741,6 +1761,8 @@ paths:
                             - v.event.0000d2e83d6c5d52a61f2fb860666477
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
                         additional: {}
       operationId: get-batch-crm-account
@@ -1813,6 +1835,8 @@ paths:
                             - v.attendee.f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                         additional: {}
                     nextPageCursor: string
       operationId: get-all-crm-leads
@@ -1922,6 +1946,8 @@ paths:
                             - v.attendee.f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                         additional: {}
                     nextPageCursor: string
       operationId: search-crm-leads
@@ -1978,6 +2004,8 @@ paths:
                           - v.attendee.f63c1bd7215f5150b332d31d9509752f
                         emailIds:
                           - v.email.3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - v.call.1222707bbc415ee4806400e2daa25ffa
                       additional: {}
       operationId: get-one-crm-lead
       description: Retrieve a single Lead by Id
@@ -2250,6 +2278,8 @@ paths:
                             - v.attendee.f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - v.email.3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - v.call.1222707bbc415ee4806400e2daa25ffa
                         additional: {}
       operationId: get-batch-crm-lead
       parameters:
@@ -5394,6 +5424,10 @@ components:
               - v.event.0000d2e83d6c5d52a61f2fb860666477
             eventAttendeeIds:
               - v.attendee.f63c1bd7215f5150b332d31d9509752f
+            emailIds:
+              - v.email.3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - v.call.1222707bbc415ee4806400e2daa25ffa
             ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       description: "Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)"
@@ -5435,6 +5469,8 @@ components:
             - taskIds
             - eventIds
             - eventAttendeeIds
+            - emailIds
+            - callIds
             - ownerUserId
           properties:
             accountIds:
@@ -5462,6 +5498,14 @@ components:
               items:
                 type: string
             eventAttendeeIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
               type: array
               items:
                 type: string
@@ -5523,6 +5567,10 @@ components:
               - v.task.2322707bbc41577d9806400e2daa25de
             eventIds:
               - v.event.0000d2e83d6c5d52a61f2fb860666477
+            emailIds:
+              - v.email.3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - v.call.1222707bbc415ee4806400e2daa25ffa
             ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       description: |-
@@ -5573,6 +5621,8 @@ components:
             - accountIds
             - noteIds
             - taskIds
+            - emailIds
+            - callIds
             - ownerUserId
           properties:
             contactIds:
@@ -5592,6 +5642,14 @@ components:
               items:
                 type: string
             eventIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
               type: array
               items:
                 type: string
@@ -5643,6 +5701,10 @@ components:
               - v.lead.d08f345ace24509e911a0ea8e3d2203c
             eventIds:
               - v.event.0000d2e83d6c5d52a61f2fb860666477
+            emailIds:
+              - v.email.3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - v.call.1222707bbc415ee4806400e2daa25ffa
             ownerUserId: v.user.56f653659ea9524b9e0fb0ba67e6f8a0
           additional: {}
       description: "(Alias: company, organization) An organization involved with your business."
@@ -5690,6 +5752,8 @@ components:
             - taskIds
             - leadIds
             - eventIds
+            - emailIds
+            - callIds
             - ownerUserId
           properties:
             dealIds:
@@ -5713,6 +5777,14 @@ components:
               items:
                 type: string
             eventIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
               type: array
               items:
                 type: string
@@ -5760,6 +5832,10 @@ components:
               - v.event.0000d2e83d6c5d52a61f2fb860666477
             eventAttendeeIds:
               - v.attendee.f63c1bd7215f5150b332d31d9509752f
+            emailIds:
+              - v.email.3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - v.call.1222707bbc415ee4806400e2daa25ffa
           additional: {}
       properties:
         id:
@@ -5800,6 +5876,8 @@ components:
             - taskIds
             - eventIds
             - eventAttendeeIds
+            - emailIds
+            - callIds
           properties:
             contactIds:
               type: array
@@ -5822,6 +5900,14 @@ components:
               items:
                 type: string
             eventAttendeeIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
               type: array
               items:
                 type: string
