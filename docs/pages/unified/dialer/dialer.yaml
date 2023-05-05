@@ -1,18 +1,18 @@
 openapi: 3.1.0
 info:
   title: Dialer API Reference
-  version: "1.0"
+  version: '1.0'
   summary: API
 servers:
-  - url: "https://app.vessel.dev/api"
+  - url: 'https://app.vessel.dev/api'
 security:
   - VesselAPIToken: []
 paths:
-  /api/unification/dialer/users/list:
+  /api/unifications/dialer/users/list:
     post:
       summary: Get All Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -23,7 +23,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/User"
+                      $ref: '#/components/schemas/User'
                   nextPageCursor:
                     type: string
               examples:
@@ -34,10 +34,10 @@ paths:
                         firstName: Micheal
                         lastName: Scott
                         email: micheal@dundermifflin.com
-                        role: "agent"
+                        role: 'agent'
                         isAvailable: true
-                        availabilityStatus: "available"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        availabilityStatus: 'available'
+                        createdTime: '2019-08-24T14:15:22Z'
                     nextPageCursor: string
       operationId: get-all-users
       parameters:
@@ -58,14 +58,14 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       description: Retrieve all Users
     parameters: []
-  /api/unification/dialer/users/find:
+  /api/unifications/dialer/users/find:
     post:
       summary: Get User
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -74,7 +74,7 @@ paths:
                 type: object
                 properties:
                   user:
-                    $ref: "#/components/schemas/User"
+                    $ref: '#/components/schemas/User'
               examples:
                 example-1:
                   value:
@@ -83,10 +83,10 @@ paths:
                       firstName: Micheal
                       lastName: Scott
                       email: micheal@dundermifflin.com
-                      role: "agent"
+                      role: 'agent'
                       isAvailable: true
-                      availabilityStatus: "available"
-                      createdTime: "2019-08-24T14:15:22Z"
+                      availabilityStatus: 'available'
+                      createdTime: '2019-08-24T14:15:22Z'
       operationId: get-one-user
       parameters:
         - name: x-vessel-access-token
@@ -108,14 +108,14 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
       description: Retrieve a single User by Id
     parameters: []
-  /api/unification/dialer/contacts/list:
+  /api/unifications/dialer/contacts/list:
     post:
       summary: Get All Contacts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -126,7 +126,7 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Contact"
+                      $ref: '#/components/schemas/Contact'
                   nextPageCursor:
                     type: string
               examples:
@@ -137,12 +137,12 @@ paths:
                         firstName: Tom
                         lastName: Smith
                         companyName: Dunder Mifflin
-                        description: "Tom Smith is a sales rep at Dunder Mifflin"
-                        phones: 
-                          - number: "8192223333"
-                            type: "work"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        description: 'Tom Smith is a sales rep at Dunder Mifflin'
+                        phones:
+                          - number: '8192223333'
+                            type: 'work'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                     nextPageCursor: string
       operationId: get-all-contacts
       parameters:
@@ -163,14 +163,14 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       description: Retrieve all Contacts
     parameters: []
-  /api/unification/dialer/contacts/find:
+  /api/unifications/dialer/contacts/find:
     post:
       summary: Get Contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -179,7 +179,7 @@ paths:
                 type: object
                 properties:
                   contact:
-                    $ref: "#/components/schemas/Contact"
+                    $ref: '#/components/schemas/Contact'
               examples:
                 example-1:
                   value:
@@ -188,12 +188,12 @@ paths:
                       firstName: Tom
                       lastName: Smith
                       companyName: Dunder Mifflin
-                      description: "Tom Smith is a sales rep at Dunder Mifflin"
-                      phones: 
-                        - number: "8192223333"
-                          type: "work"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      description: 'Tom Smith is a sales rep at Dunder Mifflin'
+                      phones:
+                        - number: '8192223333'
+                          type: 'work'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
       operationId: get-one-contact
       parameters:
         - name: x-vessel-access-token
@@ -215,15 +215,15 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
       description: Retrieve a single Contact by Id
     parameters: []
-  /api/unification/dialer/contacts/create:
+  /api/unifications/dialer/contacts/create:
     post:
       summary: Create Contact
       operationId: post-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -236,7 +236,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -251,7 +251,7 @@ paths:
               type: object
               properties:
                 contact:
-                  $ref: "#/components/schemas/ContactCreate"
+                  $ref: '#/components/schemas/ContactCreate'
               required:
                 - contact
             examples:
@@ -261,29 +261,29 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     companyName: Dunder Mifflin
-                    description: "Tom Smith is a sales rep at Dunder Mifflin"
-                    phones: 
-                      - number: "8192223333"
-                        type: "work"
-                    createdTime: "2019-08-24T14:15:22Z"
-                    modifiedTime: "2019-08-24T14:15:22Z"
+                    description: 'Tom Smith is a sales rep at Dunder Mifflin'
+                    phones:
+                      - number: '8192223333'
+                        type: 'work'
+                    createdTime: '2019-08-24T14:15:22Z'
+                    modifiedTime: '2019-08-24T14:15:22Z'
       description: Create a Contact
-  /api/unification/dialer/contacts/update:
+  /api/unifications/dialer/contacts/update:
     post:
       summary: Update Contact
       operationId: put-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -292,7 +292,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -309,7 +309,7 @@ paths:
                 id:
                   type: string
                 contact:
-                  $ref: "#/components/schemas/ContactCreate"
+                  $ref: '#/components/schemas/ContactCreate'
               required:
                 - id
                 - contact
@@ -321,24 +321,24 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     companyName: Dunder Mifflin
-                    description: "Tom Smith is a sales rep at Dunder Mifflin"
-                    phones: 
-                      - number: "8192223333"
-                        type: "work"
-                    createdTime: "2019-08-24T14:15:22Z"
-                    modifiedTime: "2019-08-24T14:15:22Z"
+                    description: 'Tom Smith is a sales rep at Dunder Mifflin'
+                    phones:
+                      - number: '8192223333'
+                        type: 'work'
+                    createdTime: '2019-08-24T14:15:22Z'
+                    modifiedTime: '2019-08-24T14:15:22Z'
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ""
+        description: ''
       description: Update an existing Contact
     parameters: []
-  /api/unification/dialer/calls/list:
+  /api/unifications/dialer/calls/list:
     post:
       summary: Get All Calls
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -349,7 +349,7 @@ paths:
                   calls:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Call"
+                      $ref: '#/components/schemas/Call'
                   nextPageCursor:
                     type: string
               examples:
@@ -357,23 +357,23 @@ paths:
                   value:
                     calls:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        to: 
-                          - number: "8192223333"
-                        from: 
-                          - number: "8192223333"
-                        direction: "outbound"
-                        startTime: "2019-08-24T14:15:22Z"
-                        connectedTime: "2019-08-24T14:15:22Z"
-                        endTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        to:
+                          - number: '8192223333'
+                        from:
+                          - number: '8192223333'
+                        direction: 'outbound'
+                        startTime: '2019-08-24T14:15:22Z'
+                        connectedTime: '2019-08-24T14:15:22Z'
+                        endTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           users:
                             - id: 34f5b4b0b6b650c981a174b02753c390
-                              number: "8192223333"
+                              number: '8192223333'
                           contacts:
                             - id: 56f653659ea9524b9e0fb0ba67e6f8a0
-                              number: "8192223334"
+                              number: '8192223334'
                     nextPageCursor: string
       operationId: get-all-calls
       parameters:
@@ -394,14 +394,14 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       description: Retrieve all Calls
     parameters: []
-  /api/unification/dialer/calls/find:
+  /api/unifications/dialer/calls/find:
     post:
       summary: Get Call
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -410,29 +410,29 @@ paths:
                 type: object
                 properties:
                   call:
-                    $ref: "#/components/schemas/Call"
+                    $ref: '#/components/schemas/Call'
               examples:
                 example-1:
                   value:
                     call:
                       id: e5f32d4fd2115220bd20a2ccf81210ec
-                      to: 
-                        - number: "8192223333"
-                      from: 
-                        - number: "8192223333"
-                      direction: "outbound"
-                      startTime: "2019-08-24T14:15:22Z"
-                      connectedTime: "2019-08-24T14:15:22Z"
-                      endTime: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      to:
+                        - number: '8192223333'
+                      from:
+                        - number: '8192223333'
+                      direction: 'outbound'
+                      startTime: '2019-08-24T14:15:22Z'
+                      connectedTime: '2019-08-24T14:15:22Z'
+                      endTime: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         users:
                           - id: 34f5b4b0b6b650c981a174b02753c390
-                            number: "8192223333"
+                            number: '8192223333'
                         contacts:
                           - id: 56f653659ea9524b9e0fb0ba67e6f8a0
-                            number: "8192223334"
+                            number: '8192223334'
       operationId: get-one-call
       parameters:
         - name: x-vessel-access-token
@@ -454,14 +454,14 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
       description: Retrieve a single Call by Id
     parameters: []
-  /api/unification/dialer/calls/start:
+  /api/unifications/dialer/calls/start:
     post:
       summary: Start a Call
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -470,29 +470,29 @@ paths:
                 type: object
                 properties:
                   call:
-                    $ref: "#/components/schemas/Call"
+                    $ref: '#/components/schemas/Call'
               examples:
                 example-1:
                   value:
                     call:
                       id: e5f32d4fd2115220bd20a2ccf81210ec
-                      to: 
-                        - number: "8192223333"
-                      from: 
-                        - number: "8192223333"
-                      direction: "outbound"
-                      startTime: "2019-08-24T14:15:22Z"
-                      connectedTime: "2019-08-24T14:15:22Z"
-                      endTime: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      to:
+                        - number: '8192223333'
+                      from:
+                        - number: '8192223333'
+                      direction: 'outbound'
+                      startTime: '2019-08-24T14:15:22Z'
+                      connectedTime: '2019-08-24T14:15:22Z'
+                      endTime: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         users:
                           - id: 34f5b4b0b6b650c981a174b02753c390
-                            number: "8192223333"
+                            number: '8192223333'
                         contacts:
                           - id: 56f653659ea9524b9e0fb0ba67e6f8a0
-                            number: "8192223334"
+                            number: '8192223334'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -508,13 +508,13 @@ paths:
       summary: Passthrough Request
       operationId: passthrough
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 properties:
                   headers:
@@ -561,10 +561,10 @@ paths:
                   description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
                 body:
                   type: object
-                  description: "The body of the request."
+                  description: 'The body of the request.'
                 query:
                   type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+                  description: 'The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider.'
               required:
                 - accessToken
                 - method
@@ -576,12 +576,12 @@ paths:
                   method: PATCH
                   path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
-                    - Name: "Vessel"
-        description: ""
+                    - Name: 'Vessel'
+        description: ''
       description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
-    Phone: 
+    Phone:
       title: Phone
       type: object
       properties:
@@ -591,21 +591,21 @@ components:
         type:
           type: string
       example:
-        number: "555-555-5555"
-        type: "work"
+        number: '555-555-5555'
+        type: 'work'
     User:
       title: User
       type: object
-      description: "Users of the connected Dialer. These are *not* the contacts, but rather the user accounts from the connected Dialer."
+      description: 'Users of the connected Dialer. These are *not* the contacts, but rather the user accounts from the connected Dialer.'
       examples:
         - id: 56f653659ea9524b9e0fb0ba67e6f8a0
           firstName: Micheal
           lastName: Scott
           email: micheal@dundermifflin.com
-          role: "agent"
+          role: 'agent'
           isAvailable: true
-          availabilityStatus: "available"
-          createdTime: "2019-08-24T14:15:22Z"
+          availabilityStatus: 'available'
+          createdTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -639,12 +639,12 @@ components:
         - firstName: Tom
           lastName: Smith
           companyName: Dunder Mifflin
-          description: "Tom Smith is a sales rep at Dunder Mifflin"
-          phones: 
-            - number: "8192223333"
-              type: "work"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          description: 'Tom Smith is a sales rep at Dunder Mifflin'
+          phones:
+            - number: '8192223333'
+              type: 'work'
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         firstName:
           type: string
@@ -657,7 +657,7 @@ components:
         phones:
           type: array
           items:
-            $ref: "#/components/schemas/Phone"
+            $ref: '#/components/schemas/Phone'
         createdTime:
           type: string
           description: The timestamp that the contact was created
@@ -675,12 +675,12 @@ components:
           firstName: Tom
           lastName: Smith
           companyName: Dunder Mifflin
-          description: "Tom Smith is a sales rep at Dunder Mifflin"
-          phones: 
-            - number: "8192223333"
-              type: "work"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          description: 'Tom Smith is a sales rep at Dunder Mifflin'
+          phones:
+            - number: '8192223333'
+              type: 'work'
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -696,7 +696,7 @@ components:
         phones:
           type: array
           items:
-            $ref: "#/components/schemas/Phone"
+            $ref: '#/components/schemas/Phone'
         createdTime:
           type: string
           description: The timestamp that the contact was created
@@ -712,23 +712,23 @@ components:
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          to: 
-            - number: "8192223333"
-          from: 
-            - number: "8192223333"
-          direction: "outbound"
-          startTime: "2019-08-24T14:15:22Z"
-          connectedTime: "2019-08-24T14:15:22Z"
-          endTime: "2019-08-24T14:15:22Z"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          to:
+            - number: '8192223333'
+          from:
+            - number: '8192223333'
+          direction: 'outbound'
+          startTime: '2019-08-24T14:15:22Z'
+          connectedTime: '2019-08-24T14:15:22Z'
+          endTime: '2019-08-24T14:15:22Z'
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
           associations:
             users:
               - id: 34f5b4b0b6b650c981a174b02753c390
-                number: "8192223333"
+                number: '8192223333'
             contacts:
               - id: 56f653659ea9524b9e0fb0ba67e6f8a0
-                number: "8192223334"
+                number: '8192223334'
       properties:
         id:
           type: string
@@ -736,12 +736,12 @@ components:
         to:
           type: array
           items:
-            - number: 
+            - number:
                 type: string
         from:
           type: array
           items:
-            - number: 
+            - number:
                 type: string
         direction:
           type: string
@@ -766,14 +766,14 @@ components:
             users:
               type: array
               items:
-                - id: 
+                - id:
                     type: string
                   number:
                     type: string
             contacts:
               type: array
               items:
-                - id: 
+                - id:
                     type: string
                   number:
                     type: string

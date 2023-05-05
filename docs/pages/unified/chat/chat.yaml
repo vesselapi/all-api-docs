@@ -1,18 +1,18 @@
 openapi: 3.1.0
 info:
   title: Chat API Reference
-  version: "1.0"
+  version: '1.0'
   summary: API
 servers:
-  - url: "https://app.vessel.dev"
+  - url: 'https://app.vessel.dev'
 security:
   - VesselAPIToken: []
 paths:
-  /api/unificationchat/users/list:
+  /api/unifications/chat/users/list:
     post:
       summary: List Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -23,7 +23,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/User"
+                      $ref: '#/components/schemas/User'
                   nextPageCursor:
                     type: string
               examples:
@@ -31,10 +31,10 @@ paths:
                   value:
                     users:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        name: "Tom Haverford"
+                        name: 'Tom Haverford'
                         isDeleted: false
-                        createdTime: "2019-08-24T14:15:22Z"
-                    nextPageCursor: "123123"
+                        createdTime: '2019-08-24T14:15:22Z'
+                    nextPageCursor: '123123'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -53,15 +53,15 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: get-all-users
       description: List Users
     parameters: []
-  /api/unificationchat/channels/list:
+  /api/unifications/chat/channels/list:
     post:
       summary: List Channels
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -72,7 +72,7 @@ paths:
                   channels:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Channel"
+                      $ref: '#/components/schemas/Channel'
                   nextPageCursor:
                     type: string
               examples:
@@ -80,9 +80,9 @@ paths:
                   value:
                     channels:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        name: "Paper updates"
-                        createdTime: "2019-08-24T14:15:22Z"
-                    nextPageCursor: "123123"
+                        name: 'Paper updates'
+                        createdTime: '2019-08-24T14:15:22Z'
+                    nextPageCursor: '123123'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -101,15 +101,15 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: get-all-channels
       description: List Channel
     parameters: []
-  /api/unificationchat/messages/create:
+  /api/unifications/chat/messages/create:
     post:
       summary: Create Message
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -147,16 +147,16 @@ paths:
               example-1:
                 value:
                   message:
-                    text: "New paper order"
-                    channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    text: 'New paper order'
+                    channelId: '34f5b4b0b6b650c981a174b02753c390'
       operationId: post-message
       description: Create Message
     parameters: []
-  /api/unificationchat/messages/update:
+  /api/unifications/chat/messages/update:
     post:
       summary: Update Message
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -197,8 +197,8 @@ paths:
                 value:
                   id: e5f32d4fd2115220bd20a2ccf81210ec
                   message:
-                    text: "New paper order"
-                    channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    text: 'New paper order'
+                    channelId: '34f5b4b0b6b650c981a174b02753c390'
       operationId: put-message
       description: Update Message
     parameters: []
@@ -207,13 +207,13 @@ paths:
       summary: Passthrough Request
       operationId: passthrough
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 properties:
                   headers:
@@ -260,10 +260,10 @@ paths:
                   description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
                 body:
                   type: object
-                  description: "The body of the request."
+                  description: 'The body of the request.'
                 query:
                   type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+                  description: 'The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider.'
               required:
                 - accessToken
                 - method
@@ -275,18 +275,18 @@ paths:
                   method: PATCH
                   path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
-                    - Name: "Vessel"
-        description: ""
+                    - Name: 'Vessel'
+        description: ''
       description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
-     Message:
+    Message:
       title: Message
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          text: "New paper order"
-          createdTime: "2019-08-24T14:15:22Z"
+          text: 'New paper order'
+          createdTime: '2019-08-24T14:15:22Z'
           associations:
             channelId: 34f5b4b0b6b650c981a174b02753c390
       properties:
@@ -306,14 +306,14 @@ components:
       required:
         - id
         - createdTime
-     User:
+    User:
       title: User
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          name: "Tom Haverford"
+          name: 'Tom Haverford'
           isDeleted: false
-          createdTime: "2019-08-24T14:15:22Z"
+          createdTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -328,13 +328,13 @@ components:
       required:
         - id
         - createdTime
-     Channel:
+    Channel:
       title: Channel
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          name: "Paper updates"
-          createdTime: "2019-08-24T14:15:22Z"
+          name: 'Paper updates'
+          createdTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -349,6 +349,6 @@ components:
         - createdTime
   securitySchemes:
     VesselAPIToken:
-          name: x-vessel-api-token
-          type: apiKey
-          in: header
+      name: x-vessel-api-token
+      type: apiKey
+      in: header
