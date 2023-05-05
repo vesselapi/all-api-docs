@@ -1,18 +1,18 @@
 openapi: 3.1.0
 info:
   title: Marketing Automation API Reference
-  version: "1.0"
+  version: '1.0'
   summary: API
 servers:
-  - url: "https://app.vessel.dev/api"
+  - url: 'https://app.vessel.dev/api'
 security:
   - VesselAPIToken: []
 paths:
-  /api/unification/marketing/users/list:
+  /api/unifications/marketing/users/list:
     post:
       summary: List Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -23,7 +23,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/User"
+                      $ref: '#/components/schemas/User'
                   nextPageCursor:
                     type: string
               examples:
@@ -34,9 +34,9 @@ paths:
                         email: tom@dundermifflin.com
                         firstName: Tom
                         lastName: Haverford
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                    nextPageCursor: "123123"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                    nextPageCursor: '123123'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -55,15 +55,15 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: get-all-users
       description: List Users
     parameters: []
-  /api/unification/marketing/contacts/list:
+  /api/unifications/marketing/contacts/list:
     post:
       summary: List Contacts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -74,7 +74,7 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Contact"
+                      $ref: '#/components/schemas/Contact'
                   nextPageCursor:
                     type: string
               examples:
@@ -85,10 +85,10 @@ paths:
                         email: tom@dundermifflin.com
                         firstName: Tom
                         lastName: Haverford
-                        phone: "8192223333"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                    nextPageCursor: "123123"
+                        phone: '8192223333'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                    nextPageCursor: '123123'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -107,15 +107,15 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: get-all-contacts
       description: List Contacts
     parameters: []
-  /api/unification/marketing/contacts/find:
+  /api/unifications/marketing/contacts/find:
     post:
       summary: Find Contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -124,7 +124,7 @@ paths:
                 type: object
                 properties:
                   contact:
-                    $ref: "#/components/schemas/Contact"
+                    $ref: '#/components/schemas/Contact'
               examples:
                 example-1:
                   value:
@@ -133,9 +133,9 @@ paths:
                       email: tom@dundermifflin.com
                       firstName: Tom
                       lastName: Haverford
-                      phone: "8192223333"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: '8192223333'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -156,16 +156,16 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
       operationId: get-one-contact
       description: Find Contact
     parameters: []
-  /api/unification/marketing/contacts/create:
+  /api/unifications/marketing/contacts/create:
     post:
       summary: Create Contact
       operationId: post-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -178,7 +178,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -193,7 +193,7 @@ paths:
               type: object
               properties:
                 contact:
-                  $ref: "#/components/schemas/ContactCreate"
+                  $ref: '#/components/schemas/ContactCreate'
               required:
                 - contact
             examples:
@@ -203,25 +203,25 @@ paths:
                     email: tom@dundermifflin.com
                     firstName: Tom
                     lastName: Haverford
-                    phone: "8192223333"
-                    listId: "12"
+                    phone: '8192223333'
+                    listId: '12'
       description: Create a Contact
-  /api/unification/marketing/contacts/update:
+  /api/unifications/marketing/contacts/update:
     post:
       summary: Update Contact
       operationId: put-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -230,7 +230,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -247,7 +247,7 @@ paths:
                 id:
                   type: string
                 contact:
-                  $ref: "#/components/schemas/ContactUpdate"
+                  $ref: '#/components/schemas/ContactUpdate'
               required:
                 - id
                 - contact
@@ -259,19 +259,19 @@ paths:
                     email: tom@dundermifflin.com
                     firstName: Tom
                     lastName: Haverford
-                    phone: "8192223333"
+                    phone: '8192223333'
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ""
+        description: ''
       description: Update an existing Contact
     parameters: []
-  /api/unification/marketing/lists/list:
+  /api/unifications/marketing/lists/list:
     post:
       summary: List Lists
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -282,7 +282,7 @@ paths:
                   lists:
                     type: array
                     items:
-                      $ref: "#/components/schemas/List"
+                      $ref: '#/components/schemas/List'
                   nextPageCursor:
                     type: string
               examples:
@@ -290,10 +290,10 @@ paths:
                   value:
                     lists:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        name: "Paper leads"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                    nextPageCursor: "123123"
+                        name: 'Paper leads'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                    nextPageCursor: '123123'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -312,15 +312,15 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: get-all-lists
       description: List Lists
     parameters: []
-  /api/unification/marketing/lists/find:
+  /api/unifications/marketing/lists/find:
     post:
       summary: Find List
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -329,15 +329,15 @@ paths:
                 type: object
                 properties:
                   list:
-                    $ref: "#/components/schemas/List"
+                    $ref: '#/components/schemas/List'
               examples:
                 example-1:
                   value:
                     list:
                       id: e5f32d4fd2115220bd20a2ccf81210ec
-                      name: "Paper leads"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      name: 'Paper leads'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -358,7 +358,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
       operationId: get-one-list
       description: Find List
     parameters: []
@@ -367,13 +367,13 @@ paths:
       summary: Passthrough Request
       operationId: passthrough
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 properties:
                   headers:
@@ -420,10 +420,10 @@ paths:
                   description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
                 body:
                   type: object
-                  description: "The body of the request."
+                  description: 'The body of the request.'
                 query:
                   type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
+                  description: 'The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider.'
               required:
                 - accessToken
                 - method
@@ -435,12 +435,12 @@ paths:
                   method: PATCH
                   path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
-                    - Name: "Vessel"
-        description: ""
+                    - Name: 'Vessel'
+        description: ''
       description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
-     User:
+    User:
       title: User
       type: object
       examples:
@@ -448,8 +448,8 @@ components:
           email: tom@dundermifflin.com
           firstName: Tom
           lastName: Haverford
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -470,7 +470,7 @@ components:
         - id
         - createdTime
         - modifiedTime
-     Contact:
+    Contact:
       title: Contact
       type: object
       examples:
@@ -478,9 +478,9 @@ components:
           email: tom@dundermifflin.com
           firstName: Tom
           lastName: Haverford
-          phone: "8192223333"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: '8192223333'
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -503,27 +503,27 @@ components:
         - id
         - createdTime
         - modifiedTime
-     ContactCreate:
-        title: ContactCreate
-        type: object
-        examples:
-          - email: tom@dundermifflin.com
-            firstName: Tom
-            lastName: Haverford
-            phone: "8192223333"
-            listId: "12"
-        properties:
-          email:
-            type: string
-          firstName:
-            type: string
-          lastName:
-            type: string
-          phone:
-            type: string
-          listId:
-            type: string
-     ContactUpdate:
+    ContactCreate:
+      title: ContactCreate
+      type: object
+      examples:
+        - email: tom@dundermifflin.com
+          firstName: Tom
+          lastName: Haverford
+          phone: '8192223333'
+          listId: '12'
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        listId:
+          type: string
+    ContactUpdate:
       title: ContactUpdate
       type: object
       examples:
@@ -531,7 +531,7 @@ components:
           email: tom@dundermifflin.com
           firstName: Tom
           lastName: Haverford
-          phone: "8192223333"
+          phone: '8192223333'
       properties:
         id:
           type: string
@@ -548,14 +548,14 @@ components:
         - id
         - createdTime
         - modifiedTime
-     List:
+    List:
       title: List
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          name: "Paper leads"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          name: 'Paper leads'
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -574,6 +574,6 @@ components:
         - modifiedTime
   securitySchemes:
     VesselAPIToken:
-        name: x-vessel-api-token
-        type: apiKey
-        in: header
+      name: x-vessel-api-token
+      type: apiKey
+      in: header

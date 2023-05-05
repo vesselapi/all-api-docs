@@ -1,5 +1,5 @@
 ---
-title: "Integrate Vessel"
+title: 'Integrate Vessel'
 description: Step by Step guide for integrating Vessel into your product
 ---
 
@@ -40,10 +40,10 @@ export default function App() {
 
   useEffect(() => {
     const getIntegrations = async () => {
-      const res = await fetch("https://app.vessel.dev/api/integrations/list", {
-        method: "POST",
+      const res = await fetch('https://app.vessel.dev/api/integrations/list', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
       const json = await res.json();
@@ -71,15 +71,15 @@ export default function App() {
 An Auth session is a temporary session that holds state during the process of connecting to an integration. Any time a user wants to connect a new integration you _must_ call this endpoint and start a new Auth session.
 
 ```javascript Node
-app.post("/session-token", async (req, res) => {
+app.post('/session-token', async (req, res) => {
   const response = await fetch(
-    "https://app.vessel.dev/api/auth/session-token",
+    'https://app.vessel.dev/api/auth/session-token',
     {
       headers: {
-        "Content-Type": "application/json",
-        "x-vessel-api-token": process.env.VESSEL_API_KEY,
+        'Content-Type': 'application/json',
+        'x-vessel-api-token': process.env.VESSEL_API_KEY,
       },
-      method: "POST",
+      method: 'POST',
     }
   );
 
@@ -203,15 +203,15 @@ export default function App() {
 Exchange session token
 
 ```javascript Node
-app.post("/access-token", async (req, res) => {
+app.post('/access-token', async (req, res) => {
   const sessionToken = req.body.sessionToken;
-  const response = await fetch("https://app.vessel.dev/api/auth/access-token", {
+  const response = await fetch('https://app.vessel.dev/api/auth/access-token', {
     headers: {
-      "Content-Type": "application/json",
-      "x-vessel-api-token": process.env.VESSEL_API_KEY,
-      "x-vessel-session-token": sessionToken,
+      'Content-Type': 'application/json',
+      'x-vessel-api-token': process.env.VESSEL_API_KEY,
+      'x-vessel-session-token': sessionToken,
     },
-    method: "POST",
+    method: 'POST',
   });
 
   const json = await response.json();
@@ -231,7 +231,7 @@ You're now ready to make an API call, feel free to browse one of the many [unifi
 Example: Get all Users from a connect sales engagement tool.
 
 ```bash Terminal
-curl --location --request POST 'https://app.vessel.dev/api/unification/engagement/users/list' \
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
 --header 'x-vessel-api-token: [API_KEY]' \
 --header 'x-vessel-access-token: [ACCESS_TOKEN]' \
 --header 'Content-Type: application/json' \
