@@ -155,6 +155,8 @@ paths:
                 properties:
                   accessToken:
                     type: string
+                  connectionId:
+                    type: string
               examples: {}
       description: "Exchange the session token for an access token. The access token is the secret key used to refer to a specific connected integration."
       parameters:
