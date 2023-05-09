@@ -576,6 +576,14 @@
           "pages": ["pages/actions/apollo/api-reference/list-email-accounts"]
         },
         {
+          "group": "Labels",
+          "pages": ["pages/actions/apollo/api-reference/search-labels"]
+        },
+        {
+          "group": "People",
+          "pages": ["pages/actions/apollo/api-reference/search-people"]
+        },
+        {
           "group": "Sequences",
           "pages": [
             "pages/actions/apollo/api-reference/create-sequences",
