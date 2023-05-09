@@ -1461,6 +1461,272 @@ paths:
         schema:
           type: string
     parameters: []
+  /api/actions/apollo/labels/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   labels:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                            type: string
+                         name:
+                            type: string
+                         createdAt:
+                            type: string
+                            format: date-time
+                         updatedAt:
+                            type: string
+                            format: date-time 
+                       required:
+                         - id
+                         - name
+                         - createdAt
+                         - updatedAt
+              examples:
+                example-1:
+                  value:
+                     labels:
+                       - id: in
+                         name: in
+                         createdAt: '2023-01-19T11:53:49.0Z'
+                         updatedAt: '2023-01-19T11:53:49.0Z'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+                 qKeywords:
+                    type: string
+                 teamListsOnly:
+                    type: boolean
+            examples:
+              example-1:
+                value:
+                    page: 1
+      operationId: search-labels
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/people/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   people:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id: 
+                            type: string
+                         firstName: 
+                            type: string
+                         lastName:
+                            type: string
+                         name: 
+                            type: string
+                   contacts:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                         id:
+                           type: string
+                         firstName:
+                           type:
+                             - string
+                             - 'null'
+                         lastName:
+                           type:
+                             - string
+                             - 'null'
+                         name:
+                           type:
+                             - string
+                             - 'null'
+                         title:
+                           type:
+                             - string
+                             - 'null'
+                         ownerId:
+                           type:
+                             - string
+                             - 'null'
+                         presentRawAddress:
+                           type:
+                             - string
+                             - 'null'
+                         phoneNumbers:
+                           type: array
+                           items:
+                             type: object
+                             properties:
+                               rawNumber:
+                                 type: string
+                               sanitizedNumber:
+                                 type:
+                                   - string
+                                   - 'null'
+                               type:
+                                 type: string
+                                 enum:
+                                   - mobile
+                                   - home
+                                   - work_hq
+                                   - work_direct
+                                   - other
+                               position:
+                                 type: number
+                               status:
+                                 type:
+                                   - string
+                                   - 'null'
+                               dncStatus:
+                                 type:
+                                   - string
+                                   - 'null'
+                             required:
+                               - raw_number
+                               - type
+                               - position
+                         organizationName:
+                           type:
+                             - string
+                             - 'null'
+                         email:
+                           type:
+                             - string
+                             - 'null'
+                         websiteUrl:
+                           type:
+                             - string
+                             - 'null'
+                         contactStageId:
+                           type:
+                             - string
+                             - 'null'
+                         accountId:
+                           type:
+                             - string
+                             - 'null'
+                         createdAt:
+                           type: string
+                           format: date-time
+                         updatedAt:
+                           type: string
+                           format: date-time
+                         typedCustomFields:
+                           type: object
+                           properties: {}
+                       required:
+                         - id
+                         - phone_numbers
+                         - created_at
+                         - updated_at
+                         - typed_custom_fields
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+              examples:
+                example-1:
+                  value:
+                     people:
+                       - id: abc123
+                         name: Bill Gates
+                         firstName: Bill
+                         lastName: Gates
+                     contacts:
+                       - id: Duis
+                         accountId: null
+                         websiteUrl: est nostrud
+                         email: null
+                         ownerId: null
+                         updatedAt: '1956-08-24T19:27:02.0Z'
+                         title: qui
+                         phoneNumbers:
+                           - type: mobile
+                             position: -79905883.55043063
+                             status: in dolor enim id qui
+                             dncStatus: null
+                             sanitizedNumber: null
+                             rawNumber: deserunt veniam aute
+                         createdAt: '2014-09-16T10:23:05.0Z'
+                         name: null
+                         contactStageId: dolore nisi voluptate incididunt consectetur
+                         lastName: null
+                         typedCustomFields: {}
+                         presentRawAddress: null
+                         organizationName: null
+                         firstName: in Ut veniam sint
+                     pagination:
+                       page: null
+                       perPage: 10
+                       totalEntries: 10
+                       totalPages: 10
+
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 page:
+                   type: number
+                 qKeywords:
+                    type: string
+                 labelIds:
+                    type: array
+            examples:
+              example-1:
+                value:
+                    page: 1
+      operationId: search-people
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []                      
+
   /api/actions/apollo/sequences/create:
     post:
       responses:
