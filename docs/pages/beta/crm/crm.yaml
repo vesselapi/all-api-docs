@@ -155,6 +155,8 @@ paths:
                             - f63c1bd7215f5150b332d31d9509752f
                           emailIds:
                             - 3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: get-all-crm-contacts
@@ -173,10 +175,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - accounts
+                    - deals
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/crm/contacts/find:
@@ -242,12 +255,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations: 
+                    - accounts
+                    - deals
       description: "Retrieve a Contact by either Id"
   /api/unifications/crm/contacts/create:
     post:
@@ -424,10 +448,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations: 
+                    - accounts
+                    - contacts
       description: Retrieve all Deals
     parameters: []
   /api/unifications/crm/deals/find:
@@ -491,12 +526,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations: 
+                    - accounts
+                    - contacts
       description: Retrieve a single Deal by Id
     parameters: []
   /api/unifications/crm/deals/create:
@@ -684,10 +730,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve all Accounts
     parameters: []
   /api/unifications/crm/accounts/find:
@@ -758,12 +815,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Account by Id
     parameters: []
   /api/unifications/crm/accounts/create:
@@ -962,10 +1030,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - contacts
+                    - accounts
   /api/unifications/crm/leads/find:
     post:
       summary: Get Lead
@@ -1029,12 +1108,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - contacts
+                    - accounts
   /api/unifications/crm/leads/create:
     post:
       summary: Create Lead
@@ -1249,10 +1339,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
   /api/unifications/crm/notes/find:
     post:
       summary: Get Note
@@ -1301,12 +1402,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Note by Id
   /api/unifications/crm/notes/create:
     post:
@@ -1479,10 +1591,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
     parameters: []
   /api/unifications/crm/tasks/find:
     post:
@@ -1537,12 +1660,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Task by Id
   /api/unifications/crm/tasks/create:
     post:
@@ -1729,10 +1863,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads, eventAttendees]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
   /api/unifications/crm/events/find:
     post:
       summary: Get Event
@@ -1789,12 +1934,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads, eventAttendees]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Event by Id
   /api/unifications/crm/events/create:
     post:
@@ -2196,10 +2352,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
     parameters: []
   /api/unifications/crm/emails/find:
     post:
@@ -2263,12 +2430,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Task by Id
   /api/unifications/crm/emails/create:
     post:
@@ -2458,10 +2636,21 @@ paths:
               properties:
                 cursor:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
             examples:
               example-1:
                 value:
                   cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
   /api/unifications/crm/calls/find:
     post:
       summary: Get Call
@@ -2514,12 +2703,23 @@ paths:
               properties:
                 id:
                   type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Comma separated list of associations to include in the response.
+                    OwnerUserId is always included.
               required:
                 - id
             examples:
               example-1:
                 value:
                   id: '123123'
+                  associations:
+                    - deals
+                    - contacts
       description: Retrieve a single Call by Id
   /api/unifications/crm/calls/create:
     post:

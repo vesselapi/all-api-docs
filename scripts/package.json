@@ -2,7 +2,8 @@
   "name": "scripts",
   "private": true,
   "scripts": {
-    "build-docs": "ts-node ./src/replace-integrations-library.ts; ts-node ./src/build-docs.ts"
+    "build-docs": "ts-node ./src/replace-integrations-library.ts; ts-node ./src/build-docs.ts",
+    "c": "ts-node ./src/create-api-references.ts"
   },
   "dependencies": {
     "@babel/register": "^7.21.0",
