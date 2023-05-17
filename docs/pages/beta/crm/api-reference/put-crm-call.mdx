@@ -1,0 +1,29 @@
+---
+
+openapi: "POST /api/unifications/crm/calls/update"
+
+---
+
+  <RequestExample>
+  
+  ```bash Request
+  curl --request POST \
+    --url https://app.vessel.dev/api/unifications/crm/calls/update \
+    --header 'Content-Type: application/json' \
+    --header 'x-vessel-api-token: ' \
+    --header 'x-vessel-access-token: '\ 
+  --data '{
+  "id": "string",
+  "call": {
+    "disposition": "ANSWERED",
+    "associations": {
+      "ownerUserId": "56f653659ea9524b9e0fb0ba67e6f8a0"
+    }
+  }
+}'
+  ```
+  
+  </RequestExample>
+  
+  
+
