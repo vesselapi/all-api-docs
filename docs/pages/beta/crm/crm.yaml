@@ -1,0 +1,4741 @@
+openapi: 3.1.0
+info:
+  title: CRM API Reference
+  version: "2.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/unifications/crm/users/list:
+    post:
+      summary: Get All Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: "12"
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+      operationId: get-all-users
+      description: List Users
+    parameters: []
+  /api/unifications/crm/users/find:
+    post:
+      summary: Get User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  user:
+                    $ref: "#/components/schemas/User"
+              examples:
+                example-1:
+                  value:
+                    user:
+                      id: "12"
+                      firstName: Micheal
+                      lastName: Scott
+                      email: micheal@dundermifflin.com
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+      operationId: get-one-user
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+      description: Retrieve a single User by Id
+    parameters: []
+  /api/unifications/crm/contacts/list:
+    post:
+      summary: Get All Contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: "23"
+                        email: tom@bluecross.com
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phone: "2101128833"
+                        mobilePhone: "2106541111"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          noteIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - 0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - 3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - 1222707bbc415ee4806400e2daa25ffa
+                          ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-contacts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - accounts
+                    - deals
+      description: Retrieve all Contacts
+    parameters: []
+  /api/unifications/crm/contacts/find:
+    post:
+      summary: Get Contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contact:
+                    $ref: "#/components/schemas/Contact"
+              examples:
+                example-1:
+                  value:
+                    contact:
+                      id: "23"
+                      email: tom@bluecross.com
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      phone: "2101128833"
+                      mobilePhone: "2106541111"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        noteIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - 0000d2e83d6c5d52a61f2fb860666477
+                        eventAttendeeIds:
+                          - f63c1bd7215f5150b332d31d9509752f
+                        emailIds:
+                          - 3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - 1222707bbc415ee4806400e2daa25ffa
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-contact
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations: 
+                    - accounts
+                    - deals
+      description: "Retrieve a Contact by either Id"
+  /api/unifications/crm/contacts/create:
+    post:
+      summary: Create Contact
+      operationId: post-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contact:
+                  $ref: "#/components/schemas/ContactCreate"
+              required:
+                - contact
+            examples:
+              example-1:
+                value:
+                  contact:
+                    email: tom@bluecross.com
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
+      description: Create a new contact.
+  /api/unifications/crm/contacts/update:
+    post:
+      summary: Update Contact
+      operationId: put-contact
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                contact:
+                  $ref: "#/components/schemas/ContactUpdate"
+              required:
+                - id
+                - contact
+            examples:
+              example-1:
+                value:
+                  id: string
+                  contact:
+                    email: tom@bluecross.com
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    phone: "2101128833"
+                    mobilePhone: "2106541111"
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ""
+      description: Update an existing Contact.
+  /api/unifications/crm/deals/list:
+    post:
+      summary: Get All Deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deals:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Deal"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    deals:
+                      - id: "84"
+                        name: Blue Cross Deal
+                        stage: demo
+                        amount: 10000
+                        closeDate: "2020-08-23T00:00:00Z"
+                        probability: "0.4"
+                        expectedRevenue: 4000
+                        isWon: false
+                        isClosed: false
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - 0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - 3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - 1222707bbc415ee4806400e2daa25ffa
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-deals
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations: 
+                    - accounts
+                    - contacts
+      description: Retrieve all Deals
+    parameters: []
+  /api/unifications/crm/deals/find:
+    post:
+      summary: Get Deal
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deal:
+                    $ref: "#/components/schemas/Deal"
+              examples:
+                example-1:
+                  value:
+                    deal:
+                      id: "84"
+                      name: Blue Cross Deal
+                      stage: demo
+                      amount: 10000
+                      closeDate: "2020-08-23T00:00:00Z"
+                      probability: "0.4"
+                      expectedRevenue: 4000
+                      isWon: false
+                      isClosed: false
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        noteIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - 0000d2e83d6c5d52a61f2fb860666477
+                        emailIds:
+                          - 3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - 1222707bbc415ee4806400e2daa25ffa
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-deal
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations: 
+                    - accounts
+                    - contacts
+      description: Retrieve a single Deal by Id
+    parameters: []
+  /api/unifications/crm/deals/create:
+    post:
+      summary: Create Deal
+      operationId: post-deal
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deal:
+                  $ref: "#/components/schemas/DealCreate"
+              required:
+                - deal
+            examples:
+              example-1:
+                value:
+                  deal:
+                    name: Blue Cross Deal
+                    amount: 10000
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
+                    stage: closedwon
+                    associations:
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+      description: Create a new Deal
+  /api/unifications/crm/deals/update:
+    post:
+      summary: Update Deal
+      operationId: put-deal
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                deal:
+                  $ref: "#/components/schemas/DealUpdate"
+              required:
+                - id
+                - deal
+            examples:
+              example-1:
+                value:
+                  id: string
+                  deal:
+                    name: Blue Cross Deal
+                    amount: 10000
+                    closeDate: "2020-08-23T00:00:00Z"
+                    probability: "0.4"
+                    associations:
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+        description: ""
+      description: Update an existing Deal
+  /api/unifications/crm/accounts/list:
+    post:
+      summary: Get All Accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: "344"
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        annualRevenue: 10000000
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        address:
+                          street: 100 Blue Dr
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          noteIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          eventIds:
+                            - 0000d2e83d6c5d52a61f2fb860666477
+                          emailIds:
+                            - 3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - 1222707bbc415ee4806400e2daa25ffa
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-accounts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve all Accounts
+    parameters: []
+  /api/unifications/crm/accounts/find:
+    post:
+      summary: Get Account
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  account:
+                    $ref: "#/components/schemas/Account"
+              examples:
+                example-1:
+                  value:
+                    account:
+                      id: "344"
+                      name: Blue Cross
+                      description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                      industry: TV and Media
+                      annualRevenue: 10000000
+                      numberOfEmployees: 100
+                      website: www.bluecross.penn
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: "8192223333"
+                      address:
+                        street: 100 Blue Dr
+                        city: Scranton
+                        state: Pennsylvania
+                        postalCode: "281332"
+                        country: USA
+                      associations:
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        noteIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        eventIds:
+                          - 0000d2e83d6c5d52a61f2fb860666477
+                        emailIds:
+                          - 3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - 1222707bbc415ee4806400e2daa25ffa
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-account
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Account by Id
+    parameters: []
+  /api/unifications/crm/accounts/create:
+    post:
+      summary: Create Account
+      operationId: post-account
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                account:
+                  $ref: "#/components/schemas/AccountCreate"
+              required:
+                - account
+            examples:
+              example-1:
+                value:
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    annualRevenue: 10000000
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    phone: "8192223333"
+                    address:
+                      street: 100 Blue Dr
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+      description: Create a new Account
+  /api/unifications/crm/accounts/update:
+    post:
+      summary: Update Account
+      tags:
+        - accounts
+      operationId: put-account
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                account:
+                  $ref: "#/components/schemas/AccountUpdate"
+              required:
+                - id
+                - account
+            examples:
+              example-1:
+                value:
+                  id: string
+                  account:
+                    name: Blue Cross
+                    description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                    industry: TV and Media
+                    annualRevenue: 10000000
+                    numberOfEmployees: 100
+                    website: www.bluecross.penn
+                    createdTime: "2019-08-24T14:15:22Z"
+                    modifiedTime: "2019-08-24T14:15:22Z"
+                    phone: "8192223333"
+                    address:
+                      street: 100 Blue Dr
+                      city: Scranton
+                      state: Pennsylvania
+                      postalCode: "281332"
+                      country: USA
+      description: Update an existing Account
+  /api/unifications/crm/leads/list:
+    post:
+      summary: Get All Leads
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  leads:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Lead"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    leads:
+                      - id: "23"
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        email: tom@bluecross.com
+                        accountName: Blue Cross
+                        phone: "1234445555"
+                        mobilePhone: "2338889999"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          noteIds:
+                            - 006b4db16b6b50c981a174b02753c390
+                          taskIds:
+                            - 2322707bbc41577d9806400e2daa25de
+                          eventIds:
+                            - 0000d2e83d6c5d52a61f2fb860666477
+                          eventAttendeeIds:
+                            - f63c1bd7215f5150b332d31d9509752f
+                          emailIds:
+                            - 3ab3a9562af957228c1019127e3c81e1
+                          callIds:
+                            - 1222707bbc415ee4806400e2daa25ffa
+                    nextPageCursor: string
+      operationId: get-all-leads
+      description: |-
+        Retrieve all leads.
+        *CRM Caveats*:
+        - Pipedrive: Only `jobTitle` is returned when querying for all leads
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - contacts
+                    - accounts
+  /api/unifications/crm/leads/find:
+    post:
+      summary: Get Lead
+      responses:
+        "200":
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  lead:
+                    $ref: "#/components/schemas/Lead"
+              examples:
+                example-1:
+                  value:
+                    lead:
+                      id: "23"
+                      firstName: Tom
+                      lastName: Smith
+                      jobTitle: Director of Operations
+                      email: tom@bluecross.com
+                      accountName: Blue Cross
+                      phone: "1234445555"
+                      mobilePhone: "2338889999"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        noteIds:
+                          - 006b4db16b6b50c981a174b02753c390
+                        taskIds:
+                          - 2322707bbc41577d9806400e2daa25de
+                        eventIds:
+                          - 0000d2e83d6c5d52a61f2fb860666477
+                        eventAttendeeIds:
+                          - f63c1bd7215f5150b332d31d9509752f
+                        emailIds:
+                          - 3ab3a9562af957228c1019127e3c81e1
+                        callIds:
+                          - 1222707bbc415ee4806400e2daa25ffa
+      operationId: get-one-lead
+      description: Retrieve a single Lead by Id
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - contacts
+                    - accounts
+  /api/unifications/crm/leads/create:
+    post:
+      summary: Create Lead
+      operationId: post-lead
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: string
+      description: Create a new Lead
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lead:
+                  $ref: "#/components/schemas/LeadCreate"
+              required:
+                - lead
+            examples:
+              example-1:
+                value:
+                  lead:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    email: tom@bluecross.com
+                    accountName: Blue Cross
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
+  /api/unifications/crm/leads/update:
+    post:
+      summary: Update Lead
+      operationId: put-lead
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      description: Update an existing Lead by Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                lead:
+                  $ref: "#/components/schemas/LeadUpdate"
+              required:
+                - id
+                - lead
+            examples:
+              example-1:
+                value:
+                  id: "1231232"
+                  lead:
+                    firstName: Tom
+                    lastName: Smith
+                    jobTitle: Director of Operations
+                    email: tom@bluecross.com
+                    accountName: Blue Cross
+                    phone: "1234445555"
+                    mobilePhone: "2338889999"
+  /api/unifications/crm/lead/custom-fields/create:
+    post:
+      summary: Create Lead Custom Field
+      description: "Supported for Salesforce and HubSpot"
+      operationId: post-lead-custom-field
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
+              examples:
+                example-1:
+                  value:
+                    success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customField:
+                  $ref: "#/components/schemas/CustomFieldCreate"
+              required:
+                - customField
+            examples:
+              example-1:
+                value:
+                  customField:
+                    name: "new field"
+                    type: "singleselect"
+  /api/unifications/crm/notes/list:
+    post:
+      summary: Get All Notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  notes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Note"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    notes:
+                      - id: "34"
+                        content: This note has some interesting content in it!
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-notes
+      description: Retrieve all Notes
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+  /api/unifications/crm/notes/find:
+    post:
+      summary: Get Note
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  note:
+                    $ref: "#/components/schemas/Note"
+              examples:
+                example-1:
+                  value:
+                    note:
+                      id: "34"
+                      content: This note has some interesting content in it!
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-note
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Note by Id
+  /api/unifications/crm/notes/create:
+    post:
+      summary: Create Note
+      operationId: post-note
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                note:
+                  $ref: "#/components/schemas/NoteCreate"
+              required:
+                - note
+            examples:
+              example-1:
+                value:
+                  note:
+                    content: This note has some interesting content in it!
+                    associations:
+                      ownerUserId: 79d154aa0c7a571295a157369d448e65
+                      dealId: 497fb529e6805351b5dc8057c74a4a52
+                      leadId: d08f345ace24509e911a0ea8e3d2203c
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                      contactId: e5f32d4fd2115220bd20a2ccf81210ec
+        description: ""
+      description: |-
+        Create a new Note.
+        *CRM Caveats*:
+        - Salesforce: You may only associate a Note with one entity.
+  /api/unifications/crm/notes/update:
+    post:
+      summary: Update Note
+      operationId: put-note
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                note:
+                  $ref: "#/components/schemas/NoteUpdate"
+              required:
+                - id
+                - note
+            examples:
+              example-1:
+                value:
+                  id: string
+                  note:
+                    content: This note has some interesting content in it!
+                    associations:
+                      ownerUserId: 79d154aa0c7a571295a157369d448e65
+      description: Update an existing Note by Id
+  /api/unifications/crm/tasks/list:
+    post:
+      summary: Get All Tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Task"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    tasks:
+                      - id: "122"
+                        body: This task needs to be done very soon!
+                        subject: High Priority Task
+                        isDone: false
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: Not Done
+                        priority: High
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-tasks
+      description: Retrieve all Tasks
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+    parameters: []
+  /api/unifications/crm/tasks/find:
+    post:
+      summary: Get Task
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  task:
+                    $ref: "#/components/schemas/Task"
+              examples:
+                example-1:
+                  value:
+                    task:
+                      id: "122"
+                      body: This task needs to be done very soon!
+                      subject: High Priority Task
+                      isDone: false
+                      dueDate: "2019-09-24T14:15:22Z"
+                      status: Not Done
+                      priority: High
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-task
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Task by Id
+  /api/unifications/crm/tasks/create:
+    post:
+      summary: Create Task
+      operationId: post-task
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                task:
+                  $ref: "#/components/schemas/TaskCreate"
+              required:
+                - task
+            examples:
+              example-1:
+                value:
+                  task:
+                    body: This task needs to be done very soon!
+                    subject: High Priority Task
+                    dueDate: "2019-09-24T14:15:22Z"
+                    priority: High
+                    status: Not Done
+                    isDone: false
+                    associations:
+                      ownerUserId: 79d154aa0c7a571295a157369d448e65
+                      leadId: d08f345ace24509e911a0ea8e3d2203c
+                      dealId: 497fb529e6805351b5dc8057c74a4a52
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                      contactId: e5f32d4fd2115220bd20a2ccf81210ec
+        description: ""
+      description: |-
+        Create a new Task.
+        *CRM Caveats*:
+        - Salesforce: You may only associate a Task with either a Lead or a Contact *and* either a Deal or an Account.
+  /api/unifications/crm/tasks/update:
+    post:
+      summary: Update Task
+      operationId: put-task
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                task:
+                  $ref: "#/components/schemas/TaskUpdate"
+              required:
+                - id
+                - task
+            examples:
+              example-1:
+                value:
+                  id: string
+                  task:
+                    body: This task needs to be done very soon!
+                    subject: High Priority Task
+                    dueDate: "2019-09-24T14:15:22Z"
+                    isDone: false
+                    priority: High
+                    status: Not Done
+                    associations:
+                      ownerUserId: 79d154aa0c7a571295a157369d448e65
+      description: Update an existing Task by Id
+    parameters: []
+  /api/unifications/crm/events/list:
+    post:
+      summary: Get All Events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Event"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    events:
+                      - id: "19"
+                        subject: Meeting with Blue Cross
+                        description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                        type: Meeting
+                        location: 1122 Tea Dr
+                        startDateTime: "2019-08-24T14:15:22Z"
+                        endDateTime: "2019-08-24T14:15:22Z"
+                        isAllDayEvent: true
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          eventAttendeeIds:
+                            - f63c1bd7215f5150b332d31d9509752f
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-events
+      description: Retrieve all Events
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads, eventAttendees]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+  /api/unifications/crm/events/find:
+    post:
+      summary: Get Event
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  event:
+                    $ref: "#/components/schemas/Event"
+              examples:
+                example-1:
+                  value:
+                    event:
+                      id: "19"
+                      subject: Meeting with Blue Cross
+                      description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                      type: Meeting
+                      location: 1122 Tea Dr
+                      startDateTime: "2019-08-24T14:15:22Z"
+                      endDateTime: "2019-08-24T14:15:22Z"
+                      isAllDayEvent: true
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        eventAttendeeIds:
+                          - f63c1bd7215f5150b332d31d9509752f
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-event
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads, eventAttendees]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Event by Id
+  /api/unifications/crm/events/create:
+    post:
+      summary: Create Event
+      operationId: post-event
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  $ref: "#/components/schemas/EventCreate"
+              required:
+                - event
+            examples:
+              example-1:
+                value:
+                  event:
+                    subject: Meeting with Blue Cross
+                    description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                    type: Meeting
+                    location: 1122 Tea Dr
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
+                    isAllDayEvent: true
+                    associations:
+                      dealId: 497fb529e6805351b5dc8057c74a4a52
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                      contactId: e5f32d4fd2115220bd20a2ccf81210ec
+                      leadId: d08f345ace24509e911a0ea8e3d2203c
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+        description: ""
+      description: Create a new Event.
+  /api/unifications/crm/events/update:
+    post:
+      summary: Update Event
+      operationId: put-event
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                event:
+                  $ref: "#/components/schemas/EventUpdate"
+              required:
+                - id
+                - event
+            examples:
+              example-1:
+                value:
+                  id: string
+                  event:
+                    subject: Meeting with Blue Cross
+                    description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                    type: Meeting
+                    location: 1122 Tea Dr
+                    startDateTime: "2019-08-24T14:15:22Z"
+                    endDateTime: "2019-08-24T14:15:22Z"
+                    isAllDayEvent: true
+                    associations:
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: Update an existing Event by Id
+    parameters: []
+  /api/unifications/crm/event/attendees/list:
+    post:
+      summary: Get All Event Attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendees:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EventAttendee"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    eventAttendees:
+                      - id: "1234"
+                        associatedObjectType: contacts
+                        status: Confirmed
+                        email: null
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          eventId: 0000d2e83d6c5d52a61f2fb860666477
+                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+                    nextPageCursor: string
+      operationId: get-all-event-attendees
+      description: Retrieve all Attendees for all Events
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+  /api/unifications/crm/event/attendees/find:
+    post:
+      summary: Get Event Attendee
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendee:
+                    $ref: "#/components/schemas/EventAttendee"
+              examples:
+                example-1:
+                  value:
+                    eventAttendee:
+                      id: "34054"
+                      associatedObjectType: contacts
+                      status: Confirmed
+                      email: null
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        eventId: 0000d2e83d6c5d52a61f2fb860666477
+                        associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+      operationId: get-one-event-attendee
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+      description: Retrieve a single Event Attendee by Id
+    parameters: []
+  /api/unifications/crm/event/attendees/create:
+    post:
+      summary: Create Event Attendee
+      operationId: post-event-attendee
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: responseBody
+              type: object
+              properties:
+                eventAttendee:
+                  $ref: "#/components/schemas/EventAttendeeCreate"
+                required:
+                  - eventAttendee
+            examples:
+              example-1:
+                value:
+                  eventAttendee:
+                    email: null
+                    associatedObjectType: contacts
+                    status: Declined
+                    associations:
+                      associationId: 98201f83c3f1c36dbcb36804c572c3ca
+                      eventId: 0000d2e83d6c5d52a61f2fb860666477
+      description: Add an Attendee to an Event
+  /api/unifications/crm/event/attendees/update:
+    post:
+      summary: Update Event Attendee
+      operationId: put-event-attendee
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                eventAttendee:
+                  $ref: "#/components/schemas/EventAttendeeUpdate"
+              required:
+                - id
+                - eventAttendee
+            examples:
+              example-1:
+                value:
+                  id: string
+                  eventAttendee:
+                    status: Declined
+      description: Update the status of an event attendee
+  /api/unifications/crm/emails/list:
+    post:
+      summary: Get All Emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        bodyText: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-emails
+      description: "Retrieve all Emails"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+    parameters: []
+  /api/unifications/crm/emails/find:
+    post:
+      summary: Get Email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    $ref: "#/components/schemas/Email"
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    email:
+                        id: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        bodyText: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-email
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Task by Id
+  /api/unifications/crm/emails/create:
+    post:
+      summary: Create Email
+      operationId: post-email
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  $ref: "#/components/schemas/EmailCreate"
+              required:
+                - email
+            examples:
+              example-1:
+                value:
+                  email:
+                    from: michael@dunder.mifflin
+                    to:
+                      - greg@bluecross.com
+                    cc:
+                      - betty@bluecross.com
+                    bcc:
+                      - carl@bluecross.com
+                    subject: BlueCross <> Dunder Mifflin
+                    bodyText: Hi Greg, need any paper? - Michael
+                    bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                    messageDate: "2019-08-24T14:15:22Z"
+                    isIncoming: false
+                    status: SENT
+                    associations:
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                      dealId: 497fb529e6805351b5dc8057c74a4a52
+                      leads:
+                        - id: d08f345ace24509e911a0ea8e3d2203c
+                          role: to
+                      contacts:
+                        - id: e5f32d4fd2115220bd20a2ccf81210ec
+                          role: cc
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+        description: ""
+      description: |-
+        Create a new Email.
+  /api/unifications/crm/emails/update:
+    post:
+      summary: Update Email
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      operationId: put-email
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                email:
+                  $ref: "#/components/schemas/EmailUpdate"
+              required:
+                - id
+                - email
+            examples:
+              example-1:
+                value:
+                  id: string
+                  email:
+                      isIncoming: false
+                      status: SENT
+                      associations:
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: |-
+        Update an Email by Id.
+        *CRM Caveats*:
+        - Pipedrive: Not supported.
+  /api/unifications/crm/calls/list:
+    post:
+      summary: Get All Calls
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calls:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Call"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    calls:
+                      - id: "23"
+                        subject: BlueCross <> Dunder Mifflin
+                        disposition: "ANSWERED"
+                        direction: "inbound"
+                        description: "Call from Greg"
+                        date: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: get-all-calls
+      description: "Retrieve all Calls"
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+                  associations:
+                    - deals
+                    - contacts
+  /api/unifications/crm/calls/find:
+    post:
+      summary: Get Call
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  call:
+                    $ref: "#/components/schemas/Call"
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    call:
+                        id: "23"
+                        subject: BlueCross <> Dunder Mifflin
+                        disposition: "ANSWERED"
+                        direction: "inbound"
+                        description: "Call from Greg"
+                        date: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      operationId: get-one-call
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                    enum: [deals, contacts, accounts, leads]
+                  description: |
+                    Array of associations to include in the response.
+                    OwnerUserId is always included.
+              required:
+                - id
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+                  associations:
+                    - deals
+                    - contacts
+      description: Retrieve a single Call by Id
+  /api/unifications/crm/calls/create:
+    post:
+      summary: Create Call
+      operationId: post-call
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                call:
+                  $ref: "#/components/schemas/CallCreate"
+              required:
+                - call
+            examples:
+              example-1:
+                value:
+                  call:
+                    subject: BlueCross <> Dunder Mifflin
+                    disposition: "ANSWERED"
+                    direction: "inbound"
+                    description: "Call from Greg"
+                    date: "2019-08-24T14:15:22Z"
+                    associations:
+                      accountId: 0dcb45e051315a6ea63b0f16e73689d9
+                      contactIds:
+                        - e5f32d4fd2115220bd20a2ccf81210ec
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+        description: ""
+      description: |-
+        Create a new Call.
+  /api/unifications/crm/calls/update:
+    post:
+      summary: Update Call
+      operationId: put-call
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    id: "0"
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: "0"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                call:
+                  $ref: "#/components/schemas/CallUpdate"
+              required:
+                - id
+                - call
+            examples:
+              example-1:
+                value:
+                  id: string
+                  call:
+                      disposition: "ANSWERED"
+                      associations:
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: |-
+        Update an Call by Id.
+  /api/unifications/crm/lists/list:
+    post:
+      summary: Get All Lists
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  lists:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ListWithoutAssociations"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    lists:
+                      - id: "34"
+                        name: California Leads
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      operationId: get-all-lists
+      description: Retrieve all Lists
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cursor:
+                  type: string
+                objectType:
+                  type: string
+                  enum: [contacts, leads]
+                  description: |
+                    The type of object to return lists for.
+              required:
+                - objectType
+            examples:
+              example-1:
+                value:
+                  cursor: '123123'
+  /api/unifications/crm/lists/find:
+    post:
+      summary: Get List
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  list:
+                    $ref: "#/components/schemas/ListWithAssociations"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    list:
+                      - id: "34"
+                        name: California Leads
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          - contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                            - 2d20a2ccf81210ecddf32d4fd2115221
+                    nextPageCursor: string
+      operationId: get-one-list
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                objectType:
+                  type: string
+                  enum: [contacts, leads]
+                  description: |
+                    Used to retrieve the correct list.
+              required:
+                - id
+                - objectType
+            examples:
+              example-1:
+                value:
+                  id: '123123'
+      description: Retrieve a single List by Id
+  /api/unifications/crm/passthrough:
+    post:
+      summary: Passthrough Request
+      operationId: post-crm-passthrough
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                properties:
+                  headers:
+                    type: object
+                  url:
+                    type: string
+                    description: The full URL that the request was sent to.
+                  statusCode:
+                    type: number
+                    description: The HTTP status code of the response from the downstream CRM.
+                  body:
+                    AnyValue:
+                      description: The body of the response from the downstream CRM.
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    headers:
+                      content-type: application/json
+                    url: https://mydomain.my.salesforce.com/services/data/v53.0/sobjects/Account
+                    statusCode: 200
+                    body:
+                      id: 0011A00001XQ4QSQAZ
+                      success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                method:
+                  type: string
+                  enum:
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
+                path:
+                  type: string
+                  description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
+                body:
+                  type: object
+                  description: "The body of the request."
+                query:
+                  type: object
+                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
+              required:
+                - accessToken
+                - method
+                - path
+            examples:
+              example-1:
+                value:
+                  accessToken: string
+                  method: PATCH
+                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  body:
+                    - Name: "Vessel"
+        description: ""
+      description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: "Users of the connected CRM platform. These are *not* the contacts or leads, but rather the user accounts from the connected CRM."
+      examples:
+        - id: "12"
+          firstName: Micheal
+          lastName: Scott
+          email: micheal@dundermifflin.com
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          format: email
+          type: string
+        createdTime:
+          type: string
+          description: The timestamp that the user was created
+        modifiedTime:
+          type: string
+          description: The timestamp the user was last modified
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Contact:
+      title: Contact
+      type: object
+      examples:
+        - id: "23"
+          email: tom@bluecross.com
+          firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          phone: "2101128833"
+          mobilePhone: "2106541111"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            dealIds:
+              - 497fb529e6805351b5dc8057c74a4a52
+            leadIds:
+              - d08f345ace24509e911a0ea8e3d2203c
+            noteIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            eventIds:
+              - 0000d2e83d6c5d52a61f2fb860666477
+            eventAttendeeIds:
+              - f63c1bd7215f5150b332d31d9509752f
+            emailIds:
+              - 3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - 1222707bbc415ee4806400e2daa25ffa
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: "Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone number for this contact
+        mobilePhone:
+          type: string
+          description: The primary mobile phone number for this contact. Possibly the same as the phone number.
+        createdTime:
+          type: string
+          description: The timestamp that the contact was created
+        modifiedTime:
+          type: string
+          description: The timestamp the contact was last modified
+        associations:
+          type: object
+          required:
+            - accountIds
+            - dealIds
+            - leadIds
+            - noteIds
+            - taskIds
+            - eventIds
+            - eventAttendeeIds
+            - emailIds
+            - callIds
+            - ownerUserId
+          properties:
+            accountIds:
+              type: array
+              items:
+                type: string
+            dealIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            noteIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            eventIds:
+              type: array
+              items:
+                type: string
+            eventAttendeeIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Address:
+      title: Address
+      type: object
+      properties:
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+      examples:
+        - street: 123 Main St
+          city: San Francisco
+          state: CA
+          postalCode: 94105
+          country: US
+    Deal:
+      title: Deal
+      type: object
+      examples:
+        - id: "84"
+          name: Blue Cross Deal
+          stage: demo
+          amount: 10000
+          closeDate: "2020-08-23T00:00:00Z"
+          probability: "0.4"
+          expectedRevenue: 4000
+          isWon: false
+          isClosed: false
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            noteIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            eventIds:
+              - 0000d2e83d6c5d52a61f2fb860666477
+            emailIds:
+              - 3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - 1222707bbc415ee4806400e2daa25ffa
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: |-
+        (Alias: Opportunity) An object representing either the opportunity to sell a product to an Account, or in the case of an `isWon` deal, a product sold to an Account.
+        *CRM Caveats*:
+        - Pipedrive: Users must have "Deal probability" turned on for the given pipeline for probability to be configurable and returned.
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+          description: Optional name for this deal
+        stage:
+          type: string
+          description: The stage of the pipeline the deal is in. See /deal/details for possible values
+        amount:
+          type: number
+          description: Total deal money value
+        closeDate:
+          type: string
+          description: When this deal is projected to be closed
+        probability:
+          type: string
+          description: Decimal probability of closing this deal.
+        expectedRevenue:
+          type: number
+          description: probability * amount. This is a computed property
+        isWon:
+          type: boolean
+          description: If this deal has been won. This is a computed property based on stage
+        isClosed:
+          type: boolean
+          description: If this deal is closed (either closed-won or closed-lost). This is a computed property based on stage
+        createdTime:
+          type: string
+          description: The timestamp that the deal was created
+        modifiedTime:
+          type: string
+          description: The timestamp the deal was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - accountIds
+            - noteIds
+            - taskIds
+            - emailIds
+            - callIds
+            - ownerUserId
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            accountIds:
+              type: array
+              items:
+                type: string
+            noteIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            eventIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Deal
+      required:
+        - id
+        - name
+        - closeDate
+        - createdTime
+        - modifiedTime
+        - associations
+    Account:
+      title: Account
+      type: object
+      examples:
+        - id: "344"
+          name: Blue Cross
+          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+          industry: TV and Media
+          annualRevenue: 10000000
+          numberOfEmployees: 100
+          website: www.bluecross.penn
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
+          address:
+            street: 100 Blue Dr
+            city: Scranton
+            state: Pennsylvania
+            postalCode: "281332"
+            country: USA
+          associations:
+            dealIds:
+              - 497fb529e6805351b5dc8057c74a4a52
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            noteIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            leadIds:
+              - d08f345ace24509e911a0ea8e3d2203c
+            eventIds:
+              - 0000d2e83d6c5d52a61f2fb860666477
+            emailIds:
+              - 3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - 1222707bbc415ee4806400e2daa25ffa
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      description: "(Alias: company, organization) An organization involved with your business."
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+        description:
+          type: string
+          description: A description of this Company/Account. Not supported by Pipedrive
+        industry:
+          type: string
+          description: Not supported by Pipedrive
+        annualRevenue:
+          type: number
+          description: Not supported by Pipedrive
+        numberOfEmployees:
+          type: number
+          description: Not supported by Pipedrive
+        website:
+          type: string
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone number. Not supported by Pipedrive
+        address:
+          $ref: "#/components/schemas/Address"
+        createdTime:
+          type: string
+          description: The timestamp that the account was created
+        modifiedTime:
+          type: string
+          description: The timestamp the account was last modified
+        associations:
+          type: object
+          required:
+            - dealIds
+            - contactIds
+            - noteIds
+            - taskIds
+            - leadIds
+            - eventIds
+            - emailIds
+            - callIds
+            - ownerUserId
+          properties:
+            dealIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            noteIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            eventIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Account
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Lead:
+      title: Lead
+      type: object
+      description: |-
+        A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal). 
+        *CRM Caveats*:
+        - HubSpot: we consider contacts with the `leadStatus` set to be leads.
+      examples:
+        - id: "23"
+          firstName: Tom
+          lastName: Smith
+          jobTitle: Director of Operations
+          email: tom@bluecross.com
+          accountName: Blue Cross
+          phone: "1234445555"
+          mobilePhone: "2338889999"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            noteIds:
+              - 006b4db16b6b50c981a174b02753c390
+            taskIds:
+              - 2322707bbc41577d9806400e2daa25de
+            eventIds:
+              - 0000d2e83d6c5d52a61f2fb860666477
+            eventAttendeeIds:
+              - f63c1bd7215f5150b332d31d9509752f
+            emailIds:
+              - 3ab3a9562af957228c1019127e3c81e1
+            callIds:
+              - 1222707bbc415ee4806400e2daa25ffa
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        email:
+          type: string
+        accountName:
+          type: string
+          description: Name of the Account associated with this lead
+        phone:
+          type: string
+          description: The primary phone
+        mobilePhone:
+          type: string
+          description: The primary mobile phone number for this lead. Possibly the same as the phone number
+        createdTime:
+          type: string
+          description: The timestamp that the lead was created
+        modifiedTime:
+          type: string
+          description: The timestamp the lead was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - accountIds
+            - noteIds
+            - taskIds
+            - eventIds
+            - eventAttendeeIds
+            - emailIds
+            - callIds
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            accountIds:
+              type: array
+              items:
+                type: string
+            noteIds:
+              type: array
+              items:
+                type: string
+            taskIds:
+              type: array
+              items:
+                type: string
+            eventIds:
+              type: array
+              items:
+                type: string
+            eventAttendeeIds:
+              type: array
+              items:
+                type: string
+            emailIds:
+              type: array
+              items:
+                type: string
+            callIds:
+              type: array
+              items:
+                type: string
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Note:
+      title: Note
+      type: object
+      description: "A Note attached to some CRM Object. "
+      examples:
+        - id: "34"
+          content: This note has some interesting content in it!
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            dealIds:
+              - 497fb529e6805351b5dc8057c74a4a52
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            leadIds:
+              - d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        contentHtml:
+          type: string
+          description: The body of the note (populated if CRM notes support html)
+        contentText:
+          type: string
+          description: The body of the note (populated if CRM notes only support plaintext)
+        createdTime:
+          type: string
+          description: The timestamp that the note was created
+        modifiedTime:
+          type: string
+          description: The timestamp the note was last modified
+        associations:
+          type: object
+          required:
+            - dealIds
+            - contactIds
+            - accountIds
+            - leadIds
+            - ownerUserId
+          properties:
+            dealIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            accountIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this note
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Task:
+      title: Task
+      type: object
+      description: A task attached to some CRM object
+      examples:
+        - id: "122"
+          body: This task needs to be done very soon!
+          subject: High Priority Task
+          isDone: false
+          dueDate: "2019-09-24T14:15:22Z"
+          status: Not Done
+          priority: High
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
+          associations:
+            dealIds:
+              - 497fb529e6805351b5dc8057c74a4a52
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            leadIds:
+              - d08f345ace24509e911a0ea8e3d2203c
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        body:
+          type: string
+        subject:
+          type: string
+        isDone:
+          type: boolean
+        dueDate:
+          type: string
+        status:
+          type: string
+          description: Not supported by Pipedrive
+        priority:
+          type: string
+          description: Not supported by Pipedrive
+        createdTime:
+          type: string
+          description: The timestamp that the task was created
+        modifiedTime:
+          type: string
+          description: The timestamp the task was last modified
+        associations:
+          type: object
+          required:
+            - dealIds
+            - contactIds
+            - accountIds
+            - leadIds
+            - ownerUserId
+          properties:
+            dealIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            accountIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Task
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    Event:
+      title: Event
+      type: object
+      description: |-
+        Events are a type of activity that has attendees and takes place at a certain point in time (i.e., has a start and end date).
+        For the currently supported CRMs, these are the objects Events most closely maps to:
+        - Salesforce = Events
+        - HubSpot = Meetings
+        - Pipedrive = Activities
+        - Zoho = Events
+      examples:
+        - id: "19"
+          subject: Meeting with Blue Cross
+          description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+          type: Meeting
+          location: 1122 Tea Dr
+          startDateTime: "2019-08-24T14:15:22Z"
+          endDateTime: "2019-08-24T14:15:22Z"
+          isAllDayEvent: true
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            accountIds:
+              - 0dcb45e051315a6ea63b0f16e73689d9
+            leadIds:
+              - d08f345ace24509e911a0ea8e3d2203c
+            contactIds:
+              - e5f32d4fd2115220bd20a2ccf81210ec
+            dealIds:
+              - 497fb529e6805351b5dc8057c74a4a52
+            eventAttendeeIds:
+              - f63c1bd7215f5150b332d31d9509752f
+            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        subject:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        location:
+          type: string
+          description: Where this event takes place. Can be virtual
+        startDateTime:
+          type: string
+        endDateTime:
+          type: string
+        isAllDayEvent:
+          type: boolean
+        createdTime:
+          type: string
+          description: The timestamp that the event was created
+        modifiedTime:
+          type: string
+          description: The timestamp the event was last modified
+        associations:
+          type: object
+          required:
+            - accountIds
+            - leadIds
+            - contactIds
+            - dealIds
+            - eventAttendeeIds
+            - ownerUserId
+          properties:
+            accountIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            dealIds:
+              type: array
+              items:
+                type: string
+            eventAttendeeIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this event
+      required:
+        - id
+        - createdTime
+        - modifiedTime
+        - associations
+    EventAttendee:
+      title: EventAttendee
+      type: object
+      description: "Event Attendees hold information about someone who attendee or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
+      examples:
+        - id: f63c1bd7215f5150b332d31d9509752f
+          associatedObjectType: contacts
+          status: Confirmed
+          email: null
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          associations:
+            eventId: 0000d2e83d6c5d52a61f2fb860666477
+            associationId: e5f32d4fd2115220bd20a2ccf81210ec
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        status:
+          type: string
+        associatedObjectType:
+          type: string
+          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          enum: [contacts, leads, other]
+        email:
+          type: string
+          description: Optional unless `associationId` is null
+        createdTime:
+          type: string
+          description: The timestamp that the event attendee was created
+        modifiedTime:
+          type: string
+          description: The timestamp the event attendee was last modified
+        associations:
+          type: object
+          required:
+            - eventId
+            - associationId
+          properties:
+            eventId:
+              type: string
+            associationId:
+              type: string
+              description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
+      required:
+        - id
+        - associatedObjectType
+        - createdTime
+        - modifiedTime
+        - associations
+    Field:
+      title: Field
+      type: object
+      description: |-
+        (Alias: property) A field is a key-value pair on a CRM Object that provides information about that object.
+      properties:
+        key:
+          type: string
+          description: "The key in the CRM object (ex: annualRevenue, numberOfEmployees, etc)"
+        name:
+          type: string
+          description: "The display name of this field (ex: number of employees, annual revenue, etc)"
+        type:
+          type: string
+          enum:
+            - string
+            - number
+            - datetime
+            - date
+            - boolean
+            - reference
+            - phone
+            - url
+            - id
+            - email
+            - percent
+            - singleselect
+            - multiselect
+            - address
+            - decimal
+            - time
+            - daterange
+            - object
+        options:
+          type: array
+          description: Possible options for this field
+          items:
+            type: object
+            properties:
+              key:
+                oneOf:
+                    - type: string
+                    - type: number
+              name:
+                type: string
+        isArray:
+          type: boolean
+          description: If this field is an array
+        custom:
+          type: boolean
+          description: If this field is a custom field
+        universal:
+          type: boolean
+          description: If this is a field we've unified across CRMs
+        required:
+          type: boolean
+          description: If this field is required when creating the object
+        creatable:
+          type: boolean
+          description: If this field can be used when creating the object
+        updatable:
+          type: boolean
+          description: If this field can be updated
+      required:
+        - key
+        - name
+        - type
+        - custom
+        - universal
+        - required
+        - creatable
+        - updatable
+      examples:
+        - key: numberOfEmployees
+          name: number of employees
+          type: number
+          options: null
+          isArray: false
+          custom: false
+          universal: true
+          required: false
+          creatable: true
+          updatable: true
+    Email:
+      title: Email
+      type: object
+      description: |-
+        An email is a message sent from one person to another through an email service. Emails involve participants - the person who the email was sent to, or the person that sent it. Participants are usually a Contact, Lead, or User but in certain CRMs, can be a person not yet associated with a CRM object.
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        from:
+          type: string
+          description: The email address that sent the email
+        to:
+          type: array
+          description: The email addresses that received the email
+          items:
+            type: string
+        cc:
+          type: array
+          description: The email addresses that received a copy of the email
+          items:
+            type: string
+        bcc:
+          type: array
+          description: The email addresses that received a blind copy of the email
+          items:
+            type: string
+        subject:
+          type: string
+          description: The subject of the email
+        bodyText:
+          type: string
+          description: The text formatted body of the email
+        bodyHtml:
+          type: string
+          description: The html formatted body of the email
+        messageDate:
+          type: string
+          description: The date the email was created. This can be set when creating the email object and is not necessarily the same as the `createdTime` field.
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        isBounced:
+          type: boolean
+          description: If this email was bounced
+        hasAttachment:
+          type: boolean
+          description: If this email has attachment(s)
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        createdTime:
+          type: string
+          description: The timestamp that the email object was created
+        modifiedTime:
+          type: string
+          description: The timestamp the email object was last modified
+        associations:
+          type: object
+          required:
+            - accountIds
+            - leadIds
+            - contactIds
+            - dealIds
+            - ownerUserId
+          properties:
+            accountIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            dealIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
+      required:
+        - id
+        - from
+        - to
+        - subject
+        - createdTime
+        - modifiedTime
+        - associations
+    Call:
+      title: Call
+      type: object
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        subject:
+          type: string
+        disposition:
+          type: string
+          description: Possibly an enum, See /details endpoint for values.
+        direction:
+          type: string
+          enum:
+            - inbound
+            - outbound
+            - internal
+        description:
+          type: string
+        date:
+          type: string
+          description: The date the call occurred
+        createdTime:
+          type: string
+          description: The timestamp that the call object was created
+        modifiedTime:
+          type: string
+          description: The timestamp the call object was last modified
+        associations:
+          type: object
+          required:
+            - accountIds
+            - leadIds
+            - contactIds
+            - dealIds
+            - ownerUserId
+          properties:
+            accountIds:
+              type: array
+              items:
+                type: string
+            contactIds:
+              type: array
+              items:
+                type: string
+            dealIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this call
+    CallCreate:
+      title: CallCreate
+      type: object
+      properties:
+        subject:
+          type: string
+        disposition:
+          type: string
+          description: See /details endpoint for possible values.
+        direction:
+          type: string
+          enum:
+            - inbound
+            - outbound
+            - internal
+        description:
+          type: string
+        date:
+          type: string
+          description: ISO Formatted date for when the call occurred
+        associations:
+          type: object
+          properties:
+            contactIds:
+              type: array
+              description: The participants involved in this call. If this is an inbound call, this is the contacts that called, if this is an outbound call, this is the contacts that were called.
+              items:
+                type: string
+            accountId:
+              type: string
+            ownerUserId:
+              type: string
+      required:
+        - disposition
+        - direction
+        - date
+    CallUpdate:
+      title: CallUpdate
+      type: object
+      properties:
+        disposition:
+          type: string
+          description: See /details endpoint for possible values.
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+      required:
+        - disposition
+    EmailCreate:
+      title: EmailCreate
+      type: object
+      properties:
+        from:
+          type: string
+          description: The email address that sent the email
+        to:
+          type: array
+          description: The email addresses that received the email
+          items:
+            type: string
+        cc:
+          type: array
+          description: The email addresses that received a copy of the email
+          items:
+            type: string
+        bcc:
+          type: array
+          description: The email addresses that received a blind copy of the email
+          items:
+            type: string
+        subject:
+          type: string
+          description: The subject of the email
+        bodyText:
+          type: string
+          description: The text formatted body of the email
+        bodyHtml:
+          type: string
+          description: The html formatted body of the email
+        messageDate:
+          type: string
+          description: The date the email was created. This can be set when creating the email object and is not necessarily the same as the `createdTime` field.
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        associations:
+          type: object
+          properties: 
+            accountId:
+              type: string
+            dealId:
+              type: string
+            lead:
+              type: object
+              description: Associated Leads must participate in the email (i.e., have a role).
+              properties:
+                id:
+                  type: string
+                role:
+                  enum:
+                    - from
+                    - to
+                    - cc
+                    - bcc
+            contact:
+              type: object
+              description: Associated Contacts must participate in the email (i.e., have a role).
+              properties:
+                id:
+                  type: string
+                role:
+                  enum:
+                    - from
+                    - to
+                    - cc
+                    - bcc
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
+      required:
+        - from
+        - to
+        - subject
+    EmailUpdate:
+      title: EmailUpdate
+      type: object
+      description: ""
+      examples:
+        - isIncoming: false
+          status: SENT
+          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+      properties:
+        isIncoming:
+          type: boolean
+          description: If this email was sent to the user or sent by the user
+        status:
+          type: string
+          description: The status of the email (CRM specific, see /details).
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
+    EventAttendeeCreate:
+      title: EventAttendeeCreate
+      type: object
+      description: ""
+      properties:
+        email:
+          type: string
+          description: 'Required if associationId is not present and the CRM supports "Other" for attendee associatedObjectType '
+        associatedObjectType:
+          type: string
+          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          enum: [contacts, leads, other]
+        status:
+          type: string
+        associations:
+          type: object
+          required:
+            - eventId
+          properties:
+            associationId:
+              type: string
+              description: Required unless email is present and CRM supports "Other" for associatedObjectType
+            eventId:
+              type: string
+      required:
+        - associatedObjectType
+        - associations
+    EventAttendeeUpdate:
+      title: EventAttendeeUpdate
+      type: object
+      properties:
+        status:
+          type: string
+      description: ""
+    EventCreate:
+      title: EventCreate
+      type: object
+      description: ""
+      properties:
+        subject:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        location:
+          type: string
+        startDateTime:
+          type: string
+        endDateTime:
+          type: string
+        isAllDayEvent:
+          type: boolean
+          description: Not supported by HubSpot and Pipedrive
+        associations:
+          type: object
+          properties:
+            dealId:
+              type: string
+            accountId:
+              type: string
+            contactId:
+              type: string
+            leadId:
+              type: string
+            ownerUserId:
+              type: string
+      required:
+        - startDateTime
+        - endDateTime
+    EventUpdate:
+      title: EventUpdate
+      type: object
+      properties:
+        subject:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        location:
+          type: string
+        startDateTime:
+          type: string
+        endDateTime:
+          type: string
+        isAllDayEvent:
+          type: boolean
+          description: Not supported by HubSpot and Pipedrive
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+    TaskCreate:
+      title: TaskCreate
+      type: object
+      description: ""
+      properties:
+        body:
+          type: string
+        subject:
+          type: string
+        dueDate:
+          type: string
+          description: ISO Formatted Date for the due date of the task
+        priority:
+          type: string
+          description: Not supported by Pipedrive
+        status:
+          type: string
+          description: Not supported by Pipedrive
+        isDone:
+          type: boolean
+          description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
+            leadId:
+              type: string
+              description: Can only set either leadId or dealId but not both.
+            dealId:
+              type: string
+              description: Can only set either leadId or dealId but not both.
+            accountId:
+              type: string
+            contactId:
+              type: string
+    TaskUpdate:
+      title: TaskUpdate
+      type: object
+      description: ""
+      properties:
+        body:
+          type: string
+        subject:
+          type: string
+        dueDate:
+          type: string
+        priority:
+          type: string
+          description: Not supported by Pipedrive
+        status:
+          type: string
+          description: Not supported by Pipedrive
+        isDone:
+          type: boolean
+          description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+    ContactUpdate:
+      title: ContactUpdate
+      type: object
+      description: Update a Contact.
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone
+        mobilePhone:
+          type: string
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Contact to
+    ContactCreate:
+      title: ContactCreate
+      type: object
+      description: Properties that a contact can be created with
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone
+        mobilePhone:
+          type: string
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: The Id of the account to associate this contact with
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Contact to
+      required:
+        - lastName
+    DealUpdate:
+      title: DealUpdate
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        closeDate:
+          type: string
+        probability:
+          type: string
+          description: Decimal probability of closing the deal
+        stage:
+          type: string
+          description: The stage the deal is in. See /deal/details for possible values
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: Update the account this deal is associated with.
+      required:
+        - closeDate
+    DealCreate:
+      title: DealCreate
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        closeDate:
+          type: string
+        probability:
+          type: string
+          description: Decimal probability of closing the deal
+        stage:
+          type: string
+          description: The stage the deal is in. See /deal/details for possible value
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: The Id of the account to associate this deal with
+      required:
+        - name
+        - closeDate
+    AccountUpdate:
+      title: AccountUpdate
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: Not supported by Pipedrive
+        industry:
+          type: string
+          description: Not supported by Pipedrive
+        website:
+          type: string
+          description: Not supported by Pipedrive
+        numberOfEmployees:
+          type: number
+          description: Not supported by Pipedrive
+        annualRevenue:
+          type: number
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone| Not supported by Pipedrive
+        address:
+          $ref: "#/components/schemas/Address"
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Account to
+      required:
+        - name
+    AccountCreate:
+      title: AccountCreate
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: Not supported by Pipedrive
+        industry:
+          type: string
+          description: Not supported by Pipedrive
+        website:
+          type: string
+          description: Not supported by Pipedrive
+        numberOfEmployees:
+          type: number
+          description: Not supported by Pipedrive
+        annualRevenue:
+          type: number
+          description: Not supported by Pipedrive
+        phone:
+          type: string
+          description: The primary phone | Not supported by Pipedrive
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Account to
+        address:
+          $ref: "#/components/schemas/Address"
+      required:
+        - name
+    NoteCreate:
+      title: NoteCreate
+      type: object
+      description: Create a new Note. You may only associate a note with at most one entity of each type upon creation.
+      properties:
+        content:
+          type: string
+          description: The body of the note
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
+            dealId:
+              type: string
+              description: Required unless leadId/accountId/contactId are specified.
+            leadId:
+              type: string
+              description: Required unless dealId/accountId/contactId are specified.
+            accountId:
+              type: string
+              description: Required unless leadId/dealId/contactId are specified.
+            contactId:
+              type: string
+              description: Required unless leadId/accountId/dealId are specified.
+    NoteUpdate:
+      title: NoteUpdate
+      type: object
+      description: Update an existing Note. Please note that updating associations is not currently supported.
+      properties:
+        content:
+          type: string
+          description: The body of the note
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: Only Admins can change this property
+    LeadUpdate:
+      description: ""
+      type: object
+      title: LeadUpdate
+      properties:
+        firstName:
+          type: string
+          description: Not supported for Pipedrive
+        lastName:
+          type: string
+          description: Not supported for Pipedrive
+        jobTitle:
+          type: string
+        email:
+          type: string
+          description: Not supported for Pipedrive
+        accountName:
+          type: string
+          description: Name of the Account associated with this lead. Not supported for Pipedrive
+        phone:
+          type: string
+          description: The primary phone. Not supported for Pipedrive
+        mobilePhone:
+          type: string
+          description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
+    LeadCreate:
+      description: ""
+      type: object
+      title: LeadCreate
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        email:
+          type: string
+        accountName:
+          type: string
+          description: "Name of the Account associated with this lead. Not supported for Pipedrive. Defaults to `[TODO]: Fill in Company Name` in Salesforce"
+        phone:
+          type: string
+          description: The primary phone number for this lead
+        mobilePhone:
+          type: string
+          description: The primary mobile phone number for this lead. Possibly the same as the phone number.
+      required:
+        - lastName
+    CustomFieldCreate:
+      type: object
+      description: ""
+      properties:
+        customKey:
+          type: string
+          description: "Used for overriding the default key generated from the name of the field. Not supported for Close"
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - singleselect
+        options:
+          type: array
+          description: "Required when `type = singleselect`"
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              key:
+                type: string
+            required:
+              - name 
+              - key
+      required:
+        - name
+        - type
+    ListWithAssociations:
+      title: List
+      type: object
+      description: "A List or View in a CRM"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+          description: The name of the list
+        createdTime:
+          type: string
+          description: The timestamp that the list was created
+        modifiedTime:
+          type: string
+          description: The timestamp the list was last modified
+        associations:
+          type: object
+          required:
+            - contactIds
+            - leadIds
+            - ownerUserId
+          properties:
+            contactIds:
+              type: array
+              items:
+                type: string
+            leadIds:
+              type: array
+              items:
+                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this list
+      required:
+        - id
+        - name
+        - createdTime
+        - modifiedTime
+        - associations
+    ListWithoutAssociations:
+      title: List
+      type: object
+      description: "A List or View in a CRM"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected CRM.
+        name:
+          type: string
+          description: The name of the list
+        createdTime:
+          type: string
+          description: The timestamp that the list was created
+        modifiedTime:
+          type: string
+          description: The timestamp the list was last modified
+      required:
+        - id
+        - name
+        - createdTime
+        - modifiedTime
+  securitySchemes:
+    VesselAPIToken:
+      name: vessel-api-token
+      type: apiKey
+      in: header
