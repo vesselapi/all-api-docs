@@ -2879,6 +2879,13 @@ paths:
               properties:
                 cursor:
                   type: string
+                objectType:
+                  type: string
+                  enum: [contacts, leads]
+                  description: |
+                    The type of object to return lists for.
+              required:
+                - objectType
             examples:
               example-1:
                 value:
@@ -2928,8 +2935,14 @@ paths:
               properties:
                 id:
                   type: string
+                objectType:
+                  type: string
+                  enum: [contacts, leads]
+                  description: |
+                    Used to retrieve the correct list.
               required:
                 - id
+                - objectType
             examples:
               example-1:
                 value:
