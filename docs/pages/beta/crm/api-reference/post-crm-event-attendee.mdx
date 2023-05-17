@@ -1,7 +1,5 @@
 ---
-
 openapi: "POST /api/unifications/crm/event/attendees/create"
-
 ---
 
   <RequestExample>
@@ -15,7 +13,7 @@ openapi: "POST /api/unifications/crm/event/attendees/create"
   --data '{
   "eventAttendee": {
     "email": null,
-    "associatedObjectType": "Contact",
+    "associatedObjectType": "contacts",
     "status": "Declined",
     "associations": {
       "associationId": "98201f83c3f1c36dbcb36804c572c3ca",
@@ -26,6 +24,5 @@ openapi: "POST /api/unifications/crm/event/attendees/create"
   ```
   
   </RequestExample>
-  
   
 

@@ -1941,7 +1941,7 @@ paths:
                   value:
                     eventAttendees:
                       - id: "1234"
-                        associatedObjectType: Contact
+                        associatedObjectType: contacts
                         status: Confirmed
                         email: null
                         createdTime: "2019-08-24T14:15:22Z"
@@ -1990,7 +1990,7 @@ paths:
                   value:
                     eventAttendee:
                       id: "34054"
-                      associatedObjectType: Contact
+                      associatedObjectType: contacts
                       status: Confirmed
                       email: null
                       createdTime: "2019-08-24T14:15:22Z"
@@ -2070,7 +2070,7 @@ paths:
                 value:
                   eventAttendee:
                     email: null
-                    associatedObjectType: Contact
+                    associatedObjectType: contacts
                     status: Declined
                     associations:
                       associationId: 98201f83c3f1c36dbcb36804c572c3ca
@@ -3586,7 +3586,7 @@ components:
       description: "Event Attendees hold information about someone who attendee or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
       examples:
         - id: f63c1bd7215f5150b332d31d9509752f
-          associatedObjectType: Contact
+          associatedObjectType: contacts
           status: Confirmed
           email: null
           createdTime: "2019-08-24T14:15:22Z"
@@ -3603,6 +3603,7 @@ components:
         associatedObjectType:
           type: string
           description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          enum: [contacts, leads, other]
         email:
           type: string
           description: Optional unless `associationId` is null
@@ -4022,6 +4023,7 @@ components:
         associatedObjectType:
           type: string
           description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          enum: [contacts, leads, other]
         status:
           type: string
         associations:
