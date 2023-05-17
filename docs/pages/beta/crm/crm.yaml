@@ -2159,7 +2159,7 @@ paths:
                         bcc:
                           - carl@bluecross.com
                         subject: BlueCross <> Dunder Mifflin
-                        body: Hi Greg, need any paper? - Michael
+                        bodyText: Hi Greg, need any paper? - Michael
                         bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
                         messageDate: "2019-08-24T14:15:22Z"
                         isIncoming: false
@@ -2228,7 +2228,7 @@ paths:
                         bcc:
                           - carl@bluecross.com
                         subject: BlueCross <> Dunder Mifflin
-                        body: Hi Greg, need any paper? - Michael
+                        bodyText: Hi Greg, need any paper? - Michael
                         bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
                         messageDate: "2019-08-24T14:15:22Z"
                         isIncoming: false
@@ -2324,7 +2324,7 @@ paths:
                     bcc:
                       - carl@bluecross.com
                     subject: BlueCross <> Dunder Mifflin
-                    body: Hi Greg, need any paper? - Michael
+                    bodyText: Hi Greg, need any paper? - Michael
                     bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
                     messageDate: "2019-08-24T14:15:22Z"
                     isIncoming: false
@@ -2813,11 +2813,6 @@ paths:
       description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
-    InvalidIds:
-      type: array
-      items:
-        type: string
-      description: Ids that didn't return anything. Will be an empty array if all Ids are valid.
     User:
       title: User
       type: object
@@ -3628,9 +3623,6 @@ components:
             associationId:
               type: string
               description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
-        additional:
-          type: object
-          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
       required:
         - id
         - associatedObjectType
@@ -3725,35 +3717,6 @@ components:
       type: object
       description: |-
         An email is a message sent from one person to another through an email service. Emails involve participants - the person who the email was sent to, or the person that sent it. Participants are usually a Contact, Lead, or User but in certain CRMs, can be a person not yet associated with a CRM object.
-      examples:
-        - id: "23"
-          from: michael@dunder.mifflin
-          to:
-            - greg@bluecross.com
-          cc:
-            - betty@bluecross.com
-          bcc:
-            - carl@bluecross.com
-          subject: BlueCross <> Dunder Mifflin
-          body: Hi Greg, need any paper? - Michael
-          bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-          messageDate: "2019-08-24T14:15:22Z"
-          isIncoming: false
-          isBounced: false
-          hasAttachment: false
-          status: SENT
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       properties:
         id:
           type: string
@@ -3779,7 +3742,7 @@ components:
         subject:
           type: string
           description: The subject of the email
-        body:
+        bodyText:
           type: string
           description: The text formatted body of the email
         bodyHtml:
@@ -3834,9 +3797,6 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this email
-        additional:
-          type: object
-          description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
       required:
         - id
         - from
@@ -3902,101 +3862,6 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this call
-        additional:
-          type: object
-    StringFilter:
-      type: object
-      properties:
-        equals:
-          type: string
-        contains:
-          type: string
-        startsWith:
-          type: string
-        endsWith:
-          type: string
-        not:
-          type: string
-        in:
-          type: array
-          items:
-            type: string
-        notIn:
-          type: array
-          items:
-            type: string
-        mode:
-          type: string
-          enum:
-            - insensitive
-    BooleanFilter:
-      type: object
-      properties:
-        equals:
-          type: boolean
-        not:
-          type: boolean
-    NumberFilter:
-      type: object
-      properties:
-        equals:
-          type: number
-        gt:
-          type: number
-        lt:
-          type: number
-        lte:
-          type: number
-        gte:
-          type: number
-        not:
-          type: number
-        in:
-          type: array
-          items:
-            type: number
-        notIn:
-          type: array
-          items:
-            type: number
-    StringListFilter:
-      type: object
-      properties:
-        has:
-          type: string
-        hasEvery:
-          type: array
-          items:
-            type: string
-        hasSome:
-          type: array
-          items:
-            type: string
-        isEmpty:
-          type: boolean
-    DateFilter:
-      type: object
-      properties:
-        equals:
-          type: string
-        gt:
-          type: string
-        lt:
-          type: string
-        lte:
-          type: string
-        gte:
-          type: string
-        not:
-          type: string
-        in:
-          type: array
-          items:
-            type: string
-        notIn:
-          type: array
-          items:
-            type: string
     CallCreate:
       title: CallCreate
       type: object
@@ -4017,15 +3882,18 @@ components:
         date:
           type: string
           description: ISO Formatted date for when the call occurred
-        contactIds:
-          type: array
-          description: The participants involved in this call. If this is an inbound call, this is the contacts that called, if this is an outbound call, this is the contacts that were called.
-          items:
-            type: string
-        accountId:
-          type: string
-        ownerUserId:
-          type: string
+        associations:
+          type: object
+          properties:
+            contactIds:
+              type: array
+              description: The participants involved in this call. If this is an inbound call, this is the contacts that called, if this is an outbound call, this is the contacts that were called.
+              items:
+                type: string
+            accountId:
+              type: string
+            ownerUserId:
+              type: string
       required:
         - disposition
         - direction
@@ -4037,37 +3905,16 @@ components:
         disposition:
           type: string
           description: See /details endpoint for possible values.
-        ownerUserId:
-          type: string
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
       required:
         - disposition
     EmailCreate:
       title: EmailCreate
       type: object
-      description: ""
-      examples:
-        - from: michael@dunder.mifflin
-          to:
-            - greg@bluecross.com
-          cc:
-            - betty@bluecross.com
-          bcc:
-            - carl@bluecross.com
-          subject: BlueCross <> Dunder Mifflin
-          body: Hi Greg, need any paper? - Michael
-          bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-          messageDate: "2019-08-24T14:15:22Z"
-          isIncoming: false
-          status: SENT
-          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-          dealId: 497fb529e6805351b5dc8057c74a4a52
-          leads:
-            - id: d08f345ace24509e911a0ea8e3d2203c
-              role: to
-          contacts:
-            - id: e5f32d4fd2115220bd20a2ccf81210ec
-              role: cc
-          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       properties:
         from:
           type: string
@@ -4090,7 +3937,7 @@ components:
         subject:
           type: string
           description: The subject of the email
-        body:
+        bodyText:
           type: string
           description: The text formatted body of the email
         bodyHtml:
@@ -4105,40 +3952,40 @@ components:
         status:
           type: string
           description: The status of the email (CRM specific, see /details).
-        accountId:
-          type: string
-        dealId:
-          type: string
-        lead:
+        associations:
           type: object
-          description: Associated Leads must participate in the email (i.e., have a role).
-          properties:
-            id:
+          properties: 
+            accountId:
               type: string
-            role:
-              enum:
-                - from
-                - to
-                - cc
-                - bcc
-        contact:
-          type: object
-          description: Associated Contacts must participate in the email (i.e., have a role).
-          properties:
-            id:
+            dealId:
               type: string
-            role:
-              enum:
-                - from
-                - to
-                - cc
-                - bcc
-        ownerUserId:
-          type: string
-          description: The Id of the User that owns this email
-        additional:
-          type: object
-          description: "Create any property in the downstream CRM, such as a custom or native property. For a list of all properties see /details."
+            lead:
+              type: object
+              description: Associated Leads must participate in the email (i.e., have a role).
+              properties:
+                id:
+                  type: string
+                role:
+                  enum:
+                    - from
+                    - to
+                    - cc
+                    - bcc
+            contact:
+              type: object
+              description: Associated Contacts must participate in the email (i.e., have a role).
+              properties:
+                id:
+                  type: string
+                role:
+                  enum:
+                    - from
+                    - to
+                    - cc
+                    - bcc
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
       required:
         - from
         - to
@@ -4158,19 +4005,16 @@ components:
         status:
           type: string
           description: The status of the email (CRM specific, see /details).
-        ownerUserId:
-          type: string
-          description: The Id of the User that owns this email
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this email
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
       description: ""
-      examples:
-        - email: null
-          associatedObjectType: Contact
-          status: Declined
-          associationId: 98201f83c3f1c36dbcb36804c572c3ca
-          eventId: 0000d2e83d6c5d52a61f2fb860666477
       properties:
         email:
           type: string
@@ -4180,22 +4024,25 @@ components:
           description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
         status:
           type: string
-        associationId:
-          type: string
-          description: Required unless email is present and CRM supports "Other" for associatedObjectType
-        eventId:
-          type: string
+        associations:
+          type: object
+          required:
+            - eventId
+          properties:
+            associationId:
+              type: string
+              description: Required unless email is present and CRM supports "Other" for associatedObjectType
+            eventId:
+              type: string
       required:
         - associatedObjectType
-        - eventId
+        - associations
     EventAttendeeUpdate:
       title: EventAttendeeUpdate
       type: object
       properties:
         status:
           type: string
-      examples:
-        - status: Declined
       description: ""
     EventCreate:
       title: EventCreate
@@ -4217,32 +4064,22 @@ components:
         isAllDayEvent:
           type: boolean
           description: Not supported by HubSpot and Pipedrive
-        dealId:
-          type: string
-        accountId:
-          type: string
-        contactId:
-          type: string
-        leadId:
-          type: string
-        ownerUserId:
-          type: string
+        associations:
+          type: object
+          properties:
+            dealId:
+              type: string
+            accountId:
+              type: string
+            contactId:
+              type: string
+            leadId:
+              type: string
+            ownerUserId:
+              type: string
       required:
         - startDateTime
         - endDateTime
-      examples:
-        - subject: Meeting with Blue Cross
-          description: Going to get tea with Tom from Blue Cross to discuss his paper needs
-          type: Meeting
-          location: 1122 Tea Dr
-          startDateTime: "2019-08-24T14:15:22Z"
-          endDateTime: "2019-08-24T14:15:22Z"
-          isAllDayEvent: true
-          dealId: 497fb529e6805351b5dc8057c74a4a52
-          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-          contactId: e5f32d4fd2115220bd20a2ccf81210ec
-          leadId: d08f345ace24509e911a0ea8e3d2203c
-          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
     EventUpdate:
       title: EventUpdate
       type: object
@@ -4262,33 +4099,15 @@ components:
         isAllDayEvent:
           type: boolean
           description: Not supported by HubSpot and Pipedrive
-        ownerUserId:
-          type: string
-      examples:
-        - subject: Meeting with Blue Cross
-          description: Going to get tea with Tom from Blue Cross to discuss his paper needs
-          type: Meeting
-          location: 1122 Tea Dr
-          startDateTime: "2019-08-24T14:15:22Z"
-          endDateTime: "2019-08-24T14:15:22Z"
-          isAllDayEvent: true
-          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
     TaskCreate:
       title: TaskCreate
       type: object
       description: ""
-      examples:
-        - body: This task needs to be done very soon!
-          subject: High Priority Task
-          dueDate: "2019-09-24T14:15:22Z"
-          isDone: false
-          ownerUserId: 79d154aa0c7a571295a157369d448e65
-          leadId: d08f345ace24509e911a0ea8e3d2203c
-          dealId: 497fb529e6805351b5dc8057c74a4a52
-          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-          contactId: e5f32d4fd2115220bd20a2ccf81210ec
-          priority: High
-          status: Not Done
       properties:
         body:
           type: string
@@ -4297,19 +4116,6 @@ components:
         dueDate:
           type: string
           description: ISO Formatted Date for the due date of the task
-        ownerUserId:
-          type: string
-          description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
-        leadId:
-          type: string
-          description: Can only set either leadId or dealId but not both.
-        dealId:
-          type: string
-          description: Can only set either leadId or dealId but not both.
-        accountId:
-          type: string
-        contactId:
-          type: string
         priority:
           type: string
           description: Not supported by Pipedrive
@@ -4319,18 +4125,26 @@ components:
         isDone:
           type: boolean
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
+            leadId:
+              type: string
+              description: Can only set either leadId or dealId but not both.
+            dealId:
+              type: string
+              description: Can only set either leadId or dealId but not both.
+            accountId:
+              type: string
+            contactId:
+              type: string
     TaskUpdate:
       title: TaskUpdate
       type: object
       description: ""
-      examples:
-        - body: This task needs to be done very soon!
-          subject: High Priority Task
-          dueDate: "2019-09-24T14:15:22Z"
-          isDone: false
-          ownerUserId: 79d154aa0c7a571295a157369d448e65
-          priority: High
-          status: Not Done
       properties:
         body:
           type: string
@@ -4338,8 +4152,6 @@ components:
           type: string
         dueDate:
           type: string
-        ownerUserId:
-          type: string
         priority:
           type: string
           description: Not supported by Pipedrive
@@ -4349,16 +4161,14 @@ components:
         isDone:
           type: boolean
           description: "If both `isDone` and `status` are included, `isDone` will take precedence and automatically set `status` to either the default or a 'closed' status depending on the `isDone` value."
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
     ContactUpdate:
       title: ContactUpdate
       type: object
-      examples:
-        - email: tom@bluecross.com
-          firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          phone: "2101128833"
-          mobilePhone: "2106541111"
       description: Update a Contact.
       properties:
         email:
@@ -4375,19 +4185,15 @@ components:
           description: The primary phone
         mobilePhone:
           type: string
-        ownerUserId:
-          type: string
-          description: The Id of the User to assign this Contact to
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Contact to
     ContactCreate:
       title: ContactCreate
       type: object
-      examples:
-        - email: tom@bluecross.com
-          firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          phone: "2101128833"
-          mobilePhone: "2106541111"
       description: Properties that a contact can be created with
       properties:
         email:
@@ -4404,22 +4210,20 @@ components:
           description: The primary phone
         mobilePhone:
           type: string
-        accountId:
-          type: string
-          description: The Id of the account to associate this contact with
-        ownerUserId:
-          type: string
-          description: The Id of the User to assign this Contact to
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: The Id of the account to associate this contact with
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Contact to
       required:
         - lastName
     DealUpdate:
       title: DealUpdate
       type: object
-      examples:
-        - name: Blue Cross Deal
-          amount: 10000
-          closeDate: "2020-08-23T00:00:00Z"
-          probability: "0.4"
       properties:
         name:
           type: string
@@ -4433,20 +4237,17 @@ components:
         stage:
           type: string
           description: The stage the deal is in. See /deal/details for possible values
-        accountId:
-          type: string
-          description: Update the account this deal is associated with.
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: Update the account this deal is associated with.
       required:
         - closeDate
     DealCreate:
       title: DealCreate
       type: object
-      examples:
-        - name: Blue Cross Deal
-          amount: 10000
-          closeDate: "2020-08-23T00:00:00Z"
-          probability: "0.4"
-          stage: closedwon
       properties:
         name:
           type: string
@@ -4460,31 +4261,18 @@ components:
         stage:
           type: string
           description: The stage the deal is in. See /deal/details for possible value
-        accountId:
-          type: string
-          description: The Id of the account to associate this deal with
+        associations:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: The Id of the account to associate this deal with
       required:
         - name
         - closeDate
     AccountUpdate:
       title: AccountUpdate
       type: object
-      examples:
-        - name: Blue Cross
-          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
-          industry: TV and Media
-          annualRevenue: 10000000
-          numberOfEmployees: 100
-          website: www.bluecross.penn
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          phone: "8192223333"
-          address:
-            street: 100 Blue Dr
-            city: Scranton
-            state: Pennsylvania
-            postalCode: "281332"
-            country: USA
       properties:
         name:
           type: string
@@ -4508,28 +4296,17 @@ components:
           description: The primary phone| Not supported by Pipedrive
         address:
           $ref: "#/components/schemas/Address"
-        ownerUserId:
-          type: string
-          description: The Id of the User to assign this Account to
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Account to
       required:
         - name
     AccountCreate:
       title: AccountCreate
       type: object
-      examples:
-        - name: Blue Cross
-          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
-          industry: TV and Media
-          annualRevenue: 10000000
-          numberOfEmployees: 100
-          website: www.bluecross.penn
-          phone: "8192223333"
-          address:
-            street: 100 Blue Dr
-            city: Scranton
-            state: Pennsylvania
-            postalCode: "281332"
-            country: USA
       properties:
         name:
           type: string
@@ -4551,9 +4328,12 @@ components:
         phone:
           type: string
           description: The primary phone | Not supported by Pipedrive
-        ownerUserId:
-          type: string
-          description: The Id of the User to assign this Account to
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The Id of the User to assign this Account to
         address:
           $ref: "#/components/schemas/Address"
       required:
@@ -4562,68 +4342,45 @@ components:
       title: NoteCreate
       type: object
       description: Create a new Note. You may only associate a note with at most one entity of each type upon creation.
-      examples:
-        - content: This note has some interesting content in it!
-          ownerUserId: 79d154aa0c7a571295a157369d448e65
-          dealId: 497fb529e6805351b5dc8057c74a4a52
-          leadId: d08f345ace24509e911a0ea8e3d2203c
-          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-          contactId: e5f32d4fd2115220bd20a2ccf81210ec
       properties:
         content:
           type: string
           description: The body of the note
-        ownerUserId:
-          type: string
-          description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
-        dealId:
-          type: string
-          description: Required unless leadId/accountId/contactId are specified.
-        leadId:
-          type: string
-          description: Required unless dealId/accountId/contactId are specified.
-        accountId:
-          type: string
-          description: Required unless leadId/dealId/contactId are specified.
-        contactId:
-          type: string
-          description: Required unless leadId/accountId/dealId are specified.
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: The user to assign this note to. If there is no ownerUserId provided, the behavior is defined by the downstream system (either assigned to no user or to the user that installed the app).
+            dealId:
+              type: string
+              description: Required unless leadId/accountId/contactId are specified.
+            leadId:
+              type: string
+              description: Required unless dealId/accountId/contactId are specified.
+            accountId:
+              type: string
+              description: Required unless leadId/dealId/contactId are specified.
+            contactId:
+              type: string
+              description: Required unless leadId/accountId/dealId are specified.
     NoteUpdate:
       title: NoteUpdate
       type: object
       description: Update an existing Note. Please note that updating associations is not currently supported.
-      examples:
-        - content: This note has some interesting content in it!
-          ownerUserId: 79d154aa0c7a571295a157369d448e65
       properties:
         content:
           type: string
           description: The body of the note
-        ownerUserId:
-          type: string
-          description: Only Admins can change this property
+        associations:
+          type: object
+          properties:
+            ownerUserId:
+              type: string
+              description: Only Admins can change this property
     LeadUpdate:
       description: ""
       type: object
-      x-examples:
-        example-1:
-          firstName: string
-          lastName: string
-          jobTitle: string
-          email: string
-          phones:
-            - value: "0001112222"
-              type: Home
-          modifiedTime: string
-          createdTime: string
-      examples:
-        - firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          email: tom@bluecross.com
-          accountName: Blue Cross
-          phone: "1234445555"
-          mobilePhone: "2338889999"
       title: LeadUpdate
       properties:
         firstName:
@@ -4649,23 +4406,6 @@ components:
     LeadCreate:
       description: ""
       type: object
-      x-examples:
-        example-1:
-          firstName: Tony
-          lastName: Stark
-          jobTitle: CEO
-          email: tony@starkindustries.com
-          phones:
-            - value: "0001112222"
-              type: Home
-      examples:
-        - firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          email: tom@bluecross.com
-          accountName: Blue Cross
-          phone: "1234445555"
-          mobilePhone: "2338889999"
       title: LeadCreate
       properties:
         firstName:
@@ -4779,26 +4519,6 @@ components:
         - name
         - createdTime
         - modifiedTime
-    Integration:
-      title: Integration
-      type: object
-      properties:
-        integrationId:
-          type: string
-          enum:
-            - salesforce
-            - hubspot
-            - pipedrive
-            - zoho
-        name:
-          type: string
-        iconURL:
-          type: string
-          description: Base 64 data URI
-      examples:
-        - integrationId: hubspot
-          name: Hubspot
-          iconURL: string
   securitySchemes:
     VesselAPIToken:
       name: vessel-api-token
