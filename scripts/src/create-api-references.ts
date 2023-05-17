@@ -72,7 +72,7 @@ openapi: "POST ${pathName}"
 
 \`\`\`bash Request
 curl --request POST \\
-  --url https://app.vessel.dev/${pathName} \\
+  --url https://app.vessel.dev${pathName} \\
   --header 'Content-Type: application/json' \\
   --header 'x-vessel-api-token: ' \\
   ${
@@ -106,15 +106,22 @@ ${cav ? `*Caveats*\n${cav}` : ""}
       fs.writeFileSync(referencePath, mdExample.data);
 
       // Add to the mint config
-      mint.addPath(
-        group,
-        capitalize(pathName.split("/")[4]),
-        referencePath.replace("../docs/", "").replace(".mdx", "")
-      );
+      // mint.addPath(
+      //   group,
+      //   capitalize(pathName.split("/")[4]),
+      //   referencePath.replace("../docs/", "").replace(".mdx", "")
+      // );
     } else {
       console.log("Skipping - already exists", mdExample.name);
     }
   }
 
-  mint.save();
+  // mint.save();
 }
+
+main({
+  page: "beta",
+  integration: "crm",
+  group: { name: "Unified API", id: "vessel", order: 1 },
+  overwrite: true,
+});

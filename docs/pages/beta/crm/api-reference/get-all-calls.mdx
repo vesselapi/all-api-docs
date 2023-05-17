@@ -1,15 +1,15 @@
 ---
-openapi: "POST /api/unifications/crm/accounts/list"
+openapi: "POST /api/unifications/crm/calls/list"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/crm/accounts/list \
+  --url https://app.vessel.dev/api/unifications/crm/calls/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
   "cursor": "123123",
   "associations": [
@@ -20,3 +20,6 @@ curl --request POST \
 ```
 
 </RequestExample>
+
+
+      
