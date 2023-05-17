@@ -181,7 +181,7 @@ paths:
                     type: string
                     enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -261,7 +261,7 @@ paths:
                     type: string
                     enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -454,7 +454,7 @@ paths:
                     type: string
                     enum: [accounts, contacts, notes, tasks, events, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -532,7 +532,7 @@ paths:
                     type: string
                     enum: [accounts, contacts, notes, tasks, events, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -736,7 +736,7 @@ paths:
                     type: string
                     enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -821,7 +821,7 @@ paths:
                     type: string
                     enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -1036,7 +1036,7 @@ paths:
                     type: string
                     enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -1114,7 +1114,7 @@ paths:
                     type: string
                     enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -1345,7 +1345,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -1408,7 +1408,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -1597,7 +1597,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -1666,7 +1666,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -1869,7 +1869,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads, eventAttendees]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -1940,7 +1940,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads, eventAttendees]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -2358,7 +2358,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -2436,7 +2436,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
@@ -2642,7 +2642,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
             examples:
               example-1:
@@ -2709,7 +2709,7 @@ paths:
                     type: string
                     enum: [deals, contacts, accounts, leads]
                   description: |
-                    Comma separated list of associations to include in the response.
+                    Array of associations to include in the response.
                     OwnerUserId is always included.
               required:
                 - id
