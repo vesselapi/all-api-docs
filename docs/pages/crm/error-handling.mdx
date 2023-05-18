@@ -28,6 +28,7 @@ While most validation errors are 4xx, due to historical reasons, some user valid
 ### Errors from the Downstream Integration
 
 Errors from the downstream integration are errors that happened in the application the request was sent to such as Salesforce and HubSpot. We do our hardest to provide validation and handle these errors upfront so that you don't have to deal with them. However, there are cases where these errors will still surface such as for validation your users has uniquely configured.
+
 In several cases, we will convert commons errors (such as Rate limit errors, or object not found errors) from the downstream integration into a standard format. When we do that, we always include a `metadata` property with the original error to help with further debugging.
 
 ```json Error Shape Example
