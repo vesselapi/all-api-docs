@@ -162,7 +162,7 @@
       "group": "How-To Guides",
       "pages": [
         "pages/crm/getting-started",
-        "pages/crm/in-depth-auth-tutorial",
+        "pages/crm//error-handling",
         "pages/crm/accessing-native-data"
       ]
     },

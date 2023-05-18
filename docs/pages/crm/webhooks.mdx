@@ -60,6 +60,12 @@ _type="OBJECT_CHANGE"_
 }
 ```
 
+<Note>
+  For `CREATE` and `UPDATE` eventType payloads the `record` will be the entire
+  object. For `DELETE` eventType, the `record` will only contain the `id`,
+  `nativeId`, and `connectionId`
+</Note>
+
 _type="STATUS_CHANGE"_
 
 ```json
