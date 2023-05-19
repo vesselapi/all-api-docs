@@ -4,7 +4,7 @@
   "openapi": [
     "pages/home/home.yaml",
     "pages/crm/crm.yaml",
-    "pages/beta/crm/crm.yaml",
+    "pages/beta/crm/crm-beta.yaml",
     "pages/old-engagement/old-engagement.yaml",
     "pages/unified/chat/chat.yaml",
     "pages/unified/marketing-automation/marketing-automation.yaml",
