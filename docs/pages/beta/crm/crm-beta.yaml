@@ -179,10 +179,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails. 
+                    ListOwnerUserId is always included in the response in the response.
             examples:
               example-1:
                 value:
@@ -259,10 +259,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -452,10 +452,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -530,10 +530,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [accounts, contacts, notes, tasks, events, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -734,10 +734,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -819,10 +819,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, leads, notes, tasks, events, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1034,10 +1034,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1112,10 +1112,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [contacts, accounts, notes, tasks, events, eventAttendees, emails, calls]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1343,10 +1343,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1406,10 +1406,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1595,10 +1595,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1664,10 +1664,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1867,10 +1867,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads, eventAttendees]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads, eventAttendees.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1938,10 +1938,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads, eventAttendees]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads, eventAttendees.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -2356,10 +2356,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2434,10 +2434,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -2640,10 +2640,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2707,10 +2707,10 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [deals, contacts, accounts, leads]
                   description: |
                     Array of associations to include in the response.
-                    OwnerUserId is always included.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ListOwnerUserId is always included in the response.
               required:
                 - id
             examples:
