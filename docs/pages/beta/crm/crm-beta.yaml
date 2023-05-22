@@ -10,7 +10,7 @@ security:
 paths:
   /api/unifications/crm/users/list:
     post:
-      summary: Get All Users
+      summary: List Users
       responses:
         "200":
           description: OK
@@ -56,7 +56,7 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
-      operationId: get-all-users
+      operationId: list-users
       description: List Users
     parameters: []
   /api/unifications/crm/users/find:
@@ -83,7 +83,7 @@ paths:
                       email: micheal@dundermifflin.com
                       createdTime: "2019-08-24T14:15:22Z"
                       modifiedTime: "2019-08-24T14:15:22Z"
-      operationId: get-one-user
+      operationId: get-user
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -109,7 +109,7 @@ paths:
     parameters: []
   /api/unifications/crm/contacts/list:
     post:
-      summary: Get All Contacts
+      summary: List Contacts
       responses:
         "200":
           description: OK
@@ -159,7 +159,7 @@ paths:
                             - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-contacts
+      operationId: list-contacts
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -239,7 +239,7 @@ paths:
                         callIds:
                           - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-contact
+      operationId: get-contact
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -276,7 +276,7 @@ paths:
   /api/unifications/crm/contacts/create:
     post:
       summary: Create Contact
-      operationId: post-contact
+      operationId: create-contact
       responses:
         "200":
           description: OK
@@ -323,7 +323,7 @@ paths:
   /api/unifications/crm/contacts/update:
     post:
       summary: Update Contact
-      operationId: put-contact
+      operationId: update-contact
       responses:
         "200":
           description: OK
@@ -384,7 +384,7 @@ paths:
       description: Update an existing Contact.
   /api/unifications/crm/deals/list:
     post:
-      summary: Get All Deals
+      summary: List Deals
       responses:
         "200":
           description: OK
@@ -432,7 +432,7 @@ paths:
                             - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-deals
+      operationId: list-deals
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -510,7 +510,7 @@ paths:
                         callIds:
                           - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-deal
+      operationId: get-deal
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -548,7 +548,7 @@ paths:
   /api/unifications/crm/deals/create:
     post:
       summary: Create Deal
-      operationId: post-deal
+      operationId: create-deal
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -602,7 +602,7 @@ paths:
   /api/unifications/crm/deals/update:
     post:
       summary: Update Deal
-      operationId: put-deal
+      operationId: update-deal
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -659,7 +659,7 @@ paths:
       description: Update an existing Deal
   /api/unifications/crm/accounts/list:
     post:
-      summary: Get All Accounts
+      summary: List Accounts
       responses:
         "200":
           description: OK
@@ -714,7 +714,7 @@ paths:
                             - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-accounts
+      operationId: list-accounts
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -799,7 +799,7 @@ paths:
                         callIds:
                           - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-account
+      operationId: get-account
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -837,7 +837,7 @@ paths:
   /api/unifications/crm/accounts/create:
     post:
       summary: Create Account
-      operationId: post-account
+      operationId: create-account
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -897,7 +897,7 @@ paths:
       summary: Update Account
       tags:
         - accounts
-      operationId: put-account
+      operationId: update-account
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -962,7 +962,7 @@ paths:
       description: Update an existing Account
   /api/unifications/crm/leads/list:
     post:
-      summary: Get All Leads
+      summary: List Leads
       responses:
         "200":
           description: OK
@@ -1010,7 +1010,7 @@ paths:
                           callIds:
                             - 1222707bbc415ee4806400e2daa25ffa
                     nextPageCursor: string
-      operationId: get-all-leads
+      operationId: list-leads
       description: |-
         Retrieve all leads.
         *CRM Caveats*:
@@ -1091,7 +1091,7 @@ paths:
                           - 3ab3a9562af957228c1019127e3c81e1
                         callIds:
                           - 1222707bbc415ee4806400e2daa25ffa
-      operationId: get-one-lead
+      operationId: get-lead
       description: Retrieve a single Lead by Id
       parameters:
         - name: x-vessel-access-token
@@ -1128,7 +1128,7 @@ paths:
   /api/unifications/crm/leads/create:
     post:
       summary: Create Lead
-      operationId: post-lead
+      operationId: create-lead
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1182,7 +1182,7 @@ paths:
   /api/unifications/crm/leads/update:
     post:
       summary: Update Lead
-      operationId: put-lead
+      operationId: update-lead
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1241,7 +1241,7 @@ paths:
     post:
       summary: Create Lead Custom Field
       description: "Supported for Salesforce and HubSpot"
-      operationId: post-lead-custom-field
+      operationId: create-lead-custom-field
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1287,7 +1287,7 @@ paths:
                     type: "singleselect"
   /api/unifications/crm/notes/list:
     post:
-      summary: Get All Notes
+      summary: List Notes
       responses:
         "200":
           description: OK
@@ -1322,7 +1322,7 @@ paths:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-notes
+      operationId: list-notes
       description: Retrieve all Notes
       parameters:
         - name: x-vessel-access-token
@@ -1386,7 +1386,7 @@ paths:
                         leadIds:
                           - d08f345ace24509e911a0ea8e3d2203c
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-note
+      operationId: get-note
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1423,7 +1423,7 @@ paths:
   /api/unifications/crm/notes/create:
     post:
       summary: Create Note
-      operationId: post-note
+      operationId: create-note
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1481,7 +1481,7 @@ paths:
   /api/unifications/crm/notes/update:
     post:
       summary: Update Note
-      operationId: put-note
+      operationId: update-note
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1534,7 +1534,7 @@ paths:
       description: Update an existing Note by Id
   /api/unifications/crm/tasks/list:
     post:
-      summary: Get All Tasks
+      summary: List Tasks
       responses:
         "200":
           description: OK
@@ -1574,7 +1574,7 @@ paths:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-tasks
+      operationId: list-tasks
       description: Retrieve all Tasks
       parameters:
         - name: x-vessel-access-token
@@ -1644,7 +1644,7 @@ paths:
                         leadIds:
                           - d08f345ace24509e911a0ea8e3d2203c
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-task
+      operationId: get-task
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1681,7 +1681,7 @@ paths:
   /api/unifications/crm/tasks/create:
     post:
       summary: Create Task
-      operationId: post-task
+      operationId: create-task
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1744,7 +1744,7 @@ paths:
   /api/unifications/crm/tasks/update:
     post:
       summary: Update Task
-      operationId: put-task
+      operationId: update-task
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1803,7 +1803,7 @@ paths:
     parameters: []
   /api/unifications/crm/events/list:
     post:
-      summary: Get All Events
+      summary: List Events
       responses:
         "200":
           description: OK
@@ -1846,7 +1846,7 @@ paths:
                             - f63c1bd7215f5150b332d31d9509752f
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-events
+      operationId: list-events
       description: Retrieve all Events
       parameters:
         - name: x-vessel-access-token
@@ -1918,7 +1918,7 @@ paths:
                         eventAttendeeIds:
                           - f63c1bd7215f5150b332d31d9509752f
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-event
+      operationId: get-event
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1955,7 +1955,7 @@ paths:
   /api/unifications/crm/events/create:
     post:
       summary: Create Event
-      operationId: post-event
+      operationId: create-event
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2016,7 +2016,7 @@ paths:
   /api/unifications/crm/events/update:
     post:
       summary: Update Event
-      operationId: put-event
+      operationId: update-event
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2076,7 +2076,7 @@ paths:
     parameters: []
   /api/unifications/crm/event/attendees/list:
     post:
-      summary: Get All Event Attendees
+      summary: List Event Attendees
       responses:
         "200":
           description: OK
@@ -2106,7 +2106,7 @@ paths:
                           eventId: 0000d2e83d6c5d52a61f2fb860666477
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
                     nextPageCursor: string
-      operationId: get-all-event-attendees
+      operationId: list-event-attendees
       description: Retrieve all Attendees for all Events
       parameters:
         - name: x-vessel-access-token
@@ -2154,7 +2154,7 @@ paths:
                       associations:
                         eventId: 0000d2e83d6c5d52a61f2fb860666477
                         associationId: fbdb8b1e827609f50c25b4d52a7b6f57
-      operationId: get-one-event-attendee
+      operationId: get-event-attendee
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2181,7 +2181,7 @@ paths:
   /api/unifications/crm/event/attendees/create:
     post:
       summary: Create Event Attendee
-      operationId: post-event-attendee
+      operationId: create-event-attendee
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2235,7 +2235,7 @@ paths:
   /api/unifications/crm/event/attendees/update:
     post:
       summary: Update Event Attendee
-      operationId: put-event-attendee
+      operationId: update-event-attendee
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2286,7 +2286,7 @@ paths:
       description: Update the status of an event attendee
   /api/unifications/crm/emails/list:
     post:
-      summary: Get All Emails
+      summary: List Emails
       responses:
         "200":
           description: OK
@@ -2335,7 +2335,7 @@ paths:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-emails
+      operationId: list-emails
       description: "Retrieve all Emails"
       parameters:
         - name: x-vessel-access-token
@@ -2414,7 +2414,7 @@ paths:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-email
+      operationId: get-email
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2451,7 +2451,7 @@ paths:
   /api/unifications/crm/emails/create:
     post:
       summary: Create Email
-      operationId: post-email
+      operationId: create-email
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2530,7 +2530,7 @@ paths:
           required: true
           schema:
             type: string
-      operationId: put-email
+      operationId: update-email
       responses:
         "200":
           description: OK
@@ -2580,7 +2580,7 @@ paths:
         - Pipedrive: Not supported.
   /api/unifications/crm/calls/list:
     post:
-      summary: Get All Calls
+      summary: List Calls
       responses:
         "200":
           description: OK
@@ -2619,7 +2619,7 @@ paths:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
-      operationId: get-all-calls
+      operationId: list-calls
       description: "Retrieve all Calls"
       parameters:
         - name: x-vessel-access-token
@@ -2687,7 +2687,7 @@ paths:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      operationId: get-one-call
+      operationId: get-call
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2724,7 +2724,7 @@ paths:
   /api/unifications/crm/calls/create:
     post:
       summary: Create Call
-      operationId: post-call
+      operationId: create-call
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2783,7 +2783,7 @@ paths:
   /api/unifications/crm/calls/update:
     post:
       summary: Update Call
-      operationId: put-call
+      operationId: update-call
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2837,7 +2837,7 @@ paths:
         Update an Call by Id.
   /api/unifications/crm/lists/list:
     post:
-      summary: Get All Lists
+      summary: List Lists
       responses:
         "200":
           description: OK
@@ -2862,7 +2862,7 @@ paths:
                         modifiedTime: "2019-08-24T14:15:22Z"
                         createdTime: "2019-08-24T14:15:22Z"
                     nextPageCursor: string
-      operationId: get-all-lists
+      operationId: list-lists
       description: Retrieve all Lists
       parameters:
         - name: x-vessel-access-token
@@ -2919,7 +2919,7 @@ paths:
                             - e5f32d4fd2115220bd20a2ccf81210ec
                             - 2d20a2ccf81210ecddf32d4fd2115221
                     nextPageCursor: string
-      operationId: get-one-list
+      operationId: get-list
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2951,7 +2951,7 @@ paths:
   /api/unifications/crm/passthrough:
     post:
       summary: Passthrough Request
-      operationId: post-crm-passthrough
+      operationId: passthrough
       responses:
         "200":
           description: OK
