@@ -1,0 +1,73 @@
+---
+title: "Error Handling"
+description: How to handle errors from the Vessel CRM API
+---
+
+As part of our effort to provide a seamless and unified experience, the Vessel API was designed to make handling errors as easy as possible. Below is a list of common error codes thrown from the Vessel API, what they mean, and how to handle them.
+
+## 5xx
+
+5xx errors represent Internal Server Errors. The Vessel API will throw a 5xx error for a few reasons.
+
+### Validation Error
+
+While most validation errors are 4xx, due to historical reasons, some user validation issues will be returned as 5xx including:
+
+- Issues when setting up a webhook
+- You tried to access an object that does not exist
+- Endpoint is not implemented for that CRM
+- Some authentication errors like an expired link token
+
+```json Error Shape
+{
+  "message": "This is what went wrong",
+  "errorCode": "OBJECT_NOT_FOUND" // Optional
+}
+```
+
+### Errors from the Downstream Integration
+
+Errors from the downstream integration are errors that happened in the application the request was sent to such as Salesforce and HubSpot. We do our hardest to provide validation and handle these errors upfront so that you don't have to deal with them. However, there are cases where these errors will still surface such as for validation your users has uniquely configured.
+
+In several cases, we will convert commons errors (such as Rate limit errors, or object not found errors) from the downstream integration into a standard format. When we do that, we always include a `metadata` property with the original error to help with further debugging.
+
+```json Error Shape Example
+{
+  "message": "Invalid email address",
+  "errorCode": "INVALID_FIELD_VALUE",
+  "metadata": {
+    "originalStatusCode": 400,
+    "originalErrors": [
+      {
+        "message": "Email: invalid email address: 123123123",
+        "errorCode": "INVALID_EMAIL_ADDRESS",
+        "fields": ["Email"]
+      }
+    ]
+  }
+}
+```
+
+## 4xx
+
+4xx errors represent Client Errors. The Vessel API will throw a 4xx error for a few reasons.
+
+### 401 Authorization Error
+
+This error is thrown any time we're unable to authenticate a user or request such as:
+
+- Invalid API key
+- Invalid link token
+- Invalid access token
+
+### 400 Generic Client Error
+
+This error is an all encompassing error that's thrown when the request we recieved from the client was invalid such as:
+
+- Too many development connections
+- Invalid body params
+- Public token expired
+
+### 409 Data still syncing
+
+This error is thrown for connections that have not reached the `INITIAL_SYNC` state. Please wait for this connection to finish syncing before continuing to use the API for this connection.

@@ -115,11 +115,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "pages/home/about",
-        "pages/home/quick-start",
-        "pages/home/getting-started"
-      ]
+      "pages": ["pages/home/about", "pages/home/getting-started"]
     },
     {
       "group": "Integrations",
@@ -162,7 +158,7 @@
       "group": "How-To Guides",
       "pages": [
         "pages/crm/getting-started",
-        "pages/crm/in-depth-auth-tutorial",
+        "pages/crm/error-handling",
         "pages/crm/accessing-native-data"
       ]
     },
