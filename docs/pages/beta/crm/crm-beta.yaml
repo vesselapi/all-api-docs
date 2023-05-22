@@ -182,7 +182,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails. 
-                    ListOwnerUserId is always included in the response in the response.
+                    ownerUserId is always included in the response in the response.
             examples:
               example-1:
                 value:
@@ -262,7 +262,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -455,7 +455,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -533,7 +533,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -737,7 +737,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -822,7 +822,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1037,7 +1037,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1115,7 +1115,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1346,7 +1346,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1409,7 +1409,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1598,7 +1598,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1667,7 +1667,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -1870,7 +1870,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads, eventAttendees.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1941,7 +1941,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads, eventAttendees.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -2359,7 +2359,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2437,7 +2437,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
@@ -2643,7 +2643,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2710,7 +2710,7 @@ paths:
                   description: |
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
-                    ListOwnerUserId is always included in the response.
+                    ownerUserId is always included in the response.
               required:
                 - id
             examples:
