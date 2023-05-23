@@ -704,6 +704,46 @@ paths:
           in: query
           name: allFields
           description: "Returns details about native fields."
+  /crm/contact/custom-field:
+    post:
+      summary: Create Contact Custom Field
+      description: "Supported for Salesforce and HubSpot"
+      tags:
+        - contactCustomFields
+      operationId: post-contact-custom-field
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
+              examples:
+                example-1:
+                  value:
+                    success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  $ref: '#/components/parameters/accessToken'
+                customField:
+                  $ref: "#/components/schemas/CustomFieldCreate"
+              required:
+                - accessToken
+                - customField
   /crm/contact/batch:
     get:
       summary: Get Batch Contacts
@@ -7371,6 +7411,10 @@ components:
           type: string
           enum:
             - singleselect
+            - number
+            - text
+            - currency
+            - percentage
         options:
           type: array
           description: "Required when `type = singleselect`"

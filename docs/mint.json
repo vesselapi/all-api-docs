@@ -308,7 +308,8 @@
             "pages/crm/api-reference/update-contact",
             "pages/crm/api-reference/get-contact-details",
             "pages/crm/api-reference/get-batch-contact",
-            "pages/crm/api-reference/search-contacts"
+            "pages/crm/api-reference/search-contacts",
+            "pages/crm/api-reference/create-contact-custom-field"
           ]
         },
         {
