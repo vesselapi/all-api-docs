@@ -1806,7 +1806,7 @@ paths:
                     - PUT
                     - PATCH
                     - DELETE
-                path:
+                url:
                   type: string
                   description: "The path to send the request to. Vessel handles the domain so for a request to Apollo instead of using `https://app.apollo.io/api/v1/mixed_people/search` you would use `mixed_people/search`."
                 body:
@@ -1818,13 +1818,13 @@ paths:
               required:
                 - accessToken
                 - method
-                - path
+                - url
             examples:
               example-1:
                 value:
                   accessToken: string
                   method: POST
-                  path: mixed_people/search
+                  url: mixed_people/search
                   body:
                     - contact_label_ids: 
                       - "637d308edd8600000128060e"

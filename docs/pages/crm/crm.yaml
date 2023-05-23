@@ -5075,7 +5075,7 @@ paths:
                     - PUT
                     - PATCH
                     - DELETE
-                path:
+                url:
                   type: string
                   description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
                 body:
@@ -5087,13 +5087,13 @@ paths:
               required:
                 - accessToken
                 - method
-                - path
+                - url
             examples:
               example-1:
                 value:
                   accessToken: string
                   method: PATCH
-                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
+                  url: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
                   body:
                     - Name: "Vessel"
         description: ""
