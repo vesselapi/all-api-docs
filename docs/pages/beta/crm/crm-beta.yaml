@@ -933,8 +933,7 @@ paths:
                             - e5f32d4fd2115220bd20a2ccf81210ec
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
-                          ownerUserId:
-                            - 56f653659ea9524b9e0fb0ba67e6f8a0
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-leads
       description: |-
@@ -1005,8 +1004,7 @@ paths:
                           - e5f32d4fd2115220bd20a2ccf81210ec
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
-                        ownerUserId:
-                          - 56f653659ea9524b9e0fb0ba67e6f8a0
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-lead
       description: Retrieve a single Lead by Id
       parameters:
@@ -2978,36 +2976,6 @@ components:
     Contact:
       title: Contact
       type: object
-      examples:
-        - id: "23"
-          email: tom@bluecross.com
-          firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          phone: "2101128833"
-          mobilePhone: "2106541111"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            noteIds:
-              - 006b4db16b6b50c981a174b02753c390
-            taskIds:
-              - 2322707bbc41577d9806400e2daa25de
-            eventIds:
-              - 0000d2e83d6c5d52a61f2fb860666477
-            eventAttendeeIds:
-              - f63c1bd7215f5150b332d31d9509752f
-            emailIds:
-              - 3ab3a9562af957228c1019127e3c81e1
-            callIds:
-              - 1222707bbc415ee4806400e2daa25ffa
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: "Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)"
       properties:
         id:
@@ -3040,12 +3008,6 @@ components:
             - accountIds
             - dealIds
             - leadIds
-            - noteIds
-            - taskIds
-            - eventIds
-            - eventAttendeeIds
-            - emailIds
-            - callIds
             - ownerUserId
           properties:
             accountIds:
@@ -3057,30 +3019,6 @@ components:
               items:
                 type: string
             leadIds:
-              type: array
-              items:
-                type: string
-            noteIds:
-              type: array
-              items:
-                type: string
-            taskIds:
-              type: array
-              items:
-                type: string
-            eventIds:
-              type: array
-              items:
-                type: string
-            eventAttendeeIds:
-              type: array
-              items:
-                type: string
-            emailIds:
-              type: array
-              items:
-                type: string
-            callIds:
               type: array
               items:
                 type: string
@@ -3114,34 +3052,6 @@ components:
     Deal:
       title: Deal
       type: object
-      examples:
-        - id: "84"
-          name: Blue Cross Deal
-          stage: demo
-          amount: 10000
-          closeDate: "2020-08-23T00:00:00Z"
-          probability: "0.4"
-          expectedRevenue: 4000
-          isWon: false
-          isClosed: false
-          modifiedTime: "2019-08-24T14:15:22Z"
-          createdTime: "2019-08-24T14:15:22Z"
-          associations:
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            noteIds:
-              - 006b4db16b6b50c981a174b02753c390
-            taskIds:
-              - 2322707bbc41577d9806400e2daa25de
-            eventIds:
-              - 0000d2e83d6c5d52a61f2fb860666477
-            emailIds:
-              - 3ab3a9562af957228c1019127e3c81e1
-            callIds:
-              - 1222707bbc415ee4806400e2daa25ffa
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
         (Alias: Opportunity) An object representing either the opportunity to sell a product to an Account, or in the case of an `isWon` deal, a product sold to an Account.
         *CRM Caveats*:
@@ -3185,10 +3095,6 @@ components:
           required:
             - contactIds
             - accountIds
-            - noteIds
-            - taskIds
-            - emailIds
-            - callIds
             - ownerUserId
           properties:
             contactIds:
@@ -3196,26 +3102,6 @@ components:
               items:
                 type: string
             accountIds:
-              type: array
-              items:
-                type: string
-            noteIds:
-              type: array
-              items:
-                type: string
-            taskIds:
-              type: array
-              items:
-                type: string
-            eventIds:
-              type: array
-              items:
-                type: string
-            emailIds:
-              type: array
-              items:
-                type: string
-            callIds:
               type: array
               items:
                 type: string
@@ -3232,41 +3118,6 @@ components:
     Account:
       title: Account
       type: object
-      examples:
-        - id: "344"
-          name: Blue Cross
-          description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
-          industry: TV and Media
-          annualRevenue: 10000000
-          numberOfEmployees: 100
-          website: www.bluecross.penn
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          phone: "8192223333"
-          address:
-            street: 100 Blue Dr
-            city: Scranton
-            state: Pennsylvania
-            postalCode: "281332"
-            country: USA
-          associations:
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            noteIds:
-              - 006b4db16b6b50c981a174b02753c390
-            taskIds:
-              - 2322707bbc41577d9806400e2daa25de
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            eventIds:
-              - 0000d2e83d6c5d52a61f2fb860666477
-            emailIds:
-              - 3ab3a9562af957228c1019127e3c81e1
-            callIds:
-              - 1222707bbc415ee4806400e2daa25ffa
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: "(Alias: company, organization) An organization involved with your business."
       properties:
         id:
@@ -3305,12 +3156,7 @@ components:
           required:
             - dealIds
             - contactIds
-            - noteIds
-            - taskIds
             - leadIds
-            - eventIds
-            - emailIds
-            - callIds
             - ownerUserId
           properties:
             dealIds:
@@ -3321,27 +3167,7 @@ components:
               type: array
               items:
                 type: string
-            noteIds:
-              type: array
-              items:
-                type: string
-            taskIds:
-              type: array
-              items:
-                type: string
             leadIds:
-              type: array
-              items:
-                type: string
-            eventIds:
-              type: array
-              items:
-                type: string
-            emailIds:
-              type: array
-              items:
-                type: string
-            callIds:
               type: array
               items:
                 type: string
@@ -3360,34 +3186,6 @@ components:
         A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal). 
         *CRM Caveats*:
         - HubSpot: we consider contacts with the `leadStatus` set to be leads.
-      examples:
-        - id: "23"
-          firstName: Tom
-          lastName: Smith
-          jobTitle: Director of Operations
-          email: tom@bluecross.com
-          accountName: Blue Cross
-          phone: "1234445555"
-          mobilePhone: "2338889999"
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            noteIds:
-              - 006b4db16b6b50c981a174b02753c390
-            taskIds:
-              - 2322707bbc41577d9806400e2daa25de
-            eventIds:
-              - 0000d2e83d6c5d52a61f2fb860666477
-            eventAttendeeIds:
-              - f63c1bd7215f5150b332d31d9509752f
-            emailIds:
-              - 3ab3a9562af957228c1019127e3c81e1
-            callIds:
-              - 1222707bbc415ee4806400e2daa25ffa
       properties:
         id:
           type: string
@@ -3420,12 +3218,7 @@ components:
           required:
             - contactIds
             - accountIds
-            - noteIds
-            - taskIds
-            - eventIds
-            - eventAttendeeIds
-            - emailIds
-            - callIds
+            - ownerUserId
           properties:
             contactIds:
               type: array
@@ -3435,30 +3228,9 @@ components:
               type: array
               items:
                 type: string
-            noteIds:
-              type: array
-              items:
-                type: string
-            taskIds:
-              type: array
-              items:
-                type: string
-            eventIds:
-              type: array
-              items:
-                type: string
-            eventAttendeeIds:
-              type: array
-              items:
-                type: string
-            emailIds:
-              type: array
-              items:
-                type: string
-            callIds:
-              type: array
-              items:
-                type: string
+            ownerUserId:
+              type: string
+              description: The Id of the User that owns this Lead
       required:
         - id
         - createdTime
@@ -3468,21 +3240,6 @@ components:
       title: Note
       type: object
       description: "A Note attached to some CRM Object. "
-      examples:
-        - id: "34"
-          content: This note has some interesting content in it!
-          modifiedTime: "2019-08-24T14:15:22Z"
-          createdTime: "2019-08-24T14:15:22Z"
-          associations:
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       properties:
         id:
           type: string
@@ -3536,26 +3293,6 @@ components:
       title: Task
       type: object
       description: A task attached to some CRM object
-      examples:
-        - id: "122"
-          body: This task needs to be done very soon!
-          subject: High Priority Task
-          isDone: false
-          dueDate: "2019-09-24T14:15:22Z"
-          status: Not Done
-          priority: High
-          modifiedTime: "2019-08-24T14:15:22Z"
-          createdTime: "2019-08-24T14:15:22Z"
-          associations:
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       properties:
         id:
           type: string
@@ -3623,29 +3360,6 @@ components:
         - HubSpot = Meetings
         - Pipedrive = Activities
         - Zoho = Events
-      examples:
-        - id: "19"
-          subject: Meeting with Blue Cross
-          description: Going to get tea with Tom from Blue Cross to discuss his paper needs
-          type: Meeting
-          location: 1122 Tea Dr
-          startDateTime: "2019-08-24T14:15:22Z"
-          endDateTime: "2019-08-24T14:15:22Z"
-          isAllDayEvent: true
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            accountIds:
-              - 0dcb45e051315a6ea63b0f16e73689d9
-            leadIds:
-              - d08f345ace24509e911a0ea8e3d2203c
-            contactIds:
-              - e5f32d4fd2115220bd20a2ccf81210ec
-            dealIds:
-              - 497fb529e6805351b5dc8057c74a4a52
-            eventAttendeeIds:
-              - f63c1bd7215f5150b332d31d9509752f
-            ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       properties:
         id:
           type: string
@@ -3713,16 +3427,6 @@ components:
       title: EventAttendee
       type: object
       description: "Event Attendees hold information about someone who attendee or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
-      examples:
-        - id: f63c1bd7215f5150b332d31d9509752f
-          associatedObjectType: contacts
-          status: Confirmed
-          email: null
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
-          associations:
-            eventId: 0000d2e83d6c5d52a61f2fb860666477
-            associationId: e5f32d4fd2115220bd20a2ccf81210ec
       properties:
         id:
           type: string
