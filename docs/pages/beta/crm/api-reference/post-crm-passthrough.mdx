@@ -9,8 +9,8 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/crm/passthrough \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: ' \
   --data '{
-  "accessToken": "string",
   "method": "PATCH",
   "path": "services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1",
   "body": [
@@ -22,6 +22,3 @@ curl --request POST \
 ```
 
 </RequestExample>
-
-
-      
