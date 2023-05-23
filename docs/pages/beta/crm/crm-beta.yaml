@@ -145,18 +145,6 @@ paths:
                             - 497fb529e6805351b5dc8057c74a4a52
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
-                          noteIds:
-                            - 006b4db16b6b50c981a174b02753c390
-                          taskIds:
-                            - 2322707bbc41577d9806400e2daa25de
-                          eventIds:
-                            - 0000d2e83d6c5d52a61f2fb860666477
-                          eventAttendeeIds:
-                            - f63c1bd7215f5150b332d31d9509752f
-                          emailIds:
-                            - 3ab3a9562af957228c1019127e3c81e1
-                          callIds:
-                            - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-contacts
@@ -181,7 +169,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails. 
+                    Allowed values: accounts, deals, leads. 
                     ownerUserId is always included in the response in the response.
             examples:
               example-1:
@@ -226,18 +214,6 @@ paths:
                           - 497fb529e6805351b5dc8057c74a4a52
                         leadIds:
                           - d08f345ace24509e911a0ea8e3d2203c
-                        noteIds:
-                          - 006b4db16b6b50c981a174b02753c390
-                        taskIds:
-                          - 2322707bbc41577d9806400e2daa25de
-                        eventIds:
-                          - 0000d2e83d6c5d52a61f2fb860666477
-                        eventAttendeeIds:
-                          - f63c1bd7215f5150b332d31d9509752f
-                        emailIds:
-                          - 3ab3a9562af957228c1019127e3c81e1
-                        callIds:
-                          - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-contact
       parameters:
@@ -261,7 +237,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: accounts, deals, leads, notes, tasks, events, eventAttendees, calls, emails.
+                    Allowed values: accounts, deals, leads.
                     ownerUserId is always included in the response.
               required:
                 - id
@@ -420,16 +396,6 @@ paths:
                             - e5f32d4fd2115220bd20a2ccf81210ec
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
-                          noteIds:
-                            - 006b4db16b6b50c981a174b02753c390
-                          taskIds:
-                            - 2322707bbc41577d9806400e2daa25de
-                          eventIds:
-                            - 0000d2e83d6c5d52a61f2fb860666477
-                          emailIds:
-                            - 3ab3a9562af957228c1019127e3c81e1
-                          callIds:
-                            - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-deals
@@ -454,7 +420,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
+                    Allowed values: accounts, contacts.
                     ownerUserId is always included in the response.
             examples:
               example-1:
@@ -499,16 +465,6 @@ paths:
                           - e5f32d4fd2115220bd20a2ccf81210ec
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
-                        noteIds:
-                          - 006b4db16b6b50c981a174b02753c390
-                        taskIds:
-                          - 2322707bbc41577d9806400e2daa25de
-                        eventIds:
-                          - 0000d2e83d6c5d52a61f2fb860666477
-                        emailIds:
-                          - 3ab3a9562af957228c1019127e3c81e1
-                        callIds:
-                          - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-deal
       parameters:
@@ -532,7 +488,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: accounts, contacts, notes, tasks, events, emails, calls.
+                    Allowed values: accounts, contacts.
                     ownerUserId is always included in the response.
               required:
                 - id
@@ -700,18 +656,8 @@ paths:
                             - 497fb529e6805351b5dc8057c74a4a52
                           contactIds:
                             - e5f32d4fd2115220bd20a2ccf81210ec
-                          noteIds:
-                            - 006b4db16b6b50c981a174b02753c390
-                          taskIds:
-                            - 2322707bbc41577d9806400e2daa25de
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
-                          eventIds:
-                            - 0000d2e83d6c5d52a61f2fb860666477
-                          emailIds:
-                            - 3ab3a9562af957228c1019127e3c81e1
-                          callIds:
-                            - 1222707bbc415ee4806400e2daa25ffa
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-accounts
@@ -736,7 +682,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
+                    Allowed values: deals, contacts, leads.
                     ownerUserId is always included in the response.
             examples:
               example-1:
@@ -786,18 +732,8 @@ paths:
                           - 497fb529e6805351b5dc8057c74a4a52
                         contactIds:
                           - e5f32d4fd2115220bd20a2ccf81210ec
-                        noteIds:
-                          - 006b4db16b6b50c981a174b02753c390
-                        taskIds:
-                          - 2322707bbc41577d9806400e2daa25de
                         leadIds:
                           - d08f345ace24509e911a0ea8e3d2203c
-                        eventIds:
-                          - 0000d2e83d6c5d52a61f2fb860666477
-                        emailIds:
-                          - 3ab3a9562af957228c1019127e3c81e1
-                        callIds:
-                          - 1222707bbc415ee4806400e2daa25ffa
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-account
       parameters:
@@ -821,7 +757,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: deals, contacts, leads, notes, tasks, events, emails, calls.
+                    Allowed values: deals, contacts, leads.
                     ownerUserId is always included in the response.
               required:
                 - id
@@ -997,18 +933,8 @@ paths:
                             - e5f32d4fd2115220bd20a2ccf81210ec
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
-                          noteIds:
-                            - 006b4db16b6b50c981a174b02753c390
-                          taskIds:
-                            - 2322707bbc41577d9806400e2daa25de
-                          eventIds:
-                            - 0000d2e83d6c5d52a61f2fb860666477
-                          eventAttendeeIds:
-                            - f63c1bd7215f5150b332d31d9509752f
-                          emailIds:
-                            - 3ab3a9562af957228c1019127e3c81e1
-                          callIds:
-                            - 1222707bbc415ee4806400e2daa25ffa
+                          ownerUserId:
+                            - 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-leads
       description: |-
@@ -1036,7 +962,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
+                    Allowed values: contacts, accounts.
                     ownerUserId is always included in the response.
             examples:
               example-1:
@@ -1079,18 +1005,8 @@ paths:
                           - e5f32d4fd2115220bd20a2ccf81210ec
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
-                        noteIds:
-                          - 006b4db16b6b50c981a174b02753c390
-                        taskIds:
-                          - 2322707bbc41577d9806400e2daa25de
-                        eventIds:
-                          - 0000d2e83d6c5d52a61f2fb860666477
-                        eventAttendeeIds:
-                          - f63c1bd7215f5150b332d31d9509752f
-                        emailIds:
-                          - 3ab3a9562af957228c1019127e3c81e1
-                        callIds:
-                          - 1222707bbc415ee4806400e2daa25ffa
+                        ownerUserId:
+                          - 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-lead
       description: Retrieve a single Lead by Id
       parameters:
@@ -1114,7 +1030,7 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: contacts, accounts, notes, tasks, events, eventAttendees, emails, calls.
+                    Allowed values: contacts, accounts.
                     ownerUserId is always included in the response.
               required:
                 - id
