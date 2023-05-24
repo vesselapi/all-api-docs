@@ -1,0 +1,35 @@
+---
+openapi: "POST /crm/contact/custom-field"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.land/crm/contact/custom-field \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: ' \
+  --data '{
+  "accessToken": "string",
+  "customField": {
+    "customKey": "optional_key_for_custom_field",
+    "name": "New Custom Field",
+    "type": "singleselect",
+    "options": [
+      {
+        "name": "First Name",
+        "key": "first_key"
+      },
+      {
+        "name": "Second Name",
+        "key": "second_key"
+      }
+    ]
+  }
+}'
+```
+
+</RequestExample>
+
+**CRM Caveats**  
+Supported for HubSpot, Salesforce and Close
