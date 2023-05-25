@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: Sales Engagement API Reference
-  version: '1.0'
+  version: "1.0"
   summary: API
 servers:
-  - url: 'https://app.vessel.dev/api'
+  - url: "https://app.vessel.dev/api"
 security:
   - VesselAPIToken: []
 paths:
@@ -12,7 +12,7 @@ paths:
     post:
       summary: Get All Users
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -23,7 +23,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: '#/components/schemas/User'
+                      $ref: "#/components/schemas/User"
                   nextPageCursor:
                     type: string
               examples:
@@ -34,8 +34,8 @@ paths:
                         firstName: Micheal
                         lastName: Scott
                         email: micheal@dundermifflin.com
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                     nextPageCursor: string
       parameters:
         - name: x-vessel-access-token
@@ -50,12 +50,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       operationId: get-all-users
       description: Retrieve all Users
     parameters: []
@@ -63,7 +65,7 @@ paths:
     post:
       summary: Get User
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -72,7 +74,7 @@ paths:
                 type: object
                 properties:
                   user:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
               examples:
                 example-1:
                   value:
@@ -81,8 +83,8 @@ paths:
                       firstName: Micheal
                       lastName: Scott
                       email: micheal@dundermifflin.com
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
       operationId: get-one-user
       parameters:
         - name: x-vessel-access-token
@@ -97,6 +99,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -104,14 +108,14 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/engagement/accounts/list:
     post:
       summary: Get All Accounts
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -122,7 +126,7 @@ paths:
                   accounts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Account'
+                      $ref: "#/components/schemas/Account"
                   nextPageCursor:
                     type: string
               examples:
@@ -135,16 +139,16 @@ paths:
                         industry: TV and Media
                         numberOfEmployees: 100
                         website: www.bluecross.penn
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        phone: '8192223333'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
                         locality: Scranton
                         address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: '281332'
+                          postalCode: "281332"
                           country: USA
                         associations:
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -163,12 +167,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       description: |-
         Retrieve all Accounts
     parameters: []
@@ -176,7 +182,7 @@ paths:
     post:
       summary: Get Account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -185,7 +191,7 @@ paths:
                 type: object
                 properties:
                   account:
-                    $ref: '#/components/schemas/Account'
+                    $ref: "#/components/schemas/Account"
               examples:
                 example-1:
                   value:
@@ -196,16 +202,16 @@ paths:
                         industry: TV and Media
                         numberOfEmployees: 100
                         website: www.bluecross.penn
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        phone: '8192223333'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
                         locality: Scranton
                         address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: '281332'
+                          postalCode: "281332"
                           country: USA
                         associations:
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -223,6 +229,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -230,14 +238,14 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a single Account by Id
   /api/unifications/engagement/accounts/create:
     post:
       summary: Create Account
       operationId: post-account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -250,7 +258,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -265,7 +273,7 @@ paths:
               type: object
               properties:
                 account:
-                  $ref: '#/components/schemas/AccountCreate'
+                  $ref: "#/components/schemas/AccountCreate"
               required:
                 - account
             examples:
@@ -277,13 +285,13 @@ paths:
                     industry: TV and Media
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    phone: '8192223333'
+                    phone: "8192223333"
                     address:
                       line1: 100 Blue Dr
                       line2: Suite 100
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
       description: Create a new Account
   /api/unifications/engagement/accounts/update:
@@ -293,17 +301,17 @@ paths:
         - Accounts
       operationId: put-account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -312,7 +320,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -329,7 +337,7 @@ paths:
                 id:
                   type: string
                 account:
-                  $ref: '#/components/schemas/AccountUpdate'
+                  $ref: "#/components/schemas/AccountUpdate"
               required:
                 - id
                 - account
@@ -343,19 +351,19 @@ paths:
                     industry: TV and Media
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    phone: '8192223333'
+                    phone: "8192223333"
                     address:
                       line1: 100 Blue Dr
                       line2: Suite 100
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ''
+        description: ""
       description: Update an existing Account
     parameters: []
   /api/unifications/engagement/accounts/search:
@@ -363,7 +371,7 @@ paths:
       summary: Search Accounts
       operationId: search-account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -374,27 +382,27 @@ paths:
                   accounts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Account'
+                      $ref: "#/components/schemas/Account"
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     accounts:
-                      - id: '15'
-                        name: 'test account'
-                        createdTime: '2023-02-17T21:28:30.000Z'
-                        modifiedTime: '2023-02-18T01:57:12.000Z'
+                      - id: "15"
+                        name: "test account"
+                        createdTime: "2023-02-17T21:28:30.000Z"
+                        modifiedTime: "2023-02-18T01:57:12.000Z"
                         description: null
                         industry: null
                         numberOfEmployees: null
-                        domain: 'vessel.dev'
+                        domain: "vessel.dev"
                         website: null
                         address: null
                         phone: null
-                        locality: 'San Francisco'
+                        locality: "San Francisco"
                         associations:
-                          ownerUserId: '1'
+                          ownerUserId: "1"
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       parameters:
         - name: x-vessel-access-token
@@ -431,13 +439,13 @@ paths:
                 value:
                   filters:
                     name:
-                      equals: 'Acme Co.'
+                      equals: "Acme Co."
       description: Search Accounts
   /api/unifications/engagement/contacts/list:
     post:
       summary: Get All Contacts
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -448,7 +456,7 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Contact'
+                      $ref: "#/components/schemas/Contact"
                   nextPageCursor:
                     type: string
               examples:
@@ -460,26 +468,26 @@ paths:
                         lastName: Smith
                         jobTitle: Director of Operations
                         phones:
-                          - number: '8192223333'
-                            type: 'work'
+                          - number: "8192223333"
+                            type: "work"
                             isPrimary: true
                         emails:
-                          - address: 'tom@dunder.com'
-                            type: 'work'
+                          - address: "tom@dunder.com"
+                            type: "work"
                             isPrimary: true
                         address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: '281332'
+                          postalCode: "281332"
                           country: USA
                         openCount: 0
                         clickCount: 3
                         replyCount: 1
                         bouncedCount: 1
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           accountId: 0dcb45e051315a6ea63b0f16e73689d9
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -499,19 +507,21 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/engagement/contacts/find:
     post:
       summary: Get Contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -520,7 +530,7 @@ paths:
                 type: object
                 properties:
                   contact:
-                    $ref: '#/components/schemas/Contact'
+                    $ref: "#/components/schemas/Contact"
               examples:
                 example-1:
                   value:
@@ -530,26 +540,26 @@ paths:
                       lastName: Smith
                       jobTitle: Director of Operations
                       phones:
-                        - number: '8192223333'
-                          type: 'work'
+                        - number: "8192223333"
+                          type: "work"
                           isPrimary: true
                       emails:
-                        - address: 'tom@dunder.com'
-                          type: 'work'
+                        - address: "tom@dunder.com"
+                          type: "work"
                           isPrimary: true
                       address:
                         line1: 100 Blue Dr
                         line2: Suite 100
                         city: Scranton
                         state: Pennsylvania
-                        postalCode: '281332'
+                        postalCode: "281332"
                         country: USA
                       openCount: 0
                       clickCount: 3
                       replyCount: 1
                       bouncedCount: 1
-                      createdTime: '2019-08-24T14:15:22Z'
-                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
                         accountId: 0dcb45e051315a6ea63b0f16e73689d9
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -568,6 +578,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -575,14 +587,14 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a Contact by Id
   /api/unifications/engagement/contacts/create:
     post:
       summary: Create Contact
       operationId: post-contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -595,7 +607,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -610,7 +622,7 @@ paths:
               type: object
               properties:
                 contact:
-                  $ref: '#/components/schemas/ContactCreate'
+                  $ref: "#/components/schemas/ContactCreate"
               required:
                 - contact
             examples:
@@ -625,7 +637,7 @@ paths:
                       line2: Suite 100
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
                     customFields: {}
       description: Create a Contact
@@ -634,17 +646,17 @@ paths:
       summary: Update Contact
       operationId: put-contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ''
+                description: ""
                 type: object
                 x-examples:
                   example-1:
-                    id: '0'
+                    id: "0"
                 properties:
                   id:
                     type: string
@@ -653,7 +665,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -670,7 +682,7 @@ paths:
                 id:
                   type: string
                 contact:
-                  $ref: '#/components/schemas/ContactUpdate'
+                  $ref: "#/components/schemas/ContactUpdate"
               required:
                 - id
                 - contact
@@ -687,14 +699,14 @@ paths:
                       line2: Suite 100
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: '281332'
+                      postalCode: "281332"
                       country: USA
                     customFields: {}
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ''
+        description: ""
       description: Update an existing Contact
     parameters: []
   /api/unifications/engagement/contacts/search:
@@ -702,7 +714,7 @@ paths:
       summary: Search Contacts
       operationId: search-contact
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -713,7 +725,7 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Contact'
+                      $ref: "#/components/schemas/Contact"
                   nextPageCursor:
                     type: string
               examples:
@@ -725,26 +737,26 @@ paths:
                         lastName: Smith
                         jobTitle: Director of Operations
                         phones:
-                          - number: '8192223333'
-                            type: 'work'
+                          - number: "8192223333"
+                            type: "work"
                             isPrimary: true
                         emails:
-                          - address: 'tom@dunder.com'
-                            type: 'work'
+                          - address: "tom@dunder.com"
+                            type: "work"
                             isPrimary: true
                         address:
                           line1: 100 Blue Dr
                           line2: Suite 100
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: '281332'
+                          postalCode: "281332"
                           country: USA
                         openCount: 0
                         clickCount: 3
                         replyCount: 1
                         bouncedCount: 1
-                        createdTime: '2019-08-24T14:15:22Z'
-                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
                           accountId: 0dcb45e051315a6ea63b0f16e73689d9
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -804,14 +816,16 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -822,7 +836,7 @@ paths:
                   customFields:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ContactCustomField'
+                      $ref: "#/components/schemas/ContactCustomField"
                   nextPageCursor:
                     type: string
               examples:
@@ -839,7 +853,7 @@ paths:
       summary: Create Custom Field
       operationId: post-customFields
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -852,7 +866,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    key: 'customField1'
+                    key: "customField1"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -867,20 +881,20 @@ paths:
               type: object
               properties:
                 customField:
-                  $ref: '#/components/schemas/ContactCustomFieldCreate'
+                  $ref: "#/components/schemas/ContactCustomFieldCreate"
               required:
                 - customField
             examples:
               example-1:
                 value:
                   customField:
-                    key: 'customField1'
+                    key: "customField1"
       description: Create a Contact Custom Field
   /api/unifications/engagement/emails/list:
     post:
       summary: Get All Emails
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -891,7 +905,7 @@ paths:
                   emails:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Email'
+                      $ref: "#/components/schemas/Email"
                   nextPageCursor:
                     type: string
               examples:
@@ -899,14 +913,14 @@ paths:
                   value:
                     emails:
                       - id: 2322707bbc41577d9806400e2daa25de
-                        subject: 'Re: Paper renewal'
+                        subject: "Re: Paper renewal"
                         hasReplied: true
                         isBounced: false
                         openCount: 1
                         clickCount: 2
                         replyCount: null
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           sequenceId: d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -925,19 +939,21 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       description: Retrieve all Emails
     parameters: []
   /api/unifications/engagement/emails/find:
     post:
       summary: Get Email
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -946,20 +962,20 @@ paths:
                 type: object
                 properties:
                   email:
-                    $ref: '#/components/schemas/Email'
+                    $ref: "#/components/schemas/Email"
               examples:
                 example-1:
                   value:
                     email:
                       id: 2322707bbc41577d9806400e2daa25de
-                      subject: 'Re: Paper renewal'
+                      subject: "Re: Paper renewal"
                       hasReplied: true
                       isBounced: false
                       openCount: 1
                       clickCount: 2
                       replyCount: null
-                      modifiedTime: '2019-08-24T14:15:22Z'
-                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
                       associations:
                         sequenceId: d08f345ace24509e911a0ea8e3d2203c
                         ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -977,6 +993,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -984,15 +1002,15 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
-      description: 'Retrieve a Email by Id'
+                  id: "123123"
+      description: "Retrieve a Email by Id"
     parameters: []
   /api/unifications/engagement/emails/search:
     post:
       summary: Search Emails
       operationId: search-email
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1003,7 +1021,7 @@ paths:
                   emails:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Email'
+                      $ref: "#/components/schemas/Email"
                   nextPageCursor:
                     type: string
               examples:
@@ -1011,14 +1029,14 @@ paths:
                   value:
                     emails:
                       - id: 2322707bbc41577d9806400e2daa25de
-                        subject: 'Re: Paper renewal'
+                        subject: "Re: Paper renewal"
                         hasReplied: true
                         isBounced: false
                         openCount: 1
                         clickCount: 2
                         replyCount: null
-                        modifiedTime: '2019-08-24T14:15:22Z'
-                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           sequenceId: d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -1062,7 +1080,7 @@ paths:
     post:
       summary: Get All Sequences
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1073,17 +1091,17 @@ paths:
                   sequences:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sequence'
+                      $ref: "#/components/schemas/Sequence"
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     sequences:
-                      - id: '2322707bbc41577d9806400e2daa25de'
+                      - id: "2322707bbc41577d9806400e2daa25de"
                         isEnabled: true
-                        name: 'Reaching out about My Company'
-                        tags: ['cold']
+                        name: "Reaching out about My Company"
+                        tags: ["cold"]
                         numSteps: 1
                         scheduledCount: 0
                         openedCount: 0
@@ -1105,12 +1123,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       description: Retrieve all Sequences
       security:
         - VesselAPIToken: []
@@ -1120,7 +1140,7 @@ paths:
       summary: Start Sequence
       operationId: post-start-sequence
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1133,7 +1153,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '0'
+                    id: "0"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1150,7 +1170,7 @@ paths:
                 id:
                   type: string
                 fields:
-                  $ref: '#/components/schemas/SequenceStart'
+                  $ref: "#/components/schemas/SequenceStart"
               required:
                 - id
                 - fields
@@ -1167,7 +1187,7 @@ paths:
     post:
       summary: Create Sequence
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1180,7 +1200,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: '2322707bbc41577d9806400e2daa25de'
+                    id: "2322707bbc41577d9806400e2daa25de"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -1195,15 +1215,15 @@ paths:
               type: object
               properties:
                 sequence:
-                  $ref: '#/components/schemas/SequenceCreate'
+                  $ref: "#/components/schemas/SequenceCreate"
               required:
                 - sequence
             examples:
               example-1:
                 value:
                   sequence:
-                    name: 'Email Sequence'
-                    shareType: 'team'
+                    name: "Email Sequence"
+                    shareType: "team"
       operationId: post-sequences
       description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequence-steps/batch-create endpoint.
       security:
@@ -1213,7 +1233,7 @@ paths:
     post:
       summary: Batch Create Sequence Steps
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1235,20 +1255,20 @@ paths:
                 steps:
                   type: array
                   items:
-                    $ref: '#/components/schemas/SequenceStepCreate'
+                    $ref: "#/components/schemas/SequenceStepCreate"
               required:
                 - steps
             examples:
               example-1:
                 value:
                   steps:
-                    - name: 'Step 1 (Automated Email)'
-                      type: 'auto_email'
+                    - name: "Step 1 (Automated Email)"
+                      type: "auto_email"
                       daysAfter: 2
                       settings:
-                        templateName: 'Email Template'
+                        templateName: "Email Template"
                         isReply: false
-                        subject: 'Hello from Dunder!'
+                        subject: "Hello from Dunder!"
                         body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
       operationId: post-sequences-steps
       description: Create one or more steps in a sequence.
@@ -1259,7 +1279,7 @@ paths:
     post:
       summary: Get All Mailboxes
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1270,7 +1290,7 @@ paths:
                   mailboxes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Mailbox'
+                      $ref: "#/components/schemas/Mailbox"
                   nextPageCursor:
                     type: string
               examples:
@@ -1297,18 +1317,37 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       description: Retrieve all Mailboxes
       security:
         - VesselAPIToken: []
     parameters: []
 components:
   schemas:
+    IncludeFields:
+      title: Include Fields
+      type: object
+      examples:
+        - $native: true
+        - {}
+      properties:
+        $native:
+          type: boolean
+          description: Set to true if you want to include all native fields.
+    $NativeData:
+      title: Native Data
+      type: object
+      description:
+        Native fields for the connected platform. For reads, this object
+        is only returned if the include.$native field is set to true in the request
+        body.
     EmailAddress:
       title: EmailAddress
       type: object
@@ -1324,9 +1363,11 @@ components:
         isPrimary:
           type: boolean
           description: Whether this is the primary email address
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       example:
-        address: 'tom@dunder.com'
-        type: 'work'
+        address: "tom@dunder.com"
+        type: "work"
         isPrimary: true
     Phone:
       title: Phone
@@ -1344,9 +1385,11 @@ components:
         isPrimary:
           type: boolean
           description: Whether this is the primary phone number
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       example:
-        number: '555-555-5555'
-        type: 'work'
+        number: "555-555-5555"
+        type: "work"
         isPrimary: true
     Address:
       title: Address
@@ -1364,6 +1407,8 @@ components:
           type: string
         country:
           type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       examples:
         - line1: 123 Main St
           line2: Apt 1
@@ -1375,28 +1420,28 @@ components:
       title: Account
       type: object
       examples:
-        - id: '344'
+        - id: "344"
           name: Blue Cross
           description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
           industry: TV and Media
           numberOfEmployees: 100
           website: www.bluecross.penn
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
-          phone: '8192223333'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+          phone: "8192223333"
           locality: Scranton
           address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
           associations:
             contactIds:
               - e5f32d4fd2115220bd20a2ccf81210ec
             ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-      description: '(Alias: company, organization) An organization involved with your business.'
+      description: "(Alias: company, organization) An organization involved with your business."
       properties:
         id:
           type: string
@@ -1419,7 +1464,7 @@ components:
           type: string
           description: The primary phone number.
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         createdTime:
           type: string
           description: The timestamp that the account was created
@@ -1439,6 +1484,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Account
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -1447,14 +1494,14 @@ components:
     User:
       title: User
       type: object
-      description: 'Users of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform.'
+      description: "Users of the connected Engagement platform. These are *not* the contacts or leads, but rather the user accounts from the connected Engagement Platform."
       examples:
         - id: 56f653659ea9524b9e0fb0ba67e6f8a0
           firstName: Micheal
           lastName: Scott
           email: micheal@dundermifflin.com
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
       properties:
         id:
           type: string
@@ -1472,6 +1519,8 @@ components:
         modifiedTime:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified.
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -1485,31 +1534,31 @@ components:
           lastName: Smith
           jobTitle: Director of Operations
           phones:
-            - number: '8192223333'
-              type: 'work'
+            - number: "8192223333"
+              type: "work"
               isPrimary: true
           emails:
-            - address: 'tom@dunder.com'
-              type: 'work'
+            - address: "tom@dunder.com"
+              type: "work"
               isPrimary: true
           address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
           openCount: 0
           clickCount: 3
           replyCount: 1
           bouncedCount: 1
-          createdTime: '2019-08-24T14:15:22Z'
-          modifiedTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
           associations:
             accountId: 0dcb45e051315a6ea63b0f16e73689d9
             ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
           customFields: {}
-      description: 'An known individual affiliated with an Account, Deal, etc'
+      description: "An known individual affiliated with an Account, Deal, etc"
       properties:
         id:
           type: string
@@ -1521,28 +1570,28 @@ components:
         jobTitle:
           type: string
         address:
-          $ref: '#/components/schemas/Address'
-          description: 'Not supported by Apollo'
+          $ref: "#/components/schemas/Address"
+          description: "Not supported by Apollo"
         emails:
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: "#/components/schemas/EmailAddress"
         phones:
           type: array
           items:
-            $ref: '#/components/schemas/Phone'
+            $ref: "#/components/schemas/Phone"
         openCount:
           type: number
-          description: 'Not supported by Apollo'
+          description: "Not supported by Apollo"
         clickCount:
           type: number
-          description: 'Not supported by Apollo'
+          description: "Not supported by Apollo"
         replyCount:
           type: number
-          description: 'Not supported by Apollo'
+          description: "Not supported by Apollo"
         bouncedCount:
           type: number
-          description: 'Not supported by Outreach & Apollo'
+          description: "Not supported by Outreach & Apollo"
         createdTime:
           type: string
           description: The timestamp that the contact was created
@@ -1561,7 +1610,9 @@ components:
               type: string
         customFields:
           type: object
-          description: 'Any custom fields associated with this contact'
+          description: "Any custom fields associated with this contact"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -1571,8 +1622,8 @@ components:
       title: ContactCustomField
       type: object
       examples:
-        - key: 'customField1'
-          name: 'Custom Field'
+        - key: "customField1"
+          name: "Custom Field"
           type: string
       properties:
         key:
@@ -1583,7 +1634,9 @@ components:
           type: string
           enum:
             - string
-          description: 'Only string custom fields are currently supported'
+          description: "Only string custom fields are currently supported"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - key
         - type
@@ -1593,14 +1646,14 @@ components:
       description: A email between a User and an external Contact
       examples:
         - id: 2322707bbc41577d9806400e2daa25de
-          subject: 'Re: Paper renewal'
+          subject: "Re: Paper renewal"
           hasReplied: true
           isBounced: false
           openCount: 1
           clickCount: 2
           replyCount: null
-          modifiedTime: '2019-08-24T14:15:22Z'
-          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: "2019-08-24T14:15:22Z"
           associations:
             sequenceId: d08f345ace24509e911a0ea8e3d2203c
             ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -1638,6 +1691,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Action
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -1652,13 +1707,13 @@ components:
           industry: TV and Media
           numberOfEmployees: 100
           website: www.bluecross.penn
-          phone: '8192223333'
+          phone: "8192223333"
           address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
       description: Properties that an account can be created with
       properties:
@@ -1678,7 +1733,9 @@ components:
           type: string
           description: The primary phone number.
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
     AccountUpdate:
@@ -1690,13 +1747,13 @@ components:
           industry: TV and Media
           numberOfEmployees: 100
           website: www.bluecross.penn
-          phone: '8192223333'
+          phone: "8192223333"
           address:
             line1: 100 Blue Dr
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
       description: Properties that an account can be update with
       properties:
@@ -1716,7 +1773,9 @@ components:
           type: string
           description: The primary phone number.
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -1733,7 +1792,7 @@ components:
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
           customFields: {}
       description: Properties that a contact can be created with
@@ -1745,7 +1804,7 @@ components:
         jobTitle:
           type: string
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         emails:
           type: array
           items:
@@ -1765,6 +1824,8 @@ components:
         customFields:
           type: object
           description: "Set any custom fields on this contact's creation."
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -1777,7 +1838,7 @@ components:
             line2: Suite 100
             city: Scranton
             state: Pennsylvania
-            postalCode: '281332'
+            postalCode: "281332"
             country: USA
           customFields: {}
       description: Properties that a contact can be updated with
@@ -1789,18 +1850,22 @@ components:
         jobTitle:
           type: string
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: "#/components/schemas/Address"
         customFields:
           type: object
-          description: 'Update any custom fields.'
+          description: "Update any custom fields."
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     ContactCustomFieldCreate:
       title: ContactCustomFieldCreate
       type: object
       examples:
-        - key: 'customField1'
+        - key: "customField1"
       properties:
         key:
           type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - key
     Sequence:
@@ -1808,10 +1873,10 @@ components:
       type: object
       description: Properties that a sequence can be created with
       examples:
-        - id: '2322707bbc41577d9806400e2daa25de'
+        - id: "2322707bbc41577d9806400e2daa25de"
           isEnabled: true
-          name: 'Reaching out about My Company'
-          tags: ['cold']
+          name: "Reaching out about My Company"
+          tags: ["cold"]
           numSteps: 1
           scheduledCount: 0
           openedCount: 0
@@ -1852,13 +1917,15 @@ components:
         modifiedTime:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     SequenceCreate:
       title: Create Sequence
       type: object
       description:
       examples:
-        - name: 'Email Sequence'
-          shareType: 'team'
+        - name: "Email Sequence"
+          shareType: "team"
       properties:
         name:
           type: string
@@ -1868,6 +1935,8 @@ components:
             - team
             - private
           description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
         - shareType
@@ -1877,28 +1946,30 @@ components:
       properties:
         templateName:
           type: string
-          description: 'The name for this template'
+          description: "The name for this template"
         isReply:
           type: boolean
           description: "Whether or not this email is a reply to the previous step's email"
         subject:
           type: string
-          description: 'The subject line for this email'
+          description: "The subject line for this email"
         body:
           type: string
-          description: 'The body of the email'
+          description: "The body of the email"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     SequenceStepCreate:
       title: Create Sequence Steps
       type: object
       description: properties that a sequence step can be created with
       examples:
-        - name: 'Step 1 (Automated Email)'
-          type: 'auto_email'
+        - name: "Step 1 (Automated Email)"
+          type: "auto_email"
           daysAfter: 2
           settings:
-            templateName: 'Email Template'
+            templateName: "Email Template"
             isReply: false
-            subject: 'Hello from Dunder!'
+            subject: "Hello from Dunder!"
             body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
       properties:
         name:
@@ -1912,7 +1983,9 @@ components:
           type: number
           description: The number of days after the previous step that this step should be sent.
         settings:
-          $ref: '#/components/schemas/SequenceStepSettingsCreate'
+          $ref: "#/components/schemas/SequenceStepSettingsCreate"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
         - type
@@ -1921,7 +1994,7 @@ components:
     SequenceStart:
       title: SequenceStart
       type: object
-      description: 'Start a sequence'
+      description: "Start a sequence"
       examples:
         - contactId: 233b4b8f0f2910ea0f2a0f2a0f939f3f
           mailboxId: 8f0f2a0f2a0f2a0f939f3f91233b4b0e
@@ -1930,10 +2003,12 @@ components:
           type: string
         mailboxId:
           type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     Mailbox:
       title: Mailbox
       type: object
-      description: 'Mailboxes in the connected Engagement platform. These are email accounts that outbound emails will be sent from.'
+      description: "Mailboxes in the connected Engagement platform. These are email accounts that outbound emails will be sent from."
       examples:
         - id: 2322707bbc41577d9806400e2daa25de
           email: fake@email.com
@@ -1959,6 +2034,8 @@ components:
           properties:
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
   securitySchemes:
     VesselAPIToken:
       name: x-vessel-api-token

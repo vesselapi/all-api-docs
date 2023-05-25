@@ -50,12 +50,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       operationId: list-users
       description: List Users
     parameters: []
@@ -97,6 +99,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -104,7 +108,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/crm/contacts/list:
@@ -161,6 +165,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -169,12 +175,12 @@ paths:
                     type: string
                   description: |
                     Array of associations to include in the response.
-                    Allowed values: accounts, deals, leads. 
+                    Allowed values: accounts, deals, leads.
                     ownerUserId is always included in the response in the response.
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - accounts
                     - deals
@@ -229,6 +235,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -244,8 +252,8 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
-                  associations: 
+                  id: "123123"
+                  associations:
                     - accounts
                     - deals
       description: "Retrieve a Contact by either Id"
@@ -334,6 +342,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 contact:
@@ -412,6 +422,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -425,8 +437,8 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
-                  associations: 
+                  cursor: "123123"
+                  associations:
                     - accounts
                     - contacts
       description: Retrieve all Deals
@@ -480,6 +492,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -495,8 +509,8 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
-                  associations: 
+                  id: "123123"
+                  associations:
                     - accounts
                     - contacts
       description: Retrieve a single Deal by Id
@@ -593,6 +607,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 deal:
@@ -674,6 +690,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -687,7 +705,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -749,6 +767,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -764,7 +784,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -868,6 +888,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 account:
@@ -953,6 +975,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -966,7 +990,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - contacts
                     - accounts
@@ -1020,6 +1044,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -1035,7 +1061,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - contacts
                     - accounts
@@ -1132,6 +1158,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 lead:
@@ -1251,6 +1279,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -1264,7 +1294,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1314,6 +1344,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -1329,7 +1361,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1430,6 +1462,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 note:
@@ -1503,6 +1537,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -1516,7 +1552,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1572,6 +1608,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -1587,7 +1625,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1693,6 +1731,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 task:
@@ -1775,6 +1815,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -1788,7 +1830,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1846,6 +1888,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -1861,7 +1905,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -1965,6 +2009,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 event:
@@ -2035,12 +2081,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
   /api/unifications/crm/event/attendees/find:
     post:
       summary: Get Event Attendee
@@ -2082,6 +2130,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
               required:
@@ -2089,7 +2139,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a single Event Attendee by Id
     parameters: []
   /api/unifications/crm/event/attendees/create:
@@ -2184,6 +2234,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 eventAttendee:
@@ -2264,6 +2316,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -2277,7 +2331,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -2300,34 +2354,34 @@ paths:
                 example-1:
                   value:
                     email:
-                        id: "23"
-                        from: michael@dunder.mifflin
-                        to:
-                          - greg@bluecross.com
-                        cc:
-                          - betty@bluecross.com
-                        bcc:
-                          - carl@bluecross.com
-                        subject: BlueCross <> Dunder Mifflin
-                        bodyText: Hi Greg, need any paper? - Michael
-                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-                        messageDate: "2019-08-24T14:15:22Z"
-                        isIncoming: false
-                        isBounced: false
-                        hasAttachment: false
-                        status: SENT
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      id: "23"
+                      from: michael@dunder.mifflin
+                      to:
+                        - greg@bluecross.com
+                      cc:
+                        - betty@bluecross.com
+                      bcc:
+                        - carl@bluecross.com
+                      subject: BlueCross <> Dunder Mifflin
+                      bodyText: Hi Greg, need any paper? - Michael
+                      bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                      messageDate: "2019-08-24T14:15:22Z"
+                      isIncoming: false
+                      isBounced: false
+                      hasAttachment: false
+                      status: SENT
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-email
       parameters:
         - name: x-vessel-access-token
@@ -2342,6 +2396,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -2357,7 +2413,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -2472,6 +2528,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 email:
@@ -2484,10 +2542,10 @@ paths:
                 value:
                   id: string
                   email:
-                      isIncoming: false
-                      status: SENT
-                      associations:
-                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    isIncoming: false
+                    status: SENT
+                    associations:
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
         Update an Email by Id.
         *CRM Caveats*:
@@ -2548,6 +2606,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 associations:
@@ -2561,7 +2621,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
                   associations:
                     - deals
                     - contacts
@@ -2583,24 +2643,24 @@ paths:
                 example-1:
                   value:
                     call:
-                        id: "23"
-                        subject: BlueCross <> Dunder Mifflin
-                        disposition: "ANSWERED"
-                        direction: "inbound"
-                        description: "Call from Greg"
-                        date: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                      id: "23"
+                      subject: BlueCross <> Dunder Mifflin
+                      disposition: "ANSWERED"
+                      direction: "inbound"
+                      description: "Call from Greg"
+                      date: "2019-08-24T14:15:22Z"
+                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: "2019-08-24T14:15:22Z"
+                      associations:
+                        accountIds:
+                          - 0dcb45e051315a6ea63b0f16e73689d9
+                        contactIds:
+                          - e5f32d4fd2115220bd20a2ccf81210ec
+                        leadIds:
+                          - d08f345ace24509e911a0ea8e3d2203c
+                        dealIds:
+                          - 497fb529e6805351b5dc8057c74a4a52
+                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: get-call
       parameters:
         - name: x-vessel-access-token
@@ -2615,6 +2675,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 associations:
@@ -2630,7 +2692,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
                   associations:
                     - deals
                     - contacts
@@ -2732,6 +2794,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 call:
@@ -2744,9 +2808,9 @@ paths:
                 value:
                   id: string
                   call:
-                      disposition: "ANSWERED"
-                      associations:
-                        ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    disposition: "ANSWERED"
+                    associations:
+                      ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
         Update an Call by Id.
   /api/unifications/crm/lists/list:
@@ -2791,6 +2855,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
                 objectType:
@@ -2803,7 +2869,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
   /api/unifications/crm/lists/find:
     post:
       summary: Get List
@@ -2830,8 +2896,8 @@ paths:
                         createdTime: "2019-08-24T14:15:22Z"
                         associations:
                           - contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                            - 2d20a2ccf81210ecddf32d4fd2115221
+                              - e5f32d4fd2115220bd20a2ccf81210ec
+                              - 2d20a2ccf81210ecddf32d4fd2115221
                     nextPageCursor: string
       operationId: get-list
       parameters:
@@ -2847,6 +2913,8 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 objectType:
@@ -2860,7 +2928,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: '123123'
+                  id: "123123"
       description: Retrieve a single List by Id
   /api/unifications/crm/passthrough:
     post:
@@ -2900,12 +2968,12 @@ paths:
                       id: 0011A00001XQ4QSQAZ
                       success: true
       parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2943,6 +3011,23 @@ paths:
       description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
+    IncludeFields:
+      title: Include Fields
+      type: object
+      examples:
+        - $native: true
+        - {}
+      properties:
+        $native:
+          type: boolean
+          description: Set to true if you want to include all native fields.
+    $NativeData:
+      title: Native Data
+      type: object
+      description:
+        Native fields for the connected platform. For reads, this object
+        is only returned if the include.$native field is set to true in the request
+        body.
     User:
       title: User
       type: object
@@ -2971,6 +3056,8 @@ components:
         modifiedTime:
           type: string
           description: The timestamp the user was last modified
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3027,6 +3114,8 @@ components:
                 type: string
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3111,6 +3200,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Deal
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - name
@@ -3177,6 +3268,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Account
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3186,7 +3279,7 @@ components:
       title: Lead
       type: object
       description: |-
-        A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal). 
+        A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal).
         *CRM Caveats*:
         - HubSpot: we consider contacts with the `leadStatus` set to be leads.
       properties:
@@ -3234,6 +3327,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Lead
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3287,6 +3382,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this note
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3348,6 +3445,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this Task
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3421,6 +3520,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this event
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -3460,6 +3561,8 @@ components:
             associationId:
               type: string
               description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - associatedObjectType
@@ -3507,8 +3610,8 @@ components:
             properties:
               key:
                 oneOf:
-                    - type: string
-                    - type: number
+                  - type: string
+                  - type: number
               name:
                 type: string
         isArray:
@@ -3529,6 +3632,8 @@ components:
         updatable:
           type: boolean
           description: If this field can be updated
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - key
         - name
@@ -3634,6 +3739,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this email
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - from
@@ -3699,6 +3806,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this call
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     CallCreate:
       title: CallCreate
       type: object
@@ -3731,6 +3840,8 @@ components:
               type: string
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - disposition
         - direction
@@ -3747,6 +3858,8 @@ components:
           properties:
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - disposition
     EmailCreate:
@@ -3791,7 +3904,7 @@ components:
           description: The status of the email (CRM specific, see /details).
         associations:
           type: object
-          properties: 
+          properties:
             accountId:
               type: string
             dealId:
@@ -3800,6 +3913,8 @@ components:
               type: object
               description: Associated Leads must participate in the email (i.e., have a role).
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:
@@ -3812,6 +3927,8 @@ components:
               type: object
               description: Associated Contacts must participate in the email (i.e., have a role).
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:
@@ -3823,6 +3940,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this email
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - from
         - to
@@ -3848,6 +3967,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this email
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
@@ -3872,6 +3993,8 @@ components:
               description: Required unless email is present and CRM supports "Other" for associatedObjectType
             eventId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - associatedObjectType
         - associations
@@ -3881,6 +4004,8 @@ components:
       properties:
         status:
           type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       description: ""
     EventCreate:
       title: EventCreate
@@ -3915,6 +4040,8 @@ components:
               type: string
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - startDateTime
         - endDateTime
@@ -3942,6 +4069,8 @@ components:
           properties:
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     TaskCreate:
       title: TaskCreate
       type: object
@@ -3979,6 +4108,8 @@ components:
               type: string
             contactId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     TaskUpdate:
       title: TaskUpdate
       type: object
@@ -4004,6 +4135,8 @@ components:
           properties:
             ownerUserId:
               type: string
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -4029,6 +4162,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User to assign this Contact to
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -4057,6 +4192,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User to assign this Contact to
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - lastName
     DealUpdate:
@@ -4081,6 +4218,8 @@ components:
             accountId:
               type: string
               description: Update the account this deal is associated with.
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - closeDate
     DealCreate:
@@ -4105,6 +4244,8 @@ components:
             accountId:
               type: string
               description: The Id of the account to associate this deal with
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
         - closeDate
@@ -4140,6 +4281,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User to assign this Account to
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
     AccountCreate:
@@ -4174,6 +4317,8 @@ components:
               description: The Id of the User to assign this Account to
         address:
           $ref: "#/components/schemas/Address"
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
     NoteCreate:
@@ -4202,6 +4347,8 @@ components:
             contactId:
               type: string
               description: Required unless leadId/accountId/dealId are specified.
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     NoteUpdate:
       title: NoteUpdate
       type: object
@@ -4216,6 +4363,8 @@ components:
             ownerUserId:
               type: string
               description: Only Admins can change this property
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     LeadUpdate:
       description: ""
       type: object
@@ -4241,6 +4390,8 @@ components:
         mobilePhone:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
+        $native:
+          $ref: "#/components/schemas/$NativeData"
     LeadCreate:
       description: ""
       type: object
@@ -4263,6 +4414,8 @@ components:
         mobilePhone:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - lastName
     CustomFieldCreate:
@@ -4289,8 +4442,10 @@ components:
               key:
                 type: string
             required:
-              - name 
+              - name
               - key
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - name
         - type
@@ -4329,6 +4484,8 @@ components:
             ownerUserId:
               type: string
               description: The Id of the User that owns this list
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - name
@@ -4352,6 +4509,8 @@ components:
         modifiedTime:
           type: string
           description: The timestamp the list was last modified
+        $native:
+          $ref: "#/components/schemas/$NativeData"
       required:
         - id
         - name
