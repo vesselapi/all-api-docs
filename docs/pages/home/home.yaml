@@ -393,9 +393,7 @@ paths:
                   - DELETE
                 path:
                   type: string
-                  description: The path to send the request to. Vessel handles the
-                    domain, for example, a request to Salesforce would use `/services/data/v52.0/sobjects/Account`.
-                    Full URLs are also supported, e.g. `https://mydomain.my.salesforce.com/services/...`.
+                  description: The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use `/services/data/v52.0/sobjects/Account` instead of `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account`.
                 body:
                   type: object
                   description: The body of the request.
