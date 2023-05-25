@@ -147,6 +147,12 @@
       ]
     },
     {
+      "group": "Passthrough",
+      "pages": [
+        "pages/home/api-reference/passthrough"
+      ]
+    },
+    {
       "group": "ETL",
       "pages": ["pages/managed-etl/about"]
     },
