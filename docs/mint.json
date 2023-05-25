@@ -287,8 +287,7 @@
             "pages/beta/crm/api-reference/get-all-lists",
             "pages/beta/crm/api-reference/get-one-list"
           ]
-        },
-        "pages/beta/crm/api-reference/post-crm-passthrough"
+        }
       ]
     },
     {
@@ -433,8 +432,7 @@
             "pages/crm/api-reference/get-all-lists",
             "pages/crm/api-reference/get-list"
           ]
-        },
-        "pages/crm/api-reference/authenticated-passthrough"
+        }
       ]
     },
     {
@@ -486,8 +484,7 @@
             "pages/unified/dialer/api-reference/get-one-call",
             "pages/unified/dialer/api-reference/start-call"
           ]
-        },
-        "pages/unified/dialer/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -514,8 +511,7 @@
             "pages/unified/marketing-automation/api-reference/get-all-lists",
             "pages/unified/marketing-automation/api-reference/get-one-list"
           ]
-        },
-        "pages/unified/marketing-automation/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -580,8 +576,7 @@
           "pages": [
             "pages/unified/engagement/api-reference/post-sequences-steps"
           ]
-        },
-        "pages/unified/engagement/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -601,8 +596,7 @@
         {
           "group": "Channels",
           "pages": ["pages/unified/chat/api-reference/get-all-channels"]
-        },
-        "pages/unified/chat/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -635,8 +629,7 @@
             "pages/actions/aircall/api-reference/find-call",
             "pages/actions/aircall/api-reference/list-calls"
           ]
-        },
-        "pages/actions/aircall/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -661,8 +654,7 @@
         {
           "group": "Users",
           "pages": ["pages/actions/activecampaign/api-reference/list-users"]
-        },
-        "pages/actions/activecampaign/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -733,8 +725,7 @@
         {
           "group": "Users",
           "pages": ["pages/actions/apollo/api-reference/search-users"]
-        },
-        "pages/actions/apollo/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -763,8 +754,7 @@
             "pages/actions/dialpad/api-reference/list-calls",
             "pages/actions/dialpad/api-reference/start-call"
           ]
-        },
-        "pages/actions/dialpad/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -827,8 +817,7 @@
           "pages": [
             "pages/actions/outreach/api-reference/create-sequence-template"
           ]
-        },
-        "pages/actions/outreach/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -858,8 +847,7 @@
             "pages/actions/ringcentral/api-reference/create-contact",
             "pages/actions/ringcentral/api-reference/update-contact"
           ]
-        },
-        "pages/actions/ringcentral/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -894,8 +882,7 @@
             "pages/actions/salesforce/api-reference/list-users",
             "pages/actions/salesforce/api-reference/find-user"
           ]
-        },
-        "pages/actions/salesforce/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -948,8 +935,7 @@
             "pages/actions/salesloft/api-reference/find-user",
             "pages/actions/salesloft/api-reference/list-users"
           ]
-        },
-        "pages/actions/salesloft/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -969,8 +955,7 @@
         {
           "group": "Conversations",
           "pages": ["pages/actions/slack/api-reference/list-conversations"]
-        },
-        "pages/actions/slack/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -990,8 +975,7 @@
             "pages/actions/mailchimp/api-reference/find-list",
             "pages/actions/mailchimp/api-reference/list-lists"
           ]
-        },
-        "pages/actions/mailchimp/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -1012,8 +996,7 @@
         {
           "group": "Teams",
           "pages": ["pages/actions/teams/api-reference/list-teams"]
-        },
-        "pages/actions/teams/api-reference/passthrough"
+        }
       ]
     },
     {
@@ -1106,8 +1089,7 @@
             "pages/old-engagement/api-reference/get-all-contact-customFields",
             "pages/old-engagement/api-reference/create-contact-customField"
           ]
-        },
-        "pages/old-engagement/api-reference/authenticated-passthrough"
+        }
       ]
     },
     {

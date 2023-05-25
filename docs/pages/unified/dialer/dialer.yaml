@@ -503,7 +503,7 @@ paths:
       operationId: start-call
       description: Start a Call
     parameters: []
-  /api/passthrough/dialer:
+  :
     post:
       summary: Passthrough Request
       operationId: passthrough

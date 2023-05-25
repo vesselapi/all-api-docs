@@ -362,7 +362,7 @@ paths:
       operationId: get-one-list
       description: Find List
     parameters: []
-  /api/passthrough/marketing:
+  :
     post:
       summary: Passthrough Request
       operationId: passthrough

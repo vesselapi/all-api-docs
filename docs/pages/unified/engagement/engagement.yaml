@@ -1307,7 +1307,7 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/passthrough/engagement:
+  :
     post:
       summary: Passthrough Request
       operationId: passthrough
