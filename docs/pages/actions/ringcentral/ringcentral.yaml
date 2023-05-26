@@ -88,7 +88,7 @@ paths:
                          enabled: true
                        internationalCalling:
                          enabled: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -254,7 +254,7 @@ paths:
                        totalElements: 84326421.54368293
                        pageStart: -38641881.53976351
                        pageEnd: 10083083.209457293
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -314,7 +314,7 @@ paths:
                        callStatus: anim do proident
                        callerStatus: do aliqua eu
                        calleeStatus: labore reprehenderit enim eu veniam
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -534,7 +534,7 @@ paths:
                        totalElements: -5697191.809851572
                        pageStart: -7964861.725046158
                        pageEnd: 50683088.381227255
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -629,7 +629,7 @@ paths:
                        phoneNumber: irure in
                        name: ea
                        extensionId: fugiat eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -746,7 +746,7 @@ paths:
                        totalElements: 34088262.239090115
                        pageStart: 79835565.66606507
                        pageEnd: 15002986.66306512
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -801,7 +801,7 @@ paths:
                      company: tempor amet deserunt adipisicing
                      email: voluptate veniam sed in
                      businessPhone: dolor eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -853,7 +853,7 @@ paths:
                      company: culpa nisi ea aliqua
                      email: amet nostrud irure
                      businessPhone: Ut
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -917,7 +917,7 @@ paths:
                      company: pariatur voluptate
                      email: in non dolore
                      businessPhone: mollit dolore
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -953,82 +953,3 @@ paths:
         schema:
           type: string
     parameters: []
-  /api/passthrough/ringcentral:
-    post:
-      summary: Passthrough Request
-      operationId: passthrough
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                description: ""
-                type: object
-                properties:
-                  headers:
-                    type: object
-                  url:
-                    type: string
-                    description: The full URL that the request was sent to.
-                  statusCode:
-                    type: number
-                    description: The HTTP status code of the response from the downstream system.
-                  body:
-                    AnyValue:
-                      description: The body of the response from the downstream system.
-                required:
-                  - id
-              examples:
-                example-1:
-                  value:
-                    headers:
-                      content-type: application/json
-                    url: https://sometool.com/api/v1/endpoint
-                    statusCode: 200
-                    body:
-                      id: 123123123123
-                      success: true
-      parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                method:
-                  type: string
-                  enum:
-                    - GET
-                    - POST
-                    - PUT
-                    - PATCH
-                    - DELETE
-                path:
-                  type: string
-                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
-                body:
-                  type: object
-                  description: "The body of the request."
-                query:
-                  type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
-              required:
-                - method
-                - path
-            examples:
-              example-1:
-                value:
-                  method: PATCH
-                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
-                  body:
-                    - Name: "Vessel"
-        description: ""
-      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

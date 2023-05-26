@@ -138,7 +138,7 @@ paths:
                          phoneNumbers:
                            - dolore
                          isSuperAdmin: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -256,7 +256,7 @@ paths:
                        - in cupidatat
                      state: deserunt cillum do in labore
                      timezone: pariatur ipsum dolore anim veniam
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -344,7 +344,7 @@ paths:
                      type: shared
                      urls:
                        - enim in sunt
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -454,7 +454,7 @@ paths:
                          primaryEmail: sint commodo fugiat sit elit
                          displayName: dolor labore Excepteur
                          ownerId: in
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -542,7 +542,7 @@ paths:
                      type: local
                      urls:
                        - ullamco id
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -660,7 +660,7 @@ paths:
                      type: shared
                      urls:
                        - commodo occaecat sed incididunt dolor
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1019,7 +1019,7 @@ paths:
                      voicemailRecordingId: cillum incididunt
                      voicemailShareLink: aliquip incididunt ea dolore officia
                      wasRecorded: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1392,7 +1392,7 @@ paths:
                            phone: ad
                            type: commodo sunt
                            esse485: false
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1429,7 +1429,7 @@ paths:
                 example-1:
                   value:
                      id: est ea
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1468,82 +1468,3 @@ paths:
         schema:
           type: string
     parameters: []
-  /api/passthrough/dialpad:
-    post:
-      summary: Passthrough Request
-      operationId: passthrough
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                description: ""
-                type: object
-                properties:
-                  headers:
-                    type: object
-                  url:
-                    type: string
-                    description: The full URL that the request was sent to.
-                  statusCode:
-                    type: number
-                    description: The HTTP status code of the response from the downstream system.
-                  body:
-                    AnyValue:
-                      description: The body of the response from the downstream system.
-                required:
-                  - id
-              examples:
-                example-1:
-                  value:
-                    headers:
-                      content-type: application/json
-                    url: https://sometool.com/api/v1/endpoint
-                    statusCode: 200
-                    body:
-                      id: 123123123123
-                      success: true
-      parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                method:
-                  type: string
-                  enum:
-                    - GET
-                    - POST
-                    - PUT
-                    - PATCH
-                    - DELETE
-                path:
-                  type: string
-                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
-                body:
-                  type: object
-                  description: "The body of the request."
-                query:
-                  type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
-              required:
-                - method
-                - path
-            examples:
-              example-1:
-                value:
-                  method: PATCH
-                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
-                  body:
-                    - Name: "Vessel"
-        description: ""
-      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.

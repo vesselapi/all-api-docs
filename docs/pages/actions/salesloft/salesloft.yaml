@@ -135,7 +135,7 @@ paths:
                        user: null
                        createdAt: occaecat Lorem in exercitation cupidatat
                        latestAction: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -190,7 +190,7 @@ paths:
                      data:
                        cadence:
                          id: 99533124.307352
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -488,7 +488,7 @@ paths:
                          nextPage: null
                          perPage: -70282356.7250379
                          currentPage: 21899870.526472658
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -556,7 +556,7 @@ paths:
                        updatedAt: '2009-10-20T12:55:45.0Z'
                        createdAt: '1990-01-27T09:01:35.0Z'
                        valueType: ipsum reprehenderit esse in
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -655,7 +655,7 @@ paths:
                          currentPage: 35961918.416861
                          prevPage: 11707237.020071521
                          nextPage: -11343082.460922897
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -718,7 +718,7 @@ paths:
                        raw: aliqua
                        mailbox: aliquip elit sint sit anim
                        messageId: tempor nulla
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -895,7 +895,7 @@ paths:
                          currentPage: -61910627.88594857
                          perPage: -5534388.110851824
                          nextPage: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1055,7 +1055,7 @@ paths:
                        recipientEmailAddress: null
                        createdAt: '1966-02-10T04:19:08.0Z'
                        subject: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1230,7 +1230,7 @@ paths:
                        city: anim
                        personalEmailAddress: sed
                        country: cillum sint elit cupidatat
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1482,7 +1482,7 @@ paths:
                          perPage: -83362988.7435222
                          currentPage: 38063242.9352926
                          nextPage: -90476444.6773323
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1659,7 +1659,7 @@ paths:
                        owner:
                          id: 61348502.3221409
                        title: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1833,7 +1833,7 @@ paths:
                        personalEmailAddress: null
                        phone: null
                        state: in ut aliquip elit
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2054,7 +2054,7 @@ paths:
                        crmConnected: null
                        bccEmailAddress: exercitation enim dolor
                        timeZone: dolore fugiat velit
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2256,7 +2256,7 @@ paths:
                          currentPage: -55761408.21831794
                          perPage: -13145009.649252474
                          prevPage: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2280,82 +2280,3 @@ paths:
         schema:
           type: string
     parameters: []
-  /api/passthrough/salesloft:
-    post:
-      summary: Passthrough Request
-      operationId: passthrough
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                description: ""
-                type: object
-                properties:
-                  headers:
-                    type: object
-                  url:
-                    type: string
-                    description: The full URL that the request was sent to.
-                  statusCode:
-                    type: number
-                    description: The HTTP status code of the response from the downstream system.
-                  body:
-                    AnyValue:
-                      description: The body of the response from the downstream system.
-                required:
-                  - id
-              examples:
-                example-1:
-                  value:
-                    headers:
-                      content-type: application/json
-                    url: https://sometool.com/api/v1/endpoint
-                    statusCode: 200
-                    body:
-                      id: 123123123123
-                      success: true
-      parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                method:
-                  type: string
-                  enum:
-                    - GET
-                    - POST
-                    - PUT
-                    - PATCH
-                    - DELETE
-                path:
-                  type: string
-                  description: "The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use 'services/data/v52.0/sobjects/Account' instead of 'https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account'."
-                body:
-                  type: object
-                  description: "The body of the request."
-                query:
-                  type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the integration provider."
-              required:
-                - method
-                - path
-            examples:
-              example-1:
-                value:
-                  method: PATCH
-                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
-                  body:
-                    - Name: "Vessel"
-        description: ""
-      description: Send an authenticated passthrough request to the downstream system. This is useful for making requests to endpoints that are not yet supported by Vessel.
