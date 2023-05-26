@@ -61,6 +61,11 @@ paths:
           in: query
           name: allFields
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
+        - schema:
+            type: boolean
+          in: query
+          name: archived
+          description: Set to true to include archived users in the response. Defaults to false.
       description: Retrieve all Users
     parameters: []
   /crm/users/associations:
@@ -88,7 +93,7 @@ paths:
   /crm/users/search:
     post:
       summary: Search Users
-      tags: 
+      tags:
         - users
       requestBody:
         content:
@@ -103,7 +108,7 @@ paths:
                       $ref: "#/components/schemas/StringFilter"
                     nativeId:
                       $ref: "#/components/schemas/StringFilter"
-                    firstName: 
+                    firstName:
                       $ref: "#/components/schemas/StringFilter"
                     lastName:
                       $ref: "#/components/schemas/StringFilter"
@@ -233,7 +238,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-user
       description: |-
-        Get details about all users. 
+        Get details about all users.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -384,7 +389,7 @@ paths:
   /crm/contacts/search:
     post:
       summary: Search Contacts
-      tags: 
+      tags:
         - contacts
       requestBody:
         content:
@@ -536,7 +541,7 @@ paths:
             type: string
           in: query
           name: id
-          description: The id of the contact to get 
+          description: The id of the contact to get
         - schema:
             type: boolean
           in: query
@@ -686,7 +691,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-contact
       description: |-
-        Get details about all contacts. 
+        Get details about all contacts.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -899,7 +904,7 @@ paths:
   /crm/deals/search:
     post:
       summary: Search Deals
-      tags: 
+      tags:
         - deals
       requestBody:
         content:
@@ -1202,7 +1207,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-deal
       description: |-
-        Get details about all deals or a particular deal. 
+        Get details about all deals or a particular deal.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -1387,7 +1392,7 @@ paths:
   /crm/accounts/search:
     post:
       summary: Search Accounts
-      tags: 
+      tags:
         - accounts
       requestBody:
         content:
@@ -1727,7 +1732,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-account
       description: |-
-        Get details about all accounts. 
+        Get details about all accounts.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -1908,7 +1913,7 @@ paths:
   /crm/leads/search:
     post:
       summary: Search Leads
-      tags: 
+      tags:
         - leads
       requestBody:
         content:
@@ -2210,7 +2215,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-lead
       description: |-
-        Get details about all leads. 
+        Get details about all leads.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -2408,7 +2413,7 @@ paths:
   /crm/notes/search:
     post:
       summary: Search Notes
-      tags: 
+      tags:
         - notes
       requestBody:
         content:
@@ -2674,7 +2679,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-note
       description: |-
-        Get details about all notes. 
+        Get details about all notes.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -2825,7 +2830,7 @@ paths:
   /crm/tasks/search:
     post:
       summary: Search Tasks
-      tags: 
+      tags:
         - tasks
       requestBody:
         content:
@@ -3120,7 +3125,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-task
       description: |-
-        Get details about all tasks. 
+        Get details about all tasks.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -3277,7 +3282,7 @@ paths:
   /crm/events/search:
     post:
       summary: Search Events
-      tags: 
+      tags:
         - events
       requestBody:
         content:
@@ -3576,7 +3581,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-event
       description: |-
-        Get details about all events. 
+        Get details about all events.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -3722,7 +3727,7 @@ paths:
   /crm/event/attendees/search:
     post:
       summary: Search Event Attendees
-      tags: 
+      tags:
         - attendees
       requestBody:
         content:
@@ -3931,7 +3936,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-event-attendee
       description: |-
-        Get details about all event attendees. 
+        Get details about all event attendees.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -4006,7 +4011,7 @@ paths:
   /crm/emails:
     get:
       summary: Get All Emails
-      tags: 
+      tags:
         - emails
       responses:
         "200":
@@ -4085,7 +4090,7 @@ paths:
   /crm/emails/search:
     post:
       summary: Search Emails
-      tags: 
+      tags:
         - emails
       requestBody:
         content:
@@ -4188,7 +4193,7 @@ paths:
   /crm/email:
     get:
       summary: Get Email
-      tags: 
+      tags:
         - emails
       responses:
         "200":
@@ -4256,7 +4261,7 @@ paths:
       description: Retrieve a single Task by Id
     post:
       summary: Create Email
-      tags: 
+      tags:
         - emails
       operationId: post-crm-email
       responses:
@@ -4325,7 +4330,7 @@ paths:
         Create a new Email.
     patch:
       summary: Update Email
-      tags: 
+      tags:
         - emails
       operationId: put-crm-email
       responses:
@@ -4383,7 +4388,7 @@ paths:
   /crm/email/details:
     get:
       summary: Get Email Details
-      tags: 
+      tags:
         - emails
       responses:
         "200":
@@ -4417,7 +4422,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-email
       description: |-
-        Get details about all emails. 
+        Get details about all emails.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -4438,7 +4443,7 @@ paths:
   /crm/email/batch:
     get:
       summary: Get Batch Emails
-      tags: 
+      tags:
         - emails
       responses:
         "200":
@@ -4851,7 +4856,7 @@ paths:
                     nextPageCursor: string
       operationId: get-details-crm-call
       description: |-
-        Get details about all Calls. 
+        Get details about all Calls.
         Details include the type, possible values, and other meta data about the fields.
       parameters:
         - schema:
@@ -5405,6 +5410,7 @@ components:
           email: micheal@dundermifflin.com
           createdTime: "2019-08-24T14:15:22Z"
           modifiedTime: "2019-08-24T14:15:22Z"
+          archived: false
           additional: {}
       properties:
         id:
@@ -5426,6 +5432,9 @@ components:
         modifiedTime:
           type: string
           description: The timestamp the user was last modified
+        archived:
+          type: boolean
+          description: Whether or not the user is archived
         additional:
           type: object
           description: "Returned when `allFields` is set in the query params. Includes all data, untransformed, we received from the downstream CRM"
@@ -5844,7 +5853,7 @@ components:
       title: Lead
       type: object
       description: |-
-        A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal). 
+        A Lead represents an individual, or sometimes an organization, that is interested in purchasing your product (i.e., is a potential Deal).
         *CRM Caveats*:
         - HubSpot: we consider contacts with the `leadStatus` set to be leads.
       examples:
@@ -7426,7 +7435,7 @@ components:
               key:
                 type: string
             required:
-              - name 
+              - name
               - key
       required:
         - name
