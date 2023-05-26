@@ -51,7 +51,7 @@ paths:
                      channelIdentity:
                        teamId: enim
                        channelId: dolor sint ea tempor
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -115,7 +115,7 @@ paths:
                          createdDateTime: '2012-06-04T02:06:01.0Z'
                          idea_: false
                      '@odataNextLink': laboris Excepteur dolor cillum
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -170,7 +170,7 @@ paths:
                        - id: sit in voluptate velit
                          displayName: magna laboris sint Lorem elit
                      '@odataNextLink': ea reprehenderit laboris Lorem dolore
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -225,7 +225,7 @@ paths:
                        - id: in sunt
                          displayName: sunt amet dolore
                      '@odataNextLink': Excepteur non laboris
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -246,5 +246,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

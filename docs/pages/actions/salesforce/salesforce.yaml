@@ -25,7 +25,7 @@ paths:
                 example-1:
                   value:
                      id: incididunt amet
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -117,7 +117,7 @@ paths:
                      lastModifiedDate: '1948-11-29T05:09:02.0Z'
                      accountId: do ex
                      ownerId: Excepteur pariatur
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -208,7 +208,7 @@ paths:
                          firstName: sed ut voluptate in
                          accountId: commodo Lorem tempor reprehenderit pariatur
                      totalSize: -40874731.60621861
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -278,7 +278,7 @@ paths:
                      lastModifiedDate: '2008-09-11T07:16:49.0Z'
                      accountId: officia adipisicing eiusmod
                      ownerId: sint in deserunt sit voluptate
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -358,7 +358,7 @@ paths:
                      createdDate: '1989-08-24T05:06:45.0Z'
                      lastModifiedDate: '1963-07-03T11:25:18.0Z'
                      createdById: culpa laborum Lorem anim
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -424,7 +424,7 @@ paths:
                          createdDate: '1992-06-23T04:42:21.0Z'
                          id: do esse
                      totalSize: 22160176.21787159
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -499,7 +499,7 @@ paths:
                            - fieldNameOrPath: proident quis tempor ipsum id
                              value: ea aliqua ut in do
                      size: 11093394.578945532
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -573,7 +573,7 @@ paths:
                          createdDate: '1951-04-12T18:32:40.0Z'
                          firstName: labore ut
                      totalSize: -31617201.024693653
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -628,7 +628,7 @@ paths:
                      email: bvH@K.regs
                      createdDate: '1990-05-03T09:31:29.0Z'
                      lastModifiedDate: '1969-01-06T02:10:47.0Z'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -649,5 +649,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

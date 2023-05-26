@@ -88,7 +88,7 @@ paths:
                          enabled: true
                        internationalCalling:
                          enabled: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -254,7 +254,7 @@ paths:
                        totalElements: 84326421.54368293
                        pageStart: -38641881.53976351
                        pageEnd: 10083083.209457293
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -314,7 +314,7 @@ paths:
                        callStatus: anim do proident
                        callerStatus: do aliqua eu
                        calleeStatus: labore reprehenderit enim eu veniam
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -534,7 +534,7 @@ paths:
                        totalElements: -5697191.809851572
                        pageStart: -7964861.725046158
                        pageEnd: 50683088.381227255
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -629,7 +629,7 @@ paths:
                        phoneNumber: irure in
                        name: ea
                        extensionId: fugiat eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -746,7 +746,7 @@ paths:
                        totalElements: 34088262.239090115
                        pageStart: 79835565.66606507
                        pageEnd: 15002986.66306512
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -801,7 +801,7 @@ paths:
                      company: tempor amet deserunt adipisicing
                      email: voluptate veniam sed in
                      businessPhone: dolor eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -853,7 +853,7 @@ paths:
                      company: culpa nisi ea aliqua
                      email: amet nostrud irure
                      businessPhone: Ut
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -917,7 +917,7 @@ paths:
                      company: pariatur voluptate
                      email: in non dolore
                      businessPhone: mollit dolore
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -953,5 +953,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

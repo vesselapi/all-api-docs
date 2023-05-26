@@ -25,7 +25,7 @@ paths:
                 example-1:
                   value:
                      ts: sit ullamco consectetur
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -65,7 +65,7 @@ paths:
                 example-1:
                   value:
                      ts: exercitation eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -133,7 +133,7 @@ paths:
                          deleted: false
                      responseMetadata:
                        nextCursor: mollit commodo dolore
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -195,7 +195,7 @@ paths:
                          created: -11244916.177287444
                      responseMetadata:
                        nextCursor: ea commodo nisi proident sunt
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -216,5 +216,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

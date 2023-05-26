@@ -25,7 +25,7 @@ paths:
                 example-1:
                   value:
                      id: consectetur
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -86,7 +86,7 @@ paths:
                 example-1:
                   value:
                      id: aute dolor anim Excepteur
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -197,7 +197,7 @@ paths:
                            lastChanged: '1965-10-11T05:54:19.0Z'
                      fullSearch:
                        members: []
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -267,7 +267,7 @@ paths:
                         excludeFields:
                           - culpa enim eu
                         query: eu
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -321,7 +321,7 @@ paths:
                        - id: enim consequat
                          name: et Ut Lorem cupidatat labore
                          dateCreated: '1965-06-15T22:12:43.0Z'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -345,5 +345,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

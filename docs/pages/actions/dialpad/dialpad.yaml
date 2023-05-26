@@ -138,7 +138,7 @@ paths:
                          phoneNumbers:
                            - dolore
                          isSuperAdmin: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -256,7 +256,7 @@ paths:
                        - in cupidatat
                      state: deserunt cillum do in labore
                      timezone: pariatur ipsum dolore anim veniam
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -344,7 +344,7 @@ paths:
                      type: shared
                      urls:
                        - enim in sunt
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -454,7 +454,7 @@ paths:
                          primaryEmail: sint commodo fugiat sit elit
                          displayName: dolor labore Excepteur
                          ownerId: in
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -542,7 +542,7 @@ paths:
                      type: local
                      urls:
                        - ullamco id
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -660,7 +660,7 @@ paths:
                      type: shared
                      urls:
                        - commodo occaecat sed incididunt dolor
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1019,7 +1019,7 @@ paths:
                      voicemailRecordingId: cillum incididunt
                      voicemailShareLink: aliquip incididunt ea dolore officia
                      wasRecorded: true
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1392,7 +1392,7 @@ paths:
                            phone: ad
                            type: commodo sunt
                            esse485: false
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1429,7 +1429,7 @@ paths:
                 example-1:
                   value:
                      id: est ea
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1468,5 +1468,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    

@@ -117,7 +117,7 @@ paths:
                          owner:
                            data:
                              id: in tempor dolor ut
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -266,7 +266,7 @@ paths:
                                id: ullamco veniam fugiat
                      links:
                        next: deserunt dolore eiusmod non
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -363,7 +363,7 @@ paths:
                            updatedAt: '2004-10-23T21:57:02.0Z'
                      links:
                        next: eiusmod velit sit adipisicing do
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -511,7 +511,7 @@ paths:
                          user:
                            data:
                              id: ullamco sunt aliqua
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -679,7 +679,7 @@ paths:
                                id: aliqua Duis incididunt
                      links:
                        next: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -887,7 +887,7 @@ paths:
                          updatedAt: '2006-10-31T01:02:06.0Z'
                        relationships:
                          owner: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1149,7 +1149,7 @@ paths:
                            data:
                              id: commodo
                          account: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1366,7 +1366,7 @@ paths:
                              data:
                                id: Ut
                      links: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1575,7 +1575,7 @@ paths:
                          owner:
                            data:
                              id: magna elit reprehenderit aliquip
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1698,7 +1698,7 @@ paths:
                          prospect:
                            data:
                              id: exercitation commodo
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1829,7 +1829,7 @@ paths:
                          createdAt: '1962-07-27T19:01:29.0Z'
                          updatedAt: '1997-11-28T05:51:44.0Z'
                        relationships: {}
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1966,7 +1966,7 @@ paths:
                          relationships: {}
                      links:
                        next: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2042,7 +2042,7 @@ paths:
                          createdAt: '1963-01-08T13:01:41.0Z'
                          updatedAt: '1975-02-17T21:42:10.0Z'
                        relationships: {}
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2138,7 +2138,7 @@ paths:
                          relationships: {}
                      links:
                        next: fugiat culpa
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2255,7 +2255,7 @@ paths:
                          createdAt: '2018-04-30T08:35:51.0Z'
                          updatedAt: '1982-07-28T04:57:44.0Z'
                        relationships: {}
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2319,7 +2319,7 @@ paths:
                   value:
                      data:
                        id: 67955629.79071575
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2380,7 +2380,7 @@ paths:
                   value:
                      data:
                        id: 52648232.56628111
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2420,5 +2420,3 @@ paths:
         schema:
           type: string
     parameters: []
-  :
-    
