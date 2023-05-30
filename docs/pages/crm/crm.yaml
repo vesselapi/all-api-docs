@@ -6539,6 +6539,27 @@ components:
         date:
           type: string
           description: The date the call occurred
+        status:
+          type: string
+          description: The status of the call.
+        duration:
+          type: number
+          description: The duration of the call in seconds.
+        to:
+          type: string
+          description: |-
+            The phone number that was called.
+            *CRM Caveats* Only supported for HubSpot.
+        from:
+          type: string
+          description: |-
+            The phone number called from.
+            *CRM Caveats* Only supported for HubSpot.
+        recordingUrl:
+          type: string
+          description: |-
+            The URL of the recording of the call.
+            *CRM Caveats* Only supported for HubSpot.
         createdTime:
           type: string
           description: The timestamp that the call object was created
@@ -6688,6 +6709,27 @@ components:
         date:
           type: string
           description: ISO Formatted date for when the call occurred
+        status:
+          type: string
+          description: The status of the call.
+        duration:
+          type: number
+          description: The duration of the call in seconds.
+        to:
+          type: string
+          description: |-
+            The phone number that was called.
+            *CRM Caveats* Only supported for HubSpot.
+        from:
+          type: string
+          description: |-
+            The phone number called from.
+            *CRM Caveats* Only supported for HubSpot.
+        recordingUrl:
+          type: string
+          description: |-
+            The URL of the recording of the call.
+            *CRM Caveats* Only supported for HubSpot.
         contactIds:
           type: array
           description: The participants involved in this call. If this is an inbound call, this is the contacts that called, if this is an outbound call, this is the contacts that were called.
