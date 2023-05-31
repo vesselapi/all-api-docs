@@ -171,10 +171,30 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    name:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+                    domain:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
             examples:
               example-1:
                 value:
+                  include:
+                    $native: false
                   cursor: "123123"
+                  filters:
+                    name:
+                      equals: "Acme Co."
       description: |-
         Retrieve all Accounts
     parameters: []
@@ -366,81 +386,6 @@ paths:
         description: ""
       description: Update an existing Account
     parameters: []
-  /api/unifications/engagement/accounts/search:
-    post:
-      summary: Search Accounts
-      operationId: search-account
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  accounts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Account"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    accounts:
-                      - id: "15"
-                        name: "test account"
-                        createdTime: "2023-02-17T21:28:30.000Z"
-                        modifiedTime: "2023-02-18T01:57:12.000Z"
-                        description: null
-                        industry: null
-                        numberOfEmployees: null
-                        domain: "vessel.dev"
-                        website: null
-                        address: null
-                        phone: null
-                        locality: "San Francisco"
-                        associations:
-                          ownerUserId: "1"
-                    nextPageCursor: d9806400e2daa25de2322707bbc41577
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    name:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                      required: equals
-                    domain:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                      required: equals
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    name:
-                      equals: "Acme Co."
-      description: Search Accounts
   /api/unifications/engagement/contacts/list:
     post:
       summary: List Contacts
@@ -511,10 +456,30 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    emails:
+                      type: object
+                      properties:
+                        address:
+                          type: object
+                          properties:
+                            equals:
+                              type: string
+                          required: equals
+                      required: address
+                  required: emails
             examples:
               example-1:
                 value:
+                  include:
+                    $native: false
                   cursor: "123123"
+                  filters:
+                    emails:
+                      address:
+                        equals: fake@email.com
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/engagement/contacts/find:
@@ -709,96 +674,6 @@ paths:
         description: ""
       description: Update an existing Contact
     parameters: []
-  /api/unifications/engagement/contacts/search:
-    post:
-      summary: Search Contacts
-      operationId: search-contact
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  contacts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Contact"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    contacts:
-                      - id: 34f5b4b0b6b650c981a174b02753c390
-                        firstName: Tom
-                        lastName: Smith
-                        jobTitle: Director of Operations
-                        phones:
-                          - number: "8192223333"
-                            type: "work"
-                            isPrimary: true
-                        emails:
-                          - address: "tom@dunder.com"
-                            type: "work"
-                            isPrimary: true
-                        address:
-                          line1: 100 Blue Dr
-                          line2: Suite 100
-                          city: Scranton
-                          state: Pennsylvania
-                          postalCode: "281332"
-                          country: USA
-                        openCount: 0
-                        clickCount: 3
-                        replyCount: 1
-                        bouncedCount: 1
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                        customFields: {}
-                    nextPageCursor: d9806400e2daa25de2322707bbc41577
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    emails:
-                      type: object
-                      properties:
-                        address:
-                          type: object
-                          properties:
-                            equals:
-                              type: string
-                          required: equals
-                      required: address
-                  required: emails
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    emails:
-                      address:
-                        equals: fake@email.com
-      description: Search Contacts
   /api/unifications/engagement/contact/custom-fields/list:
     post:
       summary: List Custom Fields
@@ -943,10 +818,28 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    sequenceId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                    contactId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
             examples:
               example-1:
                 value:
+                  include:
+                    $native: false
                   cursor: "123123"
+                  filters:
+                    sequenceId:
+                      equals: d08f345ace24509e911a0ea8e3d2203c
       description: Retrieve all Emails
     parameters: []
   /api/unifications/engagement/emails/find:
@@ -1005,77 +898,6 @@ paths:
                   id: "123123"
       description: "Retrieve a Email by Id"
     parameters: []
-  /api/unifications/engagement/emails/search:
-    post:
-      summary: Search Emails
-      operationId: search-email
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  emails:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Email"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    emails:
-                      - id: 2322707bbc41577d9806400e2daa25de
-                        subject: "Re: Paper renewal"
-                        hasReplied: true
-                        isBounced: false
-                        openCount: 1
-                        clickCount: 2
-                        replyCount: null
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          sequenceId: d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    sequenceId:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                    contactId:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    sequenceId:
-                      equals: d08f345ace24509e911a0ea8e3d2203c
-      description: Search Emails
   /api/unifications/engagement/sequences/list:
     post:
       summary: List Sequences
