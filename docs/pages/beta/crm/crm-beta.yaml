@@ -3016,7 +3016,6 @@ components:
       type: object
       examples:
         - $native: true
-        - {}
       properties:
         $native:
           type: boolean

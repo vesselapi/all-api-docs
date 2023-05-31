@@ -9,8 +9,9 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/crm/leads/find \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
+  "include": { $native: false },
   "id": "123123",
   "associations": [
     "contacts",
@@ -22,4 +23,3 @@ curl --request POST \
 </RequestExample>
 
 
-      
