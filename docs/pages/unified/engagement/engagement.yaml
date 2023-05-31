@@ -58,6 +58,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-users
       description: Retrieve all Users
     parameters: []
@@ -109,6 +111,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/engagement/accounts/list:
@@ -189,9 +193,9 @@ paths:
             examples:
               example-1:
                 value:
+                  cursor: "123123"
                   include:
                     $native: false
-                  cursor: "123123"
                   filters:
                     name:
                       equals: "Acme Co."
@@ -259,6 +263,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Account by Id
   /api/unifications/engagement/accounts/create:
     post:
@@ -473,9 +479,9 @@ paths:
             examples:
               example-1:
                 value:
+                  cursor: "123123"
                   include:
                     $native: false
-                  cursor: "123123"
                   filters:
                     emails:
                       address:
@@ -553,6 +559,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a Contact by Id
   /api/unifications/engagement/contacts/create:
     post:
@@ -699,6 +707,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       responses:
         "200":
           description: OK
@@ -834,9 +844,9 @@ paths:
             examples:
               example-1:
                 value:
+                  cursor: "123123"
                   include:
                     $native: false
-                  cursor: "123123"
                   filters:
                     sequenceId:
                       equals: d08f345ace24509e911a0ea8e3d2203c
@@ -896,6 +906,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: "Retrieve a Email by Id"
     parameters: []
   /api/unifications/engagement/sequences/list:
@@ -953,6 +965,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Sequences
       security:
         - VesselAPIToken: []
@@ -1147,6 +1161,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Mailboxes
       security:
         - VesselAPIToken: []

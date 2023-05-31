@@ -57,6 +57,8 @@ paths:
             examples:
               example-1:
                 value:
+                  include:
+                    $native: false
                   cursor: "123123"
       operationId: list-users
       description: List Users
@@ -109,6 +111,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/crm/contacts/list:
@@ -181,6 +185,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - deals
@@ -253,6 +259,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - deals
@@ -342,8 +350,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 contact:
@@ -362,6 +368,7 @@ paths:
                     jobTitle: Director of Operations
                     phone: "2101128833"
                     mobilePhone: "2106541111"
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -438,6 +445,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - contacts
@@ -510,6 +519,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - contacts
@@ -607,8 +618,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 deal:
@@ -625,6 +634,7 @@ paths:
                     amount: 10000
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
         description: ""
@@ -706,6 +716,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -785,6 +797,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -888,8 +902,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 account:
@@ -917,6 +929,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
       description: Update an existing Account
   /api/unifications/crm/leads/list:
     post:
@@ -991,6 +1004,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - contacts
                     - accounts
@@ -1062,6 +1077,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - contacts
                     - accounts
@@ -1158,8 +1175,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 lead:
@@ -1179,6 +1194,7 @@ paths:
                     accountName: Blue Cross
                     phone: "1234445555"
                     mobilePhone: "2338889999"
+                    $native: {}
   /api/unifications/crm/lead/custom-fields/create:
     post:
       summary: Create Lead Custom Field
@@ -1295,6 +1311,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1362,6 +1380,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1462,8 +1482,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 note:
@@ -1477,6 +1495,7 @@ paths:
                   id: string
                   note:
                     content: This note has some interesting content in it!
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Note by Id
@@ -1553,6 +1572,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1626,6 +1647,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1731,8 +1754,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 task:
@@ -1751,6 +1772,7 @@ paths:
                     isDone: false
                     priority: High
                     status: Not Done
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Task by Id
@@ -1831,6 +1853,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1906,6 +1930,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2009,8 +2035,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 event:
@@ -2030,6 +2054,7 @@ paths:
                     startDateTime: "2019-08-24T14:15:22Z"
                     endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: Update an existing Event by Id
@@ -2089,6 +2114,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
   /api/unifications/crm/event/attendees/find:
     post:
       summary: Get Event Attendee
@@ -2140,6 +2167,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Event Attendee by Id
     parameters: []
   /api/unifications/crm/event/attendees/create:
@@ -2234,8 +2263,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 eventAttendee:
@@ -2249,6 +2276,7 @@ paths:
                   id: string
                   eventAttendee:
                     status: Declined
+                    $native: {}
       description: Update the status of an event attendee
   /api/unifications/crm/emails/list:
     post:
@@ -2332,6 +2360,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2414,6 +2444,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2528,8 +2560,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 email:
@@ -2544,6 +2574,7 @@ paths:
                   email:
                     isIncoming: false
                     status: SENT
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
@@ -2622,6 +2653,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2693,6 +2726,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2794,8 +2829,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 call:
@@ -2809,6 +2842,7 @@ paths:
                   id: string
                   call:
                     disposition: "ANSWERED"
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
@@ -2870,6 +2904,9 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  objectType: contacts
+                  include:
+                    $native: false
   /api/unifications/crm/lists/find:
     post:
       summary: Get List
@@ -2929,6 +2966,9 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  objectType: contacts
+                  include:
+                    $native: false
       description: Retrieve a single List by Id
   /api/unifications/crm/passthrough:
     post:
@@ -3912,8 +3952,6 @@ components:
               type: object
               description: Associated Leads must participate in the email (i.e., have a role).
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:
@@ -3926,8 +3964,6 @@ components:
               type: object
               description: Associated Contacts must participate in the email (i.e., have a role).
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:

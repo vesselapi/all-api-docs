@@ -58,6 +58,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-users
       description: List Users
     parameters: []
@@ -112,6 +114,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-contacts
       description: List Contacts
     parameters: []
@@ -163,6 +167,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       operationId: get-one-contact
       description: Find Contact
     parameters: []
@@ -321,6 +327,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-lists
       description: List Lists
     parameters: []
@@ -369,6 +377,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       operationId: get-one-list
       description: Find List
     parameters: []
