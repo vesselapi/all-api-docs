@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /api/unifications/engagement/accounts/list'
+openapi: "POST /api/unifications/engagement/accounts/list"
 ---
 
 <RequestExample>
@@ -9,11 +9,21 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/engagement/accounts/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
-  "include": { $native: false },
-  "cursor": "123123"
+  "cursor": "123123",
+  "include": {
+    "$native": false
+  },
+  "filters": {
+    "name": {
+      "equals": "Acme Co."
+    }
+  }
 }'
 ```
 
 </RequestExample>
+
+
+      
