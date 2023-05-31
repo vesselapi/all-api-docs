@@ -10,7 +10,7 @@ security:
 paths:
   /api/unifications/dialer/users/list:
     post:
-      summary: Get All Users
+      summary: List Users
       responses:
         "200":
           description: OK
@@ -117,7 +117,7 @@ paths:
     parameters: []
   /api/unifications/dialer/contacts/list:
     post:
-      summary: Get All Contacts
+      summary: List Contacts
       responses:
         "200":
           description: OK
@@ -344,7 +344,7 @@ paths:
     parameters: []
   /api/unifications/dialer/calls/list:
     post:
-      summary: Get All Calls
+      summary: List Calls
       responses:
         "200":
           description: OK

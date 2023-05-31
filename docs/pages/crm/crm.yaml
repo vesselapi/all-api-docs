@@ -8,7 +8,7 @@ servers:
 paths:
   /crm/users:
     get:
-      summary: Get All Users
+      summary: List Users
       tags:
         - users
       responses:
@@ -310,7 +310,7 @@ paths:
     parameters: []
   /crm/contacts:
     get:
-      summary: Get All Contacts
+      summary: List Contacts
       tags:
         - contacts
       responses:
@@ -825,7 +825,7 @@ paths:
     parameters: []
   /crm/deals:
     get:
-      summary: Get All Deals
+      summary: List Deals
       tags:
         - deals
       responses:
@@ -1306,7 +1306,7 @@ paths:
     parameters: []
   /crm/accounts:
     get:
-      summary: Get All Accounts
+      summary: List Accounts
       tags:
         - accounts
       responses:
@@ -1833,7 +1833,7 @@ paths:
     parameters: []
   /crm/leads:
     get:
-      summary: Get All Leads
+      summary: List Leads
       tags:
         - leads
       responses:
@@ -2349,7 +2349,7 @@ paths:
     parameters: []
   /crm/notes:
     get:
-      summary: Get All Notes
+      summary: List Notes
       tags:
         - notes
       responses:
@@ -2760,7 +2760,7 @@ paths:
     parameters: []
   /crm/tasks:
     get:
-      summary: Get All Tasks
+      summary: List Tasks
       tags:
         - tasks
       responses:
@@ -3211,7 +3211,7 @@ paths:
     parameters: []
   /crm/events:
     get:
-      summary: Get All Events
+      summary: List Events
       tags:
         - events
       responses:
@@ -3670,7 +3670,7 @@ paths:
     parameters: []
   /crm/event/attendees:
     get:
-      summary: Get All Event Attendees
+      summary: List Event Attendees
       tags:
         - attendees
       responses:
@@ -4011,7 +4011,7 @@ paths:
     parameters: []
   /crm/emails:
     get:
-      summary: Get All Emails
+      summary: List Emails
       tags:
         - emails
       responses:
@@ -4517,7 +4517,7 @@ paths:
     parameters: []
   /crm/calls:
     get:
-      summary: Get All Calls
+      summary: List Calls
       responses:
         "200":
           description: OK
@@ -4946,7 +4946,7 @@ paths:
     parameters: []
   /crm/lists:
     get:
-      summary: Get All Lists
+      summary: List Lists
       tags:
         - lists
       responses:
@@ -5300,7 +5300,7 @@ paths:
     parameters: []
   /connection/connections:
     get:
-      summary: Get All Connections
+      summary: List Connections
       tags:
         - connections
       responses:

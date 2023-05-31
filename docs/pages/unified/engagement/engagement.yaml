@@ -10,7 +10,7 @@ security:
 paths:
   /api/unifications/engagement/users/list:
     post:
-      summary: Get All Users
+      summary: List Users
       responses:
         "200":
           description: OK
@@ -113,7 +113,7 @@ paths:
     parameters: []
   /api/unifications/engagement/accounts/list:
     post:
-      summary: Get All Accounts
+      summary: List Accounts
       responses:
         "200":
           description: OK
@@ -443,7 +443,7 @@ paths:
       description: Search Accounts
   /api/unifications/engagement/contacts/list:
     post:
-      summary: Get All Contacts
+      summary: List Contacts
       responses:
         "200":
           description: OK
@@ -801,7 +801,7 @@ paths:
       description: Search Contacts
   /api/unifications/engagement/contact/custom-fields/list:
     post:
-      summary: Get All Custom Fields
+      summary: List Custom Fields
       operationId: get-all-customFields
       parameters:
         - name: x-vessel-access-token
@@ -892,7 +892,7 @@ paths:
       description: Create a Contact Custom Field
   /api/unifications/engagement/emails/list:
     post:
-      summary: Get All Emails
+      summary: List Emails
       responses:
         "200":
           description: OK
@@ -1078,7 +1078,7 @@ paths:
       description: Search Emails
   /api/unifications/engagement/sequences/list:
     post:
-      summary: Get All Sequences
+      summary: List Sequences
       responses:
         "200":
           description: OK
@@ -1277,7 +1277,7 @@ paths:
     parameters: []
   /api/unifications/engagement/mailboxes/list:
     post:
-      summary: Get All Mailboxes
+      summary: List Mailboxes
       responses:
         "200":
           description: OK
