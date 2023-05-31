@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: Chat API Reference
-  version: '1.0'
+  version: "1.0"
   summary: API
 servers:
-  - url: 'https://app.vessel.dev'
+  - url: https://app.vessel.dev
 security:
   - VesselAPIToken: []
 paths:
@@ -12,7 +12,7 @@ paths:
     post:
       summary: List Users
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -23,7 +23,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: '#/components/schemas/User'
+                      $ref: "#/components/schemas/User"
                   nextPageCursor:
                     type: string
               examples:
@@ -31,10 +31,10 @@ paths:
                   value:
                     users:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        name: 'Tom Haverford'
+                        name: "Tom Haverford"
                         isDeleted: false
-                        createdTime: '2019-08-24T14:15:22Z'
-                    nextPageCursor: '123123'
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: "123123"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -48,12 +48,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       operationId: get-all-users
       description: List Users
     parameters: []
@@ -61,7 +63,7 @@ paths:
     post:
       summary: List Channels
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -72,7 +74,7 @@ paths:
                   channels:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Channel'
+                      $ref: "#/components/schemas/Channel"
                   nextPageCursor:
                     type: string
               examples:
@@ -80,9 +82,9 @@ paths:
                   value:
                     channels:
                       - id: e5f32d4fd2115220bd20a2ccf81210ec
-                        name: 'Paper updates'
-                        createdTime: '2019-08-24T14:15:22Z'
-                    nextPageCursor: '123123'
+                        name: "Paper updates"
+                        createdTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: "123123"
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -96,12 +98,14 @@ paths:
             schema:
               type: object
               properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
+                  cursor: "123123"
       operationId: get-all-channels
       description: List Channel
     parameters: []
@@ -109,7 +113,7 @@ paths:
     post:
       summary: Create Message
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -143,12 +147,14 @@ paths:
                       type: string
                     channelId:
                       type: string
+                    $native:
+                      ref: "#/components/schemas/$NativeData"
             examples:
               example-1:
                 value:
                   message:
-                    text: 'New paper order'
-                    channelId: '34f5b4b0b6b650c981a174b02753c390'
+                    text: New paper order
+                    channelId: "34f5b4b0b6b650c981a174b02753c390"
       operationId: post-message
       description: Create Message
     parameters: []
@@ -156,7 +162,7 @@ paths:
     post:
       summary: Update Message
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -197,22 +203,38 @@ paths:
                 value:
                   id: e5f32d4fd2115220bd20a2ccf81210ec
                   message:
-                    text: 'New paper order'
-                    channelId: '34f5b4b0b6b650c981a174b02753c390'
+                    text: "New paper order"
+                    channelId: "34f5b4b0b6b650c981a174b02753c390"
       operationId: put-message
       description: Update Message
     parameters: []
 components:
   schemas:
+    IncludeFields:
+      title: Include Fields
+      type: object
+      examples:
+        - $native: true
+      properties:
+        $native:
+          type: boolean
+          description: Set to true if you want to include all native fields.
+    $NativeData:
+      title: Native Data
+      type: object
+      description:
+        Native fields for the connected platform. For reads, this object
+        is only returned if the include.$native field is set to true in the request
+        body.
     Message:
       title: Message
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          text: 'New paper order'
-          createdTime: '2019-08-24T14:15:22Z'
+          text: New paper order
+          createdTime: "2019-08-24T14:15:22Z"
           associations:
-            channelId: 34f5b4b0b6b650c981a174b02753c390
+            channelId: "34f5b4b0b6b650c981a174b02753c390"
       properties:
         id:
           type: string
@@ -227,6 +249,8 @@ components:
           properties:
             channelId:
               type: string
+        $native:
+          ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -235,9 +259,9 @@ components:
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          name: 'Tom Haverford'
+          name: Tom Haverford
           isDeleted: false
-          createdTime: '2019-08-24T14:15:22Z'
+          createdTime: "2019-08-24T14:15:22Z"
       properties:
         id:
           type: string
@@ -249,6 +273,8 @@ components:
         createdTime:
           type: string
           description: The timestamp that the user was created
+        $native:
+          ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
@@ -257,8 +283,8 @@ components:
       type: object
       examples:
         - id: e5f32d4fd2115220bd20a2ccf81210ec
-          name: 'Paper updates'
-          createdTime: '2019-08-24T14:15:22Z'
+          name: Paper updates
+          createdTime: "2019-08-24T14:15:22Z"
       properties:
         id:
           type: string
@@ -268,6 +294,8 @@ components:
         createdTime:
           type: string
           description: The timestamp that the channel was created
+        $native:
+          ref: "#/components/schemas/$NativeData"
       required:
         - id
         - createdTime
