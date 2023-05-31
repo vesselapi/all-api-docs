@@ -1,0 +1,37 @@
+---
+openapi: "POST /api/unifications/crm/accounts/create"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev/api/unifications/crm/accounts/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\ 
+  --data '{
+  "account": {
+    "name": "Blue Cross",
+    "description": "Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton",
+    "industry": "TV and Media",
+    "annualRevenue": 10000000,
+    "numberOfEmployees": 100,
+    "website": "www.bluecross.penn",
+    "phone": "8192223333",
+    "address": {
+      "street": "100 Blue Dr",
+      "city": "Scranton",
+      "state": "Pennsylvania",
+      "postalCode": "281332",
+      "country": "USA"
+    },
+    "$native": {}
+  }
+}'
+```
+
+</RequestExample>
+
+
+      
