@@ -540,7 +540,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -596,7 +596,7 @@ components:
           type: string
           description: The timestamp that the user was created
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -633,7 +633,7 @@ components:
           type: string
           description: The timestamp the contact was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - createdTime
         - modifiedTime
@@ -674,7 +674,7 @@ components:
           type: string
           description: The timestamp the contact was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -750,7 +750,7 @@ components:
                   number:
                     type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime

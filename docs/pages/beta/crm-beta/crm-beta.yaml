@@ -3071,7 +3071,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -3107,7 +3107,7 @@ components:
           type: string
           description: The timestamp the user was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3165,7 +3165,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3251,7 +3251,7 @@ components:
               type: string
               description: The Id of the User that owns this Deal
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name
@@ -3319,7 +3319,7 @@ components:
               type: string
               description: The Id of the User that owns this Account
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3378,7 +3378,7 @@ components:
               type: string
               description: The Id of the User that owns this Lead
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3433,7 +3433,7 @@ components:
               type: string
               description: The Id of the User that owns this note
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3496,7 +3496,7 @@ components:
               type: string
               description: The Id of the User that owns this Task
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3571,7 +3571,7 @@ components:
               type: string
               description: The Id of the User that owns this event
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3612,7 +3612,7 @@ components:
               type: string
               description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - associatedObjectType
@@ -3683,7 +3683,7 @@ components:
           type: boolean
           description: If this field can be updated
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
         - name
@@ -3790,7 +3790,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - from
@@ -3857,7 +3857,7 @@ components:
               type: string
               description: The Id of the User that owns this call
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     CallCreate:
       title: CallCreate
       type: object
@@ -3891,7 +3891,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - disposition
         - direction
@@ -3909,7 +3909,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - disposition
     EmailCreate:
@@ -3987,7 +3987,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - from
         - to
@@ -4014,7 +4014,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
@@ -4040,7 +4040,7 @@ components:
             eventId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - associatedObjectType
         - associations
@@ -4051,7 +4051,7 @@ components:
         status:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       description: ""
     EventCreate:
       title: EventCreate
@@ -4087,7 +4087,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - startDateTime
         - endDateTime
@@ -4116,7 +4116,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     TaskCreate:
       title: TaskCreate
       type: object
@@ -4155,7 +4155,7 @@ components:
             contactId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     TaskUpdate:
       title: TaskUpdate
       type: object
@@ -4182,7 +4182,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -4209,7 +4209,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -4239,7 +4239,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - lastName
     DealUpdate:
@@ -4265,7 +4265,7 @@ components:
               type: string
               description: Update the account this deal is associated with.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - closeDate
     DealCreate:
@@ -4291,7 +4291,7 @@ components:
               type: string
               description: The Id of the account to associate this deal with
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - closeDate
@@ -4328,7 +4328,7 @@ components:
               type: string
               description: The Id of the User to assign this Account to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     AccountCreate:
@@ -4364,7 +4364,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     NoteCreate:
@@ -4394,7 +4394,7 @@ components:
               type: string
               description: Required unless leadId/accountId/dealId are specified.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     NoteUpdate:
       title: NoteUpdate
       type: object
@@ -4410,7 +4410,7 @@ components:
               type: string
               description: Only Admins can change this property
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     LeadUpdate:
       description: ""
       type: object
@@ -4437,7 +4437,7 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     LeadCreate:
       description: ""
       type: object
@@ -4461,7 +4461,7 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - lastName
     CustomFieldCreate:
@@ -4491,7 +4491,7 @@ components:
               - name
               - key
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - type
@@ -4531,7 +4531,7 @@ components:
               type: string
               description: The Id of the User that owns this list
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name
@@ -4556,7 +4556,7 @@ components:
           type: string
           description: The timestamp the list was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name

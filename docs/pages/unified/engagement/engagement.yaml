@@ -1186,7 +1186,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -1209,7 +1209,7 @@ components:
           type: boolean
           description: Whether this is the primary email address
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       example:
         address: "tom@dunder.com"
         type: "work"
@@ -1231,7 +1231,7 @@ components:
           type: boolean
           description: Whether this is the primary phone number
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       example:
         number: "555-555-5555"
         type: "work"
@@ -1253,7 +1253,7 @@ components:
         country:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       examples:
         - line1: 123 Main St
           line2: Apt 1
@@ -1330,7 +1330,7 @@ components:
               type: string
               description: The Id of the User that owns this Account
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1365,7 +1365,7 @@ components:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1457,7 +1457,7 @@ components:
           type: object
           description: "Any custom fields associated with this contact"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1481,7 +1481,7 @@ components:
             - string
           description: "Only string custom fields are currently supported"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
         - type
@@ -1537,7 +1537,7 @@ components:
               type: string
               description: The Id of the User that owns this Action
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1580,7 +1580,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     AccountUpdate:
@@ -1620,7 +1620,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -1670,7 +1670,7 @@ components:
           type: object
           description: "Set any custom fields on this contact's creation."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -1700,7 +1700,7 @@ components:
           type: object
           description: "Update any custom fields."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCustomFieldCreate:
       title: ContactCustomFieldCreate
       type: object
@@ -1710,7 +1710,7 @@ components:
         key:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
     Sequence:
@@ -1763,7 +1763,7 @@ components:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     SequenceCreate:
       title: Create Sequence
       type: object
@@ -1781,7 +1781,7 @@ components:
             - private
           description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - shareType
@@ -1802,7 +1802,7 @@ components:
           type: string
           description: "The body of the email"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     SequenceStepCreate:
       title: Create Sequence Steps
       type: object
@@ -1830,7 +1830,7 @@ components:
         settings:
           $ref: "#/components/schemas/SequenceStepSettingsCreate"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - type
@@ -1849,7 +1849,7 @@ components:
         mailboxId:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     Mailbox:
       title: Mailbox
       type: object
@@ -1880,7 +1880,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
   securitySchemes:
     VesselAPIToken:
       name: x-vessel-api-token
