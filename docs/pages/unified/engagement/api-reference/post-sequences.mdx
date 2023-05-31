@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /api/unifications/engagement/sequences/create'
+openapi: "POST /api/unifications/engagement/sequences/create"
 ---
 
 <RequestExample>
@@ -9,13 +9,17 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/engagement/sequences/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
   "sequence": {
     "name": "Email Sequence",
-    "shareType": "team"
+    "shareType": "team",
+    "$native": {}
   }
 }'
 ```
 
 </RequestExample>
+
+
+      

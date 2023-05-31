@@ -56,6 +56,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-users
       description: List Users
     parameters: []
@@ -106,6 +108,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-channels
       description: List Channel
     parameters: []
@@ -148,13 +152,14 @@ paths:
                     channelId:
                       type: string
                     $native:
-                      ref: "#/components/schemas/$NativeData"
+                      ref: "#/components/schemas/NativeData"
             examples:
               example-1:
                 value:
                   message:
                     text: New paper order
                     channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    $native: {}
       operationId: post-message
       description: Create Message
     parameters: []
@@ -198,6 +203,8 @@ paths:
                       type: string
                     channelId:
                       type: string
+                    $native:
+                      ref: "#/components/schemas/NativeData"
             examples:
               example-1:
                 value:
@@ -205,6 +212,7 @@ paths:
                   message:
                     text: "New paper order"
                     channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    $native: {}
       operationId: put-message
       description: Update Message
     parameters: []
@@ -219,7 +227,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -250,7 +258,7 @@ components:
             channelId:
               type: string
         $native:
-          ref: "#/components/schemas/$NativeData"
+          ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -274,7 +282,7 @@ components:
           type: string
           description: The timestamp that the user was created
         $native:
-          ref: "#/components/schemas/$NativeData"
+          ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -295,7 +303,7 @@ components:
           type: string
           description: The timestamp that the channel was created
         $native:
-          ref: "#/components/schemas/$NativeData"
+          ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime

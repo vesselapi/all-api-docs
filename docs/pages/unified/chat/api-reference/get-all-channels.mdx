@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /api/unifications/chat/channels/list'
+openapi: "POST /api/unifications/chat/channels/list"
 ---
 
 <RequestExample>
@@ -9,11 +9,16 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/chat/channels/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
-  "include": { $native: false },
-  "cursor": "123123"
+  "cursor": "123123",
+  "include": {
+    "$native": false
+  }
 }'
 ```
 
 </RequestExample>
+
+
+      

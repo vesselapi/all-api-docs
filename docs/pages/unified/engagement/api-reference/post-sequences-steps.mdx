@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /api/unifications/engagement/sequence-steps/batch-create'
+openapi: "POST /api/unifications/engagement/sequence-steps/batch-create"
 ---
 
 <RequestExample>
@@ -9,18 +9,20 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/engagement/sequence-steps/batch-create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
   "steps": [
     {
       "name": "Step 1 (Automated Email)",
       "type": "auto_email",
       "daysAfter": 2,
+      "$native": {},
       "settings": {
         "templateName": "Email Template",
         "isReply": false,
         "subject": "Hello from Dunder!",
-        "body": "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+        "body": "Hi {{first_name}}! I'm reaching out to ask you about your paper needs.",
+        "$native": {}
       }
     }
   ]
@@ -28,3 +30,6 @@ curl --request POST \
 ```
 
 </RequestExample>
+
+
+      

@@ -10,7 +10,7 @@ security:
 paths:
   /api/unifications/dialer/users/list:
     post:
-      summary: Get All Users
+      summary: List Users
       responses:
         "200":
           description: OK
@@ -61,6 +61,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Users
     parameters: []
   /api/unifications/dialer/users/find:
@@ -113,11 +115,13 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/dialer/contacts/list:
     post:
-      summary: Get All Contacts
+      summary: List Contacts
       responses:
         "200":
           description: OK
@@ -170,6 +174,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/dialer/contacts/find:
@@ -224,6 +230,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Contact by Id
     parameters: []
   /api/unifications/dialer/contacts/create:
@@ -275,6 +283,7 @@ paths:
                         type: "work"
                     createdTime: "2019-08-24T14:15:22Z"
                     modifiedTime: "2019-08-24T14:15:22Z"
+                    $native: {}
       description: Create a Contact
   /api/unifications/dialer/contacts/update:
     post:
@@ -335,6 +344,7 @@ paths:
                         type: "work"
                     createdTime: "2019-08-24T14:15:22Z"
                     modifiedTime: "2019-08-24T14:15:22Z"
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -344,7 +354,7 @@ paths:
     parameters: []
   /api/unifications/dialer/calls/list:
     post:
-      summary: Get All Calls
+      summary: List Calls
       responses:
         "200":
           description: OK
@@ -405,6 +415,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Calls
     parameters: []
   /api/unifications/dialer/calls/find:
@@ -467,6 +479,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Call by Id
     parameters: []
   /api/unifications/dialer/calls/start:
@@ -526,7 +540,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -582,7 +596,7 @@ components:
           type: string
           description: The timestamp that the user was created
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -619,7 +633,7 @@ components:
           type: string
           description: The timestamp the contact was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - createdTime
         - modifiedTime
@@ -660,7 +674,7 @@ components:
           type: string
           description: The timestamp the contact was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -736,7 +750,7 @@ components:
                   number:
                     type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime

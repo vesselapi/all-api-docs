@@ -1,5 +1,5 @@
 ---
-openapi: 'POST /api/unifications/dialer/contacts/update'
+openapi: "POST /api/unifications/dialer/contacts/update"
 ---
 
 <RequestExample>
@@ -9,7 +9,7 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/dialer/contacts/update \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
   "id": "string",
   "contact": {
@@ -24,9 +24,13 @@ curl --request POST \
       }
     ],
     "createdTime": "2019-08-24T14:15:22Z",
-    "modifiedTime": "2019-08-24T14:15:22Z"
+    "modifiedTime": "2019-08-24T14:15:22Z",
+    "$native": {}
   }
 }'
 ```
 
 </RequestExample>
+
+
+      

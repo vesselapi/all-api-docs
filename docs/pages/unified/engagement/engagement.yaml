@@ -10,7 +10,7 @@ security:
 paths:
   /api/unifications/engagement/users/list:
     post:
-      summary: Get All Users
+      summary: List Users
       responses:
         "200":
           description: OK
@@ -58,6 +58,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       operationId: get-all-users
       description: Retrieve all Users
     parameters: []
@@ -109,11 +111,13 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/engagement/accounts/list:
     post:
-      summary: Get All Accounts
+      summary: List Accounts
       responses:
         "200":
           description: OK
@@ -171,10 +175,30 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    name:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
+                    domain:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                      required: equals
             examples:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
+                  filters:
+                    name:
+                      equals: "Acme Co."
       description: |-
         Retrieve all Accounts
     parameters: []
@@ -239,6 +263,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Account by Id
   /api/unifications/engagement/accounts/create:
     post:
@@ -286,6 +312,7 @@ paths:
                     numberOfEmployees: 100
                     website: www.bluecross.penn
                     phone: "8192223333"
+                    $native: {}
                     address:
                       line1: 100 Blue Dr
                       line2: Suite 100
@@ -359,6 +386,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -366,84 +394,9 @@ paths:
         description: ""
       description: Update an existing Account
     parameters: []
-  /api/unifications/engagement/accounts/search:
-    post:
-      summary: Search Accounts
-      operationId: search-account
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  accounts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Account"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    accounts:
-                      - id: "15"
-                        name: "test account"
-                        createdTime: "2023-02-17T21:28:30.000Z"
-                        modifiedTime: "2023-02-18T01:57:12.000Z"
-                        description: null
-                        industry: null
-                        numberOfEmployees: null
-                        domain: "vessel.dev"
-                        website: null
-                        address: null
-                        phone: null
-                        locality: "San Francisco"
-                        associations:
-                          ownerUserId: "1"
-                    nextPageCursor: d9806400e2daa25de2322707bbc41577
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    name:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                      required: equals
-                    domain:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                      required: equals
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    name:
-                      equals: "Acme Co."
-      description: Search Accounts
   /api/unifications/engagement/contacts/list:
     post:
-      summary: Get All Contacts
+      summary: List Contacts
       responses:
         "200":
           description: OK
@@ -511,10 +464,30 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    emails:
+                      type: object
+                      properties:
+                        address:
+                          type: object
+                          properties:
+                            equals:
+                              type: string
+                          required: equals
+                      required: address
+                  required: emails
             examples:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
+                  filters:
+                    emails:
+                      address:
+                        equals: fake@email.com
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/engagement/contacts/find:
@@ -588,6 +561,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a Contact by Id
   /api/unifications/engagement/contacts/create:
     post:
@@ -640,6 +615,7 @@ paths:
                       postalCode: "281332"
                       country: USA
                     customFields: {}
+                    $native: {}
       description: Create a Contact
   /api/unifications/engagement/contacts/update:
     post:
@@ -702,6 +678,7 @@ paths:
                       postalCode: "281332"
                       country: USA
                     customFields: {}
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -709,99 +686,9 @@ paths:
         description: ""
       description: Update an existing Contact
     parameters: []
-  /api/unifications/engagement/contacts/search:
-    post:
-      summary: Search Contacts
-      operationId: search-contact
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  contacts:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Contact"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    contacts:
-                      - id: 34f5b4b0b6b650c981a174b02753c390
-                        firstName: Tom
-                        lastName: Smith
-                        jobTitle: Director of Operations
-                        phones:
-                          - number: "8192223333"
-                            type: "work"
-                            isPrimary: true
-                        emails:
-                          - address: "tom@dunder.com"
-                            type: "work"
-                            isPrimary: true
-                        address:
-                          line1: 100 Blue Dr
-                          line2: Suite 100
-                          city: Scranton
-                          state: Pennsylvania
-                          postalCode: "281332"
-                          country: USA
-                        openCount: 0
-                        clickCount: 3
-                        replyCount: 1
-                        bouncedCount: 1
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          accountId: 0dcb45e051315a6ea63b0f16e73689d9
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                        customFields: {}
-                    nextPageCursor: d9806400e2daa25de2322707bbc41577
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    emails:
-                      type: object
-                      properties:
-                        address:
-                          type: object
-                          properties:
-                            equals:
-                              type: string
-                          required: equals
-                      required: address
-                  required: emails
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    emails:
-                      address:
-                        equals: fake@email.com
-      description: Search Contacts
   /api/unifications/engagement/contact/custom-fields/list:
     post:
-      summary: Get All Custom Fields
+      summary: List Custom Fields
       operationId: get-all-customFields
       parameters:
         - name: x-vessel-access-token
@@ -824,6 +711,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       responses:
         "200":
           description: OK
@@ -889,10 +778,11 @@ paths:
                 value:
                   customField:
                     key: "customField1"
+                    $native: {}
       description: Create a Contact Custom Field
   /api/unifications/engagement/emails/list:
     post:
-      summary: Get All Emails
+      summary: List Emails
       responses:
         "200":
           description: OK
@@ -943,10 +833,28 @@ paths:
                   $ref: "#/components/schemas/IncludeFields"
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    sequenceId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                    contactId:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
             examples:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
+                  filters:
+                    sequenceId:
+                      equals: d08f345ace24509e911a0ea8e3d2203c
       description: Retrieve all Emails
     parameters: []
   /api/unifications/engagement/emails/find:
@@ -1003,82 +911,13 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: "Retrieve a Email by Id"
     parameters: []
-  /api/unifications/engagement/emails/search:
-    post:
-      summary: Search Emails
-      operationId: search-email
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                type: object
-                properties:
-                  emails:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Email"
-                  nextPageCursor:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    emails:
-                      - id: 2322707bbc41577d9806400e2daa25de
-                        subject: "Re: Paper renewal"
-                        hasReplied: true
-                        isBounced: false
-                        openCount: 1
-                        clickCount: 2
-                        replyCount: null
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        associations:
-                          sequenceId: d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                filters:
-                  type: object
-                  properties:
-                    sequenceId:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-                    contactId:
-                      type: object
-                      properties:
-                        equals:
-                          type: string
-              required:
-                - filters
-            examples:
-              example-1:
-                value:
-                  filters:
-                    sequenceId:
-                      equals: d08f345ace24509e911a0ea8e3d2203c
-      description: Search Emails
   /api/unifications/engagement/sequences/list:
     post:
-      summary: Get All Sequences
+      summary: List Sequences
       responses:
         "200":
           description: OK
@@ -1131,6 +970,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Sequences
       security:
         - VesselAPIToken: []
@@ -1224,6 +1065,7 @@ paths:
                   sequence:
                     name: "Email Sequence"
                     shareType: "team"
+                    $native: {}
       operationId: post-sequences
       description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequence-steps/batch-create endpoint.
       security:
@@ -1265,11 +1107,13 @@ paths:
                     - name: "Step 1 (Automated Email)"
                       type: "auto_email"
                       daysAfter: 2
+                      $native: {}
                       settings:
                         templateName: "Email Template"
                         isReply: false
                         subject: "Hello from Dunder!"
                         body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+                        $native: {}
       operationId: post-sequences-steps
       description: Create one or more steps in a sequence.
       security:
@@ -1277,7 +1121,7 @@ paths:
     parameters: []
   /api/unifications/engagement/mailboxes/list:
     post:
-      summary: Get All Mailboxes
+      summary: List Mailboxes
       responses:
         "200":
           description: OK
@@ -1325,6 +1169,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
       description: Retrieve all Mailboxes
       security:
         - VesselAPIToken: []
@@ -1340,7 +1186,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -1363,7 +1209,7 @@ components:
           type: boolean
           description: Whether this is the primary email address
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       example:
         address: "tom@dunder.com"
         type: "work"
@@ -1385,7 +1231,7 @@ components:
           type: boolean
           description: Whether this is the primary phone number
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       example:
         number: "555-555-5555"
         type: "work"
@@ -1407,7 +1253,7 @@ components:
         country:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       examples:
         - line1: 123 Main St
           line2: Apt 1
@@ -1484,7 +1330,7 @@ components:
               type: string
               description: The Id of the User that owns this Account
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1519,7 +1365,7 @@ components:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1611,7 +1457,7 @@ components:
           type: object
           description: "Any custom fields associated with this contact"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1635,7 +1481,7 @@ components:
             - string
           description: "Only string custom fields are currently supported"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
         - type
@@ -1691,7 +1537,7 @@ components:
               type: string
               description: The Id of the User that owns this Action
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -1734,7 +1580,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     AccountUpdate:
@@ -1774,7 +1620,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -1824,7 +1670,7 @@ components:
           type: object
           description: "Set any custom fields on this contact's creation."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -1854,7 +1700,7 @@ components:
           type: object
           description: "Update any custom fields."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCustomFieldCreate:
       title: ContactCustomFieldCreate
       type: object
@@ -1864,7 +1710,7 @@ components:
         key:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
     Sequence:
@@ -1917,7 +1763,7 @@ components:
           type: string
           description: Not supported by Apollo. The timestamp the user was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     SequenceCreate:
       title: Create Sequence
       type: object
@@ -1935,7 +1781,7 @@ components:
             - private
           description: "'team' will share the sequence with all users in the team. 'private' will only share the sequence with the user that created it."
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - shareType
@@ -1956,7 +1802,7 @@ components:
           type: string
           description: "The body of the email"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     SequenceStepCreate:
       title: Create Sequence Steps
       type: object
@@ -1984,7 +1830,7 @@ components:
         settings:
           $ref: "#/components/schemas/SequenceStepSettingsCreate"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - type
@@ -2003,7 +1849,7 @@ components:
         mailboxId:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     Mailbox:
       title: Mailbox
       type: object
@@ -2034,7 +1880,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
   securitySchemes:
     VesselAPIToken:
       name: x-vessel-api-token

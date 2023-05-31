@@ -148,9 +148,7 @@
     },
     {
       "group": "Passthrough",
-      "pages": [
-        "pages/home/api-reference/passthrough"
-      ]
+      "pages": ["pages/home/api-reference/passthrough"]
     },
     {
       "group": "ETL",
@@ -530,8 +528,7 @@
             "pages/unified/engagement/api-reference/get-all-accounts",
             "pages/unified/engagement/api-reference/get-one-account",
             "pages/unified/engagement/api-reference/put-account",
-            "pages/unified/engagement/api-reference/post-account",
-            "pages/unified/engagement/api-reference/search-account"
+            "pages/unified/engagement/api-reference/post-account"
           ]
         },
         {
@@ -540,16 +537,14 @@
             "pages/unified/engagement/api-reference/get-all-contacts",
             "pages/unified/engagement/api-reference/get-one-contact",
             "pages/unified/engagement/api-reference/post-contact",
-            "pages/unified/engagement/api-reference/put-contact",
-            "pages/unified/engagement/api-reference/search-contact"
+            "pages/unified/engagement/api-reference/put-contact"
           ]
         },
         {
           "group": "Emails",
           "pages": [
             "pages/unified/engagement/api-reference/get-all-emails",
-            "pages/unified/engagement/api-reference/get-one-email",
-            "pages/unified/engagement/api-reference/search-email"
+            "pages/unified/engagement/api-reference/get-one-email"
           ]
         },
         {
@@ -682,11 +677,10 @@
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/apollo/api-reference/create-custom-fields"]
-        },
-        {
-          "group": "Custom Fields",
-          "pages": ["pages/actions/apollo/api-reference/list-custom-fields"]
+          "pages": [
+            "pages/actions/apollo/api-reference/create-custom-fields",
+            "pages/actions/apollo/api-reference/list-custom-fields"
+          ]
         },
         {
           "group": "Emails",

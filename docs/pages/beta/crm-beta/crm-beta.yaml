@@ -57,6 +57,8 @@ paths:
             examples:
               example-1:
                 value:
+                  include:
+                    $native: false
                   cursor: "123123"
       operationId: list-users
       description: List Users
@@ -109,6 +111,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single User by Id
     parameters: []
   /api/unifications/crm/contacts/list:
@@ -181,6 +185,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - deals
@@ -253,6 +259,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - deals
@@ -303,6 +311,7 @@ paths:
                     jobTitle: Director of Operations
                     phone: "2101128833"
                     mobilePhone: "2106541111"
+                    $native: {}
       description: Create a new contact.
   /api/unifications/crm/contacts/update:
     post:
@@ -342,8 +351,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 contact:
@@ -362,6 +369,7 @@ paths:
                     jobTitle: Director of Operations
                     phone: "2101128833"
                     mobilePhone: "2106541111"
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -438,6 +446,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - contacts
@@ -510,6 +520,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - accounts
                     - contacts
@@ -566,6 +578,7 @@ paths:
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
                     stage: closedwon
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
       description: Create a new Deal
@@ -607,8 +620,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 deal:
@@ -625,6 +636,7 @@ paths:
                     amount: 10000
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
         description: ""
@@ -706,6 +718,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -785,6 +799,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -847,6 +863,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
       description: Create a new Account
   /api/unifications/crm/accounts/update:
     post:
@@ -888,8 +905,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 account:
@@ -917,6 +932,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
       description: Update an existing Account
   /api/unifications/crm/leads/list:
     post:
@@ -991,6 +1007,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - contacts
                     - accounts
@@ -1062,6 +1080,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - contacts
                     - accounts
@@ -1119,6 +1139,7 @@ paths:
                     accountName: Blue Cross
                     phone: "1234445555"
                     mobilePhone: "2338889999"
+                    $native: {}
   /api/unifications/crm/leads/update:
     post:
       summary: Update Lead
@@ -1158,8 +1179,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 lead:
@@ -1179,6 +1198,7 @@ paths:
                     accountName: Blue Cross
                     phone: "1234445555"
                     mobilePhone: "2338889999"
+                    $native: {}
   /api/unifications/crm/lead/custom-fields/create:
     post:
       summary: Create Lead Custom Field
@@ -1227,6 +1247,7 @@ paths:
                   customField:
                     name: "new field"
                     type: "singleselect"
+                    $native: {}
   /api/unifications/crm/notes/list:
     post:
       summary: List Notes
@@ -1295,6 +1316,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1362,6 +1385,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1413,6 +1438,7 @@ paths:
                 value:
                   note:
                     content: This note has some interesting content in it!
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
                       dealId: 497fb529e6805351b5dc8057c74a4a52
@@ -1462,8 +1488,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 note:
@@ -1477,6 +1501,7 @@ paths:
                   id: string
                   note:
                     content: This note has some interesting content in it!
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Note by Id
@@ -1553,6 +1578,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1626,6 +1653,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1682,6 +1711,7 @@ paths:
                     priority: High
                     status: Not Done
                     isDone: false
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
                       leadId: d08f345ace24509e911a0ea8e3d2203c
@@ -1731,8 +1761,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 task:
@@ -1751,6 +1779,7 @@ paths:
                     isDone: false
                     priority: High
                     status: Not Done
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Task by Id
@@ -1831,6 +1860,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1906,6 +1937,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -1963,6 +1996,7 @@ paths:
                     startDateTime: "2019-08-24T14:15:22Z"
                     endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
+                    $native: {}
                     associations:
                       dealId: 497fb529e6805351b5dc8057c74a4a52
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
@@ -2009,8 +2043,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 event:
@@ -2030,6 +2062,7 @@ paths:
                     startDateTime: "2019-08-24T14:15:22Z"
                     endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: Update an existing Event by Id
@@ -2089,6 +2122,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
   /api/unifications/crm/event/attendees/find:
     post:
       summary: Get Event Attendee
@@ -2140,6 +2175,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
       description: Retrieve a single Event Attendee by Id
     parameters: []
   /api/unifications/crm/event/attendees/create:
@@ -2192,6 +2229,7 @@ paths:
                     email: null
                     associatedObjectType: contacts
                     status: Declined
+                    $native: {}
                     associations:
                       associationId: 98201f83c3f1c36dbcb36804c572c3ca
                       eventId: 0000d2e83d6c5d52a61f2fb860666477
@@ -2234,8 +2272,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 eventAttendee:
@@ -2249,6 +2285,7 @@ paths:
                   id: string
                   eventAttendee:
                     status: Declined
+                    $native: {}
       description: Update the status of an event attendee
   /api/unifications/crm/emails/list:
     post:
@@ -2332,6 +2369,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2414,6 +2453,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2477,6 +2518,7 @@ paths:
                     messageDate: "2019-08-24T14:15:22Z"
                     isIncoming: false
                     status: SENT
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       dealId: 497fb529e6805351b5dc8057c74a4a52
@@ -2528,8 +2570,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 email:
@@ -2544,6 +2584,7 @@ paths:
                   email:
                     isIncoming: false
                     status: SENT
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
@@ -2622,6 +2663,8 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2693,6 +2736,8 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  include:
+                    $native: false
                   associations:
                     - deals
                     - contacts
@@ -2748,6 +2793,7 @@ paths:
                     direction: "inbound"
                     description: "Call from Greg"
                     date: "2019-08-24T14:15:22Z"
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       contactIds:
@@ -2794,8 +2840,6 @@ paths:
             schema:
               type: object
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 call:
@@ -2809,6 +2853,7 @@ paths:
                   id: string
                   call:
                     disposition: "ANSWERED"
+                    $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
@@ -2870,6 +2915,9 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  objectType: contacts
+                  include:
+                    $native: false
   /api/unifications/crm/lists/find:
     post:
       summary: Get List
@@ -2929,6 +2977,9 @@ paths:
               example-1:
                 value:
                   id: "123123"
+                  objectType: contacts
+                  include:
+                    $native: false
       description: Retrieve a single List by Id
   /api/unifications/crm/passthrough:
     post:
@@ -3020,7 +3071,7 @@ components:
         $native:
           type: boolean
           description: Set to true if you want to include all native fields.
-    $NativeData:
+    NativeData:
       title: Native Data
       type: object
       description:
@@ -3056,7 +3107,7 @@ components:
           type: string
           description: The timestamp the user was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3114,7 +3165,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3200,7 +3251,7 @@ components:
               type: string
               description: The Id of the User that owns this Deal
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name
@@ -3268,7 +3319,7 @@ components:
               type: string
               description: The Id of the User that owns this Account
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3327,7 +3378,7 @@ components:
               type: string
               description: The Id of the User that owns this Lead
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3382,7 +3433,7 @@ components:
               type: string
               description: The Id of the User that owns this note
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3445,7 +3496,7 @@ components:
               type: string
               description: The Id of the User that owns this Task
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3520,7 +3571,7 @@ components:
               type: string
               description: The Id of the User that owns this event
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - createdTime
@@ -3561,7 +3612,7 @@ components:
               type: string
               description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - associatedObjectType
@@ -3632,7 +3683,7 @@ components:
           type: boolean
           description: If this field can be updated
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - key
         - name
@@ -3739,7 +3790,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - from
@@ -3806,7 +3857,7 @@ components:
               type: string
               description: The Id of the User that owns this call
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     CallCreate:
       title: CallCreate
       type: object
@@ -3840,7 +3891,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - disposition
         - direction
@@ -3858,7 +3909,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - disposition
     EmailCreate:
@@ -3912,8 +3963,6 @@ components:
               type: object
               description: Associated Leads must participate in the email (i.e., have a role).
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:
@@ -3926,8 +3975,6 @@ components:
               type: object
               description: Associated Contacts must participate in the email (i.e., have a role).
               properties:
-                include:
-                  $ref: "#/components/schemas/IncludeFields"
                 id:
                   type: string
                 role:
@@ -3940,7 +3987,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - from
         - to
@@ -3967,7 +4014,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
@@ -3993,7 +4040,7 @@ components:
             eventId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - associatedObjectType
         - associations
@@ -4004,7 +4051,7 @@ components:
         status:
           type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       description: ""
     EventCreate:
       title: EventCreate
@@ -4040,7 +4087,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - startDateTime
         - endDateTime
@@ -4069,7 +4116,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     TaskCreate:
       title: TaskCreate
       type: object
@@ -4108,7 +4155,7 @@ components:
             contactId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     TaskUpdate:
       title: TaskUpdate
       type: object
@@ -4135,7 +4182,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -4162,7 +4209,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     ContactCreate:
       title: ContactCreate
       type: object
@@ -4192,7 +4239,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - lastName
     DealUpdate:
@@ -4218,7 +4265,7 @@ components:
               type: string
               description: Update the account this deal is associated with.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - closeDate
     DealCreate:
@@ -4244,7 +4291,7 @@ components:
               type: string
               description: The Id of the account to associate this deal with
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - closeDate
@@ -4281,7 +4328,7 @@ components:
               type: string
               description: The Id of the User to assign this Account to
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     AccountCreate:
@@ -4317,7 +4364,7 @@ components:
         address:
           $ref: "#/components/schemas/Address"
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
     NoteCreate:
@@ -4347,7 +4394,7 @@ components:
               type: string
               description: Required unless leadId/accountId/dealId are specified.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     NoteUpdate:
       title: NoteUpdate
       type: object
@@ -4363,7 +4410,7 @@ components:
               type: string
               description: Only Admins can change this property
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     LeadUpdate:
       description: ""
       type: object
@@ -4390,7 +4437,7 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
     LeadCreate:
       description: ""
       type: object
@@ -4414,7 +4461,7 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - lastName
     CustomFieldCreate:
@@ -4444,7 +4491,7 @@ components:
               - name
               - key
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - name
         - type
@@ -4484,7 +4531,7 @@ components:
               type: string
               description: The Id of the User that owns this list
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name
@@ -4509,7 +4556,7 @@ components:
           type: string
           description: The timestamp the list was last modified
         $native:
-          $ref: "#/components/schemas/$NativeData"
+          $ref: "#/components/schemas/NativeData"
       required:
         - id
         - name
