@@ -6541,7 +6541,7 @@ components:
           description: The date the call occurred
         status:
           type: string
-          description: The status of the call.
+          description: Possibly an enum, See /details endpoint for values.
         duration:
           type: number
           description: The duration of the call in seconds.
@@ -6711,7 +6711,7 @@ components:
           description: ISO Formatted date for when the call occurred
         status:
           type: string
-          description: The status of the call.
+          description: Possibly an enum, See /details endpoint for values.
         duration:
           type: number
           description: The duration of the call in seconds.
