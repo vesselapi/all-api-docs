@@ -311,6 +311,7 @@ paths:
                     jobTitle: Director of Operations
                     phone: "2101128833"
                     mobilePhone: "2106541111"
+                    $native: {}
       description: Create a new contact.
   /api/unifications/crm/contacts/update:
     post:
@@ -577,6 +578,7 @@ paths:
                     closeDate: "2020-08-23T00:00:00Z"
                     probability: "0.4"
                     stage: closedwon
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
       description: Create a new Deal
@@ -861,6 +863,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
       description: Create a new Account
   /api/unifications/crm/accounts/update:
     post:
@@ -1136,6 +1139,7 @@ paths:
                     accountName: Blue Cross
                     phone: "1234445555"
                     mobilePhone: "2338889999"
+                    $native: {}
   /api/unifications/crm/leads/update:
     post:
       summary: Update Lead
@@ -1243,6 +1247,7 @@ paths:
                   customField:
                     name: "new field"
                     type: "singleselect"
+                    $native: {}
   /api/unifications/crm/notes/list:
     post:
       summary: List Notes
@@ -1433,6 +1438,7 @@ paths:
                 value:
                   note:
                     content: This note has some interesting content in it!
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
                       dealId: 497fb529e6805351b5dc8057c74a4a52
@@ -1705,6 +1711,7 @@ paths:
                     priority: High
                     status: Not Done
                     isDone: false
+                    $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
                       leadId: d08f345ace24509e911a0ea8e3d2203c
@@ -1989,6 +1996,7 @@ paths:
                     startDateTime: "2019-08-24T14:15:22Z"
                     endDateTime: "2019-08-24T14:15:22Z"
                     isAllDayEvent: true
+                    $native: {}
                     associations:
                       dealId: 497fb529e6805351b5dc8057c74a4a52
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
@@ -2221,6 +2229,7 @@ paths:
                     email: null
                     associatedObjectType: contacts
                     status: Declined
+                    $native: {}
                     associations:
                       associationId: 98201f83c3f1c36dbcb36804c572c3ca
                       eventId: 0000d2e83d6c5d52a61f2fb860666477
@@ -2509,6 +2518,7 @@ paths:
                     messageDate: "2019-08-24T14:15:22Z"
                     isIncoming: false
                     status: SENT
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       dealId: 497fb529e6805351b5dc8057c74a4a52
@@ -2783,6 +2793,7 @@ paths:
                     direction: "inbound"
                     description: "Call from Greg"
                     date: "2019-08-24T14:15:22Z"
+                    $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       contactIds:

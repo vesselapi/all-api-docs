@@ -312,6 +312,7 @@ paths:
                     numberOfEmployees: 100
                     website: www.bluecross.penn
                     phone: "8192223333"
+                    $native: {}
                     address:
                       line1: 100 Blue Dr
                       line2: Suite 100
@@ -385,6 +386,7 @@ paths:
                       state: Pennsylvania
                       postalCode: "281332"
                       country: USA
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -613,6 +615,7 @@ paths:
                       postalCode: "281332"
                       country: USA
                     customFields: {}
+                    $native: {}
       description: Create a Contact
   /api/unifications/engagement/contacts/update:
     post:
@@ -675,6 +678,7 @@ paths:
                       postalCode: "281332"
                       country: USA
                     customFields: {}
+                    $native: {}
           application/xml:
             schema:
               type: object
@@ -774,6 +778,7 @@ paths:
                 value:
                   customField:
                     key: "customField1"
+                    $native: {}
       description: Create a Contact Custom Field
   /api/unifications/engagement/emails/list:
     post:
@@ -1060,6 +1065,7 @@ paths:
                   sequence:
                     name: "Email Sequence"
                     shareType: "team"
+                    $native: {}
       operationId: post-sequences
       description: Create an empty Sequence. To add steps to the sequence, use the /engagement/sequence-steps/batch-create endpoint.
       security:
@@ -1101,11 +1107,13 @@ paths:
                     - name: "Step 1 (Automated Email)"
                       type: "auto_email"
                       daysAfter: 2
+                      $native: {}
                       settings:
                         templateName: "Email Template"
                         isReply: false
                         subject: "Hello from Dunder!"
                         body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
+                        $native: {}
       operationId: post-sequences-steps
       description: Create one or more steps in a sequence.
       security:

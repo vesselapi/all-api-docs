@@ -159,6 +159,7 @@ paths:
                   message:
                     text: New paper order
                     channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    $native: {}
       operationId: post-message
       description: Create Message
     parameters: []

@@ -217,6 +217,7 @@ paths:
                     lastName: Haverford
                     phone: "8192223333"
                     listId: "12"
+                    $native: {}
       description: Create a Contact
   /api/unifications/marketing/contacts/update:
     post:
@@ -272,6 +273,7 @@ paths:
                     firstName: Tom
                     lastName: Haverford
                     phone: "8192223333"
+                    $native: {}
           application/xml:
             schema:
               type: object

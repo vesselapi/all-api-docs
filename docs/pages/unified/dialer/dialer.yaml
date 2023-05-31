@@ -283,6 +283,7 @@ paths:
                         type: "work"
                     createdTime: "2019-08-24T14:15:22Z"
                     modifiedTime: "2019-08-24T14:15:22Z"
+                    $native: {}
       description: Create a Contact
   /api/unifications/dialer/contacts/update:
     post:
@@ -343,6 +344,7 @@ paths:
                         type: "work"
                     createdTime: "2019-08-24T14:15:22Z"
                     modifiedTime: "2019-08-24T14:15:22Z"
+                    $native: {}
           application/xml:
             schema:
               type: object
