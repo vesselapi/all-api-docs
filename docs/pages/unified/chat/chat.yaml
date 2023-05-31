@@ -203,6 +203,8 @@ paths:
                       type: string
                     channelId:
                       type: string
+                    $native:
+                      ref: "#/components/schemas/$NativeData"
             examples:
               example-1:
                 value:
@@ -210,6 +212,7 @@ paths:
                   message:
                     text: "New paper order"
                     channelId: "34f5b4b0b6b650c981a174b02753c390"
+                    $native: {}
       operationId: put-message
       description: Update Message
     parameters: []

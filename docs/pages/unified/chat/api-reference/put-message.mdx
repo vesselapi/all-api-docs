@@ -1,22 +1,26 @@
 ---
-openapi: 'POST /api/unifications/chat/messages/update'
+openapi: "POST /api/unifications/chat/messages/update"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/chat/messages/update \
+  --url https://app.vessel.dev//api/unifications/chat/messages/update \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
+  --header 'x-vessel-access-token: '\ 
   --data '{
   "id": "e5f32d4fd2115220bd20a2ccf81210ec",
   "message": {
     "text": "New paper order",
-    "channelId": "34f5b4b0b6b650c981a174b02753c390"
+    "channelId": "34f5b4b0b6b650c981a174b02753c390",
+    "$native": {}
   }
 }'
 ```
 
 </RequestExample>
+
+
+      
