@@ -58,7 +58,7 @@ x-speakeasy-name-override:
 paths:
   /engagement/users:
     get:
-      summary: List Users
+      summary: Get All Users
       tags: 
         - engUsers
       responses:
@@ -142,7 +142,7 @@ paths:
     parameters: []
   /engagement/accounts:
     get:
-      summary: List Accounts
+      summary: Get All Accounts
       tags: 
         - engAccounts
       responses:
@@ -452,7 +452,7 @@ paths:
       description: Search accounts.
   /engagement/contacts:
     get:
-      summary: List Contacts
+      summary: Get All Contacts
       tags: 
         - engContacts
       responses:
@@ -791,7 +791,7 @@ paths:
       description: Search contacts.
   /engagement/contact/custom-fields:
     get:
-      summary: List Custom Fields
+      summary: Get All Custom Fields
       tags: 
         - engCustomFields
       operationId: get-all-engagement-customFields
@@ -863,7 +863,7 @@ paths:
       description: Create a contact custom field
   /engagement/tasks:
     get:
-      summary: List Tasks
+      summary: Get All Tasks
       tags: 
         - engTasks
       responses:
@@ -1105,7 +1105,7 @@ paths:
     parameters: [] 
   /engagement/actions:
     get:
-      summary: List Actions
+      summary: Get All Actions
       tags: 
         - engActions
       responses:
@@ -1243,7 +1243,7 @@ paths:
     parameters: [] 
   /engagement/calls:
     get:
-      summary: List Calls
+      summary: Get All Calls
       tags: 
         - engCalls
       responses:
@@ -1331,7 +1331,7 @@ paths:
     parameters: []
   /engagement/emails:
     get:
-      summary: List Emails
+      summary: Get All Emails
       tags: 
         - engEmails
       responses:
@@ -1488,7 +1488,7 @@ paths:
         description: Search emails.
   /engagement/call-dispositions:
     get:
-      summary: List Call Dispositions
+      summary: Get All Call Dispositions
       tags: 
         - engDispositions
       responses:
@@ -1528,7 +1528,7 @@ paths:
     parameters: []
   /engagement/sequences:
     get: 
-      summary: List Sequences
+      summary: Get All Sequences
       tags: 
         - engSequences
       responses: 
@@ -1712,7 +1712,7 @@ paths:
     parameters: []
   /engagement/mailboxes:
     get: 
-      summary: List Mailboxes
+      summary: Get All Mailboxes
       tags: 
         - engMailboxes
       responses: 
@@ -2004,7 +2004,7 @@ paths:
     parameters: []
   /connection/connections:
     get:
-      summary: List Connections
+      summary: Get All Connections
       tags:
         - connections
       responses:
