@@ -1094,6 +1094,9 @@ paths:
             schema:
               type: object
               properties:
+                sequenceId:
+                  type: string
+                  description: The id of the sequence to add steps to.
                 steps:
                   type: array
                   items:
@@ -1103,6 +1106,7 @@ paths:
             examples:
               example-1:
                 value:
+                  sequenceId: "2322707bbc41577d9806400e2daa25de"
                   steps:
                     - name: "Step 1 (Automated Email)"
                       type: "auto_email"
@@ -1115,7 +1119,7 @@ paths:
                         body: "Hi {{first_name}}! I'm reaching out to ask you about your paper needs."
                         $native: {}
       operationId: post-sequences-steps
-      description: Create one or more steps in a sequence.
+      description: Create one or more steps in a sequence. Some providers, such as Salesloft, only allow you to call this endpoint once.
       security:
         - VesselAPIToken: []
     parameters: []

@@ -9,8 +9,9 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/engagement/sequence-steps/batch-create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
+  "sequenceId": "2322707bbc41577d9806400e2daa25de",
   "steps": [
     {
       "name": "Step 1 (Automated Email)",
@@ -21,7 +22,7 @@ curl --request POST \
         "templateName": "Email Template",
         "isReply": false,
         "subject": "Hello from Dunder!",
-        "body": "Hi {{first_name}}! I'm reaching out to ask you about your paper needs.",
+        "body": "Hi {{first_name}}! I am reaching out to ask you about your paper needs.",
         "$native": {}
       }
     }
@@ -30,6 +31,3 @@ curl --request POST \
 ```
 
 </RequestExample>
-
-
-      
