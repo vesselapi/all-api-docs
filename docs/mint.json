@@ -4,7 +4,7 @@
   "openapi": [
     "pages/home/home.yaml",
     "pages/crm/crm.yaml",
-    "pages/beta/crm/crm-beta.yaml",
+    "pages/beta/crm-beta/crm-beta.yaml",
     "pages/old-engagement/old-engagement.yaml",
     "pages/unified/chat/chat.yaml",
     "pages/unified/marketing-automation/marketing-automation.yaml",
@@ -88,7 +88,7 @@
       "color": "#2B2B2F",
       "iconType": "duotone",
       "isDefaultHidden": true,
-      "url": "pages/beta/crm"
+      "url": "pages/beta/crm-beta"
     },
     {
       "name": "Unified APIs",
@@ -176,7 +176,10 @@
     },
     {
       "group": "CRM APIs",
-      "pages": ["pages/beta/crm/about", "pages/beta/crm/getting-started"]
+      "pages": [
+        "pages/beta/crm-beta/about",
+        "pages/beta/crm-beta/getting-started"
+      ]
     },
     {
       "group": "Unified API",
@@ -184,106 +187,106 @@
         {
           "group": "User",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-users",
-            "pages/beta/crm/api-reference/get-one-user"
+            "pages/beta/crm-beta/api-reference/get-all-users",
+            "pages/beta/crm-beta/api-reference/get-one-user"
           ]
         },
         {
           "group": "Contact",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-contacts",
-            "pages/beta/crm/api-reference/get-one-contact",
-            "pages/beta/crm/api-reference/post-contact",
-            "pages/beta/crm/api-reference/put-contact"
+            "pages/beta/crm-beta/api-reference/get-all-contacts",
+            "pages/beta/crm-beta/api-reference/get-one-contact",
+            "pages/beta/crm-beta/api-reference/post-contact",
+            "pages/beta/crm-beta/api-reference/put-contact"
           ]
         },
         {
           "group": "Deal",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-deals",
-            "pages/beta/crm/api-reference/get-one-deal",
-            "pages/beta/crm/api-reference/post-deal",
-            "pages/beta/crm/api-reference/put-deal"
+            "pages/beta/crm-beta/api-reference/get-all-deals",
+            "pages/beta/crm-beta/api-reference/get-one-deal",
+            "pages/beta/crm-beta/api-reference/post-deal",
+            "pages/beta/crm-beta/api-reference/put-deal"
           ]
         },
         {
           "group": "Account",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-accounts",
-            "pages/beta/crm/api-reference/get-one-account",
-            "pages/beta/crm/api-reference/post-account",
-            "pages/beta/crm/api-reference/put-account"
+            "pages/beta/crm-beta/api-reference/get-all-accounts",
+            "pages/beta/crm-beta/api-reference/get-one-account",
+            "pages/beta/crm-beta/api-reference/post-account",
+            "pages/beta/crm-beta/api-reference/put-account"
           ]
         },
         {
           "group": "Lead",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-leads",
-            "pages/beta/crm/api-reference/get-one-lead",
-            "pages/beta/crm/api-reference/post-lead",
-            "pages/beta/crm/api-reference/put-lead",
-            "pages/beta/crm/api-reference/post-lead-custom-field"
+            "pages/beta/crm-beta/api-reference/get-all-leads",
+            "pages/beta/crm-beta/api-reference/get-one-lead",
+            "pages/beta/crm-beta/api-reference/post-lead",
+            "pages/beta/crm-beta/api-reference/put-lead",
+            "pages/beta/crm-beta/api-reference/post-lead-custom-field"
           ]
         },
         {
           "group": "Note",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-notes",
-            "pages/beta/crm/api-reference/get-one-note",
-            "pages/beta/crm/api-reference/post-note",
-            "pages/beta/crm/api-reference/put-note"
+            "pages/beta/crm-beta/api-reference/get-all-notes",
+            "pages/beta/crm-beta/api-reference/get-one-note",
+            "pages/beta/crm-beta/api-reference/post-note",
+            "pages/beta/crm-beta/api-reference/put-note"
           ]
         },
         {
           "group": "Task",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-tasks",
-            "pages/beta/crm/api-reference/get-one-task",
-            "pages/beta/crm/api-reference/post-task",
-            "pages/beta/crm/api-reference/put-task"
+            "pages/beta/crm-beta/api-reference/get-all-tasks",
+            "pages/beta/crm-beta/api-reference/get-one-task",
+            "pages/beta/crm-beta/api-reference/post-task",
+            "pages/beta/crm-beta/api-reference/put-task"
           ]
         },
         {
           "group": "Email",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-emails",
-            "pages/beta/crm/api-reference/get-one-email",
-            "pages/beta/crm/api-reference/post-email",
-            "pages/beta/crm/api-reference/put-email"
+            "pages/beta/crm-beta/api-reference/get-all-emails",
+            "pages/beta/crm-beta/api-reference/get-one-email",
+            "pages/beta/crm-beta/api-reference/post-email",
+            "pages/beta/crm-beta/api-reference/put-email"
           ]
         },
         {
           "group": "Call",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-calls",
-            "pages/beta/crm/api-reference/get-one-call",
-            "pages/beta/crm/api-reference/post-call",
-            "pages/beta/crm/api-reference/put-call"
+            "pages/beta/crm-beta/api-reference/get-all-calls",
+            "pages/beta/crm-beta/api-reference/get-one-call",
+            "pages/beta/crm-beta/api-reference/post-call",
+            "pages/beta/crm-beta/api-reference/put-call"
           ]
         },
         {
           "group": "Event",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-events",
-            "pages/beta/crm/api-reference/get-one-event",
-            "pages/beta/crm/api-reference/post-event",
-            "pages/beta/crm/api-reference/put-event"
+            "pages/beta/crm-beta/api-reference/get-all-events",
+            "pages/beta/crm-beta/api-reference/get-one-event",
+            "pages/beta/crm-beta/api-reference/post-event",
+            "pages/beta/crm-beta/api-reference/put-event"
           ]
         },
         {
           "group": "Event Attendee",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-event-attendees",
-            "pages/beta/crm/api-reference/get-one-event-attendee",
-            "pages/beta/crm/api-reference/post-event-attendee",
-            "pages/beta/crm/api-reference/put-event-attendee"
+            "pages/beta/crm-beta/api-reference/get-all-event-attendees",
+            "pages/beta/crm-beta/api-reference/get-one-event-attendee",
+            "pages/beta/crm-beta/api-reference/post-event-attendee",
+            "pages/beta/crm-beta/api-reference/put-event-attendee"
           ]
         },
         {
           "group": "Lists",
           "pages": [
-            "pages/beta/crm/api-reference/get-all-lists",
-            "pages/beta/crm/api-reference/get-one-list"
+            "pages/beta/crm-beta/api-reference/get-all-lists",
+            "pages/beta/crm-beta/api-reference/get-one-list"
           ]
         }
       ]
