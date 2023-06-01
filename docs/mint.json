@@ -830,11 +830,10 @@
         },
         {
           "group": "Call Logs",
-          "pages": ["pages/actions/ringcentral/api-reference/list-call-logs"]
-        },
-        {
-          "group": "Call Logs",
-          "pages": ["pages/actions/ringcentral/api-reference/find-call-log"]
+          "pages": [
+            "pages/actions/ringcentral/api-reference/list-call-logs",
+            "pages/actions/ringcentral/api-reference/find-call-log"
+          ]
         },
         {
           "group": "Contacts",
@@ -861,11 +860,10 @@
         },
         {
           "group": "List Views",
-          "pages": ["pages/actions/salesforce/api-reference/find-list-view"]
-        },
-        {
-          "group": "List Views",
-          "pages": ["pages/actions/salesforce/api-reference/list-list-views"]
+          "pages": [
+            "pages/actions/salesforce/api-reference/find-list-view",
+            "pages/actions/salesforce/api-reference/list-list-views"
+          ]
         },
         {
           "group": "List View Results",
@@ -900,14 +898,13 @@
         },
         {
           "group": "Custom Fields",
-          "pages": ["pages/actions/salesloft/api-reference/create-custom-field"]
+          "pages": [
+            "pages/actions/salesloft/api-reference/create-custom-field",
+            "pages/actions/salesloft/api-reference/list-custom-fields"
+          ]
         },
         {
-          "group": "Custom Fields",
-          "pages": ["pages/actions/salesloft/api-reference/list-custom-fields"]
-        },
-        {
-          "group": "Emailbodies",
+          "group": "Email Bodies",
           "pages": ["pages/actions/salesloft/api-reference/find-email-body"]
         },
         {
