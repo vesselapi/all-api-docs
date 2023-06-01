@@ -18,6 +18,8 @@ Before diving into this guide, make sure to complete the following:
 1. [Create a free Vessel account](https://vessel.dev) and retrieve your development API key. **Make sure to do the quick start tutorial as well before starting this!**
 2. Ensure you have access an account you can test on for an integration we support (e.g. Outreach, Mailchimp, Aircall, etc.). If you don't have access to an account, we recommend signing up for a free [Salesforce Developer](https://developer.salesforce.com/signup) account which will include access to the CRM and marketing APIs.
 
+<br />
+
 # Setup
 
 ### Step 1: Setting up the Auth UI
@@ -97,7 +99,7 @@ app.post("/session-token", async (req, res) => {
   });
 
   const response = await vessel.auth.sessions.create({});
-  res.json(response);
+  res.json(response.body.result);
 });
 ```
 
@@ -185,7 +187,7 @@ Now that you're able to successfully start a session, let's see how we can excha
 
 Access Tokens are secrets and should be stored securely. It's important to ensure access tokens are never exposed in the client or stored publicly.
 
-Pass session token to backend
+Here's an example of passing the session token to the backend. The logic is primarily contained in the `onSuccess` callback.
 
 ```jsx React
 export default function App() {
@@ -215,9 +217,11 @@ export default function App() {
 }
 ```
 
-Exchange session token
+Here's an example of exchanging the session token that was passed for an access token
 
-```javascript Node
+<CodeGroup>
+
+```javascript Node (API)
 app.post("/access-token", async (req, res) => {
   const sessionToken = req.body.sessionToken;
   const response = await fetch("https://app.vessel.dev/api/auth/access-token", {
@@ -239,11 +243,32 @@ app.post("/access-token", async (req, res) => {
 });
 ```
 
+```javascript Node (SDK)
+app.post("/access-token", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    sessionToken: req.body.sessionToken,
+  });
+
+  const response = await vessel.auth.accessToken({});
+  const { connectionId, accessToken, integrationId } = response.body.result;
+
+  // !!IMPORTANT!! Make sure to store the connectionId and accessToken securely
+  await saveToDb({ connectionId, accessToken, integrationId });
+
+  res.send({ success: true });
+});
+```
+
+</CodeGroup>
+
 **2.2 Call an API endpoint**
 
 You're now ready to make an API call, feel free to browse one of the many [unified](/pages/unified/about) or [action](/pages/actions/about) APIs we support and pick one for the integration of the connection you just created.
 
 Example: Get all Users from a connect sales engagement tool.
+
+<CodeGroup>
 
 ```bash Terminal
 curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
@@ -252,6 +277,20 @@ curl --location --request POST 'https://app.vessel.dev/api/unifications/engageme
 --header 'Content-Type: application/json' \
 --data-raw '{}'
 ```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  res.send({ users: response.body.result });
+});
+```
+
+</CodeGroup>
 
 ### Step 3: Managing Your Connections
 
@@ -263,6 +302,8 @@ To see which connections currently exist for your environments, you can call the
 
 Call the endpoint below to see the connection we just created, make sure to use your development api key.
 
+<CodeGroup>
+
 ```bash Terminal
 curl --location --request POST 'https://app.vessel.dev/api/connections/list' \
 --header 'x-vessel-api-token: [API_KEY]' \
@@ -271,9 +312,24 @@ curl --location --request POST 'https://app.vessel.dev/api/connections/list' \
 --data-raw '{}'
 ```
 
+```javascript Node (SDK)
+app.post("/list-connections", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+  });
+
+  const response = await vessel.connections.list({});
+  res.send(response.body.result);
+});
+```
+
+</CodeGroup>
+
 **3.2 Deleting a Connection**
 
 When your customer is done using a connection, you should be sure to delete the connection so that the resources are freed up.
+
+<CodeGroup>
 
 ```bash Terminal
 curl --location --request POST 'https://app.vessel.dev/api/connections/delete' \
@@ -283,6 +339,21 @@ curl --location --request POST 'https://app.vessel.dev/api/connections/delete' \
 --data-raw '{ "id": [CONNECTION_ID] }'
 ```
 
+```javascript Node (SDK)
+app.post("/delete-connection", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+  });
+
+  const response = await vessel.connections.delete({
+    id: req.body.connectionId,
+  });
+  res.send(response.body.result);
+});
+```
+
+</CodeGroup>
+<br />
 # Feedback & Help
 
 Did this process take you longer than an hour? If so, we want to hear about it. Please send an email to support@vessel.dev so we can inquire more about where we went wrong, what we need to improve, and how we can help.
