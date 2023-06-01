@@ -1,5 +1,5 @@
 ---
-title: 'Integrate Vessel'
+title: "Integrate Vessel"
 description: Step by Step guide for integrating Vessel into your product
 ---
 
@@ -9,12 +9,6 @@ description: Step by Step guide for integrating Vessel into your product
 
 # Introduction
 
-<Warning>
-  This guide is for the Dialer, Marketing, Chat, and Sales Engagement
-  integrations only. If you're looking to set up the CRM APIs, please follow
-  this guide [here](/pages/crm/getting-started)
-</Warning>
-
 The Vessel API was designed to be set up quickly and effortlessly. However, if you get stuck or have trouble don't hesitate to email us at `support@vessel.dev`.
 
 ### Pre-requisites
@@ -22,17 +16,17 @@ The Vessel API was designed to be set up quickly and effortlessly. However, if y
 Before diving into this guide, make sure to complete the following:
 
 1. [Create a free Vessel account](https://vessel.dev) and retrieve your development API key. **Make sure to do the quick start tutorial as well before starting this!**
-2. Ensure you have access to an account or test account for an integration we support (e.g. Outreach, Mailchimp, Aircall, etc.). If you don't have access to an account, we recommend signing up for a free [Salesforce Developer](https://developer.salesforce.com/signup) account which will include access to the marketing APIs.
+2. Ensure you have access an account you can test on for an integration we support (e.g. Outreach, Mailchimp, Aircall, etc.). If you don't have access to an account, we recommend signing up for a free [Salesforce Developer](https://developer.salesforce.com/signup) account which will include access to the CRM and marketing APIs.
 
 # Setup
 
 ### Step 1: Setting up the Auth UI
 
-To start, we'll use Vessel's client sdk to quickly setup a front end component for authenticating your user's GTM tool. The client SDK adds a pre-built UI popup that walks your user through connecting to one of the many integrations we support.
+To start, we'll use Vessel's client sdk to quickly setup a front end component for authenticating your user's tools. The client SDK adds a pre-built UI popup that walks your user through connecting to one of the many integrations we support.
 
 **1.1 Get the List of Supported Integrations**
 
-Vessel exposes a dedicated integrations endpoint to help you build your integrations page UI. This endpoint returns all of the integrations we support as well as the name, high quality logo, and their `integrationId`.
+Vessel exposes a [dedicated list integrations endpoint](/pages/home/api-reference/get-all-integrations) to help you build your integrations page UI. This endpoint returns all of the integrations we support as well as the name, high quality logo, and their `integrationId`.
 
 ```jsx React
 export default function App() {
@@ -40,10 +34,10 @@ export default function App() {
 
   useEffect(() => {
     const getIntegrations = async () => {
-      const res = await fetch('https://app.vessel.dev/api/integrations/list', {
-        method: 'POST',
+      const res = await fetch("https://app.vessel.dev/api/integrations/list", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       const json = await res.json();
@@ -68,18 +62,26 @@ export default function App() {
 
 **1.2 Starting an Auth Session**
 
+If you're using JavaScript or TypeScript you can install our Node SDK
+
+```bash
+npm i @vesselapi/sdk
+```
+
 An Auth session is a temporary session that holds state during the process of connecting to an integration. Any time a user wants to connect a new integration you _must_ call this endpoint and start a new Auth session.
 
-```javascript Node
-app.post('/session-token', async (req, res) => {
+<CodeGroup>
+
+```javascript Node (API)
+app.post("/session-token", async (req, res) => {
   const response = await fetch(
-    'https://app.vessel.dev/api/auth/session-token',
+    "https://app.vessel.dev/api/auth/session-token",
     {
       headers: {
-        'Content-Type': 'application/json',
-        'x-vessel-api-token': process.env.VESSEL_API_KEY,
+        "Content-Type": "application/json",
+        "x-vessel-api-token": process.env.VESSEL_API_KEY,
       },
-      method: 'POST',
+      method: "POST",
     }
   );
 
@@ -88,11 +90,24 @@ app.post('/session-token', async (req, res) => {
 });
 ```
 
+```javascript Node (SDK)
+app.post("/session-token", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: process.env.VESSEL_API_KEY,
+  });
+
+  const response = await vessel.auth.sessions.create({});
+  res.json(response);
+});
+```
+
+</CodeGroup>
+
 We'll call this endpoint when invoking the modal in the next section.
 
 **1.3 Invoke the Auth Modal UI**
 
-Install the SDK client
+Install the client SDK
 
 ```bash
 npm i @vesselapi/client-sdk
@@ -203,15 +218,15 @@ export default function App() {
 Exchange session token
 
 ```javascript Node
-app.post('/access-token', async (req, res) => {
+app.post("/access-token", async (req, res) => {
   const sessionToken = req.body.sessionToken;
-  const response = await fetch('https://app.vessel.dev/api/auth/access-token', {
+  const response = await fetch("https://app.vessel.dev/api/auth/access-token", {
     headers: {
-      'Content-Type': 'application/json',
-      'x-vessel-api-token': process.env.VESSEL_API_KEY,
-      'x-vessel-session-token': sessionToken,
+      "Content-Type": "application/json",
+      "x-vessel-api-token": process.env.VESSEL_API_KEY,
+      "x-vessel-session-token": sessionToken,
     },
-    method: 'POST',
+    method: "POST",
   });
 
   const json = await response.json();
