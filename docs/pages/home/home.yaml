@@ -70,7 +70,7 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
@@ -103,7 +103,7 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
@@ -241,7 +241,7 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
@@ -282,9 +282,9 @@ paths:
                   items:
                     type: string
               required:
-                  - integrationId
-                  - clientId
-                  - clientSecret
+                - integrationId
+                - clientId
+                - clientSecret
             examples:
               example-1:
                 value:
@@ -323,7 +323,7 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
@@ -337,20 +337,20 @@ paths:
       summary: Passthrough Request
       operationId: passthrough
       parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ''
+                description: ""
                 type: object
                 properties:
                   headers:
@@ -360,13 +360,14 @@ paths:
                     description: The full URL that the request was sent to.
                   statusCode:
                     type: number
-                    description: The HTTP status code of the response from the downstream
+                    description:
+                      The HTTP status code of the response from the downstream
                       system.
                   body:
                     AnyValue:
                       description: The body of the response from the downstream system.
                 required:
-                - id
+                  - id
               examples:
                 example-1:
                   value:
@@ -386,34 +387,36 @@ paths:
                 method:
                   type: string
                   enum:
-                  - GET
-                  - POST
-                  - PUT
-                  - PATCH
-                  - DELETE
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
                 path:
                   type: string
                   description: The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use `/services/data/v52.0/sobjects/Account` instead of `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account`.
-                body:
+                json:
                   type: object
-                  description: The body of the request.
+                  description: The JSON body of the request.
                 query:
                   type: object
-                  description: The query parameters to send with the request as key
+                  description:
+                    The query parameters to send with the request as key
                     value pairs. These are appended to the URL when the request is
                     sent to the integration provider.
               required:
-              - method
-              - path
+                - method
+                - path
             examples:
               example-1:
                 value:
                   method: PATCH
                   path: "/services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1"
-                  body:
-                  - Name: Vessel
-        description: ''
-      description: Send an authenticated passthrough request to the downstream system.
+                  json:
+                    - Name: Vessel
+        description: ""
+      description:
+        Send an authenticated passthrough request to the downstream system.
         This is useful for making requests to endpoints that are not yet supported
         by Vessel.
 components:
@@ -476,5 +479,3 @@ components:
           integrationId: apollo
           environment: development
           createdTime: 2022-11-09T23:11:28.617Z
-          
-  
