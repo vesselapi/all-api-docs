@@ -3042,9 +3042,9 @@ paths:
                 path:
                   type: string
                   description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
-                body:
+                json:
                   type: object
-                  description: "The body of the request."
+                  description: "The json body of the request."
                 query:
                   type: object
                   description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
