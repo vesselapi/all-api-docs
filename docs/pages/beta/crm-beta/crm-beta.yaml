@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: CRM API Reference
-  version: "2.0"
+  version: '2.0'
   summary: API
 servers:
-  - url: "https://app.vessel.dev"
+  - url: 'https://app.vessel.dev'
 security:
   - VesselAPIToken: []
 paths:
@@ -12,7 +12,7 @@ paths:
     post:
       summary: List Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -23,19 +23,19 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/User"
+                      $ref: '#/components/schemas/User'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     users:
-                      - id: "12"
+                      - id: '12'
                         firstName: Micheal
                         lastName: Scott
                         email: micheal@dundermifflin.com
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                     nextPageCursor: string
       parameters:
         - name: x-vessel-access-token
@@ -51,7 +51,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -59,7 +59,7 @@ paths:
                 value:
                   include:
                     $native: false
-                  cursor: "123123"
+                  cursor: '123123'
       operationId: list-users
       description: List Users
     parameters: []
@@ -67,7 +67,7 @@ paths:
     post:
       summary: Get User
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -76,17 +76,17 @@ paths:
                 type: object
                 properties:
                   user:
-                    $ref: "#/components/schemas/User"
+                    $ref: '#/components/schemas/User'
               examples:
                 example-1:
                   value:
                     user:
-                      id: "12"
+                      id: '12'
                       firstName: Micheal
                       lastName: Scott
                       email: micheal@dundermifflin.com
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
       operationId: get-user
       parameters:
         - name: x-vessel-access-token
@@ -102,7 +102,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
               required:
@@ -110,7 +110,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
       description: Retrieve a single User by Id
@@ -119,7 +119,7 @@ paths:
     post:
       summary: List Contacts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -130,22 +130,22 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Contact"
+                      $ref: '#/components/schemas/Contact'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     contacts:
-                      - id: "23"
+                      - id: '23'
                         email: tom@bluecross.com
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
-                        phone: "2101128833"
-                        mobilePhone: "2106541111"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: '2101128833'
+                        mobilePhone: '2106541111'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -170,7 +170,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -184,7 +184,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -196,7 +196,7 @@ paths:
     post:
       summary: Get Contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -205,20 +205,20 @@ paths:
                 type: object
                 properties:
                   contact:
-                    $ref: "#/components/schemas/Contact"
+                    $ref: '#/components/schemas/Contact'
               examples:
                 example-1:
                   value:
                     contact:
-                      id: "23"
+                      id: '23'
                       email: tom@bluecross.com
                       firstName: Tom
                       lastName: Smith
                       jobTitle: Director of Operations
-                      phone: "2101128833"
-                      mobilePhone: "2106541111"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: '2101128833'
+                      mobilePhone: '2106541111'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
@@ -242,7 +242,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -258,19 +258,19 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
                     - accounts
                     - deals
-      description: "Retrieve a Contact by either Id"
+      description: 'Retrieve a Contact by either Id'
   /api/unifications/crm/contacts/create:
     post:
       summary: Create Contact
       operationId: create-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -283,7 +283,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -298,7 +298,7 @@ paths:
               type: object
               properties:
                 contact:
-                  $ref: "#/components/schemas/ContactCreate"
+                  $ref: '#/components/schemas/ContactCreate'
               required:
                 - contact
             examples:
@@ -309,8 +309,8 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    phone: "2101128833"
-                    mobilePhone: "2106541111"
+                    phone: '2101128833'
+                    mobilePhone: '2106541111'
                     $native: {}
       description: Create a new contact.
   /api/unifications/crm/contacts/update:
@@ -318,17 +318,17 @@ paths:
       summary: Update Contact
       operationId: update-contact
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -337,7 +337,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -354,7 +354,7 @@ paths:
                 id:
                   type: string
                 contact:
-                  $ref: "#/components/schemas/ContactUpdate"
+                  $ref: '#/components/schemas/ContactUpdate'
               required:
                 - id
                 - contact
@@ -367,20 +367,20 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
-                    phone: "2101128833"
-                    mobilePhone: "2106541111"
+                    phone: '2101128833'
+                    mobilePhone: '2106541111'
                     $native: {}
           application/xml:
             schema:
               type: object
               properties: {}
-        description: ""
+        description: ''
       description: Update an existing Contact.
   /api/unifications/crm/deals/list:
     post:
       summary: List Deals
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -391,24 +391,24 @@ paths:
                   deals:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Deal"
+                      $ref: '#/components/schemas/Deal'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     deals:
-                      - id: "84"
+                      - id: '84'
                         name: Blue Cross Deal
                         stage: demo
                         amount: 10000
-                        closeDate: "2020-08-23T00:00:00Z"
-                        probability: "0.4"
+                        closeDate: '2020-08-23T00:00:00Z'
+                        probability: '0.4'
                         expectedRevenue: 4000
                         isWon: false
                         isClosed: false
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           contactIds:
                             - e5f32d4fd2115220bd20a2ccf81210ec
@@ -431,7 +431,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -445,7 +445,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -457,7 +457,7 @@ paths:
     post:
       summary: Get Deal
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -466,22 +466,22 @@ paths:
                 type: object
                 properties:
                   deal:
-                    $ref: "#/components/schemas/Deal"
+                    $ref: '#/components/schemas/Deal'
               examples:
                 example-1:
                   value:
                     deal:
-                      id: "84"
+                      id: '84'
                       name: Blue Cross Deal
                       stage: demo
                       amount: 10000
-                      closeDate: "2020-08-23T00:00:00Z"
-                      probability: "0.4"
+                      closeDate: '2020-08-23T00:00:00Z'
+                      probability: '0.4'
                       expectedRevenue: 4000
                       isWon: false
                       isClosed: false
-                      modifiedTime: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
                       associations:
                         contactIds:
                           - e5f32d4fd2115220bd20a2ccf81210ec
@@ -503,7 +503,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -519,7 +519,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -539,17 +539,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -558,7 +558,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -566,7 +566,7 @@ paths:
               type: object
               properties:
                 deal:
-                  $ref: "#/components/schemas/DealCreate"
+                  $ref: '#/components/schemas/DealCreate'
               required:
                 - deal
             examples:
@@ -575,8 +575,8 @@ paths:
                   deal:
                     name: Blue Cross Deal
                     amount: 10000
-                    closeDate: "2020-08-23T00:00:00Z"
-                    probability: "0.4"
+                    closeDate: '2020-08-23T00:00:00Z'
+                    probability: '0.4'
                     stage: closedwon
                     $native: {}
                     associations:
@@ -594,17 +594,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -613,7 +613,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -623,7 +623,7 @@ paths:
                 id:
                   type: string
                 deal:
-                  $ref: "#/components/schemas/DealUpdate"
+                  $ref: '#/components/schemas/DealUpdate'
               required:
                 - id
                 - deal
@@ -634,18 +634,18 @@ paths:
                   deal:
                     name: Blue Cross Deal
                     amount: 10000
-                    closeDate: "2020-08-23T00:00:00Z"
-                    probability: "0.4"
+                    closeDate: '2020-08-23T00:00:00Z'
+                    probability: '0.4'
                     $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
-        description: ""
+        description: ''
       description: Update an existing Deal
   /api/unifications/crm/accounts/list:
     post:
       summary: List Accounts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -656,28 +656,28 @@ paths:
                   accounts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Account"
+                      $ref: '#/components/schemas/Account'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     accounts:
-                      - id: "344"
+                      - id: '344'
                         name: Blue Cross
                         description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
                         industry: TV and Media
                         annualRevenue: 10000000
                         numberOfEmployees: 100
                         website: www.bluecross.penn
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        phone: "8192223333"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        phone: '8192223333'
                         address:
                           street: 100 Blue Dr
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: "281332"
+                          postalCode: '281332'
                           country: USA
                         associations:
                           dealIds:
@@ -703,7 +703,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -717,7 +717,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -729,7 +729,7 @@ paths:
     post:
       summary: Get Account
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -738,26 +738,26 @@ paths:
                 type: object
                 properties:
                   account:
-                    $ref: "#/components/schemas/Account"
+                    $ref: '#/components/schemas/Account'
               examples:
                 example-1:
                   value:
                     account:
-                      id: "344"
+                      id: '344'
                       name: Blue Cross
                       description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
                       industry: TV and Media
                       annualRevenue: 10000000
                       numberOfEmployees: 100
                       website: www.bluecross.penn
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
-                      phone: "8192223333"
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
+                      phone: '8192223333'
                       address:
                         street: 100 Blue Dr
                         city: Scranton
                         state: Pennsylvania
-                        postalCode: "281332"
+                        postalCode: '281332'
                         country: USA
                       associations:
                         dealIds:
@@ -782,7 +782,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -798,7 +798,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -818,17 +818,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -843,7 +843,7 @@ paths:
               type: object
               properties:
                 account:
-                  $ref: "#/components/schemas/AccountCreate"
+                  $ref: '#/components/schemas/AccountCreate'
               required:
                 - account
             examples:
@@ -856,12 +856,12 @@ paths:
                     annualRevenue: 10000000
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    phone: "8192223333"
+                    phone: '8192223333'
                     address:
                       street: 100 Blue Dr
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: "281332"
+                      postalCode: '281332'
                       country: USA
                     $native: {}
       description: Create a new Account
@@ -879,17 +879,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -898,7 +898,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -908,7 +908,7 @@ paths:
                 id:
                   type: string
                 account:
-                  $ref: "#/components/schemas/AccountUpdate"
+                  $ref: '#/components/schemas/AccountUpdate'
               required:
                 - id
                 - account
@@ -923,14 +923,14 @@ paths:
                     annualRevenue: 10000000
                     numberOfEmployees: 100
                     website: www.bluecross.penn
-                    createdTime: "2019-08-24T14:15:22Z"
-                    modifiedTime: "2019-08-24T14:15:22Z"
-                    phone: "8192223333"
+                    createdTime: '2019-08-24T14:15:22Z'
+                    modifiedTime: '2019-08-24T14:15:22Z'
+                    phone: '8192223333'
                     address:
                       street: 100 Blue Dr
                       city: Scranton
                       state: Pennsylvania
-                      postalCode: "281332"
+                      postalCode: '281332'
                       country: USA
                     $native: {}
       description: Update an existing Account
@@ -938,7 +938,7 @@ paths:
     post:
       summary: List Leads
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -949,23 +949,23 @@ paths:
                   leads:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Lead"
+                      $ref: '#/components/schemas/Lead'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     leads:
-                      - id: "23"
+                      - id: '23'
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
                         email: tom@bluecross.com
                         accountName: Blue Cross
-                        phone: "1234445555"
-                        mobilePhone: "2338889999"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: '1234445555'
+                        mobilePhone: '2338889999'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           contactIds:
                             - e5f32d4fd2115220bd20a2ccf81210ec
@@ -992,7 +992,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -1006,7 +1006,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -1016,7 +1016,7 @@ paths:
     post:
       summary: Get Lead
       responses:
-        "200":
+        '200':
           description: OK
           headers: {}
           content:
@@ -1026,21 +1026,21 @@ paths:
                 type: object
                 properties:
                   lead:
-                    $ref: "#/components/schemas/Lead"
+                    $ref: '#/components/schemas/Lead'
               examples:
                 example-1:
                   value:
                     lead:
-                      id: "23"
+                      id: '23'
                       firstName: Tom
                       lastName: Smith
                       jobTitle: Director of Operations
                       email: tom@bluecross.com
                       accountName: Blue Cross
-                      phone: "1234445555"
-                      mobilePhone: "2338889999"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      phone: '1234445555'
+                      mobilePhone: '2338889999'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         contactIds:
                           - e5f32d4fd2115220bd20a2ccf81210ec
@@ -1063,7 +1063,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -1079,7 +1079,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -1097,17 +1097,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1125,7 +1125,7 @@ paths:
               type: object
               properties:
                 lead:
-                  $ref: "#/components/schemas/LeadCreate"
+                  $ref: '#/components/schemas/LeadCreate'
               required:
                 - lead
             examples:
@@ -1137,8 +1137,8 @@ paths:
                     jobTitle: Director of Operations
                     email: tom@bluecross.com
                     accountName: Blue Cross
-                    phone: "1234445555"
-                    mobilePhone: "2338889999"
+                    phone: '1234445555'
+                    mobilePhone: '2338889999'
                     $native: {}
   /api/unifications/crm/leads/update:
     post:
@@ -1152,17 +1152,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1171,7 +1171,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       description: Update an existing Lead by Id
       requestBody:
         content:
@@ -1182,27 +1182,27 @@ paths:
                 id:
                   type: string
                 lead:
-                  $ref: "#/components/schemas/LeadUpdate"
+                  $ref: '#/components/schemas/LeadUpdate'
               required:
                 - id
                 - lead
             examples:
               example-1:
                 value:
-                  id: "1231232"
+                  id: '1231232'
                   lead:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
                     email: tom@bluecross.com
                     accountName: Blue Cross
-                    phone: "1234445555"
-                    mobilePhone: "2338889999"
+                    phone: '1234445555'
+                    mobilePhone: '2338889999'
                     $native: {}
   /api/unifications/crm/lead/custom-fields/create:
     post:
       summary: Create Lead Custom Field
-      description: "Supported for Salesforce and HubSpot"
+      description: 'Supported for Salesforce and HubSpot'
       operationId: create-lead-custom-field
       parameters:
         - name: x-vessel-access-token
@@ -1212,13 +1212,13 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
@@ -1226,7 +1226,7 @@ paths:
                 properties:
                   key:
                     type: string
-                    description: "The key used to access the custom field"
+                    description: 'The key used to access the custom field'
               examples:
                 example-1:
                   value:
@@ -1238,21 +1238,21 @@ paths:
               type: object
               properties:
                 customField:
-                  $ref: "#/components/schemas/CustomFieldCreate"
+                  $ref: '#/components/schemas/CustomFieldCreate'
               required:
                 - customField
             examples:
               example-1:
                 value:
                   customField:
-                    name: "new field"
-                    type: "singleselect"
+                    name: 'new field'
+                    type: 'singleselect'
                     $native: {}
   /api/unifications/crm/notes/list:
     post:
       summary: List Notes
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1263,17 +1263,17 @@ paths:
                   notes:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Note"
+                      $ref: '#/components/schemas/Note'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     notes:
-                      - id: "34"
+                      - id: '34'
                         content: This note has some interesting content in it!
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
@@ -1301,7 +1301,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -1315,7 +1315,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -1325,7 +1325,7 @@ paths:
     post:
       summary: Get Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1334,15 +1334,15 @@ paths:
                 type: object
                 properties:
                   note:
-                    $ref: "#/components/schemas/Note"
+                    $ref: '#/components/schemas/Note'
               examples:
                 example-1:
                   value:
                     note:
-                      id: "34"
+                      id: '34'
                       content: This note has some interesting content in it!
-                      modifiedTime: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
                       associations:
                         dealIds:
                           - 497fb529e6805351b5dc8057c74a4a52
@@ -1368,7 +1368,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -1384,7 +1384,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -1403,17 +1403,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1422,7 +1422,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -1430,7 +1430,7 @@ paths:
               type: object
               properties:
                 note:
-                  $ref: "#/components/schemas/NoteCreate"
+                  $ref: '#/components/schemas/NoteCreate'
               required:
                 - note
             examples:
@@ -1445,7 +1445,7 @@ paths:
                       leadId: d08f345ace24509e911a0ea8e3d2203c
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       contactId: e5f32d4fd2115220bd20a2ccf81210ec
-        description: ""
+        description: ''
       description: |-
         Create a new Note.
         *CRM Caveats*:
@@ -1462,17 +1462,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1481,7 +1481,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -1491,7 +1491,7 @@ paths:
                 id:
                   type: string
                 note:
-                  $ref: "#/components/schemas/NoteUpdate"
+                  $ref: '#/components/schemas/NoteUpdate'
               required:
                 - id
                 - note
@@ -1509,7 +1509,7 @@ paths:
     post:
       summary: List Tasks
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1520,22 +1520,22 @@ paths:
                   tasks:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Task"
+                      $ref: '#/components/schemas/Task'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     tasks:
-                      - id: "122"
+                      - id: '122'
                         body: This task needs to be done very soon!
                         subject: High Priority Task
                         isDone: false
-                        dueDate: "2019-09-24T14:15:22Z"
+                        dueDate: '2019-09-24T14:15:22Z'
                         status: Not Done
                         priority: High
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
@@ -1563,7 +1563,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -1577,7 +1577,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -1588,7 +1588,7 @@ paths:
     post:
       summary: Get Task
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1597,20 +1597,20 @@ paths:
                 type: object
                 properties:
                   task:
-                    $ref: "#/components/schemas/Task"
+                    $ref: '#/components/schemas/Task'
               examples:
                 example-1:
                   value:
                     task:
-                      id: "122"
+                      id: '122'
                       body: This task needs to be done very soon!
                       subject: High Priority Task
                       isDone: false
-                      dueDate: "2019-09-24T14:15:22Z"
+                      dueDate: '2019-09-24T14:15:22Z'
                       status: Not Done
                       priority: High
-                      modifiedTime: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
+                      modifiedTime: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
                       associations:
                         dealIds:
                           - 497fb529e6805351b5dc8057c74a4a52
@@ -1636,7 +1636,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -1652,7 +1652,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -1671,17 +1671,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1690,7 +1690,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -1698,7 +1698,7 @@ paths:
               type: object
               properties:
                 task:
-                  $ref: "#/components/schemas/TaskCreate"
+                  $ref: '#/components/schemas/TaskCreate'
               required:
                 - task
             examples:
@@ -1707,7 +1707,7 @@ paths:
                   task:
                     body: This task needs to be done very soon!
                     subject: High Priority Task
-                    dueDate: "2019-09-24T14:15:22Z"
+                    dueDate: '2019-09-24T14:15:22Z'
                     priority: High
                     status: Not Done
                     isDone: false
@@ -1718,7 +1718,7 @@ paths:
                       dealId: 497fb529e6805351b5dc8057c74a4a52
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       contactId: e5f32d4fd2115220bd20a2ccf81210ec
-        description: ""
+        description: ''
       description: |-
         Create a new Task.
         *CRM Caveats*:
@@ -1735,17 +1735,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1754,7 +1754,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -1764,7 +1764,7 @@ paths:
                 id:
                   type: string
                 task:
-                  $ref: "#/components/schemas/TaskUpdate"
+                  $ref: '#/components/schemas/TaskUpdate'
               required:
                 - id
                 - task
@@ -1775,7 +1775,7 @@ paths:
                   task:
                     body: This task needs to be done very soon!
                     subject: High Priority Task
-                    dueDate: "2019-09-24T14:15:22Z"
+                    dueDate: '2019-09-24T14:15:22Z'
                     isDone: false
                     priority: High
                     status: Not Done
@@ -1788,7 +1788,7 @@ paths:
     post:
       summary: List Events
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1799,23 +1799,23 @@ paths:
                   events:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Event"
+                      $ref: '#/components/schemas/Event'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     events:
-                      - id: "19"
+                      - id: '19'
                         subject: Meeting with Blue Cross
                         description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                         type: Meeting
                         location: 1122 Tea Dr
-                        startDateTime: "2019-08-24T14:15:22Z"
-                        endDateTime: "2019-08-24T14:15:22Z"
+                        startDateTime: '2019-08-24T14:15:22Z'
+                        endDateTime: '2019-08-24T14:15:22Z'
                         isAllDayEvent: true
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -1845,7 +1845,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -1859,7 +1859,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -1869,7 +1869,7 @@ paths:
     post:
       summary: Get Event
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1878,21 +1878,21 @@ paths:
                 type: object
                 properties:
                   event:
-                    $ref: "#/components/schemas/Event"
+                    $ref: '#/components/schemas/Event'
               examples:
                 example-1:
                   value:
                     event:
-                      id: "19"
+                      id: '19'
                       subject: Meeting with Blue Cross
                       description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                       type: Meeting
                       location: 1122 Tea Dr
-                      startDateTime: "2019-08-24T14:15:22Z"
-                      endDateTime: "2019-08-24T14:15:22Z"
+                      startDateTime: '2019-08-24T14:15:22Z'
+                      endDateTime: '2019-08-24T14:15:22Z'
                       isAllDayEvent: true
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
@@ -1920,7 +1920,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -1936,7 +1936,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -1955,17 +1955,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -1974,7 +1974,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -1982,7 +1982,7 @@ paths:
               type: object
               properties:
                 event:
-                  $ref: "#/components/schemas/EventCreate"
+                  $ref: '#/components/schemas/EventCreate'
               required:
                 - event
             examples:
@@ -1993,8 +1993,8 @@ paths:
                     description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                     type: Meeting
                     location: 1122 Tea Dr
-                    startDateTime: "2019-08-24T14:15:22Z"
-                    endDateTime: "2019-08-24T14:15:22Z"
+                    startDateTime: '2019-08-24T14:15:22Z'
+                    endDateTime: '2019-08-24T14:15:22Z'
                     isAllDayEvent: true
                     $native: {}
                     associations:
@@ -2003,7 +2003,7 @@ paths:
                       contactId: e5f32d4fd2115220bd20a2ccf81210ec
                       leadId: d08f345ace24509e911a0ea8e3d2203c
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-        description: ""
+        description: ''
       description: Create a new Event.
   /api/unifications/crm/events/update:
     post:
@@ -2017,17 +2017,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2036,7 +2036,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2046,7 +2046,7 @@ paths:
                 id:
                   type: string
                 event:
-                  $ref: "#/components/schemas/EventUpdate"
+                  $ref: '#/components/schemas/EventUpdate'
               required:
                 - id
                 - event
@@ -2059,8 +2059,8 @@ paths:
                     description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                     type: Meeting
                     location: 1122 Tea Dr
-                    startDateTime: "2019-08-24T14:15:22Z"
-                    endDateTime: "2019-08-24T14:15:22Z"
+                    startDateTime: '2019-08-24T14:15:22Z'
+                    endDateTime: '2019-08-24T14:15:22Z'
                     isAllDayEvent: true
                     $native: {}
                     associations:
@@ -2071,7 +2071,7 @@ paths:
     post:
       summary: List Event Attendees
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2082,19 +2082,19 @@ paths:
                   eventAttendees:
                     type: array
                     items:
-                      $ref: "#/components/schemas/EventAttendee"
+                      $ref: '#/components/schemas/EventAttendee'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     eventAttendees:
-                      - id: "1234"
+                      - id: '1234'
                         associatedObjectType: contacts
                         status: Confirmed
                         email: null
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           eventId: 0000d2e83d6c5d52a61f2fb860666477
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -2115,20 +2115,20 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
   /api/unifications/crm/event/attendees/find:
     post:
       summary: Get Event Attendee
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2137,17 +2137,17 @@ paths:
                 type: object
                 properties:
                   eventAttendee:
-                    $ref: "#/components/schemas/EventAttendee"
+                    $ref: '#/components/schemas/EventAttendee'
               examples:
                 example-1:
                   value:
                     eventAttendee:
-                      id: "34054"
+                      id: '34054'
                       associatedObjectType: contacts
                       status: Confirmed
                       email: null
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         eventId: 0000d2e83d6c5d52a61f2fb860666477
                         associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -2166,7 +2166,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
               required:
@@ -2174,7 +2174,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
       description: Retrieve a single Event Attendee by Id
@@ -2191,17 +2191,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2210,7 +2210,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2219,7 +2219,7 @@ paths:
               type: object
               properties:
                 eventAttendee:
-                  $ref: "#/components/schemas/EventAttendeeCreate"
+                  $ref: '#/components/schemas/EventAttendeeCreate'
                 required:
                   - eventAttendee
             examples:
@@ -2246,17 +2246,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2265,7 +2265,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2275,7 +2275,7 @@ paths:
                 id:
                   type: string
                 eventAttendee:
-                  $ref: "#/components/schemas/EventAttendeeUpdate"
+                  $ref: '#/components/schemas/EventAttendeeUpdate'
               required:
                 - id
                 - eventAttendee
@@ -2291,7 +2291,7 @@ paths:
     post:
       summary: List Emails
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2301,7 +2301,7 @@ paths:
                   emails:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Email"
+                      $ref: '#/components/schemas/Email'
                   nextPageCursor:
                     type: string
                 title: responseBody
@@ -2309,7 +2309,7 @@ paths:
                 example-1:
                   value:
                     emails:
-                      - id: "23"
+                      - id: '23'
                         from: michael@dunder.mifflin
                         to:
                           - greg@bluecross.com
@@ -2320,13 +2320,13 @@ paths:
                         subject: BlueCross <> Dunder Mifflin
                         bodyText: Hi Greg, need any paper? - Michael
                         bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-                        messageDate: "2019-08-24T14:15:22Z"
+                        messageDate: '2019-08-24T14:15:22Z'
                         isIncoming: false
                         isBounced: false
                         hasAttachment: false
                         status: SENT
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -2339,7 +2339,7 @@ paths:
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-emails
-      description: "Retrieve all Emails"
+      description: 'Retrieve all Emails'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2354,7 +2354,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -2368,7 +2368,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -2379,7 +2379,7 @@ paths:
     post:
       summary: Get Email
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2387,13 +2387,13 @@ paths:
                 type: object
                 properties:
                   email:
-                    $ref: "#/components/schemas/Email"
+                    $ref: '#/components/schemas/Email'
                 title: responseBody
               examples:
                 example-1:
                   value:
                     email:
-                      id: "23"
+                      id: '23'
                       from: michael@dunder.mifflin
                       to:
                         - greg@bluecross.com
@@ -2404,13 +2404,13 @@ paths:
                       subject: BlueCross <> Dunder Mifflin
                       bodyText: Hi Greg, need any paper? - Michael
                       bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-                      messageDate: "2019-08-24T14:15:22Z"
+                      messageDate: '2019-08-24T14:15:22Z'
                       isIncoming: false
                       isBounced: false
                       hasAttachment: false
                       status: SENT
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
@@ -2436,7 +2436,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -2452,7 +2452,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -2471,17 +2471,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2490,7 +2490,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2498,7 +2498,7 @@ paths:
               type: object
               properties:
                 email:
-                  $ref: "#/components/schemas/EmailCreate"
+                  $ref: '#/components/schemas/EmailCreate'
               required:
                 - email
             examples:
@@ -2515,7 +2515,7 @@ paths:
                     subject: BlueCross <> Dunder Mifflin
                     bodyText: Hi Greg, need any paper? - Michael
                     bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-                    messageDate: "2019-08-24T14:15:22Z"
+                    messageDate: '2019-08-24T14:15:22Z'
                     isIncoming: false
                     status: SENT
                     $native: {}
@@ -2529,7 +2529,7 @@ paths:
                         - id: e5f32d4fd2115220bd20a2ccf81210ec
                           role: cc
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-        description: ""
+        description: ''
       description: |-
         Create a new Email.
   /api/unifications/crm/emails/update:
@@ -2544,17 +2544,17 @@ paths:
             type: string
       operationId: update-email
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2563,7 +2563,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2573,7 +2573,7 @@ paths:
                 id:
                   type: string
                 email:
-                  $ref: "#/components/schemas/EmailUpdate"
+                  $ref: '#/components/schemas/EmailUpdate'
               required:
                 - id
                 - email
@@ -2595,7 +2595,7 @@ paths:
     post:
       summary: List Calls
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2605,7 +2605,7 @@ paths:
                   calls:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Call"
+                      $ref: '#/components/schemas/Call'
                   nextPageCursor:
                     type: string
                 title: responseBody
@@ -2613,14 +2613,14 @@ paths:
                 example-1:
                   value:
                     calls:
-                      - id: "23"
+                      - id: '23'
                         subject: BlueCross <> Dunder Mifflin
-                        disposition: "ANSWERED"
-                        direction: "inbound"
-                        description: "Call from Greg"
-                        date: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        disposition: 'ANSWERED'
+                        direction: 'inbound'
+                        description: 'Call from Greg'
+                        date: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -2633,7 +2633,7 @@ paths:
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
                     nextPageCursor: string
       operationId: list-calls
-      description: "Retrieve all Calls"
+      description: 'Retrieve all Calls'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -2648,7 +2648,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -2662,7 +2662,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   include:
                     $native: false
                   associations:
@@ -2672,7 +2672,7 @@ paths:
     post:
       summary: Get Call
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2680,20 +2680,20 @@ paths:
                 type: object
                 properties:
                   call:
-                    $ref: "#/components/schemas/Call"
+                    $ref: '#/components/schemas/Call'
                 title: responseBody
               examples:
                 example-1:
                   value:
                     call:
-                      id: "23"
+                      id: '23'
                       subject: BlueCross <> Dunder Mifflin
-                      disposition: "ANSWERED"
-                      direction: "inbound"
-                      description: "Call from Greg"
-                      date: "2019-08-24T14:15:22Z"
-                      createdTime: "2019-08-24T14:15:22Z"
-                      modifiedTime: "2019-08-24T14:15:22Z"
+                      disposition: 'ANSWERED'
+                      direction: 'inbound'
+                      description: 'Call from Greg'
+                      date: '2019-08-24T14:15:22Z'
+                      createdTime: '2019-08-24T14:15:22Z'
+                      modifiedTime: '2019-08-24T14:15:22Z'
                       associations:
                         accountIds:
                           - 0dcb45e051315a6ea63b0f16e73689d9
@@ -2719,7 +2719,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 associations:
@@ -2735,7 +2735,7 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   include:
                     $native: false
                   associations:
@@ -2754,17 +2754,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2773,7 +2773,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2781,7 +2781,7 @@ paths:
               type: object
               properties:
                 call:
-                  $ref: "#/components/schemas/CallCreate"
+                  $ref: '#/components/schemas/CallCreate'
               required:
                 - call
             examples:
@@ -2789,17 +2789,17 @@ paths:
                 value:
                   call:
                     subject: BlueCross <> Dunder Mifflin
-                    disposition: "ANSWERED"
-                    direction: "inbound"
-                    description: "Call from Greg"
-                    date: "2019-08-24T14:15:22Z"
+                    disposition: 'ANSWERED'
+                    direction: 'inbound'
+                    description: 'Call from Greg'
+                    date: '2019-08-24T14:15:22Z'
                     $native: {}
                     associations:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
                       contactIds:
                         - e5f32d4fd2115220bd20a2ccf81210ec
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-        description: ""
+        description: ''
       description: |-
         Create a new Call.
   /api/unifications/crm/calls/update:
@@ -2814,17 +2814,17 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 title: responseBody
-                description: ""
+                description: ''
                 type: object
                 x-examples:
                   example-1:
-                    id: "0"
+                    id: '0'
                 properties:
                   id:
                     type: string
@@ -2833,7 +2833,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: "0"
+                    id: '0'
       requestBody:
         content:
           application/json:
@@ -2843,7 +2843,7 @@ paths:
                 id:
                   type: string
                 call:
-                  $ref: "#/components/schemas/CallUpdate"
+                  $ref: '#/components/schemas/CallUpdate'
               required:
                 - id
                 - call
@@ -2852,7 +2852,7 @@ paths:
                 value:
                   id: string
                   call:
-                    disposition: "ANSWERED"
+                    disposition: 'ANSWERED'
                     $native: {}
                     associations:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
@@ -2862,7 +2862,7 @@ paths:
     post:
       summary: List Lists
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2873,17 +2873,17 @@ paths:
                   lists:
                     type: array
                     items:
-                      $ref: "#/components/schemas/ListWithoutAssociations"
+                      $ref: '#/components/schemas/ListWithoutAssociations'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     lists:
-                      - id: "34"
+                      - id: '34'
                         name: California Leads
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                     nextPageCursor: string
       operationId: list-lists
       description: Retrieve all Lists
@@ -2901,7 +2901,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 objectType:
@@ -2914,7 +2914,7 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   objectType: contacts
                   include:
                     $native: false
@@ -2922,7 +2922,7 @@ paths:
     post:
       summary: Get List
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2931,17 +2931,17 @@ paths:
                 type: object
                 properties:
                   list:
-                    $ref: "#/components/schemas/ListWithAssociations"
+                    $ref: '#/components/schemas/ListWithAssociations'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     list:
-                      - id: "34"
+                      - id: '34'
                         name: California Leads
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           - contactIds:
                               - e5f32d4fd2115220bd20a2ccf81210ec
@@ -2962,7 +2962,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
                 objectType:
@@ -2976,90 +2976,11 @@ paths:
             examples:
               example-1:
                 value:
-                  id: "123123"
+                  id: '123123'
                   objectType: contacts
                   include:
                     $native: false
       description: Retrieve a single List by Id
-  /api/unifications/crm/passthrough:
-    post:
-      summary: Passthrough Request
-      operationId: passthrough
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: responseBody
-                description: ""
-                type: object
-                properties:
-                  headers:
-                    type: object
-                  url:
-                    type: string
-                    description: The full URL that the request was sent to.
-                  statusCode:
-                    type: number
-                    description: The HTTP status code of the response from the downstream CRM.
-                  body:
-                    AnyValue:
-                      description: The body of the response from the downstream CRM.
-                required:
-                  - id
-              examples:
-                example-1:
-                  value:
-                    headers:
-                      content-type: application/json
-                    url: https://mydomain.my.salesforce.com/services/data/v53.0/sobjects/Account
-                    statusCode: 200
-                    body:
-                      id: 0011A00001XQ4QSQAZ
-                      success: true
-      parameters:
-        - name: x-vessel-access-token
-          in: header
-          description: Access Token
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                method:
-                  type: string
-                  enum:
-                    - GET
-                    - POST
-                    - PUT
-                    - PATCH
-                    - DELETE
-                path:
-                  type: string
-                  description: "The path to send the request to. Vessel handles the domain so for a request to Salesforce instead of using `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account` you would use `services/data/v52.0/sobjects/Account`."
-                body:
-                  type: object
-                  description: "The body of the request."
-                query:
-                  type: object
-                  description: "The query parameters to send with the request as key value pairs. These are appended to the URL when the request is sent to the CRM."
-              required:
-                - method
-                - path
-            examples:
-              example-1:
-                value:
-                  method: PATCH
-                  path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
-                  body:
-                    - Name: "Vessel"
-        description: ""
-      description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
 components:
   schemas:
     IncludeFields:
@@ -3081,14 +3002,14 @@ components:
     User:
       title: User
       type: object
-      description: "Users of the connected CRM platform. These are *not* the contacts or leads, but rather the user accounts from the connected CRM."
+      description: 'Users of the connected CRM platform. These are *not* the contacts or leads, but rather the user accounts from the connected CRM.'
       examples:
-        - id: "12"
+        - id: '12'
           firstName: Micheal
           lastName: Scott
           email: micheal@dundermifflin.com
-          createdTime: "2019-08-24T14:15:22Z"
-          modifiedTime: "2019-08-24T14:15:22Z"
+          createdTime: '2019-08-24T14:15:22Z'
+          modifiedTime: '2019-08-24T14:15:22Z'
       properties:
         id:
           type: string
@@ -3107,7 +3028,7 @@ components:
           type: string
           description: The timestamp the user was last modified
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3116,7 +3037,7 @@ components:
     Contact:
       title: Contact
       type: object
-      description: "Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)"
+      description: 'Information about an individual affiliated with another CRM Object (e.g., a Lead, a Deal, etc)'
       properties:
         id:
           type: string
@@ -3165,7 +3086,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3251,7 +3172,7 @@ components:
               type: string
               description: The Id of the User that owns this Deal
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - name
@@ -3262,7 +3183,7 @@ components:
     Account:
       title: Account
       type: object
-      description: "(Alias: company, organization) An organization involved with your business."
+      description: '(Alias: company, organization) An organization involved with your business.'
       properties:
         id:
           type: string
@@ -3288,7 +3209,7 @@ components:
           type: string
           description: The primary phone number. Not supported by Pipedrive
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         createdTime:
           type: string
           description: The timestamp that the account was created
@@ -3319,7 +3240,7 @@ components:
               type: string
               description: The Id of the User that owns this Account
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3378,7 +3299,7 @@ components:
               type: string
               description: The Id of the User that owns this Lead
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3387,7 +3308,7 @@ components:
     Note:
       title: Note
       type: object
-      description: "A Note attached to some CRM Object. "
+      description: 'A Note attached to some CRM Object. '
       properties:
         id:
           type: string
@@ -3433,7 +3354,7 @@ components:
               type: string
               description: The Id of the User that owns this note
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3496,7 +3417,7 @@ components:
               type: string
               description: The Id of the User that owns this Task
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3571,7 +3492,7 @@ components:
               type: string
               description: The Id of the User that owns this event
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - createdTime
@@ -3580,7 +3501,7 @@ components:
     EventAttendee:
       title: EventAttendee
       type: object
-      description: "Event Attendees hold information about someone who attendee or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other."
+      description: 'Event Attendees hold information about someone who attendee or was invited to an event. Attendees are always associated with some Event and another person object such as a Contact, Lead, or Other.'
       properties:
         id:
           type: string
@@ -3589,7 +3510,7 @@ components:
           type: string
         associatedObjectType:
           type: string
-          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          description: 'The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object'
           enum: [contacts, leads, other]
         email:
           type: string
@@ -3610,9 +3531,9 @@ components:
               type: string
             associationId:
               type: string
-              description: "The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present"
+              description: 'The id of the associated object, if this Attendee is not associated with a CRM object, this id is null and the `email` field will be present'
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - associatedObjectType
@@ -3627,10 +3548,10 @@ components:
       properties:
         key:
           type: string
-          description: "The key in the CRM object (ex: annualRevenue, numberOfEmployees, etc)"
+          description: 'The key in the CRM object (ex: annualRevenue, numberOfEmployees, etc)'
         name:
           type: string
-          description: "The display name of this field (ex: number of employees, annual revenue, etc)"
+          description: 'The display name of this field (ex: number of employees, annual revenue, etc)'
         type:
           type: string
           enum:
@@ -3683,7 +3604,7 @@ components:
           type: boolean
           description: If this field can be updated
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - key
         - name
@@ -3790,7 +3711,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - from
@@ -3857,7 +3778,7 @@ components:
               type: string
               description: The Id of the User that owns this call
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     CallCreate:
       title: CallCreate
       type: object
@@ -3891,7 +3812,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - disposition
         - direction
@@ -3909,7 +3830,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - disposition
     EmailCreate:
@@ -3987,7 +3908,7 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - from
         - to
@@ -3995,7 +3916,7 @@ components:
     EmailUpdate:
       title: EmailUpdate
       type: object
-      description: ""
+      description: ''
       examples:
         - isIncoming: false
           status: SENT
@@ -4014,18 +3935,18 @@ components:
               type: string
               description: The Id of the User that owns this email
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     EventAttendeeCreate:
       title: EventAttendeeCreate
       type: object
-      description: ""
+      description: ''
       properties:
         email:
           type: string
           description: 'Required if associationId is not present and the CRM supports "Other" for attendee associatedObjectType '
         associatedObjectType:
           type: string
-          description: "The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object"
+          description: 'The object type of the associated object (e.g., Contact, Lead, etc) or Other if this Attendee is not associated with a CRM object'
           enum: [contacts, leads, other]
         status:
           type: string
@@ -4040,7 +3961,7 @@ components:
             eventId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - associatedObjectType
         - associations
@@ -4051,12 +3972,12 @@ components:
         status:
           type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
-      description: ""
+          $ref: '#/components/schemas/NativeData'
+      description: ''
     EventCreate:
       title: EventCreate
       type: object
-      description: ""
+      description: ''
       properties:
         subject:
           type: string
@@ -4087,7 +4008,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - startDateTime
         - endDateTime
@@ -4116,11 +4037,11 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     TaskCreate:
       title: TaskCreate
       type: object
-      description: ""
+      description: ''
       properties:
         body:
           type: string
@@ -4155,11 +4076,11 @@ components:
             contactId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     TaskUpdate:
       title: TaskUpdate
       type: object
-      description: ""
+      description: ''
       properties:
         body:
           type: string
@@ -4182,7 +4103,7 @@ components:
             ownerUserId:
               type: string
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     ContactUpdate:
       title: ContactUpdate
       type: object
@@ -4209,7 +4130,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     ContactCreate:
       title: ContactCreate
       type: object
@@ -4239,7 +4160,7 @@ components:
               type: string
               description: The Id of the User to assign this Contact to
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - lastName
     DealUpdate:
@@ -4265,7 +4186,7 @@ components:
               type: string
               description: Update the account this deal is associated with.
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - closeDate
     DealCreate:
@@ -4291,7 +4212,7 @@ components:
               type: string
               description: The Id of the account to associate this deal with
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - name
         - closeDate
@@ -4320,7 +4241,7 @@ components:
           type: string
           description: The primary phone| Not supported by Pipedrive
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         associations:
           type: object
           properties:
@@ -4328,7 +4249,7 @@ components:
               type: string
               description: The Id of the User to assign this Account to
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - name
     AccountCreate:
@@ -4362,9 +4283,9 @@ components:
               type: string
               description: The Id of the User to assign this Account to
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - name
     NoteCreate:
@@ -4394,7 +4315,7 @@ components:
               type: string
               description: Required unless leadId/accountId/dealId are specified.
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     NoteUpdate:
       title: NoteUpdate
       type: object
@@ -4410,9 +4331,9 @@ components:
               type: string
               description: Only Admins can change this property
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     LeadUpdate:
-      description: ""
+      description: ''
       type: object
       title: LeadUpdate
       properties:
@@ -4437,9 +4358,9 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number. Not supported for Pipedrive
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
     LeadCreate:
-      description: ""
+      description: ''
       type: object
       title: LeadCreate
       properties:
@@ -4453,7 +4374,7 @@ components:
           type: string
         accountName:
           type: string
-          description: "Name of the Account associated with this lead. Not supported for Pipedrive. Defaults to `[TODO]: Fill in Company Name` in Salesforce"
+          description: 'Name of the Account associated with this lead. Not supported for Pipedrive. Defaults to `[TODO]: Fill in Company Name` in Salesforce'
         phone:
           type: string
           description: The primary phone number for this lead
@@ -4461,16 +4382,16 @@ components:
           type: string
           description: The primary mobile phone number for this lead. Possibly the same as the phone number.
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - lastName
     CustomFieldCreate:
       type: object
-      description: ""
+      description: ''
       properties:
         customKey:
           type: string
-          description: "Used for overriding the default key generated from the name of the field. Not supported for Close"
+          description: 'Used for overriding the default key generated from the name of the field. Not supported for Close'
         name:
           type: string
         type:
@@ -4479,7 +4400,7 @@ components:
             - singleselect
         options:
           type: array
-          description: "Required when `type = singleselect`"
+          description: 'Required when `type = singleselect`'
           items:
             type: object
             properties:
@@ -4491,14 +4412,14 @@ components:
               - name
               - key
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - name
         - type
     ListWithAssociations:
       title: List
       type: object
-      description: "A List or View in a CRM"
+      description: 'A List or View in a CRM'
       properties:
         id:
           type: string
@@ -4531,7 +4452,7 @@ components:
               type: string
               description: The Id of the User that owns this list
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - name
@@ -4541,7 +4462,7 @@ components:
     ListWithoutAssociations:
       title: List
       type: object
-      description: "A List or View in a CRM"
+      description: 'A List or View in a CRM'
       properties:
         id:
           type: string
@@ -4556,7 +4477,7 @@ components:
           type: string
           description: The timestamp the list was last modified
         $native:
-          $ref: "#/components/schemas/NativeData"
+          $ref: '#/components/schemas/NativeData'
       required:
         - id
         - name

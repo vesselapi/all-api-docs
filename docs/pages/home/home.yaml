@@ -1,19 +1,19 @@
 openapi: 3.1.0
 info:
   title: API Reference
-  version: "1.0"
+  version: '1.0'
   summary: API
 security:
   - VesselAPIToken: []
 servers:
-  - url: "https://app.vessel.dev/api"
+  - url: 'https://app.vessel.dev/api'
 paths:
   /api/connections/list:
     post:
       summary: List Connections
       operationId: get-all-connections
       responses:
-        "200":
+        '200':
           description: List Connections
           content:
             application/json:
@@ -24,7 +24,7 @@ paths:
                   connections:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Connection"
+                      $ref: '#/components/schemas/Connection'
               examples:
                 example-1:
                   value:
@@ -33,7 +33,7 @@ paths:
                         environment: development
                         integrationId: apollo
                         createdTime: 2022-11-09T23:11:28.617Z
-      description: "List all connections associated with this api key."
+      description: 'List all connections associated with this api key.'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -42,7 +42,7 @@ paths:
       summary: Find Connection
       operationId: get-one-connection
       responses:
-        "200":
+        '200':
           description: Find a Connection
           content:
             application/json:
@@ -51,7 +51,7 @@ paths:
                 type: object
                 properties:
                   connection:
-                    $ref: "#/components/schemas/Connection"
+                    $ref: '#/components/schemas/Connection'
               examples:
                 example-1:
                   value:
@@ -60,7 +60,7 @@ paths:
                       environment: development
                       integrationId: apollo
                       createdTime: 2022-11-09T23:11:28.617Z
-      description: "Find a connection"
+      description: 'Find a connection'
       requestBody:
         content:
           application/json:
@@ -70,11 +70,11 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
-                  id: "v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+                  id: 'v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -83,7 +83,7 @@ paths:
       summary: Delete Connection
       operationId: delete-one-connection
       responses:
-        "200":
+        '200':
           description: Delete a Connection
           content:
             application/json:
@@ -93,7 +93,7 @@ paths:
                 properties:
                   success: true
               examples: {}
-      description: "Delete a connection"
+      description: 'Delete a connection'
       requestBody:
         content:
           application/json:
@@ -103,11 +103,11 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
-                  id: "v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+                  id: 'v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -116,7 +116,7 @@ paths:
       summary: List Integrations
       operationId: get-all-integrations
       responses:
-        "200":
+        '200':
           description: List Integrations
           content:
             application/json:
@@ -127,7 +127,7 @@ paths:
                   integrations:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Integration"
+                      $ref: '#/components/schemas/Integration'
               examples:
                 example-1:
                   value:
@@ -135,8 +135,8 @@ paths:
                       - id: apollo
                         display:
                           name: Apollo
-                          iconURI: "1f12532..."
-      description: "List all available Integrations."
+                          iconURI: '1f12532...'
+      description: 'List all available Integrations.'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -145,7 +145,7 @@ paths:
       summary: Get Access Token
       operationId: get-one-access-token
       responses:
-        "200":
+        '200':
           description: Exchange Session Token for Access Token
           content:
             application/json:
@@ -160,7 +160,7 @@ paths:
                   integrationId:
                     type: string
               examples: {}
-      description: "Exchange the session token for an access token. The access token is the secret key used to refer to a specific connected integration."
+      description: 'Exchange the session token for an access token. The access token is the secret key used to refer to a specific connected integration.'
       parameters:
         - in: header
           name: x-vessel-session-token
@@ -175,7 +175,7 @@ paths:
       summary: Get Session Token
       operationId: get-one-session-token
       responses:
-        "200":
+        '200':
           description: Get Session Token
           content:
             application/json:
@@ -188,7 +188,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    sessionToken: "v_session_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52"
+                    sessionToken: 'v_session_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52'
       description: "Call this endpoint to start a new Authentication Session before authenticating your User's integration."
       security:
         - VesselAPIToken: []
@@ -198,7 +198,7 @@ paths:
       summary: List OAuth Apps
       operationId: get-all-oauth-apps
       responses:
-        "200":
+        '200':
           description: List OAuth Apps
           content:
             application/json:
@@ -209,9 +209,9 @@ paths:
                   oauthApps:
                     type: array
                     items:
-                      $ref: "#/components/schemas/OAuthApp"
+                      $ref: '#/components/schemas/OAuthApp'
               examples: {}
-      description: "List all OAuth Apps."
+      description: 'List all OAuth Apps.'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -220,7 +220,7 @@ paths:
       summary: Find OAuth App
       operationId: get-one-oauth-app
       responses:
-        "200":
+        '200':
           description: Find an OAuth App
           content:
             application/json:
@@ -229,9 +229,9 @@ paths:
                 type: object
                 properties:
                   oauthApp:
-                    $ref: "#/components/schemas/OAuthApp"
+                    $ref: '#/components/schemas/OAuthApp'
               examples: {}
-      description: "Find an OAuth App"
+      description: 'Find an OAuth App'
       requestBody:
         content:
           application/json:
@@ -241,11 +241,11 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
-                  id: "v_oauthapp_apollo_12312312"
+                  id: 'v_oauthapp_apollo_12312312'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -254,7 +254,7 @@ paths:
       summary: Create OAuth App
       operationId: post-oauth-app
       responses:
-        "200":
+        '200':
           description: Create an OAuth App
           content:
             application/json:
@@ -263,7 +263,7 @@ paths:
                 type: object
                 properties:
                   oauthApp:
-                    $ref: "#/components/schemas/OAuthApp"
+                    $ref: '#/components/schemas/OAuthApp'
               examples: {}
       requestBody:
         content:
@@ -282,19 +282,19 @@ paths:
                   items:
                     type: string
               required:
-                  - integrationId
-                  - clientId
-                  - clientSecret
+                - integrationId
+                - clientId
+                - clientSecret
             examples:
               example-1:
                 value:
-                  integrationId: "apollo"
-                  clientId: "123123123"
-                  clientSecret: "123123123"
+                  integrationId: 'apollo'
+                  clientId: '123123123'
+                  clientSecret: '123123123'
                   scopes:
-                    - "read"
-                    - "write"
-      description: "Create an OAuth App"
+                    - 'read'
+                    - 'write'
+      description: 'Create an OAuth App'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -303,7 +303,7 @@ paths:
       summary: Delete OAuth App
       operationId: delete-oauth-app
       responses:
-        "200":
+        '200':
           description: Delete an OAuth App
           content:
             application/json:
@@ -323,12 +323,12 @@ paths:
                 id:
                   type: string
               required:
-                  - id
+                - id
             examples:
               example-1:
                 value:
-                  id: "v_oauthapp_apollo_12312312"
-      description: "Delete an OAuth App"
+                  id: 'v_oauthapp_apollo_12312312'
+      description: 'Delete an OAuth App'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -337,12 +337,12 @@ paths:
       summary: Passthrough Request
       operationId: passthrough
       parameters:
-      - name: x-vessel-access-token
-        in: header
-        description: Access Token
-        required: true
-        schema:
-          type: string
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -353,30 +353,27 @@ paths:
                 description: ''
                 type: object
                 properties:
-                  headers:
+                  data:
                     type: object
-                  path:
-                    type: string
-                    description: The full URL that the request was sent to.
-                  statusCode:
-                    type: number
-                    description: The HTTP status code of the response from the downstream
-                      system.
-                  body:
-                    AnyValue:
-                      description: The body of the response from the downstream system.
+                  $native:
+                    type: object
+                    properties:
+                      headers:
+                        type: object
+                      body:
+                        type: object
                 required:
-                - id
+                  - id
               examples:
                 example-1:
                   value:
-                    headers:
-                      content-type: application/json
-                    url: https://sometool.com/api/v1/endpoint
-                    statusCode: 200
-                    body:
+                    data:
                       id: 123123123123
-                      success: true
+                    $native:
+                      headers:
+                        content-type: application/json
+                      body:
+                        id: 123123123123
       requestBody:
         content:
           application/json:
@@ -386,34 +383,36 @@ paths:
                 method:
                   type: string
                   enum:
-                  - GET
-                  - POST
-                  - PUT
-                  - PATCH
-                  - DELETE
+                    - GET
+                    - POST
+                    - PUT
+                    - PATCH
+                    - DELETE
                 path:
                   type: string
                   description: The path to send the request to. Vessel handles the domain, for example, a request to Salesforce would use `/services/data/v52.0/sobjects/Account` instead of `https://mydomain.my.salesforce.com/services/data/v52.0/sobjects/Account`.
-                body:
+                json:
                   type: object
-                  description: The body of the request.
+                  description: The JSON body of the request.
                 query:
                   type: object
-                  description: The query parameters to send with the request as key
+                  description:
+                    The query parameters to send with the request as key
                     value pairs. These are appended to the URL when the request is
                     sent to the integration provider.
               required:
-              - method
-              - path
+                - method
+                - path
             examples:
               example-1:
                 value:
                   method: PATCH
-                  path: "/services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1"
-                  body:
-                  - Name: Vessel
+                  path: '/services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1'
+                  json:
+                    - Name: Vessel
         description: ''
-      description: Send an authenticated passthrough request to the downstream system.
+      description:
+        Send an authenticated passthrough request to the downstream system.
         This is useful for making requests to endpoints that are not yet supported
         by Vessel.
 components:
@@ -458,7 +457,7 @@ components:
         - id: apollo
           display:
             name: Apollo
-            iconURI: "1f12532..."
+            iconURI: '1f12532...'
     OAuthApp:
       title: OAuthApp
       type: object
@@ -476,5 +475,3 @@ components:
           integrationId: apollo
           environment: development
           createdTime: 2022-11-09T23:11:28.617Z
-          
-  
