@@ -3056,7 +3056,7 @@ paths:
                 value:
                   method: PATCH
                   path: services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1
-                  body:
+                  json:
                     - Name: "Vessel"
         description: ""
       description: Send an authenticated passthrough request to the downstream CRM. This is useful for making requests to endpoints that are not yet supported by Vessel.
