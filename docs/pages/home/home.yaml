@@ -364,8 +364,8 @@ paths:
                       The HTTP status code of the response from the downstream
                       system.
                   body:
-                    AnyValue:
-                      description: The body of the response from the downstream system.
+                    type: object
+                    description: The body of the response from the downstream system.
                 required:
                   - id
               examples:
