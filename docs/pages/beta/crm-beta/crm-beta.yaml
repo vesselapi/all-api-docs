@@ -63,6 +63,65 @@ paths:
       operationId: list-users
       description: List Users
     parameters: []
+  /api/unifications/crm/users/batch-read:
+    post:
+      summary: Batch Read Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    users:
+                      - id: "12"
+                        firstName: Micheal
+                        lastName: Scott
+                        email: micheal@dundermifflin.com
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $native: false
+                  cursor: "123123"
+      operationId: batch-ready-users
+      description: Batch Read Users
+    parameters: []
   /api/unifications/crm/users/find:
     post:
       summary: Get User
@@ -191,6 +250,79 @@ paths:
                     - accounts
                     - deals
       description: Retrieve all Contacts
+    parameters: []
+  /api/unifications/crm/contacts/batch-read:
+    post:
+      summary: Batch Read Contacts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  contacts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Contact"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    contacts:
+                      - id: "23"
+                        email: tom@bluecross.com
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        phone: "2101128833"
+                        mobilePhone: "2106541111"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-contacts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+                  associations:
+                    - accounts
+                    - deals
+      description: Fetch Contacts by Ids
     parameters: []
   /api/unifications/crm/contacts/find:
     post:
@@ -452,6 +584,87 @@ paths:
                     - accounts
                     - contacts
       description: Retrieve all Deals
+    parameters: []
+  /api/unifications/crm/deals/batch-read:
+    post:
+      summary: Batch Read Deals
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  deals:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Deal"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    deals:
+                      - id: "84"
+                        name: Blue Cross Deal
+                        stage: demo
+                        amount: 10000
+                        closeDate: "2020-08-23T00:00:00Z"
+                        probability: "0.4"
+                        expectedRevenue: 4000
+                        isWon: false
+                        isClosed: false
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-deals
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: accounts, contacts.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+                  associations:
+                    - accounts
+                    - contacts
+      description: Fetch Deals by Ids
     parameters: []
   /api/unifications/crm/deals/find:
     post:
@@ -724,6 +937,90 @@ paths:
                     - deals
                     - contacts
       description: Retrieve all Accounts
+    parameters: []
+  /api/unifications/crm/accounts/batch-read:
+    post:
+      summary: Batch Read Accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Account"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - id: "344"
+                        name: Blue Cross
+                        description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
+                        industry: TV and Media
+                        annualRevenue: 10000000
+                        numberOfEmployees: 100
+                        website: www.bluecross.penn
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: "8192223333"
+                        address:
+                          street: 100 Blue Dr
+                          city: Scranton
+                          state: Pennsylvania
+                          postalCode: "281332"
+                          country: USA
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-accounts
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, leads.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
+      description: Fetch Accounts by Ids
     parameters: []
   /api/unifications/crm/accounts/find:
     post:
@@ -1007,6 +1304,88 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  include:
+                    $native: false
+                  associations:
+                    - contacts
+                    - accounts
+  /api/unifications/crm/leads/batch-read:
+    post:
+      summary: Batch Read Leads
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  leads:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Lead"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    leads:
+                      - id: "23"
+                        firstName: Tom
+                        lastName: Smith
+                        jobTitle: Director of Operations
+                        email: tom@bluecross.com
+                        accountName: Blue Cross
+                        phone: "1234445555"
+                        mobilePhone: "2338889999"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-leads
+      description: |-
+        Fetch Leads by Ids
+        *CRM Caveats*:
+        - Pipedrive: Only `jobTitle` is returned when querying for all leads
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: contacts, accounts.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
                   include:
                     $native: false
                   associations:
@@ -1321,6 +1700,83 @@ paths:
                   associations:
                     - deals
                     - contacts
+  /api/unifications/crm/notes/batch-read:
+    post:
+      summary: Batch Read Notes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  notes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Note"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    notes:
+                      - id: "34"
+                        content: This note has some interesting content in it!
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-notes
+      description: Fetch Notes by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
   /api/unifications/crm/notes/find:
     post:
       summary: Get Note
@@ -1578,6 +2034,89 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
+    parameters: []
+  /api/unifications/crm/tasks/batch-read:
+    post:
+      summary: Batch Read Tasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Task"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    tasks:
+                      - id: "122"
+                        body: This task needs to be done very soon!
+                        subject: High Priority Task
+                        isDone: false
+                        dueDate: "2019-09-24T14:15:22Z"
+                        status: Not Done
+                        priority: High
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-tasks
+      description: Fetch Tasks by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
                   include:
                     $native: false
                   associations:
@@ -1865,6 +2404,91 @@ paths:
                   associations:
                     - deals
                     - contacts
+  /api/unifications/crm/events/batch-read:
+    post:
+      summary: Batch Read Events
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Event"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    events:
+                      - id: "19"
+                        subject: Meeting with Blue Cross
+                        description: Going to get tea with Tom from Blue Cross to discuss his paper needs
+                        type: Meeting
+                        location: 1122 Tea Dr
+                        startDateTime: "2019-08-24T14:15:22Z"
+                        endDateTime: "2019-08-24T14:15:22Z"
+                        isAllDayEvent: true
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          eventAttendeeIds:
+                            - f63c1bd7215f5150b332d31d9509752f
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-events
+      description: Fetch Events by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, accounts, leads, eventAttendees.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
   /api/unifications/crm/events/find:
     post:
       summary: Get Event
@@ -2124,6 +2748,67 @@ paths:
                   cursor: '123123'
                   include:
                     $native: false
+  /api/unifications/crm/event/attendees/batch-read:
+    post:
+      summary: Batch Read Event Attendees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  eventAttendees:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EventAttendee"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    eventAttendees:
+                      - id: "1234"
+                        associatedObjectType: contacts
+                        status: Confirmed
+                        email: null
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          eventId: 0000d2e83d6c5d52a61f2fb860666477
+                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
+                    nextPageCursor: string
+      operationId: batch-read-event-attendees
+      description: Fetch Attendees by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
   /api/unifications/crm/event/attendees/find:
     post:
       summary: Get Event Attendee
@@ -2369,6 +3054,98 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
+    parameters: []
+  /api/unifications/crm/emails/batch-read:
+    post:
+      summary: Batch Read Emails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emails:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Email"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    emails:
+                      - id: "23"
+                        from: michael@dunder.mifflin
+                        to:
+                          - greg@bluecross.com
+                        cc:
+                          - betty@bluecross.com
+                        bcc:
+                          - carl@bluecross.com
+                        subject: BlueCross <> Dunder Mifflin
+                        bodyText: Hi Greg, need any paper? - Michael
+                        bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
+                        messageDate: "2019-08-24T14:15:22Z"
+                        isIncoming: false
+                        isBounced: false
+                        hasAttachment: false
+                        status: SENT
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-emails
+      description: Fetch Emails by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
                   include:
                     $native: false
                   associations:
@@ -2663,6 +3440,87 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  include:
+                    $native: false
+                  associations:
+                    - deals
+                    - contacts
+  /api/unifications/crm/calls/batch-read:
+    post:
+      summary: Batch Read Calls
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calls:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Call"
+                  nextPageCursor:
+                    type: string
+                title: responseBody
+              examples:
+                example-1:
+                  value:
+                    calls:
+                      - id: "23"
+                        subject: BlueCross <> Dunder Mifflin
+                        disposition: "ANSWERED"
+                        direction: "inbound"
+                        description: "Call from Greg"
+                        date: "2019-08-24T14:15:22Z"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                        associations:
+                          accountIds:
+                            - 0dcb45e051315a6ea63b0f16e73689d9
+                          leadIds:
+                            - d08f345ace24509e911a0ea8e3d2203c
+                          contactIds:
+                            - e5f32d4fd2115220bd20a2ccf81210ec
+                          dealIds:
+                            - 497fb529e6805351b5dc8057c74a4a52
+                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
+                    nextPageCursor: string
+      operationId: batch-read-calls
+      description: Fetch Calls by Ids
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                ids:
+                  type: array
+                  items:
+                    type: string
+                cursor:
+                  type: string
+                associations:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    Array of associations to include in the response.
+                    Allowed values: deals, contacts, accounts, leads.
+                    ownerUserId is always included in the response.
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
                   include:
                     $native: false
                   associations:

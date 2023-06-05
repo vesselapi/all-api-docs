@@ -188,6 +188,7 @@
           "group": "User",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-users",
+            "pages/beta/crm-beta/api-reference/batch-get-users",
             "pages/beta/crm-beta/api-reference/get-one-user"
           ]
         },
@@ -195,6 +196,7 @@
           "group": "Contact",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-contacts",
+            "pages/beta/crm-beta/api-reference/batch-get-contacts",
             "pages/beta/crm-beta/api-reference/get-one-contact",
             "pages/beta/crm-beta/api-reference/post-contact",
             "pages/beta/crm-beta/api-reference/put-contact"
@@ -204,6 +206,7 @@
           "group": "Deal",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-deals",
+            "pages/beta/crm-beta/api-reference/batch-get-deals",
             "pages/beta/crm-beta/api-reference/get-one-deal",
             "pages/beta/crm-beta/api-reference/post-deal",
             "pages/beta/crm-beta/api-reference/put-deal"
@@ -213,6 +216,7 @@
           "group": "Account",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-accounts",
+            "pages/beta/crm-beta/api-reference/batch-get-accounts",
             "pages/beta/crm-beta/api-reference/get-one-account",
             "pages/beta/crm-beta/api-reference/post-account",
             "pages/beta/crm-beta/api-reference/put-account"
@@ -222,6 +226,7 @@
           "group": "Lead",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-leads",
+            "pages/beta/crm-beta/api-reference/batch-get-leads",
             "pages/beta/crm-beta/api-reference/get-one-lead",
             "pages/beta/crm-beta/api-reference/post-lead",
             "pages/beta/crm-beta/api-reference/put-lead",
@@ -232,6 +237,7 @@
           "group": "Note",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-notes",
+            "pages/beta/crm-beta/api-reference/batch-get-notes",
             "pages/beta/crm-beta/api-reference/get-one-note",
             "pages/beta/crm-beta/api-reference/post-note",
             "pages/beta/crm-beta/api-reference/put-note"
@@ -241,6 +247,7 @@
           "group": "Task",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-tasks",
+            "pages/beta/crm-beta/api-reference/batch-get-tasks",
             "pages/beta/crm-beta/api-reference/get-one-task",
             "pages/beta/crm-beta/api-reference/post-task",
             "pages/beta/crm-beta/api-reference/put-task"
@@ -250,6 +257,7 @@
           "group": "Email",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-emails",
+            "pages/beta/crm-beta/api-reference/batch-get-emails",
             "pages/beta/crm-beta/api-reference/get-one-email",
             "pages/beta/crm-beta/api-reference/post-email",
             "pages/beta/crm-beta/api-reference/put-email"
@@ -259,6 +267,7 @@
           "group": "Call",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-calls",
+            "pages/beta/crm-beta/api-reference/batch-get-calls",
             "pages/beta/crm-beta/api-reference/get-one-call",
             "pages/beta/crm-beta/api-reference/post-call",
             "pages/beta/crm-beta/api-reference/put-call"
@@ -268,6 +277,7 @@
           "group": "Event",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-events",
+            "pages/beta/crm-beta/api-reference/batch-get-events",
             "pages/beta/crm-beta/api-reference/get-one-event",
             "pages/beta/crm-beta/api-reference/post-event",
             "pages/beta/crm-beta/api-reference/put-event"
@@ -277,6 +287,7 @@
           "group": "Event Attendee",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-event-attendees",
+            "pages/beta/crm-beta/api-reference/get-batch-get-attendees",
             "pages/beta/crm-beta/api-reference/get-one-event-attendee",
             "pages/beta/crm-beta/api-reference/post-event-attendee",
             "pages/beta/crm-beta/api-reference/put-event-attendee"
