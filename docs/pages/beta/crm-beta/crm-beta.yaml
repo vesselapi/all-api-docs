@@ -118,8 +118,12 @@ paths:
                 value:
                   include:
                     $native: false
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   cursor: "123123"
-      operationId: batch-ready-users
+      operationId: batch-read-users
       description: Batch Read Users
     parameters: []
   /api/unifications/crm/users/find:
@@ -317,6 +321,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -659,6 +667,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -1015,6 +1027,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -1386,6 +1402,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -1772,6 +1792,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -2117,6 +2141,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -2484,6 +2512,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -2807,6 +2839,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
   /api/unifications/crm/event/attendees/find:
@@ -3146,6 +3182,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
@@ -3521,6 +3561,10 @@ paths:
               example-1:
                 value:
                   cursor: "123123"
+                  ids:
+                    - "123123"
+                    - "456456"
+                    - "567567"
                   include:
                     $native: false
                   associations:
