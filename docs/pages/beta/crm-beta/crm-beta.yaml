@@ -173,6 +173,19 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    emails:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                        in:
+                          type: array
+                          items:
+                            type: string
+                  required: emails
                 associations:
                   type: array
                   items:
