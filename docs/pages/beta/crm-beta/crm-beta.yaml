@@ -2726,7 +2726,7 @@ paths:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: Update an existing Event by Id
     parameters: []
-  /api/unifications/crm/event/attendees/list:
+  /api/unifications/crm/attendees/list:
     post:
       summary: List Event Attendees
       responses:
@@ -2783,7 +2783,7 @@ paths:
                   cursor: '123123'
                   include:
                     $native: false
-  /api/unifications/crm/event/attendees/batch-read:
+  /api/unifications/crm/attendees/batch-read:
     post:
       summary: Batch Read Event Attendees
       responses:
@@ -2848,7 +2848,7 @@ paths:
                     - "567567"
                   include:
                     $native: false
-  /api/unifications/crm/event/attendees/find:
+  /api/unifications/crm/attendees/find:
     post:
       summary: Get Event Attendee
       responses:
@@ -2903,7 +2903,7 @@ paths:
                     $native: false
       description: Retrieve a single Event Attendee by Id
     parameters: []
-  /api/unifications/crm/event/attendees/create:
+  /api/unifications/crm/attendees/create:
     post:
       summary: Create Event Attendee
       operationId: create-event-attendee
@@ -2958,7 +2958,7 @@ paths:
                       associationId: 98201f83c3f1c36dbcb36804c572c3ca
                       eventId: 0000d2e83d6c5d52a61f2fb860666477
       description: Add an Attendee to an Event
-  /api/unifications/crm/event/attendees/update:
+  /api/unifications/crm/attendees/update:
     post:
       summary: Update Event Attendee
       operationId: update-event-attendee
