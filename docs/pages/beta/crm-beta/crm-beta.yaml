@@ -124,7 +124,10 @@ paths:
                     - "567567"
                   cursor: "123123"
       operationId: batch-read-users
-      description: Batch Read Users
+      description: |-
+        Batch Read Users
+        *CRM Caveats*:
+          Not supported for HubSpot.
     parameters: []
   /api/unifications/crm/users/find:
     post:
