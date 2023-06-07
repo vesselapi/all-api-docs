@@ -15,12 +15,7 @@ curl --request POST \
   "cursor": "123123",
   "filter": {
     "email": {
-      "in": [
-        "michael@dunder.mifflin",
-        "greg@bluecross.com",
-        "betty@bluecross.com",
-        "carl@bluecross.com"
-      ]
+      "equals": "michael@dunder.mifflin"
     }
   },
   "associations": [
