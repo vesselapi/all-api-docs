@@ -242,7 +242,7 @@ paths:
                 filters:
                   type: object
                   properties:
-                    emails:
+                    email:
                       type: object
                       properties:
                         equals:
@@ -251,7 +251,7 @@ paths:
                           type: array
                           items:
                             type: string
-                  required: emails
+                  required: email
                 associations:
                   type: array
                   items:
@@ -265,7 +265,7 @@ paths:
                 value:
                   cursor: '123123'
                   filters:
-                    emails:
+                    email:
                       equals: 'michael@dunder.mifflin'
                   include:
                     $native: false
