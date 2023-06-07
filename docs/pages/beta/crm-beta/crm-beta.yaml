@@ -264,6 +264,9 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  filters:
+                    emails:
+                      equals: 'michael@dunder.mifflin'
                   include:
                     $native: false
                   associations:

@@ -13,6 +13,16 @@ curl --request POST \
   --data '{
   "include": { $native: false },
   "cursor": "123123",
+  "filter": {
+    "email": {
+      "in": [
+        "michael@dunder.mifflin",
+        "greg@bluecross.com",
+        "betty@bluecross.com",
+        "carl@bluecross.com"
+      ]
+    }
+  },
   "associations": [
     "accounts",
     "deals",
