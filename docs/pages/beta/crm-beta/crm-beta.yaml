@@ -239,6 +239,19 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    email:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                        in:
+                          type: array
+                          items:
+                            type: string
+                  required: email
                 associations:
                   type: array
                   items:
@@ -251,6 +264,9 @@ paths:
               example-1:
                 value:
                   cursor: '123123'
+                  filters:
+                    email:
+                      equals: 'michael@dunder.mifflin'
                   include:
                     $native: false
                   associations:
