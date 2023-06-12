@@ -484,6 +484,7 @@ paths:
                           type: array
                           items:
                             type: string
+                      required: in
                     sequenceIds:
                       type: object
                       properties:
@@ -491,6 +492,7 @@ paths:
                           type: array
                           items:
                             type: string
+                      required: in
             examples:
               example-1:
                 value:
