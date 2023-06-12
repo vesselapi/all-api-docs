@@ -501,7 +501,7 @@ paths:
                     emails:
                       address:
                         equals: fake@email.com
-                    tags:
+                    tagIds:
                       in:
                         - "some_tag"
                     sequenceIds:
