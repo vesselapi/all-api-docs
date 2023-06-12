@@ -5317,7 +5317,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Connection"
       operationId: get-all-crm-connections
-      description: List all established connections for a environment
+      description: List all connections
   /connection/webhook:
     get:
       summary: Get Webhook

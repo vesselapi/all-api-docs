@@ -30,10 +30,9 @@ paths:
                   value:
                     connections:
                       - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
-                        environment: development
                         integrationId: apollo
                         createdTime: 2022-11-09T23:11:28.617Z
-      description: 'List all connections associated with this api key.'
+      description: 'List all connections associated with this api token.'
       security:
         - VesselAPIToken: []
     parameters: []
@@ -57,7 +56,6 @@ paths:
                   value:
                     connection:
                       id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
-                      environment: development
                       integrationId: apollo
                       createdTime: 2022-11-09T23:11:28.617Z
       description: 'Find a connection'
@@ -430,14 +428,10 @@ components:
           type: string
         integrationId:
           type: string
-        environment:
-          type: string
-          enum: [development, production]
         createdTime:
           type: string
       examples:
         - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
-          environment: development
           integrationId: apollo
           createdTime: 2022-11-09T23:11:28.617Z
     Integration:
@@ -466,12 +460,9 @@ components:
           type: string
         integrationId:
           type: string
-        environment:
-          type: string
         createdTime:
           type: string
       examples:
         - id: v_oauthapp_apollo_12312312
           integrationId: apollo
-          environment: development
           createdTime: 2022-11-09T23:11:28.617Z
