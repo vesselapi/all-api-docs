@@ -477,7 +477,20 @@ paths:
                               type: string
                           required: equals
                       required: address
-                  required: emails
+                    tagIds:
+                      type: object
+                      properties:
+                        in:
+                          type: array
+                          items:
+                            type: string
+                    sequenceIds:
+                      type: object
+                      properties:
+                        in:
+                          type: array
+                          items:
+                            type: string
             examples:
               example-1:
                 value:
@@ -488,6 +501,12 @@ paths:
                     emails:
                       address:
                         equals: fake@email.com
+                    tags:
+                      in:
+                        - "some_tag"
+                    sequenceIds:
+                      in:
+                        - "123"
       description: Retrieve all Contacts
     parameters: []
   /api/unifications/engagement/contacts/find:
