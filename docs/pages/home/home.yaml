@@ -351,8 +351,6 @@ paths:
                 description: ''
                 type: object
                 properties:
-                  data:
-                    type: object
                   $native:
                     type: object
                     properties:
@@ -360,18 +358,20 @@ paths:
                         type: object
                       body:
                         type: object
+                      url:
+                        type: string
                 required:
                   - id
               examples:
                 example-1:
                   value:
-                    data:
-                      id: 123123123123
                     $native:
                       headers:
                         content-type: application/json
                       body:
                         id: 123123123123
+                      url: 'https://test.my.salesforce.com/services/data/v52.0/sobjects/Account/0011A00001XQ4ZUQA1'
+
       requestBody:
         content:
           application/json:
