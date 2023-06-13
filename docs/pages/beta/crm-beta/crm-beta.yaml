@@ -181,6 +181,66 @@ paths:
                     $native: false
       description: Retrieve a single User by Id
     parameters: []
+  /api/unifications/crm/users/details:
+    post:
+      summary: Get User Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-user
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all users.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/contacts/list:
     post:
       summary: List Contacts
@@ -535,6 +595,66 @@ paths:
               properties: {}
         description: ''
       description: Update an existing Contact.
+  /api/unifications/crm/contacts/details:
+    post:
+      summary: Get Contact Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-contact
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all contacts.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/deals/list:
     post:
       summary: List Deals
@@ -885,6 +1005,66 @@ paths:
                       accountId: 0dcb45e051315a6ea63b0f16e73689d9
         description: ''
       description: Update an existing Deal
+  /api/unifications/crm/deals/details:
+    post:
+      summary: Get Deal Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: stage
+                        name: Stage
+                        type: enum
+                        options: ['OPEN', 'CLOSED_WON', 'CLOSED_LOST']
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: false
+                        updatable: false
+                    nextPageCursor: string
+      operationId: get-details-crm-deal
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all deals.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/accounts/list:
     post:
       summary: List Accounts
@@ -1266,6 +1446,66 @@ paths:
                       country: USA
                     $native: {}
       description: Update an existing Account
+  /api/unifications/crm/accounts/details:
+    post:
+      summary: Get Account Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: name
+                        name: Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-account
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all accounts.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/leads/list:
     post:
       summary: List Leads
@@ -1666,6 +1906,66 @@ paths:
                     name: 'new field'
                     type: 'singleselect'
                     $native: {}
+  /api/unifications/crm/leads/details:
+    post:
+      summary: Get Lead Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: firstName
+                        name: First name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-lead
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all leads.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/notes/list:
     post:
       summary: List Notes
@@ -2004,6 +2304,66 @@ paths:
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Note by Id
+  /api/unifications/crm/notes/details:
+    post:
+      summary: Get Note Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: contentText
+                        name: Content Text
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-note
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all notes.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/tasks/list:
     post:
       summary: List Tasks
@@ -2370,6 +2730,66 @@ paths:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
       description: Update an existing Task by Id
     parameters: []
+  /api/unifications/crm/tasks/details:
+    post:
+      summary: Get Task Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-task
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all tasks.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/events/list:
     post:
       summary: List Events
@@ -2742,7 +3162,67 @@ paths:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: Update an existing Event by Id
     parameters: []
-  /api/unifications/crm/event/attendees/list:
+  /api/unifications/crm/events/details:
+    post:
+      summary: Get Event Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-event
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all events.
+        Details include the type, possible values, and other meta data about the fields.
+  /api/unifications/crm/attendees/list:
     post:
       summary: List Event Attendees
       responses:
@@ -2799,7 +3279,7 @@ paths:
                   cursor: '123123'
                   include:
                     $native: false
-  /api/unifications/crm/event/attendees/batch-read:
+  /api/unifications/crm/attendees/batch-read:
     post:
       summary: Batch Read Event Attendees
       responses:
@@ -2864,7 +3344,7 @@ paths:
                     - "567567"
                   include:
                     $native: false
-  /api/unifications/crm/event/attendees/find:
+  /api/unifications/crm/attendees/find:
     post:
       summary: Get Event Attendee
       responses:
@@ -2919,7 +3399,7 @@ paths:
                     $native: false
       description: Retrieve a single Event Attendee by Id
     parameters: []
-  /api/unifications/crm/event/attendees/create:
+  /api/unifications/crm/attendees/create:
     post:
       summary: Create Event Attendee
       operationId: create-event-attendee
@@ -2974,7 +3454,7 @@ paths:
                       associationId: 98201f83c3f1c36dbcb36804c572c3ca
                       eventId: 0000d2e83d6c5d52a61f2fb860666477
       description: Add an Attendee to an Event
-  /api/unifications/crm/event/attendees/update:
+  /api/unifications/crm/attendees/update:
     post:
       summary: Update Event Attendee
       operationId: update-event-attendee
@@ -3027,6 +3507,66 @@ paths:
                     status: Declined
                     $native: {}
       description: Update the status of an event attendee
+  /api/unifications/crm/attendees/details:
+    post:
+      summary: Get Attendee Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: status
+                        name: Status
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: false
+                        updatable: false
+                    nextPageCursor: string
+      operationId: get-details-crm-attendee
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all attendees.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/emails/list:
     post:
       summary: List Emails
@@ -3427,6 +3967,66 @@ paths:
         Update an Email by Id.
         *CRM Caveats*:
         - Pipedrive: Not supported.
+  /api/unifications/crm/emails/details:
+    post:
+      summary: Get Email Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-email
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all emails.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/calls/list:
     post:
       summary: List Calls
@@ -3779,6 +4379,66 @@ paths:
                       ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       description: |-
         Update an Call by Id.
+  /api/unifications/crm/calls/details:
+    post:
+      summary: Get Call Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: subject
+                        name: Subject
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-call
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all calls.
+        Details include the type, possible values, and other meta data about the fields.
   /api/unifications/crm/lists/list:
     post:
       summary: List Lists
@@ -3902,6 +4562,66 @@ paths:
                   include:
                     $native: false
       description: Retrieve a single List by Id
+  /api/unifications/crm/lists/details:
+    post:
+      summary: Get List Details
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Field"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    fields:
+                      - key: name
+                        name: Name
+                        type: string
+                        options: null
+                        isArray: false
+                        custom: false
+                        universal: true
+                        required: false
+                        creatable: true
+                        updatable: true
+                    nextPageCursor: string
+      operationId: get-details-crm-list
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  include:
+                    $include: false
+                  cursor: '123123'
+      description: |-
+        Get details about all lists.
+        Details include the type, possible values, and other meta data about the fields.
 components:
   schemas:
     IncludeFields:
