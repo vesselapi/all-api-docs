@@ -235,7 +235,7 @@
             "pages/beta/crm-beta/api-reference/post-lead",
             "pages/beta/crm-beta/api-reference/put-lead",
             "pages/beta/crm-beta/api-reference/post-lead-custom-field",
-            "pages/beta/crm-beta/api-reference/details-fields"
+            "pages/beta/crm-beta/api-reference/details-leads"
           ]
         },
         {
