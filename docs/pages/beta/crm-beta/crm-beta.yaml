@@ -1689,7 +1689,7 @@ paths:
                   value:
                     notes:
                       - id: '34'
-                        content: This note has some interesting content in it!
+                        contentText: This note has some interesting content in it!
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
                         associations:
@@ -1762,7 +1762,7 @@ paths:
                   value:
                     notes:
                       - id: "34"
-                        content: This note has some interesting content in it!
+                        contentText: This note has some interesting content in it!
                         modifiedTime: "2019-08-24T14:15:22Z"
                         createdTime: "2019-08-24T14:15:22Z"
                         associations:
@@ -1839,7 +1839,7 @@ paths:
                   value:
                     note:
                       id: '34'
-                      content: This note has some interesting content in it!
+                      contentText: This note has some interesting content in it!
                       modifiedTime: '2019-08-24T14:15:22Z'
                       createdTime: '2019-08-24T14:15:22Z'
                       associations:
@@ -1936,7 +1936,7 @@ paths:
               example-1:
                 value:
                   note:
-                    content: This note has some interesting content in it!
+                    contentText: This note has some interesting content in it!
                     $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
@@ -1999,7 +1999,7 @@ paths:
                 value:
                   id: string
                   note:
-                    content: This note has some interesting content in it!
+                    contentText: This note has some interesting content in it!
                     $native: {}
                     associations:
                       ownerUserId: 79d154aa0c7a571295a157369d448e65
@@ -5214,9 +5214,12 @@ components:
       type: object
       description: Create a new Note. You may only associate a note with at most one entity of each type upon creation.
       properties:
-        content:
+        contentText:
           type: string
-          description: The body of the note
+          description: The body of the note as text
+        contentHtml:
+          type: string
+          description: The body of the note as HTML. 
         associations:
           type: object
           properties:
@@ -5242,9 +5245,12 @@ components:
       type: object
       description: Update an existing Note. Please note that updating associations is not currently supported.
       properties:
-        content:
+        contentText:
           type: string
-          description: The body of the note
+          description: The body of the note as text
+        contentHtml:
+          type: string
+          description: The body of the note as HTML.
         associations:
           type: object
           properties:
