@@ -1,22 +1,19 @@
 ---
-openapi: "POST /api/unifications/crm/attendees/batch-read"
+openapi: "POST /api/unifications/crm/emails/details"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/crm/attendees/batch-read \
+  --url https://app.vessel.dev/api/unifications/crm/emails/details \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
   "include": { $native: false },
-  "ids": ["123123", "456456", "5675675"],
   "cursor": "123123"
 }'
 ```
 
 </RequestExample>
-
-
