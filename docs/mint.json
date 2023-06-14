@@ -189,7 +189,8 @@
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-users",
             "pages/beta/crm-beta/api-reference/batch-get-users",
-            "pages/beta/crm-beta/api-reference/get-one-user"
+            "pages/beta/crm-beta/api-reference/get-one-user",
+            "pages/beta/crm-beta/api-reference/details-users"
           ]
         },
         {
@@ -199,7 +200,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-contacts",
             "pages/beta/crm-beta/api-reference/get-one-contact",
             "pages/beta/crm-beta/api-reference/post-contact",
-            "pages/beta/crm-beta/api-reference/put-contact"
+            "pages/beta/crm-beta/api-reference/put-contact",
+            "pages/beta/crm-beta/api-reference/details-contacts"
           ]
         },
         {
@@ -209,7 +211,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-deals",
             "pages/beta/crm-beta/api-reference/get-one-deal",
             "pages/beta/crm-beta/api-reference/post-deal",
-            "pages/beta/crm-beta/api-reference/put-deal"
+            "pages/beta/crm-beta/api-reference/put-deal",
+            "pages/beta/crm-beta/api-reference/details-deals"
           ]
         },
         {
@@ -219,7 +222,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-accounts",
             "pages/beta/crm-beta/api-reference/get-one-account",
             "pages/beta/crm-beta/api-reference/post-account",
-            "pages/beta/crm-beta/api-reference/put-account"
+            "pages/beta/crm-beta/api-reference/put-account",
+            "pages/beta/crm-beta/api-reference/details-accounts"
           ]
         },
         {
@@ -230,7 +234,8 @@
             "pages/beta/crm-beta/api-reference/get-one-lead",
             "pages/beta/crm-beta/api-reference/post-lead",
             "pages/beta/crm-beta/api-reference/put-lead",
-            "pages/beta/crm-beta/api-reference/post-lead-custom-field"
+            "pages/beta/crm-beta/api-reference/post-lead-custom-field",
+            "pages/beta/crm-beta/api-reference/details-leads"
           ]
         },
         {
@@ -240,7 +245,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-notes",
             "pages/beta/crm-beta/api-reference/get-one-note",
             "pages/beta/crm-beta/api-reference/post-note",
-            "pages/beta/crm-beta/api-reference/put-note"
+            "pages/beta/crm-beta/api-reference/put-note",
+            "pages/beta/crm-beta/api-reference/details-notes"
           ]
         },
         {
@@ -250,7 +256,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-tasks",
             "pages/beta/crm-beta/api-reference/get-one-task",
             "pages/beta/crm-beta/api-reference/post-task",
-            "pages/beta/crm-beta/api-reference/put-task"
+            "pages/beta/crm-beta/api-reference/put-task",
+            "pages/beta/crm-beta/api-reference/details-tasks"
           ]
         },
         {
@@ -260,7 +267,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-emails",
             "pages/beta/crm-beta/api-reference/get-one-email",
             "pages/beta/crm-beta/api-reference/post-email",
-            "pages/beta/crm-beta/api-reference/put-email"
+            "pages/beta/crm-beta/api-reference/put-email",
+            "pages/beta/crm-beta/api-reference/details-emails"
           ]
         },
         {
@@ -270,7 +278,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-calls",
             "pages/beta/crm-beta/api-reference/get-one-call",
             "pages/beta/crm-beta/api-reference/post-call",
-            "pages/beta/crm-beta/api-reference/put-call"
+            "pages/beta/crm-beta/api-reference/put-call",
+            "pages/beta/crm-beta/api-reference/details-calls"
           ]
         },
         {
@@ -280,7 +289,8 @@
             "pages/beta/crm-beta/api-reference/batch-get-events",
             "pages/beta/crm-beta/api-reference/get-one-event",
             "pages/beta/crm-beta/api-reference/post-event",
-            "pages/beta/crm-beta/api-reference/put-event"
+            "pages/beta/crm-beta/api-reference/put-event",
+            "pages/beta/crm-beta/api-reference/details-events"
           ]
         },
         {
@@ -290,14 +300,16 @@
             "pages/beta/crm-beta/api-reference/get-batch-get-attendees",
             "pages/beta/crm-beta/api-reference/get-one-event-attendee",
             "pages/beta/crm-beta/api-reference/post-event-attendee",
-            "pages/beta/crm-beta/api-reference/put-event-attendee"
+            "pages/beta/crm-beta/api-reference/put-event-attendee",
+            "pages/beta/crm-beta/api-reference/details-attendees"
           ]
         },
         {
           "group": "Lists",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-lists",
-            "pages/beta/crm-beta/api-reference/get-one-list"
+            "pages/beta/crm-beta/api-reference/get-one-list",
+            "pages/beta/crm-beta/api-reference/details-lists"
           ]
         }
       ]
