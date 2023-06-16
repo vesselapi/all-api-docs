@@ -311,6 +311,7 @@ paths:
                           type: array
                           items:
                             type: string
+                  description: If you are using filters for HubSpot, associations cannot be provided.
                   required: email
                 associations:
                   type: array
@@ -1579,6 +1580,7 @@ paths:
                           type: array
                           items:
                             type: string
+                  description: If you are using filters for HubSpot, associations cannot be provided.
                   required: email
                 associations:
                   type: array
