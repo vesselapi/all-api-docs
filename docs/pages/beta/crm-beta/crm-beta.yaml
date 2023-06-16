@@ -67,7 +67,7 @@ paths:
     post:
       summary: Batch Read Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -78,19 +78,19 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/User"
+                      $ref: '#/components/schemas/User'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     users:
-                      - id: "12"
+                      - id: '12'
                         firstName: Micheal
                         lastName: Scott
                         email: micheal@dundermifflin.com
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                     nextPageCursor: string
       parameters:
         - name: x-vessel-access-token
@@ -106,7 +106,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -119,10 +119,10 @@ paths:
                   include:
                     $native: false
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
-                  cursor: "123123"
+                    - '123123'
+                    - '456456'
+                    - '567567'
+                  cursor: '123123'
       operationId: batch-read-users
       description: |-
         Batch Read Users
@@ -185,7 +185,7 @@ paths:
     post:
       summary: Get User Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -196,7 +196,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -229,7 +229,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -338,7 +338,7 @@ paths:
     post:
       summary: Batch Read Contacts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -349,22 +349,22 @@ paths:
                   contacts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Contact"
+                      $ref: '#/components/schemas/Contact'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     contacts:
-                      - id: "23"
+                      - id: '23'
                         email: tom@bluecross.com
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
-                        phone: "2101128833"
-                        mobilePhone: "2106541111"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: '2101128833'
+                        mobilePhone: '2106541111'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -389,7 +389,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 ids:
@@ -399,11 +399,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -599,7 +599,7 @@ paths:
     post:
       summary: Get Contact Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -610,7 +610,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -643,7 +643,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -736,7 +736,7 @@ paths:
     post:
       summary: Batch Read Deals
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -747,24 +747,24 @@ paths:
                   deals:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Deal"
+                      $ref: '#/components/schemas/Deal'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     deals:
-                      - id: "84"
+                      - id: '84'
                         name: Blue Cross Deal
                         stage: demo
                         amount: 10000
-                        closeDate: "2020-08-23T00:00:00Z"
-                        probability: "0.4"
+                        closeDate: '2020-08-23T00:00:00Z'
+                        probability: '0.4'
                         expectedRevenue: 4000
                         isWon: false
                         isClosed: false
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           contactIds:
                             - e5f32d4fd2115220bd20a2ccf81210ec
@@ -787,7 +787,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -805,11 +805,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -1009,7 +1009,7 @@ paths:
     post:
       summary: Get Deal Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1020,7 +1020,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -1053,7 +1053,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -1153,7 +1153,7 @@ paths:
     post:
       summary: Batch Read Accounts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1164,28 +1164,28 @@ paths:
                   accounts:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Account"
+                      $ref: '#/components/schemas/Account'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     accounts:
-                      - id: "344"
+                      - id: '344'
                         name: Blue Cross
                         description: Blue Cross of Pennsylvania is responsible for providing services to the good people of Scranton
                         industry: TV and Media
                         annualRevenue: 10000000
                         numberOfEmployees: 100
                         website: www.bluecross.penn
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        phone: "8192223333"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        phone: '8192223333'
                         address:
                           street: 100 Blue Dr
                           city: Scranton
                           state: Pennsylvania
-                          postalCode: "281332"
+                          postalCode: '281332'
                           country: USA
                         associations:
                           dealIds:
@@ -1211,7 +1211,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
                 associations:
@@ -1225,11 +1225,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -1450,7 +1450,7 @@ paths:
     post:
       summary: Get Account Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1461,7 +1461,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -1494,7 +1494,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -1567,6 +1567,19 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    email:
+                      type: object
+                      properties:
+                        equals:
+                          type: string
+                        in:
+                          type: array
+                          items:
+                            type: string
+                  required: email
                 associations:
                   type: array
                   items:
@@ -1581,6 +1594,9 @@ paths:
                   cursor: '123123'
                   include:
                     $native: false
+                  filters:
+                    email:
+                      equals: 'michael@dunder.mifflin'
                   associations:
                     - contacts
                     - accounts
@@ -1588,7 +1604,7 @@ paths:
     post:
       summary: Batch Read Leads
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1599,23 +1615,23 @@ paths:
                   leads:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Lead"
+                      $ref: '#/components/schemas/Lead'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     leads:
-                      - id: "23"
+                      - id: '23'
                         firstName: Tom
                         lastName: Smith
                         jobTitle: Director of Operations
                         email: tom@bluecross.com
                         accountName: Blue Cross
-                        phone: "1234445555"
-                        mobilePhone: "2338889999"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        phone: '1234445555'
+                        mobilePhone: '2338889999'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           contactIds:
                             - e5f32d4fd2115220bd20a2ccf81210ec
@@ -1642,7 +1658,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -1660,11 +1676,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -1910,7 +1926,7 @@ paths:
     post:
       summary: Get Lead Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1921,7 +1937,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -1954,7 +1970,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -2043,7 +2059,7 @@ paths:
     post:
       summary: Batch Read Notes
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2054,17 +2070,17 @@ paths:
                   notes:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Note"
+                      $ref: '#/components/schemas/Note'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     notes:
-                      - id: "34"
+                      - id: '34'
                         contentText: This note has some interesting content in it!
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
@@ -2092,7 +2108,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -2110,11 +2126,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -2308,7 +2324,7 @@ paths:
     post:
       summary: Get Note Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2319,7 +2335,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -2352,7 +2368,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -2447,7 +2463,7 @@ paths:
     post:
       summary: Batch Read Tasks
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2458,22 +2474,22 @@ paths:
                   tasks:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Task"
+                      $ref: '#/components/schemas/Task'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     tasks:
-                      - id: "122"
+                      - id: '122'
                         body: This task needs to be done very soon!
                         subject: High Priority Task
                         isDone: false
-                        dueDate: "2019-09-24T14:15:22Z"
+                        dueDate: '2019-09-24T14:15:22Z'
                         status: Not Done
                         priority: High
-                        modifiedTime: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
                         associations:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
@@ -2501,7 +2517,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -2519,11 +2535,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -2734,7 +2750,7 @@ paths:
     post:
       summary: Get Task Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2745,7 +2761,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -2778,7 +2794,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -2875,7 +2891,7 @@ paths:
     post:
       summary: Batch Read Events
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2886,23 +2902,23 @@ paths:
                   events:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Event"
+                      $ref: '#/components/schemas/Event'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     events:
-                      - id: "19"
+                      - id: '19'
                         subject: Meeting with Blue Cross
                         description: Going to get tea with Tom from Blue Cross to discuss his paper needs
                         type: Meeting
                         location: 1122 Tea Dr
-                        startDateTime: "2019-08-24T14:15:22Z"
-                        endDateTime: "2019-08-24T14:15:22Z"
+                        startDateTime: '2019-08-24T14:15:22Z'
+                        endDateTime: '2019-08-24T14:15:22Z'
                         isAllDayEvent: true
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -2932,7 +2948,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -2950,11 +2966,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -3166,7 +3182,7 @@ paths:
     post:
       summary: Get Event Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -3177,7 +3193,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -3210,7 +3226,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -3283,7 +3299,7 @@ paths:
     post:
       summary: Batch Read Event Attendees
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -3294,19 +3310,19 @@ paths:
                   eventAttendees:
                     type: array
                     items:
-                      $ref: "#/components/schemas/EventAttendee"
+                      $ref: '#/components/schemas/EventAttendee'
                   nextPageCursor:
                     type: string
               examples:
                 example-1:
                   value:
                     eventAttendees:
-                      - id: "1234"
+                      - id: '1234'
                         associatedObjectType: contacts
                         status: Confirmed
                         email: null
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           eventId: 0000d2e83d6c5d52a61f2fb860666477
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
@@ -3327,7 +3343,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -3337,11 +3353,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
   /api/unifications/crm/attendees/find:
@@ -3511,7 +3527,7 @@ paths:
     post:
       summary: Get Attendee Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -3522,7 +3538,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -3555,7 +3571,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -3659,7 +3675,7 @@ paths:
     post:
       summary: Batch Read Emails
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -3669,7 +3685,7 @@ paths:
                   emails:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Email"
+                      $ref: '#/components/schemas/Email'
                   nextPageCursor:
                     type: string
                 title: responseBody
@@ -3677,7 +3693,7 @@ paths:
                 example-1:
                   value:
                     emails:
-                      - id: "23"
+                      - id: '23'
                         from: michael@dunder.mifflin
                         to:
                           - greg@bluecross.com
@@ -3688,13 +3704,13 @@ paths:
                         subject: BlueCross <> Dunder Mifflin
                         bodyText: Hi Greg, need any paper? - Michael
                         bodyHtml: <p>Hi Greg, need any paper? - Michael</p>
-                        messageDate: "2019-08-24T14:15:22Z"
+                        messageDate: '2019-08-24T14:15:22Z'
                         isIncoming: false
                         isBounced: false
                         hasAttachment: false
                         status: SENT
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -3722,7 +3738,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -3740,11 +3756,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -3971,7 +3987,7 @@ paths:
     post:
       summary: Get Email Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -3982,7 +3998,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -4015,7 +4031,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -4108,7 +4124,7 @@ paths:
     post:
       summary: Batch Read Calls
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4118,7 +4134,7 @@ paths:
                   calls:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Call"
+                      $ref: '#/components/schemas/Call'
                   nextPageCursor:
                     type: string
                 title: responseBody
@@ -4126,14 +4142,14 @@ paths:
                 example-1:
                   value:
                     calls:
-                      - id: "23"
+                      - id: '23'
                         subject: BlueCross <> Dunder Mifflin
-                        disposition: "ANSWERED"
-                        direction: "inbound"
-                        description: "Call from Greg"
-                        date: "2019-08-24T14:15:22Z"
-                        createdTime: "2019-08-24T14:15:22Z"
-                        modifiedTime: "2019-08-24T14:15:22Z"
+                        disposition: 'ANSWERED'
+                        direction: 'inbound'
+                        description: 'Call from Greg'
+                        date: '2019-08-24T14:15:22Z'
+                        createdTime: '2019-08-24T14:15:22Z'
+                        modifiedTime: '2019-08-24T14:15:22Z'
                         associations:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
@@ -4161,7 +4177,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 ids:
                   type: array
                   items:
@@ -4179,11 +4195,11 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: "123123"
+                  cursor: '123123'
                   ids:
-                    - "123123"
-                    - "456456"
-                    - "567567"
+                    - '123123'
+                    - '456456'
+                    - '567567'
                   include:
                     $native: false
                   associations:
@@ -4383,7 +4399,7 @@ paths:
     post:
       summary: Get Call Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4394,7 +4410,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -4427,7 +4443,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -4566,7 +4582,7 @@ paths:
     post:
       summary: Get List Details
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4577,7 +4593,7 @@ paths:
                   fields:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Field"
+                      $ref: '#/components/schemas/Field'
                   nextPageCursor:
                     type: string
               examples:
@@ -4610,7 +4626,7 @@ paths:
               type: object
               properties:
                 include:
-                  $ref: "#/components/schemas/IncludeFields"
+                  $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
             examples:
@@ -5939,7 +5955,7 @@ components:
           description: The body of the note as text
         contentHtml:
           type: string
-          description: The body of the note as HTML. 
+          description: The body of the note as HTML.
         associations:
           type: object
           properties:
