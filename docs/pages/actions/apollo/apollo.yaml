@@ -1861,15 +1861,18 @@ paths:
             schema:
               type: object
               properties:
-                 user_id:
-                   type: string
-                 page:
-                   type: number
+                user_ids:
+                  type: array
+                  items:
+                    type: string
+                page:
+                  type: number
             examples:
               example-1:
                 value:
-                     user_id: "123123"
-                     page: 53513713.01563096
+                  user_ids:
+                    - "123123"
+                  page: 1
       operationId: search-tasks
       parameters:
       - name: x-vessel-access-token
