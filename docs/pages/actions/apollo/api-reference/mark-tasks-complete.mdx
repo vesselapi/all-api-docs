@@ -1,0 +1,18 @@
+---
+openapi: "POST /api/actions/apollo/tasks/mark-complete"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://app.vessel.dev/api/actions/apollo/tasks/mark-complete \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\
+  --data '{
+  "ids: ["123123", "456456"]
+}'
+```
+
+</RequestExample>
