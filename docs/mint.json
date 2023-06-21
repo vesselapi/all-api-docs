@@ -725,6 +725,20 @@
           "pages": ["pages/actions/apollo/api-reference/search-people"]
         },
         {
+          "group": "Calls",
+          "pages": [
+            "pages/actions/apollo/api-reference/create-call",
+            "pages/actions/apollo/api-reference/list-calls-dispositions"
+          ]
+        },
+        {
+          "group": "Tasks",
+          "pages": [
+            "pages/actions/apollo/api-reference/search-tasks",
+            "pages/actions/apollo/api-reference/mark-tasks-complete"
+          ]
+        },
+        {
           "group": "Sequences",
           "pages": [
             "pages/actions/apollo/api-reference/create-sequences",

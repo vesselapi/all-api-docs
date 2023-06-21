@@ -107,7 +107,7 @@ paths:
                        organizationCountry: null
                        sanitizedPhone: null
                        domain: nulla quis cupidatat eiusmod
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -263,7 +263,7 @@ paths:
                        totalEntries: -94639301.4333235
                        totalPages: 17734680.960502043
                        perPage: 92941126.84197268
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -385,7 +385,7 @@ paths:
                        domain: eiusmod aliqua adipisicing amet
                        estimatedNumEmployees: 4961864.883238703
                        ownerId: fugiat aliquip laboris dolor
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -536,7 +536,7 @@ paths:
                            bounce: null
                            bodyHtml: null
                          emailerMessageId: eu in esse enim
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -696,7 +696,7 @@ paths:
                        ownerId: adipisicing quis
                        createdAt: '1994-03-12T21:38:45.0Z'
                        updatedAt: '1946-09-21T20:11:15.0Z'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -929,7 +929,7 @@ paths:
                        perPage: -27721305.236202195
                        totalEntries: -2828745.2465189993
                        totalPages: -83465761.89624675
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1086,7 +1086,7 @@ paths:
                        accountId: labore
                        typedCustomFields: {}
                        lastName: Excepteur amet esse est
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1194,7 +1194,7 @@ paths:
                        modality: elit quis deserunt occaecat consequat
                        name: mollit
                        type: veniam eiusmod Ut adipisicing
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1260,7 +1260,7 @@ paths:
                          modality: cupidatat ad
                          name: reprehenderit enim dolore
                          type: elit esse anim eiusmod est
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1378,7 +1378,7 @@ paths:
                          subject: elit ut in eiusmod dolore
                          fromEmail: tempor consequat minim non
                          fromName: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1440,7 +1440,7 @@ paths:
                          default: true
                          userId: null
                          email: reprehenderit ipsum id
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1485,7 +1485,7 @@ paths:
                             format: date-time
                          updatedAt:
                             type: string
-                            format: date-time 
+                            format: date-time
                        required:
                          - id
                          - name
@@ -1499,7 +1499,7 @@ paths:
                          name: in
                          createdAt: '2023-01-19T11:53:49.0Z'
                          updatedAt: '2023-01-19T11:53:49.0Z'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1539,13 +1539,13 @@ paths:
                      items:
                        type: object
                        properties:
-                         id: 
+                         id:
                             type: string
-                         firstName: 
+                         firstName:
                             type: string
                          lastName:
                             type: string
-                         name: 
+                         name:
                             type: string
                    contacts:
                      type: array
@@ -1700,8 +1700,7 @@ paths:
                        perPage: 10
                        totalEntries: 10
                        totalPages: 10
-
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -1725,7 +1724,433 @@ paths:
         required: true
         schema:
           type: string
-    parameters: []                      
+    parameters: []
+  /api/actions/apollo/tasks/search:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   tasks:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                        id:
+                          type: string
+                        userId:
+                          type: string
+                        createdAt:
+                          type: string
+                          format: date-time
+                        completedAt:
+                          type: string
+                          format: date-time
+                        note:
+                          type: string
+                        skippedAt:
+                          type: string
+                          format: date-time
+                        dueAt:
+                          type: string
+                          format: date-time
+                        type:
+                          type: string
+                        priority:
+                          type: string
+                        status:
+                          type: string
+                        answered:
+                          type: boolean
+                        emailerCampaignId:
+                          type: string
+                        contactId:
+                          type: string
+                        personId:
+                          type: string
+                        accountId:
+                          type: string
+                        organizationId:
+                          type: string
+                        personaIds:
+                          type: array
+                          items:
+                            type: string
+                        subject:
+                          type: string
+                        createdFrom:
+                          type: string
+                        salesforceType:
+                          type: string
+                        playbookStepIds:
+                          type: string
+                        playbookId:
+                          type: array
+                          items:
+                            type: string
+                        needsPlaybookAutoprospecting:
+                          type: boolean
+                        starredByUserIds:
+                          type: array
+                          items:
+                            type: string
+                        salesforceId:
+                          type: string
+                        hubspotId:
+                          type: string
+                       required:
+                         - id
+                         - user_id
+                   pagination:
+                     type: object
+                     properties:
+                       page:
+                         type:
+                           - number
+                           - 'null'
+                       perPage:
+                         type: number
+                       totalEntries:
+                         type: number
+                       totalPages:
+                         type: number
+                     required:
+                       - page
+                       - per_page
+                       - total_entries
+                       - total_pages
+              examples:
+                example-1:
+                  value:
+                     emailerCampaigns:
+                       - id: ullamco Excepteur
+                         active: true
+                         clickRate: -61736818.674721316
+                         userId: in id laborum nisi
+                         bounceRate: null
+                         uniqueDemoed: null
+                         uniqueDelivered: null
+                         demoRate: 29528060.39477016
+                         optOutRate: minim in elit nisi quis
+                         openRate: -20479075.177627772
+                         name: null
+                         uniqueReplied: null
+                         uniqueUnsubscribed: aute fugiat
+                         uniqueOpened: reprehenderit
+                         uniqueScheduled: culpa dolor deserunt
+                         replyRate: null
+                         numSteps: null
+                         labelIds:
+                           - irure
+                         spamBlockedRate: commodo do est
+                         createdAt: '1999-12-07T08:53:05.0Z'
+                         uniqueClicked: null
+                         uniqueBounced: null
+                     pagination:
+                       page: null
+                       totalEntries: -95622675.08575992
+                       perPage: 80845744.49505061
+                       totalPages: -12938224.005571365
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 user_id:
+                   type: string
+                 page:
+                   type: number
+            examples:
+              example-1:
+                value:
+                     user_id: "123123"
+                     page: 53513713.01563096
+      operationId: search-tasks
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/tasks/mark-complete:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   tasks:
+                     type: array
+                     items:
+                       type: object
+                       properties:
+                        id:
+                          type: string
+                       required:
+                         - id
+              examples:
+                example-1:
+                  value:
+                     tasks:
+                       - id: "123123"
+                       - id: "456456"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 ids:
+                  type: array
+                  items:
+                    type: string
+            examples:
+              example-1:
+                value:
+                     ids:
+                      - "123123"
+                      - "456456"
+      operationId: tasks-mark-complete
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/calls/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  call:
+                    type: object
+                    properties:
+                      id:
+                        type:
+                          - string
+                      userId:
+                        type:
+                          - string
+                      contactId:
+                        type:
+                          - string
+                          - 'null'
+                      accountId:
+                        type:
+                          - string
+                          - 'null'
+                      phoneCallOutcomeId:
+                        type:
+                          - string
+                          - 'null'
+                      phoneCallPurposeId:
+                        type:
+                          - string
+                          - 'null'
+                      recordingUrl:
+                        type:
+                          - string
+                          - 'null'
+                      inbound:
+                        type:
+                          - string
+                          - 'null'
+                      fromNumber:
+                        type:
+                          - string
+                          - 'null'
+                      toNumber:
+                        type:
+                          - string
+                          - 'null'
+                      startTime:
+                        type:
+                          - string
+                          - 'null'
+                        format: date-time
+                      endTime:
+                        type:
+                          - string
+                          - 'null'
+                        format: date-time
+                      noteText:
+                        type:
+                          - string
+                          - 'null'
+                      duration:
+                        type:
+                          - string
+                          - 'null'
+                    required:
+                      - id
+                      - userId
+                      - contactId
+              examples:
+                example-1:
+                  value:
+                     call:
+                       id: "123123"
+                       userId: "456456"
+                       contactId: "678678"
+                       accountId: "890890"
+                       phoneCallOutcomeId: "123123"
+                       phoneCallPurposeId: "123123"
+                       recordingUrl: "www.example.com"
+                       inbound: true
+                       fromNumber: "555-555-5555"
+                       toNumber: "555-555-5555"
+                       startTime: "2020-01-01T00:00:00Z"
+                       endTime: "2020-01-01T00:00:00Z"
+                       noteText: "sample note text"
+                       duration: 0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type:
+                    - string
+                    - 'null'
+                contactId:
+                  type:
+                    - string
+                    - 'null'
+                phoneCallOutcomeId:
+                  type:
+                    - string
+                    - 'null'
+                note:
+                  type:
+                    - string
+                    - 'null'
+            examples:
+              example-1:
+                value:
+                  userId: "123123"
+                  contactId: "456456"
+                  phoneCallOutcomeId: "789789"
+                  note: "example note"
+      operationId: create-call
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/apollo/calls/dispositions-list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                   dispositions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type:
+                            - string
+                        teamId:
+                          type:
+                            - string
+                        name:
+                          type:
+                            - string
+                        answered:
+                          type:
+                            - boolean
+                            - 'null'
+                        order:
+                          type:
+                            - number
+                            - 'null'
+                        triggerContactStageId:
+                          type:
+                            - string
+                            - 'null'
+                        sentiment:
+                          type:
+                            - string
+                            - 'null'
+                      required:
+                        - id
+                        - teamId
+                        - name
+              examples:
+                example-1:
+                  value:
+                    dispositions:
+                      id: "123123"
+                      team_id: "123123"
+                      name: "123123"
+                      answered: true
+                      order: 123123
+                      trigger_contact_stage_id: "123123"
+                      sentiment: "123123"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type:
+                    - string
+                    - 'null'
+                contactId:
+                  type:
+                    - string
+                    - 'null'
+                phoneCallOutcomeId:
+                  type:
+                    - string
+                    - 'null'
+                note:
+                  type:
+                    - string
+                    - 'null'
+            examples:
+              example-1:
+                value:
+                  userId: "123123"
+                  contactId: "456456"
+                  phoneCallOutcomeId: "789789"
+                  note: "example note"
+      operationId: create-call
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
 
   /api/actions/apollo/sequences/create:
     post:
@@ -1885,7 +2310,7 @@ paths:
                        uniqueUnsubscribed: 60839769.018630564
                        createdAt: '2021-12-29T02:12:31.0Z'
                        numSteps: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2101,7 +2526,7 @@ paths:
                        totalEntries: -95622675.08575992
                        perPage: 80845744.49505061
                        totalPages: -12938224.005571365
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2405,7 +2830,7 @@ paths:
                        labelIds:
                          - magna mollit
                        bounceRate: null
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2475,7 +2900,7 @@ paths:
                        id: ea Lorem reprehenderit magna
                      emailerTemplate:
                        id: exercitation ea elit
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2536,7 +2961,7 @@ paths:
                   value:
                      emailerTouch:
                        id: aliquip
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2675,7 +3100,7 @@ paths:
                        totalEntries: -71403084.01006079
                        totalPages: 68295959.37075621
                        perPage: -65745786.56235261
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -2696,4 +3121,3 @@ paths:
         schema:
           type: string
     parameters: []
-    
