@@ -1956,11 +1956,7 @@ paths:
                         type:
                           - string
                           - 'null'
-                      phoneCallOutcomeId:
-                        type:
-                          - string
-                          - 'null'
-                      phoneCallPurposeId:
+                      dispositionId:
                         type:
                           - string
                           - 'null'
@@ -2010,8 +2006,7 @@ paths:
                        userId: "456456"
                        contactId: "678678"
                        accountId: "890890"
-                       phoneCallOutcomeId: "123123"
-                       phoneCallPurposeId: "123123"
+                       dispositionId: "123123"
                        recordingUrl: "www.example.com"
                        inbound: true
                        fromNumber: "555-555-5555"
@@ -2034,7 +2029,7 @@ paths:
                   type:
                     - string
                     - 'null'
-                phoneCallOutcomeId:
+                dispositionId:
                   type:
                     - string
                     - 'null'
@@ -2047,7 +2042,7 @@ paths:
                 value:
                   userId: "123123"
                   contactId: "456456"
-                  phoneCallOutcomeId: "789789"
+                  dispositionId: "789789"
                   note: "example note"
       operationId: create-call
       parameters:
@@ -2127,7 +2122,7 @@ paths:
                   type:
                     - string
                     - 'null'
-                phoneCallOutcomeId:
+                dispositionId:
                   type:
                     - string
                     - 'null'
@@ -2140,7 +2135,7 @@ paths:
                 value:
                   userId: "123123"
                   contactId: "456456"
-                  phoneCallOutcomeId: "789789"
+                  dispositionId: "789789"
                   note: "example note"
       operationId: create-call
       parameters:
