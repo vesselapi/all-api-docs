@@ -1808,7 +1808,7 @@ paths:
                           type: object
                        required:
                          - id
-                         - user_id
+                         - userId
                    pagination:
                      type: object
                      properties:
@@ -1898,7 +1898,7 @@ paths:
             schema:
               type: object
               properties:
-                user_ids:
+                userIds:
                   type: array
                   items:
                     type: string
@@ -1907,7 +1907,7 @@ paths:
             examples:
               example-1:
                 value:
-                  user_ids:
+                  userIds:
                     - "123123"
                   page: 1
       operationId: search-tasks
