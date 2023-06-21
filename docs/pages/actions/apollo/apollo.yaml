@@ -1802,6 +1802,10 @@ paths:
                           type: string
                         hubspotId:
                           type: string
+                        contact:
+                          type: object
+                        account:
+                          type: object
                        required:
                          - id
                          - user_id
@@ -1826,30 +1830,63 @@ paths:
               examples:
                 example-1:
                   value:
-                     emailerCampaigns:
-                       - id: ullamco Excepteur
-                         active: true
-                         clickRate: -61736818.674721316
-                         userId: in id laborum nisi
-                         bounceRate: null
-                         uniqueDemoed: null
-                         uniqueDelivered: null
-                         demoRate: 29528060.39477016
-                         optOutRate: minim in elit nisi quis
-                         openRate: -20479075.177627772
-                         name: null
-                         uniqueReplied: null
-                         uniqueUnsubscribed: aute fugiat
-                         uniqueOpened: reprehenderit
-                         uniqueScheduled: culpa dolor deserunt
-                         replyRate: null
-                         numSteps: null
-                         labelIds:
-                           - irure
-                         spamBlockedRate: commodo do est
-                         createdAt: '1999-12-07T08:53:05.0Z'
-                         uniqueClicked: null
-                         uniqueBounced: null
+                     tasks:
+                        - emailerCampaignId: null
+                          id: "5ff3XXXXXXXXXXXXXXXXXXXX"
+                          userId: "5fc6XXXXXXXXXXXXXXXXXXXX"
+                          createdAt: "2021-01-04T15:48:10.467Z"
+                          completedAt: null
+                          note: null
+                          skippedAt: null
+                          dueAt: "2021-01-04T15:46:48.361+00:00"
+                          type: "action_item"
+                          priority: "medium"
+                          status: "scheduled"
+                          answered: null
+                          contactId: "5fd1XXXXXXXXXXXXXXXXXXXX"
+                          personId: null
+                          accountId: "5fd1XXXXXXXXXXXXXXXXXXXX"
+                          organizationId: null
+                          personaIds: []
+                          subject: null
+                          createdFrom: "zp_ui"
+                          salesforceType: null
+                          playbookStepIds: []
+                          playbookId: null
+                          needsPlaybookAutoprospecting: null
+                          starredByUserIds: []
+                          salesforceId: null
+                          hubspotId: null
+                          account:
+                            id: "5fd1XXXXXXXXXXXXXXXXXXXX"
+                            name: "google"
+                            domain: ".com"
+                            websiteUrl: "www.google.com"
+                            estimatedNumEmployees: 100000
+                            industry: null
+                            organizationRawAddress: null
+                            organizationCity: null
+                            organizationStreetAddress: null
+                            organizationState: null
+                            organizationCountry: null
+                            organizationPostalCode: null
+                            ownerId: null
+                            lastActivityDate: null
+                            sanitizedPhone: null
+                            createdAt: "2020-12-09T21:41:57.503Z"
+                          contact:
+                            id: "5fd1XXXXXXXXXXXXXXXXXXXX"
+                            firstName: "John"
+                            lastName: "Doe"
+                            name: "John Doe"
+                            title: "Senior QA Specialist"
+                            ownerId: "5fc6XXXXXXXXXXXXXXXXXXXX"
+                            presentRawAddress: "Washington, District of Columbia, United States"
+                            email: "email@domain.io"
+                            phoneNumbers: []
+                            createdAt: "2020-12-09T21:41:57.503Z"
+                            accountId: "5fd1XXXXXXXXXXXXXXXXXXXX"
+                            updatedAt: "2020-12-28T10:51:37.432Z"
                      pagination:
                        page: null
                        totalEntries: -95622675.08575992
