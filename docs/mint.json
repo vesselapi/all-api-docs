@@ -186,7 +186,7 @@
       "pages": [
         {
           "group": "Info",
-          "pages": ["pages/beta/crm-beta/api-reference/get-users"]
+          "pages": ["pages/beta/crm-beta/api-reference/get-info"]
         },
         {
           "group": "User",
