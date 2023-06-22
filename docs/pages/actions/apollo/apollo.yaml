@@ -2061,10 +2061,6 @@ paths:
             schema:
               type: object
               properties:
-                userId:
-                  type:
-                    - string
-                    - 'null'
                 contactId:
                   type:
                     - string
@@ -2073,17 +2069,46 @@ paths:
                   type:
                     - string
                     - 'null'
+                purposeId:
+                  type:
+                    - string
+                    - 'null'
                 note:
                   type:
                     - string
                     - 'null'
+                fromNumber:
+                  type:
+                    - string
+                    - 'null'
+                toNumber:
+                  type:
+                    - string
+                    - 'null'
+                durationSeconds:
+                  type:
+                    - number
+                    - 'null'
+                markComplete:
+                  type:
+                    - boolean
+                    - 'null'
+                inbound:
+                  type:
+                    - boolean
+                    - 'null'
             examples:
               example-1:
                 value:
-                  userId: "123123"
                   contactId: "456456"
                   dispositionId: "789789"
+                  purposeId: "789789"
                   note: "example note"
+                  fromNumber: "555-555-5555"
+                  toNumber: "555-555-5555"
+                  durationSeconds: 10
+                  markComplete: true
+                  inbound: true
       operationId: create-call
       parameters:
       - name: x-vessel-access-token
@@ -2093,7 +2118,7 @@ paths:
         schema:
           type: string
     parameters: []
-  /api/actions/apollo/calls/dispositions-list:
+  /api/actions/apollo/calls/details:
     post:
       responses:
         '200':
@@ -2103,7 +2128,7 @@ paths:
               schema:
                 type: object
                 properties:
-                   dispositions:
+                  dispositions:
                     type: array
                     items:
                       type: object
@@ -2137,17 +2162,44 @@ paths:
                         - id
                         - teamId
                         - name
+                  purposes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type:
+                            - string
+                        teamId:
+                          type:
+                            - string
+                        name:
+                          type:
+                            - string
+                        settingsListPosition:
+                          type:
+                            - number
+                            - 'null'
+                      required:
+                        - id
+                        - teamId
+                        - name
               examples:
                 example-1:
                   value:
                     dispositions:
                       id: "123123"
-                      team_id: "123123"
-                      name: "123123"
+                      teamId: "123123"
+                      name: "Busy"
                       answered: true
                       order: 123123
-                      trigger_contact_stage_id: "123123"
+                      triggerContactStageId: "123123"
                       sentiment: "123123"
+                    purposes:
+                      id: "123123"
+                      teamId: "123123"
+                      name: "Prospecting"
+                      settingsListPosition: 0
       requestBody:
         content:
           application/json:
@@ -2186,7 +2238,6 @@ paths:
         schema:
           type: string
     parameters: []
-
   /api/actions/apollo/sequences/create:
     post:
       responses:
