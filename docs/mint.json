@@ -732,7 +732,7 @@
           "group": "Calls",
           "pages": [
             "pages/actions/apollo/api-reference/create-call",
-            "pages/actions/apollo/api-reference/list-calls-dispositions"
+            "pages/actions/apollo/api-reference/call-details"
           ]
         },
         {
