@@ -11,10 +11,15 @@ curl --request POST \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
-  "userId": "123123",
   "contactId": "456456",
   "dispositionId": "789789",
-  "note": "example note"
+  "purposeId": "789789",
+  "note": "example note",
+  "fromNumber": "555-555-5555",
+  "toNumber": "555-555-5555",
+  "durationSeconds": 10,
+  "markComplete": true,
+  "inbound": true
 }'
 ```
 
