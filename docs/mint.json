@@ -185,6 +185,10 @@
       "group": "Unified API",
       "pages": [
         {
+          "group": "Info",
+          "pages": ["pages/beta/crm-beta/api-reference/get-users"]
+        },
+        {
           "group": "User",
           "pages": [
             "pages/beta/crm-beta/api-reference/get-all-users",
