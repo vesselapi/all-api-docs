@@ -430,6 +430,12 @@ components:
           type: string
         createdTime:
           type: string
+        syncState:
+          type:
+            - string
+          enum: 
+            - 'initial-sync-in-progress'
+            - 'initial-sync-complete'
       examples:
         - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
           integrationId: apollo
