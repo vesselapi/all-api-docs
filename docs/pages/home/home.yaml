@@ -113,6 +113,25 @@ paths:
     post:
       summary: List Integrations
       operationId: get-all-integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  properties:
+                    ids:
+                      type: array
+                      items:
+                        type: string
+            examples:
+              example-1:
+                value:
+                  ids:
+                    - salesforce
+                    - hubspot
       responses:
         '200':
           description: List Integrations
