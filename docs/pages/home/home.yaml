@@ -436,6 +436,7 @@ components:
           enum: 
             - 'initial-sync-in-progress'
             - 'initial-sync-complete'
+          description: For connections with synced cache enabled only. When syncState is "initial-sync-in-progress", we're syncing the data for the first time. We will continue to populate data and surface through our APIs as we process them. When it's "initial-sync-complete", we've successfully synced all of the data.
       examples:
         - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
           integrationId: apollo
