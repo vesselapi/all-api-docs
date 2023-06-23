@@ -2069,6 +2069,10 @@ paths:
                   type:
                     - string
                     - 'null'
+                userId:
+                  type:
+                    - string
+                    - 'null'
                 purposeId:
                   type:
                     - string
@@ -2097,9 +2101,13 @@ paths:
                   type:
                     - boolean
                     - 'null'
+              required:
+                - contactId
+                - dispositionId
             examples:
               example-1:
                 value:
+                  userId: "123123"
                   contactId: "456456"
                   dispositionId: "789789"
                   purposeId: "789789"
@@ -2188,18 +2196,18 @@ paths:
                 example-1:
                   value:
                     dispositions:
-                      id: "123123"
-                      teamId: "123123"
-                      name: "Busy"
-                      answered: true
-                      order: 123123
-                      triggerContactStageId: "123123"
-                      sentiment: "123123"
+                      - id: "123123"
+                        teamId: "123123"
+                        name: "Busy"
+                        answered: true
+                        order: 123123
+                        triggerContactStageId: "123123"
+                        sentiment: "123123"
                     purposes:
-                      id: "123123"
-                      teamId: "123123"
-                      name: "Prospecting"
-                      settingsListPosition: 0
+                      - id: "123123"
+                        teamId: "123123"
+                        name: "Prospecting"
+                        settingsListPosition: 0
       requestBody:
         content:
           application/json:
