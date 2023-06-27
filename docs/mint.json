@@ -468,6 +468,10 @@
       "pages": ["pages/unified/about"]
     },
     {
+      "group": "Passthrough",
+      "pages": ["pages/crm/api-reference/authenticated-passthrough"]
+    },
+    {
       "group": "Link",
       "pages": [
         "pages/crm/link/create-link-token",
