@@ -605,6 +605,10 @@
           "pages": [
             "pages/unified/engagement/api-reference/post-sequences-steps"
           ]
+        },
+        {
+          "group": "Tags",
+          "pages": ["pages/unified/engagement/api-reference/get-all-tags"]
         }
       ]
     },
