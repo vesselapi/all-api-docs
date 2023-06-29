@@ -1200,6 +1200,59 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
+  /api/unifications/engagement/tags/list:
+    post:
+      summary: List Tags
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  tags:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Tag"
+                  nextPageCursor:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    tags:
+                      - id: 34f5b4b0b6b650c981a174b02753c390
+                        name: "Tag 1"
+                        createdTime: "2019-08-24T14:15:22Z"
+                        modifiedTime: "2019-08-24T14:15:22Z"
+                    nextPageCursor: string
+      parameters:
+        - name: x-vessel-access-token
+          in: header
+          description: Access Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  $ref: "#/components/schemas/IncludeFields"
+                cursor:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  cursor: "123123"
+                  include:
+                    $native: false
+      operationId: get-all-tags
+      description: Retrieve all Tags
+    parameters: []
 components:
   schemas:
     IncludeFields:
@@ -1395,6 +1448,32 @@ components:
         - id
         - createdTime
         - modifiedTime
+    Tag:
+      title: Tag
+      type: object
+      description: "A tag or label used to categorize objects."
+      examples:
+        - id: 56f653659ea9524b9e0fb0ba67e6f8a0
+          name: "Tag 1"
+          createdTime: "2019-08-24T14:15:22Z"
+          modifiedTime: "2019-08-24T14:15:22Z"
+      properties:
+        id:
+          type: string
+          description: Id of the object in the connected Engagement Platform.
+        name:
+          type: string
+          description: Display name of the tag
+        createdTime:
+          type: string
+          description: The timestamp that the user was created.
+        modifiedTime:
+          type: string
+          description: Not supported by Apollo. The timestamp the user was last modified.
+        $native:
+          $ref: "#/components/schemas/NativeData"
+      required:
+        - id
     Contact:
       title: Contact
       type: object

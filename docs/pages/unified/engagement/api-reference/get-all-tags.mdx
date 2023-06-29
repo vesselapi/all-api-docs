@@ -1,17 +1,17 @@
 ---
-openapi: "POST /api/unifications/engagement/emails/find"
+openapi: "POST /api/unifications/engagement/tags/list"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/emails/find \
+  --url https://app.vessel.dev/api/unifications/engagement/tags/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
-  "id": "123123",
+  "cursor": "123123",
   "include": {
     "$native": false
   }
@@ -21,4 +21,4 @@ curl --request POST \
 </RequestExample>
 
 **Caveats**  
-Supported for Outreach and Salesloft
+Supported for Apollo and Salesloft
