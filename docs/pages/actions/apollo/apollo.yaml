@@ -1902,7 +1902,7 @@ paths:
                   type: array
                   items:
                     type: string
-                emailerCampaignIds:
+                sequenceIds:
                   type: array
                   items:
                     type: string
@@ -1917,7 +1917,7 @@ paths:
                 value:
                   userIds:
                     - "123123"
-                  emailerCampaignIds:
+                  sequenceIds:
                     - "649dcfc3d37c3400a3bcdf78"
                   sortAscending: false
                   sortByField: "task_due_at"
