@@ -775,6 +775,10 @@
       ]
     },
     {
+      "group": "Monday",
+      "pages": ["pages/actions/monday/api-reference/graphql-query"]
+    },
+    {
       "group": "Dialpad",
       "pages": [
         {
