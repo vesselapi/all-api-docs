@@ -12,6 +12,7 @@
     "pages/unified/dialer/dialer.yaml",
     "pages/actions/aircall/aircall.yaml",
     "pages/actions/activecampaign/activecampaign.yaml",
+    "pages/actions/monday/monday.yaml",
     "pages/actions/apollo/apollo.yaml",
     "pages/actions/dialpad/dialpad.yaml",
     "pages/actions/outreach/outreach.yaml",
@@ -773,6 +774,10 @@
           "pages": ["pages/actions/apollo/api-reference/search-users"]
         }
       ]
+    },
+    {
+      "group": "Monday",
+      "pages": ["pages/actions/monday/api-reference/graphql-query"]
     },
     {
       "group": "Dialpad",
