@@ -1,0 +1,55 @@
+
+openapi: 3.1.0
+info:
+  title: Monday API Reference
+  version: "1.0"
+  summary: API
+servers:
+  - url: "https://app.vessel.dev"
+security:
+  - VesselAPIToken: []
+paths:
+  /api/actions/monday/graphql/query:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type:
+                      - object
+                      - array
+                required:
+                  - data
+              examples:
+                example-1:
+                  value:
+                     data:
+                       users:
+                         - id: -89270352.46227905
+                           name: Ut
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 query:
+                   type: string
+            examples:
+              example-1:
+                value:
+                  query: "query { users (limit: 50) { created_at email account { name id }}}"
+      operationId: graphql-query
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
