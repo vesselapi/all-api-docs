@@ -1902,6 +1902,14 @@ paths:
                   type: array
                   items:
                     type: string
+                emailerCampaignIds:
+                  type: array
+                  items:
+                    type: string
+                sortAscending:
+                  type: boolean
+                sortByField:
+                  type: string
                 page:
                   type: number
             examples:
@@ -1909,6 +1917,10 @@ paths:
                 value:
                   userIds:
                     - "123123"
+                  emailerCampaignIds:
+                    - "649dcfc3d37c3400a3bcdf78"
+                  sortAscending: false
+                  sortByField: "task_due_at"
                   page: 1
       operationId: search-tasks
       parameters:
