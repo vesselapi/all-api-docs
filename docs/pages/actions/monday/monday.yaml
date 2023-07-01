@@ -30,8 +30,8 @@ paths:
                   value:
                      data:
                        users:
-                         - id: -89270352.46227905
-                           name: Ut
+                         - id: 10000
+                           name: "John Doe"
       requestBody:
         content:
           application/json:
@@ -45,6 +45,139 @@ paths:
                 value:
                   query: "query { users (limit: 50) { created_at email account { name id }}}"
       operationId: graphql-query
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/monday/items/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                     id: 1000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                boardId:
+                  type: number
+                groupId:
+                  type: numer
+                itemName:
+                  type: string
+                columnValues:
+                  type: object
+            examples:
+              example-1:
+                value:
+                  boardId: 1234
+                  groupId: 4567
+                  itemName: "Contact"
+                  columnValues:
+                    column_1: "John Doe"
+                    column_2: "john@company.com"
+      operationId: create-items
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/monday/boards/list:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      boards:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            state:
+                              type: string
+                            permissions:
+                              type: string
+                            columns:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id: 
+                                    type: number
+                                  description:
+                                    type: string
+                                  title:
+                                    type: string
+                                  type:
+                                    type: string
+                required:
+                  - boards
+              examples:
+                example-1:
+                  value:
+                     data:
+                        boards:
+                          - id: 1000
+                            name: "Board 1"
+                            state: "all"
+                            permissions: "public"
+                            columns:
+                              - id: 1000
+                                description: "Name"
+                                title: "Name"
+                                type: "text"
+                              - id: 1001
+                                description: "Email"
+                                title: "Email"
+                                type: "text"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: number
+                page:
+                  type: number
+            examples:
+              example-1:
+                value:
+                  limit: 10
+                  page: 1
+      operationId: list-boards
       parameters:
       - name: x-vessel-access-token
         in: header
