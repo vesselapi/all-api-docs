@@ -781,11 +781,11 @@
         "pages/actions/monday/api-reference/graphql-query",
         {
           "group": "Boards",
-          "pages": ["pages/actions/monday/api-reference/boards/list"]
+          "pages": ["pages/actions/monday/api-reference/list-boards"]
         },
         {
           "group": "Items",
-          "pages": ["pages/actions/monday/api-reference/items/create"]
+          "pages": ["pages/actions/monday/api-reference/create-items"]
         }
       ]
     },
