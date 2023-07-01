@@ -64,7 +64,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: number
                 required:
                   - id
               examples:
@@ -78,9 +78,9 @@ paths:
               type: object
               properties:
                 boardId:
-                  type: string
+                  type: number
                 groupId:
-                  type: string
+                  type: numer
                 itemName:
                   type: string
                 columnValues:
@@ -88,12 +88,12 @@ paths:
             examples:
               example-1:
                 value:
-                  boardId: "1234"
-                  groupId: "4567"
+                  boardId: 1234
+                  groupId: 4567
                   itemName: "Contact"
                   columnValues:
-                    - column_1: "John Doe"
-                    - column_2: "john@company.com"
+                    column_1: "John Doe"
+                    column_2: "john@company.com"
       operationId: create-items
       parameters:
       - name: x-vessel-access-token
@@ -122,7 +122,7 @@ paths:
                           type: object
                           properties:
                             id:
-                              type: string
+                              type: number
                             name:
                               type: string
                             state:
