@@ -129,6 +129,19 @@ paths:
                               type: string
                             permissions:
                               type: string
+                            columns:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id: 
+                                    type: number
+                                  description:
+                                    type: string
+                                  title:
+                                    type: string
+                                  type:
+                                    type: string
                 required:
                   - boards
               examples:
@@ -140,6 +153,15 @@ paths:
                             name: "Board 1"
                             state: "all"
                             permissions: "public"
+                            columns:
+                              - id: 1000
+                                description: "Name"
+                                title: "Name"
+                                type: "text"
+                              - id: 1001
+                                description: "Email"
+                                title: "Email"
+                                type: "text"
       requestBody:
         content:
           application/json:
