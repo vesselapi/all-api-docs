@@ -749,6 +749,43 @@ paths:
               required:
                 - accessToken
                 - customField
+    patch:
+      summary: Update Contact Custom Field
+      description: "Supported for Salesforce and HubSpot"
+      operationId: patch-contact-custom-field
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
+              examples:
+                example-1:
+                  value:
+                    success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  $ref: '#/components/parameters/accessToken'
+                customField:
+                  $ref: "#/components/schemas/CustomFieldUpdate"
+              required:
+                - accessToken
+                - customField
   /crm/contact/batch:
     get:
       summary: Get Batch Contacts
@@ -1831,6 +1868,44 @@ paths:
           description: Returns all fields including non-unifiable and custom fields under the "additional" property in the response
       description: Retrieve Accounts by a set of Id's
     parameters: []
+  /crm/account/custom-field:
+    patch:
+      summary: Update Account Custom Field
+      description: "Supported for Salesforce and HubSpot"
+      operationId: patch-account-custom-field
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
+              examples:
+                example-1:
+                  value:
+                    success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  $ref: '#/components/parameters/accessToken'
+                customField:
+                  $ref: "#/components/schemas/CustomFieldUpdate"
+              required:
+                - accessToken
+                - customField
   /crm/leads:
     get:
       summary: Get All Leads
@@ -2271,6 +2346,43 @@ paths:
                   $ref: '#/components/parameters/accessToken'
                 customField:
                   $ref: "#/components/schemas/CustomFieldCreate"
+              required:
+                - accessToken
+                - customField
+    patch:
+      summary: Update Lead Custom Field
+      description: "Supported for Salesforce and HubSpot"
+      operationId: patch-lead-custom-field
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                description: ""
+                type: object
+                x-examples:
+                  example-1:
+                    success: true
+                properties:
+                  key:
+                    type: string
+                    description: "The key used to access the custom field"
+              examples:
+                example-1:
+                  value:
+                    success: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  $ref: '#/components/parameters/accessToken'
+                customField:
+                  $ref: "#/components/schemas/CustomFieldUpdate"
               required:
                 - accessToken
                 - customField
@@ -7480,6 +7592,26 @@ components:
       required:
         - name
         - type
+    CustomFieldUpdate:
+      type: object
+      description: ""
+      properties:
+        key:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              key:
+                type: string
+            required:
+              - name
+              - key
+      required:
+        - key
     ListWithAssociations:
       title: List
       type: object
