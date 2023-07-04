@@ -913,6 +913,7 @@
     {
       "group": "Salesforce",
       "pages": [
+        "pages/actions/salesforce/api-reference/soql-query",
         {
           "group": "Contacts",
           "pages": [

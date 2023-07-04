@@ -9,6 +9,43 @@ servers:
 security:
   - VesselAPIToken: []
 paths:
+  /api/actions/salesforce/soql/query:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-1:
+                  value:
+                     records:
+                       - id: 123123
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                 query:
+                   type: string
+              required:
+                - query
+            examples:
+              example-1:
+                value:
+                  query: "SELECT FIELDS(ALL) FROM Account LIMIT 200"
+      operationId: query-soql
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
   /api/actions/salesforce/contacts/create:
     post:
       responses:
