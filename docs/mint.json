@@ -343,7 +343,8 @@
             "pages/crm/api-reference/get-contact-details",
             "pages/crm/api-reference/get-batch-contact",
             "pages/crm/api-reference/search-contacts",
-            "pages/crm/api-reference/create-contact-custom-field"
+            "pages/crm/api-reference/create-contact-custom-field",
+            "pages/crm/api-reference/update-contact-custom-field"
           ]
         },
         {
@@ -367,7 +368,8 @@
             "pages/crm/api-reference/update-account",
             "pages/crm/api-reference/get-account-details",
             "pages/crm/api-reference/get-batch-account",
-            "pages/crm/api-reference/search-accounts"
+            "pages/crm/api-reference/search-accounts",
+            "pages/crm/api-reference/update-account-custom-field"
           ]
         },
         {
@@ -380,7 +382,8 @@
             "pages/crm/api-reference/get-lead-details",
             "pages/crm/api-reference/get-batch-lead",
             "pages/crm/api-reference/search-leads",
-            "pages/crm/api-reference/create-lead-custom-field"
+            "pages/crm/api-reference/create-lead-custom-field",
+            "pages/crm/api-reference/update-lead-custom-field"
           ]
         },
         {
