@@ -24,11 +24,14 @@ paths:
                     type: string
                   orgId:
                     type: string
+                  userId:
+                    type: string
               examples:
                 example-1:
                   value:
                     url: 'https://xyz.my.salesforce.com'
-                    orgId: '123123'
+                    orgId: 'org_1234'
+                    userId: 'user_1234'
       parameters:
         - name: x-vessel-access-token
           in: header
