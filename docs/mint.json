@@ -197,10 +197,6 @@
       "pages": ["pages/crm/webhooks"]
     },
     {
-      "group": "CRM APIs",
-      "pages": ["pages/v2/crm-v2/about", "pages/v2/crm-v2/getting-started"]
-    },
-    {
       "group": "Unified API",
       "pages": [
         {
