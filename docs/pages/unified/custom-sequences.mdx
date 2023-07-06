@@ -3,18 +3,199 @@ title: "Custom Sequences"
 description: Learn how to build sequences that include custom data from your platform.
 ---
 
-Use the Unified API to build ... for Apollo, Outreach, SalesLoft, and more at once.
+A common use case for the Sales Engagement API is to build a sequence for your user with emails that include data from your platform. This data could be a custom personalized message, a statistic that you generated, or any other custom text.
+Once you've built out this sequence you can automatically find and enroll contacts into those sequences so your customer can benefit from personalized emails without having to lift a finger!
+
+The best part is, you can use the Unified API to build out this use case for Apollo, Outreach, SalesLoft, and more all at once.
 
 # Steps
 
 ## Step 1 - Create the Sequence
 
+First, you'll need to create an empty sequence. We'll add the emails in the next step.
+
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
+
+## Step 2 - Create Custom Field(s)
+
+Before you create the Sequence Steps, you'll need to create a custom
+
 ## Step 2 - Create the Sequence Steps
+
+Next, you'll need to
+
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
 
 ## Step 3 - Get the Contacts
 
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
+
 ## Step 4 - Enrich the Contacts
+
+Next, fill in the custom
+
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
 
 ## Step 5 - Find the User's Email Address
 
+Unlike most CRMs, Sales Engagement Users are not 1:1 to email addresses. You'll need
+
+We recommend either allowing your user to pick or using the `default` email.
+
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
+
 ## Step 5 - Enroll the Contacts
+
+The last step is to enroll the contacts into the sequence. Unfortunately, there are no batch endpoints for this operation so you'll need to make a request for each contact - we recommend parallelizing this operation to speed it up.
+
+<CodeGroup>
+
+```bash Terminal
+curl --location --request POST 'https://app.vessel.dev/api/unifications/engagement/users/list' \
+--header 'x-vessel-api-token: [API_KEY]' \
+--header 'x-vessel-access-token: [ACCESS_TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+```javascript Node (SDK)
+app.post("/list-users", async (req, res) => {
+  const vessel = Vessel({
+    apiToken: API_KEY,
+    accessToken,
+  });
+
+  const response = await vessel.unifications.engagement.users.list({});
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
+});
+```
+
+</CodeGroup>
