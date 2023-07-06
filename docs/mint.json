@@ -6,10 +6,10 @@
     "pages/crm/crm.yaml",
     "pages/v2/crm-v2/crm-v2.yaml",
     "pages/old-engagement/old-engagement.yaml",
-    "pages/unified/chat/chat.yaml",
-    "pages/unified/marketing-automation/marketing-automation.yaml",
-    "pages/unified/engagement/engagement.yaml",
-    "pages/unified/dialer/dialer.yaml",
+    "pages/chat/chat.yaml",
+    "pages/marketing-automation/marketing-automation.yaml",
+    "pages/engagement/engagement.yaml",
+    "pages/dialer/dialer.yaml",
     "pages/actions/aircall/aircall.yaml",
     "pages/actions/activecampaign/activecampaign.yaml",
     "pages/actions/monday/monday.yaml",
@@ -84,6 +84,13 @@
       "url": "pages/v2/crm-v2"
     },
     {
+      "name": "Engagement APIs",
+      "icon": "paper-plane",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "url": "pages/engagement"
+    },
+    {
       "name": "[V1] CRM APIs",
       "icon": "database",
       "color": "#2B2B2F",
@@ -92,11 +99,25 @@
       "url": "pages/crm"
     },
     {
-      "name": "Unified APIs",
-      "icon": "sitemap",
+      "name": "Dialer APIs",
+      "icon": "phone",
       "color": "#2B2B2F",
       "iconType": "duotone",
-      "url": "pages/unified"
+      "url": "pages/dialer"
+    },
+    {
+      "name": "Marketing Automation APIs",
+      "icon": "envelope",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "url": "pages/marketing-automation"
+    },
+    {
+      "name": "Chat APIs",
+      "icon": "comment",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "url": "pages/chat"
     },
     {
       "name": "Actions APIs",
@@ -465,10 +486,6 @@
       ]
     },
     {
-      "group": "Unified APIs",
-      "pages": ["pages/unified/about"]
-    },
-    {
       "group": "Passthrough",
       "pages": ["pages/crm/api-reference/authenticated-passthrough"]
     },
@@ -492,144 +509,140 @@
       ]
     },
     {
-      "group": "Dialer API",
+      "group": "Unified API",
       "pages": [
         {
           "group": "Users",
           "pages": [
-            "pages/unified/dialer/api-reference/get-all-users",
-            "pages/unified/dialer/api-reference/get-one-user"
+            "pages/dialer/api-reference/get-all-users",
+            "pages/dialer/api-reference/get-one-user"
           ]
         },
         {
           "group": "Contacts",
           "pages": [
-            "pages/unified/dialer/api-reference/get-all-contacts",
-            "pages/unified/dialer/api-reference/get-one-contact",
-            "pages/unified/dialer/api-reference/post-contact",
-            "pages/unified/dialer/api-reference/put-contact"
+            "pages/dialer/api-reference/get-all-contacts",
+            "pages/dialer/api-reference/get-one-contact",
+            "pages/dialer/api-reference/post-contact",
+            "pages/dialer/api-reference/put-contact"
           ]
         },
         {
           "group": "Calls",
           "pages": [
-            "pages/unified/dialer/api-reference/get-all-calls",
-            "pages/unified/dialer/api-reference/get-one-call",
-            "pages/unified/dialer/api-reference/start-call"
+            "pages/dialer/api-reference/get-all-calls",
+            "pages/dialer/api-reference/get-one-call",
+            "pages/dialer/api-reference/start-call"
           ]
         }
       ]
     },
     {
-      "group": "Marketing Automation API",
+      "group": "Unified API",
       "pages": [
         {
           "group": "Users",
-          "pages": [
-            "pages/unified/marketing-automation/api-reference/get-all-users"
-          ]
+          "pages": ["pages/marketing-automation/api-reference/get-all-users"]
         },
         {
           "group": "Contacts",
           "pages": [
-            "pages/unified/marketing-automation/api-reference/get-all-contacts",
-            "pages/unified/marketing-automation/api-reference/get-one-contact",
-            "pages/unified/marketing-automation/api-reference/put-contact",
-            "pages/unified/marketing-automation/api-reference/post-contact"
+            "pages/marketing-automation/api-reference/get-all-contacts",
+            "pages/marketing-automation/api-reference/get-one-contact",
+            "pages/marketing-automation/api-reference/put-contact",
+            "pages/marketing-automation/api-reference/post-contact"
           ]
         },
         {
           "group": "Lists",
           "pages": [
-            "pages/unified/marketing-automation/api-reference/get-all-lists",
-            "pages/unified/marketing-automation/api-reference/get-one-list"
+            "pages/marketing-automation/api-reference/get-all-lists",
+            "pages/marketing-automation/api-reference/get-one-list"
           ]
         }
       ]
     },
     {
-      "group": "Engagement API",
+      "group": "Unified API",
       "pages": [
         {
           "group": "Users",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-users",
-            "pages/unified/engagement/api-reference/get-one-user"
+            "pages/engagement/api-reference/get-all-users",
+            "pages/engagement/api-reference/get-one-user"
           ]
         },
         {
           "group": "Accounts",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-accounts",
-            "pages/unified/engagement/api-reference/get-one-account",
-            "pages/unified/engagement/api-reference/put-account",
-            "pages/unified/engagement/api-reference/post-account"
+            "pages/engagement/api-reference/get-all-accounts",
+            "pages/engagement/api-reference/get-one-account",
+            "pages/engagement/api-reference/put-account",
+            "pages/engagement/api-reference/post-account"
           ]
         },
         {
           "group": "Contacts",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-contacts",
-            "pages/unified/engagement/api-reference/get-one-contact",
-            "pages/unified/engagement/api-reference/post-contact",
-            "pages/unified/engagement/api-reference/put-contact"
+            "pages/engagement/api-reference/get-all-contacts",
+            "pages/engagement/api-reference/get-one-contact",
+            "pages/engagement/api-reference/post-contact",
+            "pages/engagement/api-reference/put-contact"
           ]
         },
         {
           "group": "Emails",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-emails",
-            "pages/unified/engagement/api-reference/get-one-email"
+            "pages/engagement/api-reference/get-all-emails",
+            "pages/engagement/api-reference/get-one-email"
           ]
         },
         {
           "group": "Sequences",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-sequences",
-            "pages/unified/engagement/api-reference/post-sequences",
-            "pages/unified/engagement/api-reference/post-start-sequence"
+            "pages/engagement/api-reference/get-all-sequences",
+            "pages/engagement/api-reference/post-sequences",
+            "pages/engagement/api-reference/post-start-sequence"
           ]
         },
         {
           "group": "Custom Fields",
           "pages": [
-            "pages/unified/engagement/api-reference/get-all-customFields",
-            "pages/unified/engagement/api-reference/post-customFields"
+            "pages/engagement/api-reference/get-all-customFields",
+            "pages/engagement/api-reference/post-customFields"
           ]
         },
         {
           "group": "Mailboxes",
-          "pages": ["pages/unified/engagement/api-reference/get-all-mailboxes"]
+          "pages": ["pages/engagement/api-reference/get-all-mailboxes"]
         },
         {
           "group": "Sequence Steps",
-          "pages": [
-            "pages/unified/engagement/api-reference/post-sequences-steps"
-          ]
+          "pages": ["pages/engagement/api-reference/post-sequences-steps"]
         },
         {
           "group": "Tags",
-          "pages": ["pages/unified/engagement/api-reference/get-all-tags"]
+          "pages": ["pages/engagement/api-reference/get-all-tags"]
         }
       ]
     },
     {
-      "group": "Chat API",
+      "group": "Unified API",
       "pages": [
         {
           "group": "Users",
-          "pages": ["pages/unified/chat/api-reference/get-all-users"]
+          "pages": ["pages/chat/api-reference/get-all-users"]
         },
         {
           "group": "Message",
           "pages": [
-            "pages/unified/chat/api-reference/put-message",
-            "pages/unified/chat/api-reference/post-message"
+            "pages/chat/api-reference/put-message",
+            "pages/chat/api-reference/post-message"
           ]
         },
         {
           "group": "Channels",
-          "pages": ["pages/unified/chat/api-reference/get-all-channels"]
+          "pages": ["pages/chat/api-reference/get-all-channels"]
         }
       ]
     },
