@@ -99,18 +99,18 @@
       "url": "pages/crm"
     },
     {
-      "name": "Dialer APIs",
-      "icon": "phone",
-      "color": "#2B2B2F",
-      "iconType": "duotone",
-      "url": "pages/dialer"
-    },
-    {
       "name": "Marketing Automation APIs",
       "icon": "envelope",
       "color": "#2B2B2F",
       "iconType": "duotone",
       "url": "pages/marketing-automation"
+    },
+    {
+      "name": "Dialer APIs",
+      "icon": "phone",
+      "color": "#2B2B2F",
+      "iconType": "duotone",
+      "url": "pages/dialer"
     },
     {
       "name": "Chat APIs",
