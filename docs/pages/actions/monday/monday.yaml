@@ -80,7 +80,7 @@ paths:
                 boardId:
                   type: number
                 groupId:
-                  type: numer
+                  type: string
                 itemName:
                   type: string
                 columnValues:
@@ -88,12 +88,12 @@ paths:
             examples:
               example-1:
                 value:
-                  boardId: 1234
-                  groupId: 4567
-                  itemName: "Contact"
+                  boardId: 123456789
+                  groupId: "topics"
+                  itemName: "New Item"
                   columnValues:
-                    column_1: "John Doe"
-                    column_2: "john@company.com"
+                    name: "John Doe"
+                    lead_company: "New Company"
       operationId: create-items
       parameters:
       - name: x-vessel-access-token
@@ -134,13 +134,22 @@ paths:
                               items:
                                 type: object
                                 properties:
-                                  id: 
-                                    type: number
+                                  id:
+                                    type: string
                                   description:
                                     type: string
                                   title:
                                     type: string
                                   type:
+                                    type: string
+                            groups:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  title:
                                     type: string
                 required:
                   - boards
@@ -154,14 +163,17 @@ paths:
                             state: "all"
                             permissions: "public"
                             columns:
-                              - id: 1000
+                              - id: "name"
                                 description: "Name"
                                 title: "Name"
                                 type: "text"
-                              - id: 1001
+                              - id: "email"
                                 description: "Email"
                                 title: "Email"
                                 type: "text"
+                            groups:
+                              - id: "topics"
+                                title: "New Leads"
       requestBody:
         content:
           application/json:
