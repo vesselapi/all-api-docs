@@ -1,10 +1,11 @@
 ---
 title: "Custom Sequences"
-description: Learn how to build sequences that include custom data from your platform.
+description: Learn how to build sequences that auto-enrich emails with data from your platform.
 ---
 
-A common use case for the Sales Engagement API is to build a sequence for your user with emails that include data from your platform. This data could be a custom personalized message, a statistic that you generated, or any other custom text.
-Once you've built out this sequence you can automatically find and enroll contacts into those sequences so your customer can benefit from personalized emails without having to lift a finger!
+A common use case for the Sales Engagement APIs is to build a sequence for your user with emails that include data from your platform. This data could be a custom personalized message, a statistic that you generated, or any other custom text.
+
+With the Vessel API, you can build this use case in a few simple steps, and also automatically enroll your customer's contacts into the sequence.
 
 The best part is, you can use the Unified API to build out this use case for Apollo, Outreach, SalesLoft, and more all at once.
 
@@ -12,7 +13,7 @@ The best part is, you can use the Unified API to build out this use case for Apo
 
 ## Step 1 - Create the Sequence
 
-First, you'll need to create an empty sequence. We'll add the email templates later.
+The first step is to create an empty sequence. We'll add the email templates and enroll contacts in it later.
 
 <CodeGroup>
 
@@ -49,7 +50,13 @@ console.log(data);
 
 ## Step 2 - Create Custom Field(s)
 
-Before you create the email templates in the sequence itself, you'll want...
+Before you create the email templates in the sequence itself, you'll want to add some custom fields to the contacts. You can either ask your user to create the custom fields for you or you can use the API below to do it on their behalf.
+
+These custom fields are what allow us to 'embed' your custom text into the emails that are sent out.
+
+You'll need to create a custom field for every piece of customized text that you want to add to the emails.
+
+Also, please note that you'll need to make an exception for Outreach which doesn't allow for custom fields to be created. In the case that your customer connected Outreach, you'll need to use one of the predefined custom fields that Outreach provides. It's best practice to ask your user which custom field you can use to avoid accidently overriding a custom field used by a different integration. Your customer will thank you. This is the only special handling you'll need to do for this use case.
 
 <CodeGroup>
 
@@ -84,6 +91,8 @@ await vessel.unifications.engagement.contact.customFields.create({
 
 </CodeGroup>
 
+If you want to support Outreach but don't want to ask your user to provide a custom field for you, you can list the existing custom fields and pick one from there.
+
 <CodeGroup>
 
 ```bash Terminal
@@ -109,7 +118,14 @@ console.log(data);
 
 ## Step 2 - Create the Sequence Steps
 
-Next, you'll need to
+Next, you'll need to create the sequence steps which will include the email templates. There's a lot of customization that can go into creating a sequence step so make sure to check out the docs!
+
+Sales Engagement Platforms use double bracket notation, e.g., `{{custom_field}}`, to inject dynamic data into outbound emails. We can leverage this and the custom field we made at the start to inject our own custom data into emails.
+
+<warning>
+  For the sake of unification, this endpoint can only be called **once** so make
+  sure to include all the steps in this call.
+</warning>
 
 <CodeGroup>
 
@@ -166,6 +182,10 @@ await vessel.unifications.engagement.sequenceSteps.batchCreate({
 
 ## Step 3 - Get the Contacts
 
+Now that we've got a sequence all created, it's time to add the customization to the contacts. You'll need to either create or find the contacts that you want to enrich by using the API below.
+
+Note that there's a lot of different filtering options, don't try to enrich every contact in your customer's Sales Engagement Platform. In the example below, we're only getting the contacts that have a specific tag.
+
 <CodeGroup>
 
 ```bash Terminal
@@ -206,7 +226,7 @@ console.log(data);
 
 ## Step 4 - Enrich the Contacts
 
-Next, fill in the custom
+Next, fill in the custom field with the personalization data. You'll need to do this for each contact that you want to enrich.
 
 <CodeGroup>
 
@@ -249,9 +269,7 @@ for (const contact of contacts) {
 
 ## Step 5 - Find the User
 
-Unlike most CRMs, Sales Engagement Users are not 1:1 to email addresses. You'll need
-
-We recommend either allowing your user to pick or using the `default` email.
+Find the user that you want to send the emails out for, you can use the `email` property to match them with a user in your system.
 
 <CodeGroup>
 
@@ -280,6 +298,10 @@ console.log(data);
 </CodeGroup>
 
 ## Step 6 - Find the User's Email
+
+Unlike most CRMs, Sales Engagement Users are not 1:1 to email addresses (called mailboxes). You'll need to find the email address that you want to send the emails from.
+
+We recommend either allowing your user to pick the email they want to use or using the `default` email.
 
 <CodeGroup>
 

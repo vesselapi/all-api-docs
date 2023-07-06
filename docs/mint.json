@@ -469,7 +469,7 @@
     },
     {
       "group": "Unified APIs",
-      "pages": ["pages/unified/about"]
+      "pages": ["pages/unified/about", "pages/unified/custom-sequences"]
     },
     {
       "group": "Passthrough",
