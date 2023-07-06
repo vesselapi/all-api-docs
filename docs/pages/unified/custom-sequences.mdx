@@ -5,7 +5,7 @@ description: Learn how to build sequences that auto-enrich emails with data from
 
 A common use case for the Sales Engagement APIs is to build a sequence for your user with emails that include data from your platform. This data could be a custom personalized message, a statistic that you generated, or any other custom text.
 
-With the Vessel API, you can build this use case in a few simple steps, and also automatically enroll your customer's contacts into the sequence.
+With the Vessel API, you can build this use case in a few simple steps, and also automatically enroll your customer's contacts into that sequence.
 
 The best part is, you can use the Unified API to build out this use case for Apollo, Outreach, SalesLoft, and more all at once.
 
@@ -52,11 +52,9 @@ console.log(data);
 
 Before you create the email templates in the sequence itself, you'll want to add some custom fields to the contacts. You can either ask your user to create the custom fields for you or you can use the API below to do it on their behalf.
 
-These custom fields are what allow us to 'embed' your custom text into the emails that are sent out.
+These custom fields are what allow us to 'embed' your custom text into the emails that are sent out. You'll need to create a custom field for every piece of customized text that you want to add to the emails.
 
-You'll need to create a custom field for every piece of customized text that you want to add to the emails.
-
-Also, please note that you'll need to make an exception for Outreach which doesn't allow for custom fields to be created. In the case that your customer connected Outreach, you'll need to use one of the predefined custom fields that Outreach provides. It's best practice to ask your user which custom field you can use to avoid accidently overriding a custom field used by a different integration. Your customer will thank you. This is the only special handling you'll need to do for this use case.
+Also, please note that you'll need to make an exception for Outreach which doesn't allow for custom fields to be created. In the case that your customer connected Outreach, you'll need to use one of the predefined custom fields that Outreach provides. It's best practice to ask your user which custom field you can use to avoid accidentally overriding a custom field used by a different integration. This is the only special handling you'll need to do for this use case.
 
 <CodeGroup>
 
@@ -184,7 +182,7 @@ await vessel.unifications.engagement.sequenceSteps.batchCreate({
 
 Now that we've got a sequence all created, it's time to add the customization to the contacts. You'll need to either create or find the contacts that you want to enrich by using the API below.
 
-Note that there's a lot of different filtering options, don't try to enrich every contact in your customer's Sales Engagement Platform. In the example below, we're only getting the contacts that have a specific tag.
+Note that there are a lot of different filtering options, don't try to enrich every contact in your customer's Sales Engagement Platform. In the example below, we're only getting the contacts that have a specific tag.
 
 <CodeGroup>
 
@@ -226,7 +224,7 @@ console.log(data);
 
 ## Step 4 - Enrich the Contacts
 
-Next, fill in the custom field with the personalization data. You'll need to do this for each contact that you want to enrich.
+Next, fill in the custom field with the custom data. You'll need to do this for each contact that you want to enrich.
 
 <CodeGroup>
 
@@ -368,3 +366,5 @@ for (const contact of contacts) {
 ```
 
 </CodeGroup>
+
+And you're done! If you have any questions or comments don't hesitate to reach out to us at `support@vessel.dev`
