@@ -159,6 +159,10 @@
       ]
     },
     {
+      "group": "Passthrough",
+      "pages": ["pages/home/api-reference/passthrough"]
+    },
+    {
       "group": "OAuth Apps",
       "pages": [
         "pages/home/managing-oauth-apps",
@@ -167,10 +171,6 @@
         "pages/home/api-reference/post-oauth-app",
         "pages/home/api-reference/delete-oauth-app"
       ]
-    },
-    {
-      "group": "Passthrough",
-      "pages": ["pages/home/api-reference/passthrough"]
     },
     {
       "group": "ETL",
