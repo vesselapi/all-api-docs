@@ -99,7 +99,10 @@ app.post("/session-token", async (req, res) => {
   });
 
   const response = await vessel.auth.sessions.create({});
-  res.json(response.body.result);
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.json(result.sessionToken);
 });
 ```
 
@@ -146,8 +149,8 @@ export default function App() {
               integrationId: integration.id,
               getSessionToken: async () => {
                 const response = await fetch("https://my-company.api/session-token", { method: "POST" });
-                const json = await response.json();
-                return json.sessionToken;
+                const sessionToken = await response.json();
+                return sessionToken;
               },
             })
           }
@@ -286,7 +289,10 @@ app.post("/list-users", async (req, res) => {
   });
 
   const response = await vessel.unifications.engagement.users.list({});
-  res.send({ users: response.body.result });
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send({ users: result });
 });
 ```
 
@@ -317,7 +323,10 @@ app.post("/list-connections", async (req, res) => {
   });
 
   const response = await vessel.connections.list({});
-  res.send(response.body.result);
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send(result);
 });
 ```
 
@@ -346,7 +355,10 @@ app.post("/delete-connection", async (req, res) => {
   const response = await vessel.connections.delete({
     id: req.body.connectionId,
   });
-  res.send(response.body.result);
+  const { result, error } = response.body;
+  if (error) throw new Error(error.message);
+
+  res.send(result);
 });
 ```
 
