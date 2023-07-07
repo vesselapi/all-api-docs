@@ -561,6 +561,7 @@
     {
       "group": "Unified API",
       "pages": [
+        "pages/engagement/custom-sequences",
         {
           "group": "Users",
           "pages": [
@@ -791,6 +792,10 @@
         {
           "group": "Boards",
           "pages": ["pages/actions/monday/api-reference/list-boards"]
+        },
+        {
+          "group": "Groups",
+          "pages": ["pages/actions/monday/api-reference/create-groups"]
         },
         {
           "group": "Items",
