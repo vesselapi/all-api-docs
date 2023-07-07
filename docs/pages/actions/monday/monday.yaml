@@ -85,6 +85,11 @@ paths:
                   type: string
                 columnValues:
                   type: object
+              required:
+                - boardId
+                - groupId
+                - itemName
+                - columnValues
             examples:
               example-1:
                 value:
@@ -95,6 +100,51 @@ paths:
                     name: "John Doe"
                     lead_company: "New Company"
       operationId: create-items
+      parameters:
+      - name: x-vessel-access-token
+        in: header
+        description: Access Token
+        required: true
+        schema:
+          type: string
+    parameters: []
+  /api/actions/monday/groups/create:
+    post:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                     id: "vessel_leads"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                boardId:
+                  type: number
+                groupName:
+                  type: string
+              required:
+                - boardId
+                - groupName
+            examples:
+              example-1:
+                value:
+                  boardId: 123456789
+                  groupName: "Vessel Leads"
+      operationId: create-groups
       parameters:
       - name: x-vessel-access-token
         in: header

@@ -787,6 +787,10 @@
           "pages": ["pages/actions/monday/api-reference/list-boards"]
         },
         {
+          "group": "Groups",
+          "pages": ["pages/actions/monday/api-reference/create-groups"]
+        },
+        {
           "group": "Items",
           "pages": ["pages/actions/monday/api-reference/create-items"]
         }
