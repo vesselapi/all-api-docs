@@ -69,6 +69,14 @@
   },
   "anchors": [
     {
+      "name": "[V1] CRM APIs",
+      "icon": "database",
+      "color": "#2B2B2F",
+      "isDefaultHidden": true,
+      "iconType": "duotone",
+      "url": "pages/crm"
+    },
+    {
       "name": "Engagement APIs",
       "icon": "paper-plane",
       "color": "#2B2B2F",
@@ -89,14 +97,6 @@
       "color": "#2B2B2F",
       "iconType": "duotone",
       "url": "pages/engagement"
-    },
-    {
-      "name": "[V1] CRM APIs",
-      "icon": "database",
-      "color": "#2B2B2F",
-      "isDefaultHidden": true,
-      "iconType": "duotone",
-      "url": "pages/crm"
     },
     {
       "name": "Marketing Automation APIs",
@@ -195,6 +195,10 @@
     {
       "group": "Tutorials",
       "pages": ["pages/crm/webhooks"]
+    },
+    {
+      "group": "About",
+      "pages": ["pages/v2/crm-v2/about"]
     },
     {
       "group": "Unified API",
