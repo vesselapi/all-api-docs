@@ -559,9 +559,12 @@
       ]
     },
     {
+      "group": "Tutorials",
+      "pages": ["pages/engagement/custom-sequences"]
+    },
+    {
       "group": "Unified API",
       "pages": [
-        "pages/engagement/custom-sequences",
         {
           "group": "Users",
           "pages": [
