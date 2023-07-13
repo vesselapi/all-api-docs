@@ -32,7 +32,7 @@
   "api": {
     "baseUrl": "https://app.vessel.dev",
     "playground": {
-      "mode": "hide"
+      "mode": "show"
     },
     "auth": {
       "method": "key",
