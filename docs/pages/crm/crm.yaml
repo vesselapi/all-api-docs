@@ -4710,16 +4710,26 @@ paths:
                       $ref: "#/components/schemas/StringFilter"
                     nativeId:
                       $ref: "#/components/schemas/StringFilter"
-                    subject:
-                      $ref: "#/components/schemas/StringFilter"
                     disposition:
-                      $ref: "#/components/schemas/StringFilter"
-                    description:
                       $ref: "#/components/schemas/StringFilter"
                     direction:
                       $ref: "#/components/schemas/StringFilter"
+                    subject:
+                      $ref: "#/components/schemas/StringFilter"
+                    description:
+                      $ref: "#/components/schemas/StringFilter"
                     date:
                       $ref: "#/components/schemas/DateFilter"
+                    status:
+                      $ref: "#/components/schemas/StringFilter"
+                    duration:
+                      $ref: "#/components/schemas/NumberFilter"
+                    from:
+                      $ref: "#/components/schemas/StringFilter"
+                    to:
+                      $ref: "#/components/schemas/StringFilter"
+                    recordingUrl:
+                      $ref: "#/components/schemas/StringFilter"
                     createdTime:
                       $ref: "#/components/schemas/DateFilter"
                     modifiedTime:
