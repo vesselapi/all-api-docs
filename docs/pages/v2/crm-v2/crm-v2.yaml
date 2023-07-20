@@ -113,8 +113,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/User'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -125,7 +123,6 @@ paths:
                         email: micheal@dundermifflin.com
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                    nextPageCursor: string
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -145,8 +142,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
             examples:
               example-1:
                 value:
@@ -156,7 +151,6 @@ paths:
                     - '123123'
                     - '456456'
                     - '567567'
-                  cursor: '123123'
       operationId: batch-read-users
       description: |-
         Batch Read Users
@@ -385,8 +379,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Contact'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -408,7 +400,6 @@ paths:
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-contacts
       parameters:
         - name: x-vessel-access-token
@@ -425,8 +416,6 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
-                cursor:
-                  type: string
                 ids:
                   type: array
                   items:
@@ -434,7 +423,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -783,8 +771,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Deal'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -806,7 +792,6 @@ paths:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-deals
       parameters:
         - name: x-vessel-access-token
@@ -827,8 +812,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -840,7 +823,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -1200,8 +1182,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Account'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -1230,7 +1210,6 @@ paths:
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-accounts
       parameters:
         - name: x-vessel-access-token
@@ -1247,8 +1226,6 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -1260,7 +1237,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -1652,8 +1628,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Lead'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -1674,7 +1648,6 @@ paths:
                           accountIds:
                             - 0dcb45e051315a6ea63b0f16e73689d9
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-leads
       description: |-
         Fetch Leads by Ids
@@ -1699,8 +1672,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -1712,7 +1683,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -1932,7 +1902,7 @@ paths:
                 type: object
                 x-examples:
                   example-1:
-                    success: true
+                    key: hs_custom_field_123
                 properties:
                   key:
                     type: string
@@ -1940,7 +1910,7 @@ paths:
               examples:
                 example-1:
                   value:
-                    success: true
+                    key: hs_custom_field_123
       requestBody:
         content:
           application/json:
@@ -2113,8 +2083,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Note'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -2133,7 +2101,6 @@ paths:
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-notes
       description: Fetch Notes by Ids
       parameters:
@@ -2155,8 +2122,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -2168,7 +2133,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -2517,8 +2481,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Task'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -2542,7 +2504,6 @@ paths:
                           leadIds:
                             - d08f345ace24509e911a0ea8e3d2203c
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-tasks
       description: Fetch Tasks by Ids
       parameters:
@@ -2564,8 +2525,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -2577,7 +2536,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -2945,8 +2903,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Event'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -2973,7 +2929,6 @@ paths:
                           eventAttendeeIds:
                             - f63c1bd7215f5150b332d31d9509752f
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-events
       description: Fetch Events by Ids
       parameters:
@@ -2995,8 +2950,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -3008,7 +2961,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -3353,8 +3305,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/EventAttendee'
-                  nextPageCursor:
-                    type: string
               examples:
                 example-1:
                   value:
@@ -3368,7 +3318,6 @@ paths:
                         associations:
                           eventId: 0000d2e83d6c5d52a61f2fb860666477
                           associationId: fbdb8b1e827609f50c25b4d52a7b6f57
-                    nextPageCursor: string
       operationId: batch-read-event-attendees
       description: Fetch Attendees by Ids
       parameters:
@@ -3390,12 +3339,9 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -3728,8 +3674,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Email'
-                  nextPageCursor:
-                    type: string
                 title: responseBody
               examples:
                 example-1:
@@ -3763,7 +3707,6 @@ paths:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-emails
       description: Fetch Emails by Ids
       parameters:
@@ -3785,8 +3728,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -3798,7 +3739,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'
@@ -4177,8 +4117,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Call'
-                  nextPageCursor:
-                    type: string
                 title: responseBody
               examples:
                 example-1:
@@ -4202,7 +4140,6 @@ paths:
                           dealIds:
                             - 497fb529e6805351b5dc8057c74a4a52
                           ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
-                    nextPageCursor: string
       operationId: batch-read-calls
       description: Fetch Calls by Ids
       parameters:
@@ -4224,8 +4161,6 @@ paths:
                   type: array
                   items:
                     type: string
-                cursor:
-                  type: string
                 associations:
                   type: array
                   items:
@@ -4237,7 +4172,6 @@ paths:
             examples:
               example-1:
                 value:
-                  cursor: '123123'
                   ids:
                     - '123123'
                     - '456456'

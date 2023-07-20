@@ -12,8 +12,7 @@ curl --request POST \
   --header 'x-vessel-access-token: '\
   --data '{
   "include": { $native: false },
-  "ids": ["123123", "456456", "5675675"],
-  "cursor": "123123",
+  "ids": ["123123", "456456", "5675675"]
   "associations": [
     "attendees",
     "deals",
@@ -26,4 +25,4 @@ curl --request POST \
 
 </RequestExample>
 
-
+*Note:* The maximum number of ids per request is 200.

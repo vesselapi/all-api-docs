@@ -13,7 +13,6 @@ curl --request POST \
   --data '{
   "include": { $native: false },
   "ids": ["123123", "456456", "5675675"],
-  "cursor": "123123",
   "associations": [
     "deals",
     "contacts",
@@ -21,7 +20,6 @@ curl --request POST \
   ]
 }'
 ```
-
 </RequestExample>
 
-
+*Note:* The maximum number of ids per request is 200.
