@@ -257,7 +257,6 @@
             "pages/v2/crm-v2/api-reference/get-one-lead",
             "pages/v2/crm-v2/api-reference/post-lead",
             "pages/v2/crm-v2/api-reference/put-lead",
-            "pages/v2/crm-v2/api-reference/post-lead-custom-field",
             "pages/v2/crm-v2/api-reference/details-leads"
           ]
         },
@@ -333,6 +332,12 @@
             "pages/v2/crm-v2/api-reference/get-all-lists",
             "pages/v2/crm-v2/api-reference/get-one-list",
             "pages/v2/crm-v2/api-reference/details-lists"
+          ]
+        },
+        {
+          "group": "Custom Fields",
+          "pages": [
+            "pages/v2/crm-v2/api-reference/post-custom-field"
           ]
         }
       ]

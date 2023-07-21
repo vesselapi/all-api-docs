@@ -1909,10 +1909,10 @@ paths:
                     phone: '1234445555'
                     mobilePhone: '2338889999'
                     $native: {}
-  /api/unifications/crm/lead/custom-fields/create:
+  /api/unifications/crm/custom-fields/create:
     post:
-      summary: Create Lead Custom Field
-      description: 'Supported for Salesforce and HubSpot'
+      summary: Create Custom Field
+      description: 'Supported for HubSpot'
       operationId: create-lead-custom-field
       parameters:
         - name: x-vessel-access-token
@@ -1947,13 +1947,19 @@ paths:
             schema:
               type: object
               properties:
+                objectType:
+                  type: string
+                  description: |
+                    Allowed values: contacts, leads
                 customField:
                   $ref: '#/components/schemas/CustomFieldCreate'
               required:
+                - objectType
                 - customField
             examples:
               example-1:
                 value:
+                  objectType: leads
                   customField:
                     name: 'new field'
                     type: 'singleselect'
