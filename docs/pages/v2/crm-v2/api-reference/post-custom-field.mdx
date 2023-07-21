@@ -1,16 +1,17 @@
 ---
-openapi: "POST /api/unifications/crm/lead/custom-fields/create"
+openapi: "POST /api/unifications/crm/custom-fields/create"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/crm/lead/custom-fields/create \
+  --url https://app.vessel.dev/api/unifications/crm/custom-fields/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
+  "objectType": "leads",
   "customField": {
     "name": "new field",
     "type": "singleselect"
@@ -21,4 +22,3 @@ curl --request POST \
 </RequestExample>
 
 
-      
