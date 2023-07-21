@@ -628,6 +628,10 @@ paths:
                     firstName: Tom
                     lastName: Smith
                     jobTitle: Director of Operations
+                    emails:
+                      - address: "tom@dunder.com"
+                        type: "work"
+                        isPrimary: true
                     address:
                       line1: 100 Blue Dr
                       line2: Suite 100
@@ -997,7 +1001,7 @@ paths:
       security:
         - VesselAPIToken: []
     parameters: []
-  /api/unifications/engagement/sequence/start:
+  /api/unifications/engagement/sequences/start:
     post:
       summary: Start Sequence
       operationId: post-start-sequence

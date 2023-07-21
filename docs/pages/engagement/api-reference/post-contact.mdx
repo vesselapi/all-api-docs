@@ -9,12 +9,17 @@ curl --request POST \
   --url https://app.vessel.dev/api/unifications/engagement/contacts/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
   "contact": {
     "firstName": "Tom",
     "lastName": "Smith",
     "jobTitle": "Director of Operations",
+    "emails": [{
+      "address": "fake@email.com",
+      "isPrimary": true,
+      "type": "work"
+    }],
     "address": {
       "line1": "100 Blue Dr",
       "line2": "Suite 100",
@@ -30,6 +35,3 @@ curl --request POST \
 ```
 
 </RequestExample>
-
-
-      
