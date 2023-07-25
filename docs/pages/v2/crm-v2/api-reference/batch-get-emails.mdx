@@ -30,7 +30,7 @@ In order to fetch more than 200 ids, you will have to make multiple requests.
 const results = [];
 for (let i = 0; i < ids.length; i += 200) {
   const batchIds = ids.slice(i, i + 200);
-  const batchResults = await fetch('https://app.vessel.dev/api/crm/accounts/batch-read',
+  const batchResults = await fetch('https://app.vessel.dev/api/crm/emails/batch-read',
   {
     ...,
     body: {
