@@ -12,11 +12,26 @@ curl --request POST \
   --header 'x-vessel-access-token: '\
   --data '{
   "include": { $native: false },
-  "ids": ["123123", "456456", "5675675"],
-  "cursor": "123123"
+  "ids": ["123123", "456456", "5675675"]
 }'
 ```
 
 </RequestExample>
 
-
+*Note:* The maximum number of ids per request is 200.
+In order to fetch more than 200 ids, you will have to make multiple requests.
+```
+const results = [];
+for (let i = 0; i < ids.length; i += 200) {
+  const batchIds = ids.slice(i, i + 200);
+  const batchResults = await fetch('https://app.vessel.dev/api/crm/attendees/batch-read',
+  {
+    ...,
+    body: {
+      ids: batchIds,
+    }
+  });
+  results.push(...batchResults);
+}
+return results;
+```
