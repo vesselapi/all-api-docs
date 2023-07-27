@@ -383,6 +383,7 @@ paths:
                         startTime: "2019-08-24T14:15:22Z"
                         connectedTime: "2019-08-24T14:15:22Z"
                         endTime: "2019-08-24T14:15:22Z"
+                        recordingUrl: "www.example.com/recording.mp3"
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
@@ -446,6 +447,7 @@ paths:
                       startTime: "2019-08-24T14:15:22Z"
                       connectedTime: "2019-08-24T14:15:22Z"
                       endTime: "2019-08-24T14:15:22Z"
+                      recordingUrl: "www.example.com/recording.mp3"
                       createdTime: "2019-08-24T14:15:22Z"
                       modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
@@ -692,6 +694,7 @@ components:
           startTime: "2019-08-24T14:15:22Z"
           connectedTime: "2019-08-24T14:15:22Z"
           endTime: "2019-08-24T14:15:22Z"
+          recordingUrl: "www.example.com/recording.mp3"
           createdTime: "2019-08-24T14:15:22Z"
           modifiedTime: "2019-08-24T14:15:22Z"
           associations:
@@ -726,6 +729,9 @@ components:
           type: string
         endTime:
           type: string
+        recordingUrl:
+          type: string
+          description: The URL of the recording
         createdTime:
           type: string
           description: The timestamp that the contact was created
