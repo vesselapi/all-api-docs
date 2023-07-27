@@ -392,14 +392,6 @@ paths:
                         mobilePhone: '2106541111'
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: .56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-contacts
       parameters:
         - name: x-vessel-access-token
@@ -429,9 +421,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - accounts
-                    - deals
       description: Fetch Contacts by Ids
     parameters: []
   /api/unifications/crm/contacts/find:
@@ -786,12 +775,6 @@ paths:
                         isClosed: false
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-deals
       parameters:
         - name: x-vessel-access-token
@@ -812,14 +795,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: accounts, contacts.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -829,9 +804,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - accounts
-                    - contacts
       description: Fetch Deals by Ids
     parameters: []
   /api/unifications/crm/deals/find:
@@ -1202,14 +1174,6 @@ paths:
                           state: Pennsylvania
                           postalCode: '281332'
                           country: USA
-                        associations:
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-accounts
       parameters:
         - name: x-vessel-access-token
@@ -1226,14 +1190,6 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, leads.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1243,9 +1199,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
       description: Fetch Accounts by Ids
     parameters: []
   /api/unifications/crm/accounts/find:
@@ -1642,12 +1595,6 @@ paths:
                         mobilePhone: '2338889999'
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-leads
       description: |-
         Fetch Leads by Ids
@@ -1672,14 +1619,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: contacts, accounts.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -1689,9 +1628,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - contacts
-                    - accounts
   /api/unifications/crm/leads/find:
     post:
       summary: Get Lead
@@ -2091,16 +2027,6 @@ paths:
                         contentText: This note has some interesting content in it!
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-notes
       description: Fetch Notes by Ids
       parameters:
@@ -2122,14 +2048,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, accounts, leads.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2139,9 +2057,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
   /api/unifications/crm/notes/find:
     post:
       summary: Get Note
@@ -2494,16 +2409,6 @@ paths:
                         priority: High
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-tasks
       description: Fetch Tasks by Ids
       parameters:
@@ -2525,14 +2430,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, accounts, leads.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2542,9 +2439,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
     parameters: []
   /api/unifications/crm/tasks/find:
     post:
@@ -2917,18 +2811,6 @@ paths:
                         isAllDayEvent: true
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          eventAttendeeIds:
-                            - f63c1bd7215f5150b332d31d9509752f
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-events
       description: Fetch Events by Ids
       parameters:
@@ -2950,14 +2832,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, accounts, leads, eventAttendees.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -2967,9 +2841,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
   /api/unifications/crm/events/find:
     post:
       summary: Get Event
@@ -3315,9 +3186,6 @@ paths:
                         email: null
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          eventId: 0000d2e83d6c5d52a61f2fb860666477
-                          associationId: fbdb8b1e827609f50c25b4d52a7b6f57
       operationId: batch-read-event-attendees
       description: Fetch Attendees by Ids
       parameters:
@@ -3697,16 +3565,6 @@ paths:
                         status: SENT
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-emails
       description: Fetch Emails by Ids
       parameters:
@@ -3728,14 +3586,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, accounts, leads.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -3745,9 +3595,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
     parameters: []
   /api/unifications/crm/emails/find:
     post:
@@ -4130,16 +3977,6 @@ paths:
                         date: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
                         modifiedTime: '2019-08-24T14:15:22Z'
-                        associations:
-                          accountIds:
-                            - 0dcb45e051315a6ea63b0f16e73689d9
-                          leadIds:
-                            - d08f345ace24509e911a0ea8e3d2203c
-                          contactIds:
-                            - e5f32d4fd2115220bd20a2ccf81210ec
-                          dealIds:
-                            - 497fb529e6805351b5dc8057c74a4a52
-                          ownerUserId: 56f653659ea9524b9e0fb0ba67e6f8a0
       operationId: batch-read-calls
       description: Fetch Calls by Ids
       parameters:
@@ -4161,14 +3998,6 @@ paths:
                   type: array
                   items:
                     type: string
-                associations:
-                  type: array
-                  items:
-                    type: string
-                  description: |
-                    Array of associations to include in the response.
-                    Allowed values: deals, contacts, accounts, leads.
-                    ownerUserId is always included in the response.
             examples:
               example-1:
                 value:
@@ -4178,9 +4007,6 @@ paths:
                     - '567567'
                   include:
                     $native: false
-                  associations:
-                    - deals
-                    - contacts
   /api/unifications/crm/calls/find:
     post:
       summary: Get Call
