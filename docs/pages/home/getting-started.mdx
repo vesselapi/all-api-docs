@@ -87,8 +87,11 @@ app.post("/session-token", async (req, res) => {
     }
   );
 
-  const json = await response.json();
-  res.json(json.result);
+  const {
+    result: { sessionToken },
+  } = await response.json();
+
+  res.json({ sessionToken });
 });
 ```
 
@@ -149,7 +152,7 @@ export default function App() {
               integrationId: integration.id,
               getSessionToken: async () => {
                 const response = await fetch("https://my-company.api/session-token", { method: "POST" });
-                const sessionToken = await response.json();
+                const { sessionToken } = await response.json();
                 return sessionToken;
               },
             })
@@ -236,11 +239,12 @@ app.post("/access-token", async (req, res) => {
     method: "POST",
   });
 
-  const json = await response.json();
-  const { connectionId, accessToken } = json.result;
+  const {
+    result: { integrationId, connectionId, accessToken },
+  } = await response.json();
 
   // !!IMPORTANT!! Make sure to store the connectionId and accessToken securely
-  await saveToDb({ connectionId, accessToken });
+  await saveToDb({ integationId, connectionId, accessToken });
 
   res.send({ success: true });
 });
