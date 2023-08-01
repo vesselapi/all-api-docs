@@ -14,7 +14,11 @@ curl --request POST \
   "objectType": "leads",
   "customField": {
     "name": "new field",
-    "type": "singleselect"
+    "type": "singleselect",
+    "options": [
+      { "key": "option_1", "name": "Option 1" },
+      { "key": "option_2", "name": "Option 2" }
+    ]
   }
 }'
 ```

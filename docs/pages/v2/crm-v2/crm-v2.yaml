@@ -6037,6 +6037,10 @@ components:
           type: string
           enum:
             - singleselect
+            - text
+            - number
+            - percentage
+            - currency
         options:
           type: array
           description: 'Required when `type = singleselect`'
