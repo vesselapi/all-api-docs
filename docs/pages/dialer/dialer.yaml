@@ -379,11 +379,15 @@ paths:
                           - number: "8192223333"
                         from:
                           - number: "8192223333"
-                        direction: "outbound"
                         startTime: "2019-08-24T14:15:22Z"
                         connectedTime: "2019-08-24T14:15:22Z"
                         endTime: "2019-08-24T14:15:22Z"
                         recordingUrl: "www.example.com/recording.mp3"
+                        voicemailUrl: "www.example.com/voicemail.mp3"
+                        direction: "outbound"
+                        status: "completed"
+                        answered: true
+                        inProgress: false
                         createdTime: "2019-08-24T14:15:22Z"
                         modifiedTime: "2019-08-24T14:15:22Z"
                         associations:
@@ -443,11 +447,15 @@ paths:
                         - number: "8192223333"
                       from:
                         - number: "8192223333"
-                      direction: "outbound"
                       startTime: "2019-08-24T14:15:22Z"
                       connectedTime: "2019-08-24T14:15:22Z"
                       endTime: "2019-08-24T14:15:22Z"
                       recordingUrl: "www.example.com/recording.mp3"
+                      voicemailUrl: "www.example.com/voicemail.mp3"
+                      direction: "outbound"
+                      status: "completed"
+                      answered: true
+                      inProgress: false
                       createdTime: "2019-08-24T14:15:22Z"
                       modifiedTime: "2019-08-24T14:15:22Z"
                       associations:
@@ -690,11 +698,15 @@ components:
             - number: "8192223333"
           from:
             - number: "8192223333"
-          direction: "outbound"
           startTime: "2019-08-24T14:15:22Z"
           connectedTime: "2019-08-24T14:15:22Z"
           endTime: "2019-08-24T14:15:22Z"
           recordingUrl: "www.example.com/recording.mp3"
+          voicemailUrl: "www.example.com/voicemail.mp3"
+          direction: "outbound"
+          status: "completed"
+          answered: true
+          inProgress: false
           createdTime: "2019-08-24T14:15:22Z"
           modifiedTime: "2019-08-24T14:15:22Z"
           associations:
@@ -718,26 +730,36 @@ components:
           items:
             - number:
                 type: string
-        direction:
-          type: string
-          enum:
-            - inbound
-            - outbound
         startTime:
           type: string
         connectedTime:
           type: string
         endTime:
           type: string
-        recordingUrl:
-          type: string
-          description: The URL of the recording
         createdTime:
           type: string
           description: The timestamp that the contact was created
         modifiedTime:
           type: string
           description: The timestamp the contact was last modified
+        recordingUrl:
+          type: string
+          description: The URL of the recording
+        voicemailUrl:
+          type: string
+          description: The URL of the voicemail
+        direction:
+          type: string
+          enum:
+            - inbound
+            - outbound
+        status:
+          type: string
+          description: The status of the call.
+        answered:
+          type: boolean
+        inProgress:
+          type: boolean
         associations:
           type: object
           properties:
