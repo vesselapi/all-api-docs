@@ -19,7 +19,7 @@ The first step is to create an empty sequence. We'll add the email templates and
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/sequences/create \
+  --url https://api.vessel.dev/unifications/engagement/sequences/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: [YOUR_API_TOKEN]' \
   --header 'x-vessel-access-token: [CUSTOMER_ACCESS_TOKEN]'\
@@ -60,7 +60,7 @@ Also, please note that you'll need to make an exception for Outreach which doesn
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/contact/custom-fields/create \
+  --url https://api.vessel.dev/unifications/engagement/contact/custom-fields/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -95,7 +95,7 @@ If you want to support Outreach but don't want to ask your user to provide a cus
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/contact/custom-fields/list \
+  --url https://api.vessel.dev/unifications/engagement/contact/custom-fields/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -129,7 +129,7 @@ Sales Engagement Platforms use double bracket notation, e.g., `{{custom_field}}`
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/sequence-steps/batch-create \
+  --url https://api.vessel.dev/unifications/engagement/sequence-steps/batch-create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -188,7 +188,7 @@ Note that there are a lot of different filtering options, don't try to enrich ev
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/contacts/list \
+  --url https://api.vessel.dev/unifications/engagement/contacts/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -230,7 +230,7 @@ Next, fill in the custom field with the custom data. You'll need to do this for 
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/contacts/update \
+  --url https://api.vessel.dev/unifications/engagement/contacts/update \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -273,7 +273,7 @@ Find the user that you want to send the emails out for, you can use the `email` 
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/users/list \
+  --url https://api.vessel.dev/unifications/engagement/users/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -305,7 +305,7 @@ We recommend either allowing your user to pick the email they want to use or usi
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/mailboxes/list \
+  --url https://api.vessel.dev/unifications/engagement/mailboxes/list \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
@@ -334,7 +334,7 @@ The last step is to enroll the contacts into the sequence. Unfortunately, there 
 
 ```bash Terminal
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/sequence/start \
+  --url https://api.vessel.dev/unifications/engagement/sequence/start \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\

@@ -6,7 +6,7 @@ info:
 security:
   - VesselAPIToken: []
 servers:
-  - url: 'https://app.vessel.dev/api'
+  - url: 'https://api.vessel.dev'
 paths:
   /api/connections/list:
     post:

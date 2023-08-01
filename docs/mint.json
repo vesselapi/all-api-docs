@@ -30,7 +30,7 @@
     "href": "https://www.vessel.dev"
   },
   "api": {
-    "baseUrl": "https://app.vessel.dev",
+    "baseUrl": "https://api.vessel.dev",
     "playground": {
       "mode": "hide"
     },

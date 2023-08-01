@@ -4,7 +4,7 @@ info:
   version: "1.0"
   summary: API
 servers:
-  - url: "https://app.vessel.dev/api"
+  - url: "https://api.vessel.dev"
 security:
   - VesselAPIToken: []
 paths:
