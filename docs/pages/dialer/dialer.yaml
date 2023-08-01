@@ -744,10 +744,10 @@ components:
           description: The timestamp the contact was last modified
         recordingUrl:
           type: string
-          description: The URL of the recording
+          description: The URL of the recording. Only supported for Aircall and Dialpad.
         voicemailUrl:
           type: string
-          description: The URL of the voicemail
+          description: The URL of the voicemail. Only supported for Aircall and Dialpad.
         direction:
           type: string
           enum:
