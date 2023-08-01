@@ -81,6 +81,9 @@ paths:
                          type:
                            - string
                            - 'null'
+                       typedCustomFields:
+                         type: object
+                         properties: {}
                        createdAt:
                          type: string
                          format: date-time
@@ -107,6 +110,7 @@ paths:
                        organizationCountry: null
                        sanitizedPhone: null
                        domain: nulla quis cupidatat eiusmod
+                       typedCustomFields: {}
       requestBody:
         content:
           application/json:
@@ -214,6 +218,9 @@ paths:
                            type:
                              - string
                              - 'null'
+                         typedCustomFields:
+                           type: object
+                           properties: {}
                          createdAt:
                            type: string
                            format: date-time
@@ -258,6 +265,7 @@ paths:
                          organizationCountry: occaecat cillum laboris voluptate
                          estimatedNumEmployees: 67370679.50048807
                          industry: laboris occaecat elit eiusmod
+                         typedCustomFields: {}
                      pagination:
                        page: null
                        totalEntries: -94639301.4333235
@@ -359,6 +367,9 @@ paths:
                          type:
                            - string
                            - 'null'
+                       typedCustomFields:
+                         type: object
+                         properties: {}
                        createdAt:
                          type: string
                          format: date-time
@@ -385,6 +396,7 @@ paths:
                        domain: eiusmod aliqua adipisicing amet
                        estimatedNumEmployees: 4961864.883238703
                        ownerId: fugiat aliquip laboris dolor
+                       typedCustomFields: {}
       requestBody:
         content:
           application/json:
@@ -661,6 +673,10 @@ paths:
                        updatedAt:
                          type: string
                          format: date-time
+                       linkedinUrl:
+                         type:
+                           - string
+                           - 'null'
                        typedCustomFields:
                          type: object
                          properties: {}
@@ -685,6 +701,7 @@ paths:
                            rawNumber: culpa in velit adipisicing sint
                            dncStatus: nisi Excepteur Lorem
                        name: elit deserunt ut
+                       linkedinUrl: null
                        accountId: null
                        typedCustomFields: {}
                        organizationName: non adipisicing ipsum ut Excepteur
@@ -871,6 +888,10 @@ paths:
                          updatedAt:
                            type: string
                            format: date-time
+                         linkedinUrl:
+                           type:
+                             - string
+                             - 'null'
                          typedCustomFields:
                            type: object
                            properties: {}
@@ -920,6 +941,7 @@ paths:
                          name: null
                          contactStageId: dolore nisi voluptate incididunt consectetur
                          lastName: null
+                         linkedinUrl: null
                          typedCustomFields: {}
                          presentRawAddress: null
                          organizationName: null
@@ -1051,6 +1073,10 @@ paths:
                        updatedAt:
                          type: string
                          format: date-time
+                       linkedinUrl:
+                         type:
+                           - string
+                           - 'null'
                        typedCustomFields:
                          type: object
                          properties: {}
@@ -1084,6 +1110,7 @@ paths:
                        organizationName: proident incididunt anim cupidatat
                        name: null
                        accountId: labore
+                       linkedinUrl: null
                        typedCustomFields: {}
                        lastName: Excepteur amet esse est
       requestBody:
