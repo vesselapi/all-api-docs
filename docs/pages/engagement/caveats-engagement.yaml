@@ -1,6 +1,6 @@
 caveats:
   /engagement/emails/find: Supported for Outreach and Salesloft
-  /engagement/contacts/custom-fields/create: "Custom Fields are statically defined in Outreach, use `GET /engagement/contact/custom-fields` to get a list of pre-defined custom fields."
+  /engagement/contacts/create-custom-field: "Custom Fields are statically defined in Outreach, use `/engagement/contacts/list-custom-fields` to get a list of pre-defined custom fields."
   /engagement/sequence-steps/batch-create: For Salesloft, this endpoint can only be called once, make sure to include all steps in the initial call.
   /engagement/emails/list: Supported for Outreach and Salesloft
   /engagement/tags/list: Supported for Apollo and Salesloft
