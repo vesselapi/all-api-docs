@@ -1,18 +1,18 @@
 ---
-openapi: "POST /api/unifications/engagement/contact/custom-fields/create"
+openapi: "POST /api/unifications/engagement/contacts/create-custom-field"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://app.vessel.dev/api/unifications/engagement/contact/custom-fields/create \
+  --url https://app.vessel.dev/api/unifications/engagement/contacts/create-custom-field \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
   "customField": {
-    "key": "customField1",
+    "name": "customField1",
     "$native": {}
   }
 }'
@@ -21,4 +21,4 @@ curl --request POST \
 </RequestExample>
 
 **Caveats**  
-Custom Fields are statically defined in Outreach, use `GET /engagement/contact/custom-fields` to get a list of pre-defined custom fields.
+Custom Fields are statically defined in Outreach, use `/engagement/contacts/list-custom-fields` to get a list of pre-defined custom fields.
