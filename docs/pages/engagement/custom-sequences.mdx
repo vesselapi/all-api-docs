@@ -60,13 +60,13 @@ Also, please note that you'll need to make an exception for Outreach which doesn
 
 ```bash Terminal
 curl --request POST \
-  --url https://api.vessel.dev/unifications/engagement/contact/custom-fields/create \
+  --url https://api.vessel.dev/unifications/engagement/contacts/create-custom-field \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
   "customField": {
-    "key": "acme_ai_personalization",
+    "name": "acme_ai_personalization",
   }
 }'
 
@@ -95,7 +95,7 @@ If you want to support Outreach but don't want to ask your user to provide a cus
 
 ```bash Terminal
 curl --request POST \
-  --url https://api.vessel.dev/unifications/engagement/contact/custom-fields/list \
+  --url https://api.vessel.dev/unifications/engagement/contacts/list-custom-fields \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\

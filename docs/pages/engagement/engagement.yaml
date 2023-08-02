@@ -707,7 +707,7 @@ paths:
         description: ""
       description: Update an existing Contact
     parameters: []
-  /api/unifications/engagement/contact/custom-fields/list:
+  /api/unifications/engagement/contacts/list-custom-fields:
     post:
       summary: List Custom Fields
       operationId: get-all-customFields
@@ -758,7 +758,7 @@ paths:
                         type: string
                     nextPageCursor: d9806400e2daa25de2322707bbc41577
       description: Get all Contact Custom Fields
-  /api/unifications/engagement/contact/custom-fields/create:
+  /api/unifications/engagement/contacts/create-custom-field:
     post:
       summary: Create Custom Field
       operationId: post-customFields
@@ -771,7 +771,7 @@ paths:
                 title: responseBody
                 type: object
                 properties:
-                  key:
+                  name:
                     type: string
               examples:
                 example-1:
@@ -798,7 +798,7 @@ paths:
               example-1:
                 value:
                   customField:
-                    key: "customField1"
+                    name: "customField1"
                     $native: {}
       description: Create a Contact Custom Field
   /api/unifications/engagement/emails/list:
@@ -1809,14 +1809,14 @@ components:
       title: ContactCustomFieldCreate
       type: object
       examples:
-        - key: "customField1"
+        - name: "customField1"
       properties:
-        key:
+        name:
           type: string
         $native:
           $ref: "#/components/schemas/NativeData"
       required:
-        - key
+        - name
     Sequence:
       title: Sequence
       type: object
