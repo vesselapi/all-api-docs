@@ -1196,5 +1196,10 @@
         "pages/old-engagement/connection/remove-webhook"
       ]
     }
-  ]
+  ],
+  "analytics": {
+    "koala": {
+      "publicApiKey": "pk_d7fa5aeb3a06c993fc6580457f4a92b6c00a"
+    }
+  }
 }
