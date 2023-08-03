@@ -45,7 +45,7 @@ You'll need to locate the documentation for creating an OAuth app in the platfor
 
 <Warning>
   Important: When you are creating the OAuth app, it's important to set the
-  Callback URL to `https://app.vessel.dev/api/auth/oauth-callback`.
+  Callback URL to `https://api.vessel.dev/auth/oauth-callback`.
 </Warning>
 
 **2 Add the OAuth app in Vessel**
@@ -53,7 +53,7 @@ You'll need to locate the documentation for creating an OAuth app in the platfor
 Once you've created the OAuth app and have gotten it approved, you can add it to Vessel by calling the [Create OAuth app](/pages/home/api-reference/post-oauth-app) endpoint.
 
 ```bash Terminal
-curl --location --request POST 'https://app.vessel.dev/api/auth/oauth-apps/create' \
+curl --location --request POST 'https://api.vessel.dev/auth/oauth-apps/create' \
 --header 'x-vessel-api-token: [API_KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -80,7 +80,7 @@ Creating and managing these applications in Vessel is simple. Just follow these 
 Use the same steps as above to create a new OAuth app in the integration platform. You should now see two OAuth apps when you call the [List OAuth apps](/pages/home/api-reference/get-all-oauth-apps) endpoint.
 
 ```bash Terminal
-curl --location --request POST 'https://app.vessel.dev/api/auth/oauth-apps/list' \
+curl --location --request POST 'https://api.vessel.dev/auth/oauth-apps/list' \
 --header 'x-vessel-api-token: [API_TOKEN]'
 ```
 
