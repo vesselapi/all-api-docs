@@ -307,8 +307,3 @@ components:
       required:
         - id
         - createdTime
-  securitySchemes:
-    VesselAPIToken:
-      name: x-vessel-api-token
-      type: apiKey
-      in: header

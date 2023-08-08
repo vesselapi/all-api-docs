@@ -157,6 +157,15 @@
       "pages": ["pages/home/api-reference/passthrough"]
     },
     {
+      "group": "Webhooks",
+      "pages": [
+        "pages/home/api-reference/get-all-webhooks",
+        "pages/home/api-reference/get-one-webhooks",
+        "pages/home/api-reference/post-webhooks",
+        "pages/home/api-reference/delete-webhooks"
+      ]
+    },
+    {
       "group": "OAuth Apps",
       "pages": [
         "pages/home/managing-oauth-apps",
@@ -165,10 +174,6 @@
         "pages/home/api-reference/post-oauth-app",
         "pages/home/api-reference/delete-oauth-app"
       ]
-    },
-    {
-      "group": "ETL",
-      "pages": ["pages/managed-etl/about"]
     },
     {
       "group": "CRM APIs",

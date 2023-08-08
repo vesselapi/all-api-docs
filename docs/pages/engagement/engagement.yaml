@@ -1985,8 +1985,3 @@ components:
               type: string
         $native:
           $ref: "#/components/schemas/NativeData"
-  securitySchemes:
-    VesselAPIToken:
-      name: x-vessel-api-token
-      type: apiKey
-      in: header

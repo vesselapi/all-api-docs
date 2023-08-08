@@ -5,11 +5,15 @@ description: Vessel Webhook support
 
 Webhooks allow you to receive updates when something in our system changes. Please not that we can only send webhooks in real-time or near-real-time if the downstream platform has native webhook support. Otherwise, you will still receive a webhook but it will be after the latest sync.
 
-# How To Use
+### Important Notes
 
-### Add a Webhook
+- Any time an object is updated/created/deleted, we will send an event. You can use the `eventType` on the event payload to ignore objects that aren't relevant to your use case.
+- Our webhooks are sent as `POST` requests over standard HTTPs and you must return `2xx` after receiving a webhook event. We will re-send the webhook up to 3 times if we don't receive a `2xx` response.
+- **Very Important**: Webhooks will only be sent for objects which you are syncing to the [synced-cache](/pages/home/synced-cache).
 
-Add, remove, and delete webhooks using the new set of `webhooks` endpoints.
+## Add a Webhook
+
+To add a webhook, you can
 
 Webhooks are added per-project (i.e., per-api-key) meaning that as soon as you add a webhook **you will start receiving webhooks for existing connections**.
 
@@ -35,7 +39,7 @@ const resp = await vessel.webhooks.delete({
 });
 ```
 
-### Receiving Webhooks
+## Receiving Webhooks
 
 **Body**
 
@@ -92,7 +96,7 @@ const signature = (response) => {
 };
 ```
 
-### Viewing webhooks
+## Viewing webhooks
 
 There's two ways to view the webhooks you've added
 

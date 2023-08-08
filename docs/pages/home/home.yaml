@@ -432,12 +432,154 @@ paths:
         Send an authenticated passthrough request to the downstream system.
         This is useful for making requests to endpoints that are not yet supported
         by Vessel.
+  /webhooks/list:
+    post:
+      summary: List Webhooks
+      operationId: list-webhooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  webhooks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        projectId:
+                          type: string
+                        url:
+                          type: string
+                        createdTime:
+                          type: string
+              examples:
+                example-1:
+                  value:
+                    webhooks:
+                      - id: v_webhook_1231241
+                        projectId: v_project_c63a7fbd9123123
+                        url: 'https://mycompany.io/webhooks/12312312'
+                        createdTime: '2021-10-20T23:11:28.617Z'
+  /webhooks/find:
+    post:
+      summary: Find Webhook
+      operationId: find-webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  webhook:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      projectId:
+                        type: string
+                      url:
+                        type: string
+                      createdTime:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    webhook:
+                      id: v_webhook_1231241
+                      projectId: v_project_c63a7fbd9123123
+                      url: 'https://mycompany.io/webhooks/12312312'
+                      createdTime: '2021-10-20T23:11:28.617Z'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
+  /webhooks/create:
+    post:
+      summary: Create Webhook
+      operationId: create-webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  webhook:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      projectId:
+                        type: string
+                      url:
+                        type: string
+                      createdTime:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    webhook:
+                      id: v_webhook_1231241
+                      projectId: v_project_c63a7fbd9123123
+                      url: 'https://mycompany.io/webhooks/12312312'
+                      createdTime: '2021-10-20T23:11:28.617Z'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+              required:
+                - url
+  /webhooks/delete:
+    post:
+      summary: Delete Webhook
+      operationId: delete-webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: responseBody
+                type: object
+                properties:
+                  id:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: v_webhook_1231241
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required:
+                - id
 components:
-  securitySchemes:
-    VesselAPIToken:
-      name: x-vessel-api-token
-      type: apiKey
-      in: header
   schemas:
     Connection:
       title: Connection
