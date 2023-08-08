@@ -202,6 +202,22 @@
       "pages": ["pages/v2/crm-v2/about"]
     },
     {
+      "group": "About",
+      "pages": ["pages/chat/about"]
+    },
+    {
+      "group": "About",
+      "pages": ["pages/dialer/about"]
+    },
+    {
+      "group": "About",
+      "pages": ["pages/engagement/about"]
+    },
+    {
+      "group": "About",
+      "pages": ["pages/market-automation/about"]
+    },
+    {
       "group": "Unified API",
       "pages": [
         {
