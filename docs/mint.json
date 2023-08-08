@@ -215,7 +215,7 @@
     },
     {
       "group": "About",
-      "pages": ["pages/market-automation/about"]
+      "pages": ["pages/marketing-automation/about"]
     },
     {
       "group": "Unified API",
