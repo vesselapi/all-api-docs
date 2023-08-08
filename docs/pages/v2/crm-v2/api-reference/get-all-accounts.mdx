@@ -13,6 +13,9 @@ curl --request POST \
   --data '{
   "include": { $native: false },
   "cursor": "123123",
+  "filters": {
+    "name": "Blue Cross"
+  },
   "associations": [
     "deals",
     "contacts",
@@ -22,5 +25,3 @@ curl --request POST \
 ```
 
 </RequestExample>
-
-

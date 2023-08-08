@@ -1,0 +1,107 @@
+# About
+
+By default, API calls are made directly to the downstream integration. This means when you make an API call to `[**GET** unifications/crm/users/list](https://app.vessel.dev/api/unifications/crm/users/list)` on a Salesforce connection, Vessel makes a call to your customer’s Salesforce instance using the Salesforce APIs and transforms the data on the fly before returning it.
+
+### The Problem
+
+This works great when you don’t need to read a lot of data or make many API calls. But what happens if you want to read in your customer’s entire Salesforce instance or you need to make many API read calls in rapid succession? You run the risk of exhausting your customer’s rate limits, which can cause your integration to fail or even worse, cause your customer's other integrations to fail in the case of shared rate limits like Salesforce.
+
+### The Solution
+
+**Synced-Caches**: With Synced-Caches, we do all the hard work of syncing your customer’s integration data to a database, hosting it, and exposing powerful APIs on top of it. With synced-caches, you don’t have to worry about exhausting your customer’s rate limits when reading data!
+
+Synced-caches are also performant and secure - you choose exactly which objects we sync for every connection so we’re never pulling data you don’t need.
+
+The best part? Most objects stay up to date in real time thanks to our powerful real-sync webhook technology.
+
+Here’s a diagram to help illustrate
+
+![Group 97 (6).png](<https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6d358a54-665b-469d-8e17-da697634fd66/Group_97_(6).png>)
+
+# When to turn on Synced-Caching
+
+Why might you want to turn on synced caching?
+
+### Pros
+
+- Synced Caches don’t come with any read rate limits
+  - This supports read heavy workflows, like analyzing _all_ contacts in your customers CRM.
+- Synced objects come with two-way associations
+  - E.g., Every `Task` has a `dealId` and every `Deal` has a `taskId`
+  - Warning: You must sync _both_ objects for two-way associations to work. If you just sync Deals and not Tasks, you may not see the `taskId` field on Deals.
+
+### Cons
+
+- Syncs run every hour, so the cache data can be out of sync by up to an hour if the downstream system doesn't have good webhook support.
+  - Note: When you use the Vessel API to create or update an object, we will also update the cache. This means only updates that happen outside of our API (such as in the downstream system UI) will be delayed.
+
+In summary, if it's critical to your tool that data be reflect exactly what’s in the customer’s tool in real-time, you should probably not turn on synced caching.
+However, if you are okay with a small update delay, synced caching is one of the best ways to make your integration more robust and ensure you don’t exhaust your customer’s rate limits.
+
+# How To Use
+
+Here’s how you can start using synced caches to deliver more robust integrations.
+
+### Setting up a Synced-Cache
+
+The first step is to configure a connection to sync objects to the cache. This configuration is declared when the connection is created at the `session-token` step. If you want to use synced-cache for an object, you **must** configure it here.
+
+Here’s an example that configures syncing accounts and deals for a CRM connection.
+
+<warning>
+  This endpoint will error if you attempt to sync objects for an integration
+  that does not support synced-caches.
+</warning>
+
+```jsx
+const sessionToken = await vessel.auth.sessions.create({
+	integrationId: "id_of_integration" // must be provided
+	connection: {
+		sync: {
+			objects: { // the objects to sync
+				accounts: true, // sync accounts, should be plural!
+				deals: true    // sync deals, should be plural!
+			}
+		}
+	}
+})
+```
+
+When a connection is created with this configuration, Vessel will immediately start syncing data. Data is streamed, so it will become available through the API as soon as we pull it. This means you can start using the APIs right away, they will just return a limited subset of the data.
+
+If you want to wait for all data to finish syncing before .... Here’s what you can expect in the connections response to see the status of the sync:
+
+```jsx
+// https://app.vessel.dev/api/connections/list
+// response:
+{
+	connections: [{
+		...,
+		// For connections with synced cache enabled only.
+        // When syncState is "initial-sync-in-progress", we're syncing the
+		// data for the first time. We will continue to populate data and
+		// surface through our APIs as we process them. When it's
+		// "initial-sync-complete", we've successfully synced all of the data.
+		syncState: "initial-sync-in-progress" // or "initial-sync-complete"
+	}]
+}
+```
+
+During this period, we consider the connection to be in the “NEW” state. After we’re done fully syncing all of the data for the connection, we consider the connection to be in the “READY” state.
+
+### API Calls
+
+After you’ve configured a connection to use the synced-cache for the objects you want to sync, you can set your API calls to hit the cache for those objects by setting the `synced` param.
+
+```jsx
+// Makes a request to the synced-cache
+// Make sure deals is set to true in the sync config when creating the connection.
+const deals = await vessel.unifications.crm.deals.list({
+  synced: true,
+});
+
+// Makes a request directly to the downstream integration
+const deals = await vessel.unifications.crm.deals.list();
+```
+
+If `synced` is not set, then a direct API call to the downstream platform will be made instead. If `synced` is set and you did not configure the connection to sync the object you are accessing, then an error will be thrown.

@@ -84,6 +84,22 @@ paths:
             schema:
               type: object
               properties:
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    firstName:
+                      $ref: "#/components/schemas/StringFilter"
+                    lastName:
+                      $ref: "#/components/schemas/StringFilter"
+                    email:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 include:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
@@ -330,6 +346,9 @@ paths:
                 filters:
                   type: object
                   properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
                     email:
                       type: object
                       properties:
@@ -339,7 +358,28 @@ paths:
                           type: array
                           items:
                             type: string
-                  description: If you are using filters for HubSpot, associations cannot be provided.
+                    firstName:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    lastName:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    jobTitle:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    phone:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    mobilePhone:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                      description: Requires enabling Synced-cache
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
+                      description: Requires enabling Synced-cache
+                  description: If you are using filters for HubSpot, associations cannot be provided unless sync-cache is enabled.
                   required: email
                 associations:
                   type: array
@@ -736,6 +776,32 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    closeDate:
+                      $ref: "#/components/schemas/DateFilter"
+                    name:
+                      $ref: "#/components/schemas/StringFilter"
+                    amount:
+                      $ref: "#/components/schemas/NumberFilter"
+                    probability:
+                      $ref: "#/components/schemas/NumberFilter"
+                    stage:
+                      $ref: "#/components/schemas/StringFilter"
+                    isWon:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    isClosed:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    expectedRevenue:
+                      $ref: "#/components/schemas/NumberFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -744,15 +810,6 @@ paths:
                     Array of associations to include in the response.
                     Allowed values: accounts, contacts.
                     ownerUserId is always included in the response.
-            examples:
-              example-1:
-                value:
-                  cursor: '123123'
-                  include:
-                    $native: false
-                  associations:
-                    - accounts
-                    - contacts
       description: Retrieve all Deals
     parameters: []
   /api/unifications/crm/deals/batch-read:
@@ -1147,6 +1204,40 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    name:
+                      $ref: "#/components/schemas/StringFilter"
+                    description:
+                      $ref: "#/components/schemas/StringFilter"
+                    industry:
+                      $ref: "#/components/schemas/StringFilter"
+                    website:
+                      $ref: "#/components/schemas/StringFilter"
+                    street:
+                      $ref: "#/components/schemas/StringFilter"
+                    city:
+                      $ref: "#/components/schemas/StringFilter"
+                    state:
+                      $ref: "#/components/schemas/StringFilter"
+                    postalCode:
+                      $ref: "#/components/schemas/StringFilter"
+                    country:
+                      $ref: "#/components/schemas/StringFilter"
+                    phone:
+                      $ref: "#/components/schemas/StringFilter"
+                    annualRevenue:
+                      $ref: "#/components/schemas/NumberFilter"
+                    numberOfEmployees:
+                      $ref: "#/components/schemas/NumberFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -1155,15 +1246,6 @@ paths:
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, leads.
                     ownerUserId is always included in the response.
-            examples:
-              example-1:
-                value:
-                  cursor: '123123'
-                  include:
-                    $native: false
-                  associations:
-                    - deals
-                    - contacts
       description: Retrieve all Accounts
     parameters: []
   /api/unifications/crm/accounts/batch-read:
@@ -1581,6 +1663,9 @@ paths:
                 filters:
                   type: object
                   properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
                     email:
                       type: object
                       properties:
@@ -1590,7 +1675,31 @@ paths:
                           type: array
                           items:
                             type: string
-                  description: If you are using filters for HubSpot, associations cannot be provided.
+                    lastName:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    firstName:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    jobTitle:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    account:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    phone:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    mobilePhone:
+                      $ref: "#/components/schemas/StringFilter"
+                      description: Requires enabling Synced-cache
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                      description: Requires enabling Synced-cache
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
+                      description: Requires enabling Synced-cache
+                  description: If you are using filters for HubSpot, associations cannot be provided unless you enable Synced-cache
                   required: email
                 associations:
                   type: array
@@ -2050,6 +2159,22 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    content:
+                      $ref: "#/components/schemas/StringFilter"
+                    contentText:
+                      $ref: "#/components/schemas/StringFilter"
+                    contentHtml:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -2058,15 +2183,6 @@ paths:
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
                     ownerUserId is always included in the response.
-            examples:
-              example-1:
-                value:
-                  cursor: '123123'
-                  include:
-                    $native: false
-                  associations:
-                    - deals
-                    - contacts
   /api/unifications/crm/notes/batch-read:
     post:
       summary: Batch Read Notes
@@ -2447,6 +2563,29 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    body:
+                      $ref: "#/components/schemas/StringFilter"
+                    subject:
+                      $ref: "#/components/schemas/StringFilter"
+                    dueDate:
+                      $ref: "#/components/schemas/DateFilter"
+                    priority:
+                      $ref: "#/components/schemas/StringFilter"
+                    status:
+                      $ref: "#/components/schemas/StringFilter"
+                    isDone:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    ownerUserId:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -2870,6 +3009,30 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    subject:
+                      $ref: "#/components/schemas/StringFilter"
+                    description:
+                      $ref: "#/components/schemas/StringFilter"
+                    type:
+                      $ref: "#/components/schemas/StringFilter"
+                    location:
+                      $ref: "#/components/schemas/StringFilter"
+                    endDateTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    startDateTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    isAllDayEvent:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -3283,12 +3446,22 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
-            examples:
-              example-1:
-                value:
-                  cursor: '123123'
-                  include:
-                    $native: false
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    email:
+                      $ref: "#/components/schemas/StringFilter"
+                    status:
+                      $ref: "#/components/schemas/StringFilter"
+                    associatedObjectType:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
   /api/unifications/crm/attendees/batch-read:
     post:
       summary: Batch Read Event Attendees
@@ -3641,6 +3814,40 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    from:
+                      $ref: "#/components/schemas/StringFilter"
+                    to:
+                      $ref: "#/components/schemas/StringListFilter"
+                    cc:
+                      $ref: "#/components/schemas/StringListFilter"
+                    bcc:
+                      $ref: "#/components/schemas/StringListFilter"
+                    subject:
+                      $ref: "#/components/schemas/StringFilter"
+                    body:
+                      $ref: "#/components/schemas/StringFilter"
+                    bodyHtml:
+                      $ref: "#/components/schemas/StringFilter"
+                    messageDate:
+                      $ref: "#/components/schemas/DateFilter"
+                    isIncoming:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    isBounced:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    hasAttachment:
+                      $ref: "#/components/schemas/BooleanFilter"
+                    status:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -3649,15 +3856,6 @@ paths:
                     Array of associations to include in the response.
                     Allowed values: deals, contacts, accounts, leads.
                     ownerUserId is always included in the response.
-            examples:
-              example-1:
-                value:
-                  cursor: '123123'
-                  include:
-                    $native: false
-                  associations:
-                    - deals
-                    - contacts
     parameters: []
   /api/unifications/crm/emails/batch-read:
     post:
@@ -4085,6 +4283,36 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                filters:
+                  type: object
+                  description: Requires enabling Synced-cache
+                  properties:
+                    id:
+                      $ref: "#/components/schemas/StringFilter"
+                    disposition:
+                      $ref: "#/components/schemas/StringFilter"
+                    direction:
+                      $ref: "#/components/schemas/StringFilter"
+                    subject:
+                      $ref: "#/components/schemas/StringFilter"
+                    description:
+                      $ref: "#/components/schemas/StringFilter"
+                    date:
+                      $ref: "#/components/schemas/DateFilter"
+                    status:
+                      $ref: "#/components/schemas/StringFilter"
+                    duration:
+                      $ref: "#/components/schemas/NumberFilter"
+                    from:
+                      $ref: "#/components/schemas/StringFilter"
+                    to:
+                      $ref: "#/components/schemas/StringFilter"
+                    recordingUrl:
+                      $ref: "#/components/schemas/StringFilter"
+                    createdTime:
+                      $ref: "#/components/schemas/DateFilter"
+                    modifiedTime:
+                      $ref: "#/components/schemas/DateFilter"
                 associations:
                   type: array
                   items:
@@ -6126,8 +6354,96 @@ components:
         - name
         - createdTime
         - modifiedTime
-  securitySchemes:
-    VesselAPIToken:
-      name: vessel-api-token
-      type: apiKey
-      in: header
+    StringFilter:
+        type: object
+        properties:
+          equals:
+            type: string
+          contains:
+            type: string
+          startsWith:
+            type: string
+          endsWith:
+            type: string
+          not:
+            type: string
+          in:
+            type: array
+            items:
+              type: string
+          notIn:
+            type: array
+            items:
+              type: string
+          mode:
+            type: string
+            enum:
+              - insensitive
+    BooleanFilter:
+      type: object
+      properties:
+        equals:
+          type: boolean
+        not:
+          type: boolean
+    NumberFilter:
+      type: object
+      properties:
+        equals:
+          type: number
+        gt:
+          type: number
+        lt:
+          type: number
+        lte:
+          type: number
+        gte:
+          type: number
+        not:
+          type: number
+        in:
+          type: array
+          items:
+            type: number
+        notIn:
+          type: array
+          items:
+            type: number
+    StringListFilter:
+      type: object
+      properties:
+        has:
+          type: string
+        hasEvery:
+          type: array
+          items:
+            type: string
+        hasSome:
+          type: array
+          items:
+            type: string
+        isEmpty:
+          type: boolean
+    DateFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+        gt:
+          type: string
+        lt:
+          type: string
+        lte:
+          type: string
+        gte:
+          type: string
+        not:
+          type: string
+        in:
+          type: array
+          items:
+            type: string
+        notIn:
+          type: array
+          items:
+            type: string
