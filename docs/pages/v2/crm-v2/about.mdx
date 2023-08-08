@@ -7,14 +7,14 @@ The unified CRM APIs allow you to push and pull Leads, Contacts, Accounts, and m
 
 ### Integration Feature Support
 
-| CRM                | Support |
-| ------------------ | ------- |
-| Salesforce         | ✅      |
-| HubSpot            | ✅      |
-| Pipedrive          | Beta    |
-| Zoho               | Beta    |
-| Microsoft Dynamics | Beta    |
-| Close              | Beta    |
+| CRM                | Unified API | Synced-Cache | Webhooks |
+| ------------------ | ----------- | ------------ | -------- |
+| Salesforce         | ✅          | ✅           | ✅       |
+| HubSpot            | ✅          | ✅           | ✅       |
+| Pipedrive          | Beta        | Beta         | Beta     |
+| Zoho               | Beta        | -            | -        |
+| Microsoft Dynamics | Beta        | -            | -        |
+| Close              | Beta        | -            | -        |
 
 ## Object Feature Support
 
@@ -37,7 +37,7 @@ The unified CRM APIs allow you to push and pull Leads, Contacts, Accounts, and m
 
 <Warning>
   Details endpoint data cannot be synced to the Synced-Cache and will be
-  retrieved from the CRM on each request.
+  retrieved from the CRM directly on each request.
 </Warning>
 
 ### CRM Call Outs
