@@ -31,9 +31,6 @@
   },
   "api": {
     "baseUrl": "https://api.vessel.dev",
-    "playground": {
-      "mode": "hide"
-    },
     "auth": {
       "method": "key",
       "name": "x-vessel-api-token"
@@ -125,19 +122,16 @@
       "iconType": "duotone",
       "color": "#2B2B2F",
       "url": "pages/actions"
-    },
-    {
-      "name": "Managed ETL",
-      "icon": "rotate",
-      "iconType": "duotone",
-      "color": "#2B2B2F",
-      "url": "pages/managed-etl"
     }
   ],
   "navigation": [
     {
       "group": "Home",
       "pages": ["pages/home/about", "pages/home/getting-started"]
+    },
+    {
+      "group": "Features",
+      "pages": ["pages/home/managed-etl"]
     },
     {
       "group": "Integrations",
@@ -336,9 +330,7 @@
         },
         {
           "group": "Custom Fields",
-          "pages": [
-            "pages/v2/crm-v2/api-reference/post-custom-field"
-          ]
+          "pages": ["pages/v2/crm-v2/api-reference/post-custom-field"]
         }
       ]
     },
