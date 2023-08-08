@@ -1,0 +1,107 @@
+---
+title: "Webhooks"
+description: Vessel Webhook support
+---
+
+Webhooks allow you to receive updates when something in our system changes. Please not that we can only send webhooks in real-time or near-real-time if the downstream platform has native webhook support. Otherwise, you will still receive a webhook but it will be after the latest sync.
+
+# How To Use
+
+### Add a Webhook
+
+Add, remove, and delete webhooks using the new set of `webhooks` endpoints.
+
+Webhooks are added per-project (i.e., per-api-key) meaning that as soon as you add a webhook **you will start receiving webhooks for existing connections**.
+
+This also means there’s no need to add a new webhook every time you create a new connection. Just add one webhook and you’re good to go!
+
+```jsx
+// add
+const resp = await vessel.webhooks.create({
+  url: "https://mycompany.com/webhook",
+});
+
+// list
+const resp = await vessel.webhooks.list({});
+
+// find
+const resp = await vessel.webhooks.find({
+  id: resp.body.result.webhook.id,
+});
+
+// delete
+const resp = await vessel.webhooks.delete({
+  id: resp.body.result.webhook.id,
+});
+```
+
+### Receiving Webhooks
+
+**Body**
+
+Here’s the shape of the request that Vessel will make to your webhook endpoint
+
+```jsx
+// On Initial Sync
+{
+	headers: {
+		x-vessel-project-id: "string",
+    x-vessel-timestamp: "number-string", // When we sent this event
+		x-vessel-webhook-id: "string",
+		x-vessel-webhook-signature: "string"
+  },
+  body: {
+	  connectionId: "string", // which connection this was for.
+	  eventId: "string", // Unique event id. Used for debugging purposes.
+		eventTime: "date-string", // When this event occured
+		eventType: "system.sync.initial.complete"
+	}
+}
+
+// On Object update/create/delete
+{
+	headers: {
+		x-vessel-project-id: "string",
+    x-vessel-timestamp: "number-string",  // When we sent this event
+		x-vessel-webhook-id: "string",
+		x-vessel-webhook-signature: "string"
+  },
+	body: {
+		connectionId: "string", // which connection this was for.
+		eventId: "string", // Unique event id. Used for debugging purposes.
+		eventTime: "date-string", // When this event occurred
+		eventType: "object.crm.[deals|notes|accounts|...].[updated|created|deleted]", // ex: object.crm.deals.deleted
+		data: {
+			id: "string"; // id of the record that was changed.
+		}
+	}
+}
+```
+
+**\*\*\*\***\*\*\*\***\*\*\*\***Signature**\*\*\*\***\*\*\*\***\*\*\*\***
+
+It’s very important to verify the signature of the webhook in the header before processing the webhook. Here’s a function you can use to verify the signature.
+
+```jsx
+const hash = (s: string) => crypto.createHash("sha256").update(s).digest("hex");
+
+const signature = (response) => {
+  const timestamp = response.headers["x-vessel-timestamp"];
+  const body = JSON.stringify(response.body);
+  return hash(`${process.env.VESSEL_API_TOKEN}:${timestamp}:${body}`);
+};
+```
+
+### Viewing webhooks
+
+There's two ways to view the webhooks you've added
+
+### Through the API
+
+### In the Dashboard
+
+You can view your webhooks in the dashboard
+
+---
+
+- Enabling webhooks currently requires something about the sync cache being enabled as well

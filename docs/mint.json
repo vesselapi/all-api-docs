@@ -131,7 +131,7 @@
     },
     {
       "group": "Features",
-      "pages": ["pages/home/managed-etl"]
+      "pages": ["pages/home/managed-etl", "pages/home/synced-cache"]
     },
     {
       "group": "Integrations",

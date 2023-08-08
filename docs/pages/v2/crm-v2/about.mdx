@@ -5,6 +5,30 @@ description: "Integrate with Salesforce, Zoho, HubSpot, and more"
 
 The unified CRM APIs allow you to push and pull Leads, Contacts, Accounts, and more from your customer's CRM.
 
+## Object Feature Support
+
+| Object        | Synced-Cache |
+| ------------- | ------------ |
+| Info          | -            |
+| Users         | ✅           |
+| Contacts      | ✅           |
+| Deals         | ✅           |
+| Accounts      | ✅           |
+| Leads         | ✅           |
+| Notes         | ✅           |
+| Tasks         | ✅           |
+| Emails        | ✅           |
+| Calls         | ✅           |
+| Events        | ✅           |
+| Attendees     | ✅           |
+| Lists         | -            |
+| Custom Fields | -            |
+
+<Warning>
+  Details endpoint data cannot be synced to the Synced-Cache and will be
+  retrieved from the CRM on each request.
+</Warning>
+
 ### CRM Call Outs
 
 Any caveats specific to a particular CRM that you should be aware of.

@@ -1,4 +1,7 @@
-# About
+---
+title: "Synced-Caches"
+description: What is the Synced-Cache and why you might want to enable it.
+---
 
 By default, API calls are made directly to the downstream integration. This means when you make an API call to `[**GET** unifications/crm/users/list](https://app.vessel.dev/api/unifications/crm/users/list)` on a Salesforce connection, Vessel makes a call to your customer’s Salesforce instance using the Salesforce APIs and transforms the data on the fly before returning it.
 
@@ -34,6 +37,7 @@ Why might you want to turn on synced caching?
 
 - Syncs run every hour, so the cache data can be out of sync by up to an hour if the downstream system doesn't have good webhook support.
   - Note: When you use the Vessel API to create or update an object, we will also update the cache. This means only updates that happen outside of our API (such as in the downstream system UI) will be delayed.
+- Vessel currently supports syncing most data to the cache with the expection of data returned by the `/details` endpoints.
 
 In summary, if it's critical to your tool that data be reflect exactly what’s in the customer’s tool in real-time, you should probably not turn on synced caching.
 However, if you are okay with a small update delay, synced caching is one of the best ways to make your integration more robust and ensure you don’t exhaust your customer’s rate limits.
