@@ -3,13 +3,14 @@ title: "Webhooks"
 description: Vessel Webhook support
 ---
 
-Webhooks allow you to receive updates when something in our system changes. Please note that we can only send webhooks in real-time or near-real-time if the downstream platform has native webhook support. Otherwise, you will still receive a webhook but it will be after the latest sync.
+Webhooks allow you to receive updates when something in our system changes.
 
 ### Important Notes
 
+- **Very Important**: Webhooks will only be sent for objects which are using the [synced-cache](/pages/home/synced-cache).
 - Any time an object is updated/created/deleted, we will send an event. You can use the `eventType` on the event payload to ignore objects that aren't relevant to your use case.
+- Webhooks will only be sent in real-time if the downstream platform has native webhook support. Otherwise, you will still receive a webhook but it will be after the latest sync
 - Our webhooks are sent as `POST` requests over standard HTTPs and you must return `2xx` after receiving a webhook event. We will re-send the webhook up to 3 times if we don't receive a `2xx` response.
-- **Very Important**: Webhooks will only be sent for objects which you are syncing to the [synced-cache](/pages/home/synced-cache).
 
 ## Add a Webhook
 

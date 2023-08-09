@@ -134,6 +134,7 @@
       "pages": [
         "pages/home/synced-cache",
         "pages/home/webhooks",
+        "pages/home/unified-apis",
         "pages/home/managed-etl"
       ]
     },

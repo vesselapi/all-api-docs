@@ -1,0 +1,50 @@
+---
+title: "Unified APIs"
+description: Integrate with one Vessel API to integrate with many integrations at once.
+---
+
+Unified APIs provide an abstraction on top of an entire vertical such as CRMs or Marketing Automation tools. Unified APIs make it easy to set up integrations with a large number of tools in a few lines of code by providing a single data schema and interface across common operations in a vertical.
+
+## Support Unified APIs
+
+Visit any of the pages below to see which integrations are part of which unified API.
+
+<CardGroup cols={2}>
+  <Card href="/pages/v2/crm-v2" icon="database">
+    CRMs
+  </Card>
+  <Card href="/pages/engagement" icon="paper-plane">
+    Sales Engagement
+  </Card>
+  <Card href="/pages/marketing-automation" icon="envelope">
+    Marketing Automation
+  </Card>
+  <Card href="/pages/dialer" icon="phone">
+    Dialer
+  </Card>
+  <Card href="/pages/chat" icon="comment">
+    Chat
+  </Card>
+</CardGroup>
+
+## Example
+
+### Before
+
+```javascript
+const getContacts = (integrationId) => {
+    if (integrationId === "hubspot") {
+        return await vessel.actions.hubspot.contacts.list();
+    } else if (integrationId === "salesforce") {
+        return await vessel.actions.salesforce.contacts.list();
+    }
+}
+```
+
+### After
+
+```javascript
+const getContacts = () => {
+    return await vessel.unifications.crm.contacts.list();
+}
+```
