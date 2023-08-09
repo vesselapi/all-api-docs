@@ -68,23 +68,24 @@ When an object in the synced-cache is updated/created/deleted, we'll send an eve
 ```json
 {
   "headers": {
-	"x-vessel-project-id": "string",
-	"x-vessel-timestamp": "number-string",  // When we sent this event
-	"x-vessel-webhook-id": "string",
-	"x-vessel-webhook-signature": "string"
+    "x-vessel-project-id": "string",
+    "x-vessel-timestamp": "number-string", // When we sent this event
+    "x-vessel-webhook-id": "string",
+    "x-vessel-webhook-signature": "string"
   },
   "body": {
-	"connectionId": "string", // which connection this was for.
-	"eventId": "string", // Unique event id. Used for debugging purposes.
-	"eventTime": "date-string", // When this event occurred
-	"eventType": "object.crm.[deals|notes|accounts|...].[updated|created|deleted]", // ex: object.crm.deals.deleted
-	"data": {
-		"id": "string", // id of the record that was changed.
-		... // other fields
-	}
+    "connectionId": "string", // which connection this was for.
+    "eventId": "string", // Unique event id. Used for debugging purposes.
+    "eventTime": "date-string", // When this event occurred
+    "eventType": "object.crm.[deals|notes|accounts|...].[updated|created|deleted]", // ex: object.crm.deals.deleted
+    "data": {
+      "id": "string" // id of the record that was changed.
+    }
   }
 }
 ```
+
+<Note>For object events, only the id of the effected object will be sent.</Note>
 
 ### Signature
 

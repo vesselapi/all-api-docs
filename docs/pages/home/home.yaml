@@ -30,6 +30,8 @@ paths:
                   value:
                     connections:
                       - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
+                        projectId: v_project_123123123
+                        syncState: initial-sync-in-progress
                         integrationId: apollo
                         createdTime: 2022-11-09T23:11:28.617Z
       description: 'List all connections associated with this api token.'
@@ -57,6 +59,8 @@ paths:
                     connection:
                       id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
                       integrationId: apollo
+                      projectId: v_project_123123123
+                      syncState: initial-sync-in-progress
                       createdTime: 2022-11-09T23:11:28.617Z
       description: 'Find a connection'
       requestBody:
@@ -206,6 +210,51 @@ paths:
                 example-1:
                   value:
                     sessionToken: 'v_session_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                integrationId:
+                  type: string
+                  description: Required when creating a session token for a synced connection
+                connection:
+                  type: object
+                  properties:
+                    sync:
+                      type: object
+                      properties:
+                        objects:
+                          description: Set any of these objects to true to sync these objects to the [synced-cache](/pages/home/synced-cache)
+                          type: object
+                          properties:
+                            accounts:
+                              type: boolean
+                            contacts:
+                              type: boolean
+                            deals:
+                              type: boolean
+                            leads:
+                              type: boolean
+                            events:
+                              type: boolean
+                            attendees:
+                              type: boolean
+                            tasks:
+                              type: boolean
+                            notes:
+                              type: boolean
+                            calls:
+                              type: boolean
+                            users:
+                              type: boolean
+                            emails:
+                              type: boolean
+            examples:
+              example-1:
+                value:
+                  id: 'v_oauthapp_apollo_12312312'
       description: "Call this endpoint to start a new Authentication Session before authenticating your User's integration."
       security:
         - VesselAPIToken: []
@@ -587,14 +636,17 @@ components:
       properties:
         id:
           type: string
+        projectId:
+          type: string
         integrationId:
           type: string
+        syncState: 
+          type: string
+          enum:
+            - 'initial-sync-in-progress'
+            - 'initial-sync-complete'
         createdTime:
           type: string
-      examples:
-        - id: v_connection_development_apollo_eb97282c54ff6c5d9bdf4c716a01d6950c02d361183088769acbe302f94caf52
-          integrationId: apollo
-          createdTime: 2022-11-09T23:11:28.617Z
     Integration:
       title: Integration
       type: object

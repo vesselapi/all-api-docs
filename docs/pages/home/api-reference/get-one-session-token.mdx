@@ -9,7 +9,17 @@ curl --request POST \
   --url https://api.vessel.dev/auth/session-token \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --data '{}'
+  --data '{
+    "integrationId": "hubspot",
+    "connection": {
+      "sync": {
+        "objects": {
+          "contacts": true,
+          "accounts": true
+        }
+      }
+    }
+  }'
 ```
 
 </RequestExample>
