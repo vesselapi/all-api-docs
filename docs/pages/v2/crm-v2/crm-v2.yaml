@@ -102,6 +102,8 @@ paths:
                       $ref: "#/components/schemas/DateFilter"
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 cursor:
                   type: string
             examples:
@@ -343,6 +345,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   properties:
@@ -776,6 +780,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -1204,6 +1210,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -1660,6 +1668,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   properties:
@@ -2159,6 +2169,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -2563,6 +2575,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   properties:
@@ -3009,6 +3023,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -3446,6 +3462,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -3814,6 +3832,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -4283,6 +4303,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 cursor:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 filters:
                   type: object
                   description: Requires enabling Synced-cache
@@ -4844,6 +4866,10 @@ paths:
         Details include the type, possible values, and other meta data about the fields.
 components:
   schemas:
+    SyncedCache:
+      title: Use Synced Cache
+      type: boolean
+      description: If true, will hit the [synced-cache](/pages/home/synced-cache)
     IncludeFields:
       title: Include Fields
       type: object

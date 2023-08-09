@@ -13,6 +13,7 @@ curl --request POST \
   --data '{
   "include": { $native: false },
   "cursor": "123123",
+  "synced": true,
   "filters": {
     "location": {
       "equals": "1122 Tea Dr"
