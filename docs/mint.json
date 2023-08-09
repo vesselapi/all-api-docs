@@ -133,6 +133,7 @@
       "group": "Features",
       "pages": [
         "pages/home/unified-apis",
+        "pages/home/actions",
         "pages/home/synced-cache",
         "pages/home/webhooks",
         "pages/home/managed-etl"
@@ -675,7 +676,7 @@
     },
     {
       "group": "Integrations",
-      "pages": ["pages/integrations/about", "pages/integrations/actions"]
+      "pages": ["pages/integrations/about"]
     },
     {
       "group": "Aircall",
