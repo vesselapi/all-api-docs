@@ -9,27 +9,25 @@ curl --request POST \
   --url https://api.vessel.dev/unifications/crm/calls/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
-  "call": {
-    "subject": "BlueCross <> Dunder Mifflin",
-    "disposition": "ANSWERED",
-    "direction": "inbound",
-    "description": "Call from Greg",
-    "date": "2019-08-24T14:15:22Z",
-    "$native": {},
-    "associations": {
-      "accountId": "0dcb45e051315a6ea63b0f16e73689d9",
-      "contactIds": [
-        "e5f32d4fd2115220bd20a2ccf81210ec"
-      ],
-      "ownerUserId": "56f653659ea9524b9e0fb0ba67e6f8a0"
+    "synced": true,
+    "call": {
+      "subject": "BlueCross <> Dunder Mifflin",
+      "disposition": "ANSWERED",
+      "direction": "inbound",
+      "description": "Call from Greg",
+      "date": "2019-08-24T14:15:22Z",
+      "$native": {},
+      "associations": {
+        "accountId": "0dcb45e051315a6ea63b0f16e73689d9",
+        "contactIds": [
+          "e5f32d4fd2115220bd20a2ccf81210ec"
+        ],
+        "ownerUserId": "56f653659ea9524b9e0fb0ba67e6f8a0"
+      }
     }
-  }
 }'
 ```
 
 </RequestExample>
-
-
-      

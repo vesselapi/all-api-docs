@@ -113,3 +113,8 @@ const deals = await vessel.unifications.crm.deals.list();
 ```
 
 If `synced` is not set, then a direct API call to the downstream platform will be made instead. If `synced` is set and you did not configure the connection to sync the object you are accessing, then an error will be thrown.
+
+<Warning>
+  For create and update API calls, an additional direct call will be made to the
+  downstream integration to read the updated or created record into the cache.
+</Warning>

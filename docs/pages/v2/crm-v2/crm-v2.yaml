@@ -156,6 +156,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -215,6 +217,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
               required:
@@ -460,6 +464,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -529,6 +535,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -585,6 +593,8 @@ paths:
               properties:
                 contact:
                   $ref: '#/components/schemas/ContactCreate'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
               required:
                 - contact
             examples:
@@ -639,6 +649,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 contact:
                   $ref: '#/components/schemas/ContactUpdate'
               required:
@@ -871,6 +883,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -948,6 +962,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -1011,6 +1027,8 @@ paths:
               properties:
                 deal:
                   $ref: '#/components/schemas/DealCreate'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
               required:
                 - deal
             examples:
@@ -1068,6 +1086,8 @@ paths:
                   type: string
                 deal:
                   $ref: '#/components/schemas/DealUpdate'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
               required:
                 - id
                 - deal
@@ -1316,6 +1336,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 associations:
                   type: array
                   items:
@@ -1398,6 +1420,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 associations:
                   type: array
                   items:
@@ -1455,6 +1479,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 account:
                   $ref: '#/components/schemas/AccountCreate'
               required:
@@ -1520,6 +1546,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 account:
                   $ref: '#/components/schemas/AccountUpdate'
               required:
@@ -1787,6 +1815,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -1865,6 +1895,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 associations:
                   type: array
                   items:
@@ -1923,6 +1955,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 lead:
                   $ref: '#/components/schemas/LeadCreate'
               required:
@@ -1980,6 +2014,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 lead:
                   $ref: '#/components/schemas/LeadUpdate'
               required:
@@ -2246,6 +2282,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -2320,6 +2358,8 @@ paths:
                   $ref: '#/components/schemas/IncludeFields'
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 associations:
                   type: array
                   items:
@@ -2378,6 +2418,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 note:
                   $ref: '#/components/schemas/NoteCreate'
               required:
@@ -2439,6 +2481,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 note:
                   $ref: '#/components/schemas/NoteUpdate'
               required:
@@ -2674,6 +2718,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -2752,6 +2798,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -2812,6 +2860,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 task:
                   $ref: '#/components/schemas/TaskCreate'
               required:
@@ -2878,6 +2928,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 task:
                   $ref: '#/components/schemas/TaskUpdate'
               required:
@@ -3125,6 +3177,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -3205,6 +3259,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -3265,6 +3321,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 event:
                   $ref: '#/components/schemas/EventCreate'
               required:
@@ -3329,6 +3387,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 event:
                   $ref: '#/components/schemas/EventUpdate'
               required:
@@ -3526,6 +3586,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -3582,6 +3644,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
               required:
@@ -3633,6 +3697,8 @@ paths:
               title: responseBody
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 eventAttendee:
                   $ref: '#/components/schemas/EventAttendeeCreate'
                 required:
@@ -3689,6 +3755,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 eventAttendee:
                   $ref: '#/components/schemas/EventAttendeeUpdate'
               required:
@@ -3942,6 +4010,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -4029,6 +4099,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -4089,6 +4161,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 email:
                   $ref: '#/components/schemas/EmailCreate'
               required:
@@ -4164,6 +4238,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 email:
                   $ref: '#/components/schemas/EmailUpdate'
               required:
@@ -4407,6 +4483,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 ids:
                   type: array
                   items:
@@ -4483,6 +4561,8 @@ paths:
               properties:
                 include:
                   $ref: '#/components/schemas/IncludeFields'
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 id:
                   type: string
                 associations:
@@ -4543,6 +4623,8 @@ paths:
             schema:
               type: object
               properties:
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 call:
                   $ref: '#/components/schemas/CallCreate'
               required:
@@ -4605,6 +4687,8 @@ paths:
               properties:
                 id:
                   type: string
+                synced:
+                  $ref: '#/components/schemas/SyncedCache'
                 call:
                   $ref: '#/components/schemas/CallUpdate'
               required:

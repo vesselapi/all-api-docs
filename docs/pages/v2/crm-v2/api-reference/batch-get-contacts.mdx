@@ -13,6 +13,7 @@ curl --request POST \
   --data '{
   "include": { $native: false },
   "ids": ["123123", "456456", "5675675"],
+  "synced": true,
   "associations": [
     "accounts",
     "deals",
@@ -23,8 +24,9 @@ curl --request POST \
 
 </RequestExample>
 
-*Note:* The maximum number of ids per request is 200.
+_Note:_ The maximum number of ids per request is 200.
 In order to fetch more than 200 ids, you will have to make multiple requests.
+
 ```
 const results = [];
 for (let i = 0; i < ids.length; i += 200) {

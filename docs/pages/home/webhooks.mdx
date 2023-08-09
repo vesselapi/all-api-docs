@@ -43,7 +43,7 @@ const resp = await vessel.webhooks.create({
 
 Here’s the shape of the request that Vessel will make to your webhook endpoint when sending updates.
 
-**Initial Sync**
+**Initial Sync**:
 When we've finished pulling all of the data for a connection with Synced-cache enabled, we'll send an initial sync complete event.
 
 ```json
@@ -63,7 +63,7 @@ When we've finished pulling all of the data for a connection with Synced-cache e
 }
 ```
 
-**Object Event**
+**Object Event**:
 When an object in the synced-cache is updated/created/deleted, we'll send an event with the object id and type.
 
 ```json
@@ -86,7 +86,7 @@ When an object in the synced-cache is updated/created/deleted, we'll send an eve
 }
 ```
 
-<Note>For object events, only the id of the effected object will be sent.</Note>
+<Note>For object events, only the id of the affected object will be sent.</Note>
 
 ### Signature
 
@@ -108,6 +108,8 @@ Once you've added a webhook, you can view it in one of two ways:
 
 ### Through the API
 
+By making an API call to the [list webhooks endpoint](/pages/home/api-reference/get-all-webhooks).
+
 <CodeGroup>
 ```bash (API)
 curl --request POST \
@@ -118,7 +120,7 @@ curl --request POST \
 ```
 
 ```javascript (SDK)
-const resp = await vessel.webhooks.list({});
+const resp = await vessel.webhooks.list();
 ```
 
 </CodeGroup>

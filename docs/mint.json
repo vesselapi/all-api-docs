@@ -132,9 +132,9 @@
     {
       "group": "Features",
       "pages": [
+        "pages/home/unified-apis",
         "pages/home/synced-cache",
         "pages/home/webhooks",
-        "pages/home/unified-apis",
         "pages/home/managed-etl"
       ]
     },
