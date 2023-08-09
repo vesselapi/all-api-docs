@@ -1,5 +1,5 @@
 ---
-openapi: "POST /api/unifications/crm/passthrough"
+openapi: "crm-v2 POST /api/unifications/crm/passthrough"
 ---
 
 <RequestExample>
@@ -9,7 +9,7 @@ curl --request POST \
   --url https://api.vessel.dev/unifications/crm/passthrough \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
   "method": "PATCH",
   "path": "services/data/v53.0/sobjects/Account/0011A00001XQ4ZUQA1",
@@ -24,4 +24,3 @@ curl --request POST \
 </RequestExample>
 
 
-      

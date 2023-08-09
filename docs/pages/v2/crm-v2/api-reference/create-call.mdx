@@ -1,5 +1,5 @@
 ---
-openapi: "POST /api/unifications/crm/calls/create"
+openapi: "crm-v2 POST /api/unifications/crm/calls/create"
 ---
 
 <RequestExample>
@@ -9,7 +9,7 @@ curl --request POST \
   --url https://api.vessel.dev/unifications/crm/calls/create \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
   "call": {
     "subject": "BlueCross <> Dunder Mifflin",
@@ -32,4 +32,3 @@ curl --request POST \
 </RequestExample>
 
 
-      

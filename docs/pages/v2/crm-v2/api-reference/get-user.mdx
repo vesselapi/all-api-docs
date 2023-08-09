@@ -1,5 +1,5 @@
 ---
-openapi: "POST /api/unifications/crm/users/find"
+openapi: "crm-v2 POST /api/unifications/crm/users/find"
 ---
 
 <RequestExample>
@@ -9,7 +9,7 @@ curl --request POST \
   --url https://api.vessel.dev/unifications/crm/users/find \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
   "id": "123123",
   "include": {
@@ -21,4 +21,3 @@ curl --request POST \
 </RequestExample>
 
 
-      
