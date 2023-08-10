@@ -1,0 +1,30 @@
+---
+openapi: "crm-v2 POST /api/unifications/crm/deals/update"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.dev/unifications/crm/deals/update \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\
+  --data '{
+  "id": "string",
+  "deal": {
+    "name": "Blue Cross Deal",
+    "amount": 10000,
+    "closeDate": "2020-08-23T00:00:00Z",
+    "probability": "0.4",
+    "$native": {},
+    "associations": {
+      "accountId": "0dcb45e051315a6ea63b0f16e73689d9"
+    }
+  }
+}'
+```
+
+</RequestExample>
+
+

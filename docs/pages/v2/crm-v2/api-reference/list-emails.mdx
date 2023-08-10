@@ -1,0 +1,27 @@
+---
+openapi: "crm-v2 POST /api/unifications/crm/emails/list"
+---
+
+<RequestExample>
+
+```bash Request
+curl --request POST \
+  --url https://api.vessel.dev/unifications/crm/emails/list \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: ' \
+  --header 'x-vessel-access-token: '\
+  --data '{
+  "cursor": "123123",
+  "include": {
+    "$native": false
+  },
+  "associations": [
+    "deals",
+    "contacts"
+  ]
+}'
+```
+
+</RequestExample>
+
+

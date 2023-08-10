@@ -26,12 +26,16 @@ paths:
                     type: string
                   userId:
                     type: string
+                  currency:
+                    type: string
+                    description: The default currency for the organization in ISO format
               examples:
                 example-1:
                   value:
                     url: 'https://xyz.my.salesforce.com'
                     orgId: 'org_1234'
                     userId: 'user_1234'
+                    currency: 'USD'
       parameters:
         - name: x-vessel-access-token
           in: header
@@ -765,6 +769,7 @@ paths:
                         expectedRevenue: 4000
                         isWon: false
                         isClosed: false
+                        currency: USD
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
                         associations:
@@ -859,6 +864,7 @@ paths:
                         expectedRevenue: 4000
                         isWon: false
                         isClosed: false
+                        currency: USD
                         modifiedTime: '2019-08-24T14:15:22Z'
                         createdTime: '2019-08-24T14:15:22Z'
                         associations:
@@ -938,6 +944,7 @@ paths:
                       expectedRevenue: 4000
                       isWon: false
                       isClosed: false
+                      currency: USD
                       modifiedTime: '2019-08-24T14:15:22Z'
                       createdTime: '2019-08-24T14:15:22Z'
                       associations:
@@ -5118,6 +5125,9 @@ components:
         isClosed:
           type: boolean
           description: If this deal is closed (either closed-won or closed-lost). This is a computed property based on stage
+        currency:
+          type: string
+          description: The currency of the deal in ISO format. This can be null if the CRM does not support multiple currencies. See `/info/find` for default currency value
         createdTime:
           type: string
           description: The timestamp that the deal was created
