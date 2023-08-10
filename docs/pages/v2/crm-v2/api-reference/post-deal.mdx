@@ -11,19 +11,18 @@ curl --request POST \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
-  "deal": {
-    "name": "Blue Cross Deal",
-    "amount": 10000,
-    "closeDate": "2020-08-23T00:00:00Z",
-    "probability": "0.4",
-    "stage": "closedwon",
-    "associations": {
-      "accountId": "0dcb45e051315a6ea63b0f16e73689d9"
+    "synced": true,
+    "deal": {
+      "name": "Blue Cross Deal",
+      "amount": 10000,
+      "closeDate": "2020-08-23T00:00:00Z",
+      "probability": "0.4",
+      "stage": "closedwon",
+      "associations": {
+        "accountId": "0dcb45e051315a6ea63b0f16e73689d9"
+      }
     }
-  }
 }'
 ```
 
 </RequestExample>
-
-

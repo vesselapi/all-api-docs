@@ -1,18 +1,17 @@
 ---
-openapi: "crm-v2 POST /api/unifications/crm/info/find"
+openapi: "POST /webhooks/delete"
 ---
 
 <RequestExample>
 
 ```bash Request
 curl --request POST \
-  --url https://api.vessel.dev/unifications/crm/info/find \
+  --url https://api.vessel.dev/webhooks/delete \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\
-  --data '{}'
+  --data '{
+  "id": "v_webhook_12312312"
+}'
 ```
 
 </RequestExample>
-
-

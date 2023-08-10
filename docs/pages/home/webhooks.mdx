@@ -1,0 +1,134 @@
+---
+title: "Webhooks"
+description: Vessel Webhook support
+---
+
+Webhooks allow you to receive updates when something in our system changes.
+
+### Important Notes
+
+- **Very Important**: Webhooks will only be sent for objects which are using the [synced-cache](/pages/home/synced-cache).
+- Any time an object is updated/created/deleted, we will send an event. You can use the `eventType` on the event payload to ignore objects that aren't relevant to your use case.
+- Webhooks will only be sent in real-time if the downstream platform has native webhook support. Otherwise, you will still receive a webhook but it will be after the latest sync
+- Our webhooks are sent as `POST` requests over standard HTTPs and you must return `2xx` after receiving a webhook event. We will re-send the webhook up to 3 times if we don't receive a `2xx` response.
+
+## Add a Webhook
+
+To add a webhook, you can use the [create webhook endpoint](/pages/home/api-reference/post-webhook.md).
+
+Webhooks are added per-project (i.e., per-api-key) meaning that as soon as you add a webhook **you will start receiving webhooks for existing connections on that project**.
+
+This also means there’s no need to add a new webhook every time you create a new connection. Just add one webhook and you’re good to go!
+
+<CodeGroup>
+```bash (API)
+curl --request POST \
+  --url https://api.vessel.dev/webhooks/create \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: [API_KEY]' \
+  --data '{
+  "url": "https://mycompany.io/webhooks/12312312"
+}'
+```
+
+```javascript (SDK)
+const resp = await vessel.webhooks.create({
+  url: "https://mycompany.com/webhook",
+});
+```
+
+</CodeGroup>
+
+### Webhook Body
+
+Here’s the shape of the request that Vessel will make to your webhook endpoint when sending updates.
+
+**Initial Sync**:
+When we've finished pulling all of the data for a connection with Synced-cache enabled, we'll send an initial sync complete event.
+
+```json
+{
+  "headers": {
+    "x-vessel-project-id": "string",
+    "x-vessel-timestamp": "number-string", // When we sent this event
+    "x-vessel-webhook-id": "string",
+    "x-vessel-webhook-signature": "string"
+  },
+  "body": {
+    "connectionId": "string", // which connection this was for.
+    "eventId": "string", // Unique event id. Used for debugging purposes.
+    "eventTime": "date-string", // When this event occured
+    "eventType": "system.sync.initial.complete"
+  }
+}
+```
+
+**Object Event**:
+When an object in the synced-cache is updated/created/deleted, we'll send an event with the object id and type.
+
+```json
+{
+  "headers": {
+    "x-vessel-project-id": "string",
+    "x-vessel-timestamp": "number-string", // When we sent this event
+    "x-vessel-webhook-id": "string",
+    "x-vessel-webhook-signature": "string"
+  },
+  "body": {
+    "connectionId": "string", // which connection this was for.
+    "eventId": "string", // Unique event id. Used for debugging purposes.
+    "eventTime": "date-string", // When this event occurred
+    "eventType": "object.crm.[deals|notes|accounts|...].[updated|created|deleted]", // ex: object.crm.deals.deleted
+    "data": {
+      "id": "string" // id of the record that was changed.
+    }
+  }
+}
+```
+
+<Note>For object events, only the id of the affected object will be sent.</Note>
+
+### Signature
+
+It’s very important to verify the signature of the webhook in the header before processing the webhook. Vessel webhook signatures are generated using the following algorithm:
+
+```jsx
+const hash = (s: string) => crypto.createHash("sha256").update(s).digest("hex");
+
+const signature = (response) => {
+  const timestamp = response.headers["x-vessel-timestamp"];
+  const body = JSON.stringify(response.body);
+  return hash(`${process.env.VESSEL_API_TOKEN}:${timestamp}:${body}`);
+};
+```
+
+## View Your Webhooks
+
+Once you've added a webhook, you can view it in one of two ways:
+
+### Through the API
+
+By making an API call to the [list webhooks endpoint](/pages/home/api-reference/get-all-webhooks).
+
+<CodeGroup>
+```bash (API)
+curl --request POST \
+  --url https://api.vessel.dev/webhooks/list \
+  --header 'Content-Type: application/json' \
+  --header 'x-vessel-api-token: [API_KEY]' \
+  --data '{}'
+```
+
+```javascript (SDK)
+const resp = await vessel.webhooks.list();
+```
+
+</CodeGroup>
+
+### In the Dashboard
+
+You can view your webhooks in the dashboard under the 'webhooks' tab.
+
+<Frame>
+  <img src="/images/webhook.png" />
+</Frame>

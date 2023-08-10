@@ -12,10 +12,14 @@ curl --request POST \
   --header 'x-vessel-access-token: '\
   --data '{
   "include": { $native: false },
-  "cursor": "123123"
+  "cursor": "123123",
+  "synced": true,
+  "filters": {
+    "email": {
+      "endsWith": "@bluecross.com"
+    }
+  }
 }'
 ```
 
 </RequestExample>
-
-

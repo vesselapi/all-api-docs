@@ -5,22 +5,52 @@ description: "Integrate with Salesforce, Zoho, HubSpot, and more"
 
 The unified CRM APIs allow you to push and pull Leads, Contacts, Accounts, and more from your customer's CRM.
 
-### Supported Integrations
+### Integration Feature Support
 
-| CRM                | Support |
-| ------------------ | ------- |
-| Salesforce         | ✅      |
-| HubSpot            | ✅      |
-| Pipedrive          | Beta    |
-| Zoho               | Beta    |
-| Microsoft Dynamics | Beta    |
-| Close              | Beta    |
+| Integration        | Unified API | Synced-Cache | Webhooks |
+| ------------------ | ----------- | ------------ | -------- |
+| Salesforce         | ✅          | ✅           | ✅       |
+| HubSpot            | ✅          | ✅           | ✅       |
+| Pipedrive          | Beta        | Beta         | Beta     |
+| Zoho               | Beta        | -            | -        |
+| Microsoft Dynamics | Beta        | -            | -        |
+| Close              | Beta        | -            | -        |
+
+<Note>
+  Don't hesitate to contact `support@vessel.dev` if there are any features you
+  need that aren't currently supported. Most features can be added in a matter
+  of days.
+</Note>
+
+## Object Feature Support
+
+| Object        | Synced-Cache |
+| ------------- | ------------ |
+| Info          | -            |
+| Users         | ✅           |
+| Contacts      | ✅           |
+| Deals         | ✅           |
+| Accounts      | ✅           |
+| Leads         | ✅           |
+| Notes         | ✅           |
+| Tasks         | ✅           |
+| Emails        | ✅           |
+| Calls         | ✅           |
+| Events        | ✅           |
+| Attendees     | ✅           |
+| Lists         | -            |
+| Custom Fields | -            |
+
+<Warning>
+  Details endpoint data cannot be synced to the Synced-Cache and will be
+  retrieved from the CRM directly on each request.
+</Warning>
 
 ### CRM Call Outs
 
 Any caveats specific to a particular CRM that you should be aware of.
 
-| CRM        | Call Out                                                     |
-| ---------- | ------------------------------------------------------------ |
-| Freshworks | Free Freshworks accounts do not have API access.             |
-| HubSpot    | All `$native` properties only include the unified properties |
+| CRM        | Call Out                                                                                        |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| Freshworks | Free Freshworks accounts do not have API access.                                                |
+| HubSpot    | All `$native` properties only include the unified properties unless you have sync-cache enabled |

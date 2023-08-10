@@ -544,8 +544,4 @@ components:
         - id
         - createdTime
         - modifiedTime
-  securitySchemes:
-    VesselAPIToken:
-      name: x-vessel-api-token
-      type: apiKey
-      in: header
+

@@ -11,24 +11,23 @@ curl --request POST \
   --header 'x-vessel-api-token: ' \
   --header 'x-vessel-access-token: '\
   --data '{
-  "task": {
-    "body": "This task needs to be done very soon!",
-    "subject": "High Priority Task",
-    "dueDate": "2019-09-24T14:15:22Z",
-    "priority": "High",
-    "status": "Not Done",
-    "isDone": false,
-    "associations": {
-      "ownerUserId": "79d154aa0c7a571295a157369d448e65",
-      "leadId": "d08f345ace24509e911a0ea8e3d2203c",
-      "dealId": "497fb529e6805351b5dc8057c74a4a52",
-      "accountId": "0dcb45e051315a6ea63b0f16e73689d9",
-      "contactId": "e5f32d4fd2115220bd20a2ccf81210ec"
+    "synced": true,
+    "task": {
+      "body": "This task needs to be done very soon!",
+      "subject": "High Priority Task",
+      "dueDate": "2019-09-24T14:15:22Z",
+      "priority": "High",
+      "status": "Not Done",
+      "isDone": false,
+      "associations": {
+        "ownerUserId": "79d154aa0c7a571295a157369d448e65",
+        "leadId": "d08f345ace24509e911a0ea8e3d2203c",
+        "dealId": "497fb529e6805351b5dc8057c74a4a52",
+        "accountId": "0dcb45e051315a6ea63b0f16e73689d9",
+        "contactId": "e5f32d4fd2115220bd20a2ccf81210ec"
+      }
     }
-  }
 }'
 ```
 
 </RequestExample>
-
-

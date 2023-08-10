@@ -31,9 +31,6 @@
   },
   "api": {
     "baseUrl": "https://api.vessel.dev",
-    "playground": {
-      "mode": "hide"
-    },
     "auth": {
       "method": "key",
       "name": "x-vessel-api-token"
@@ -125,20 +122,22 @@
       "color": "#2B2B2F",
       "iconType": "duotone",
       "url": "pages/chat"
-    },
-
-    {
-      "name": "Managed ETL",
-      "icon": "rotate",
-      "iconType": "duotone",
-      "color": "#2B2B2F",
-      "url": "pages/managed-etl"
     }
   ],
   "navigation": [
     {
       "group": "Home",
       "pages": ["pages/home/about", "pages/home/getting-started"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "pages/home/unified-apis",
+        "pages/home/actions",
+        "pages/home/synced-cache",
+        "pages/home/webhooks",
+        "pages/home/managed-etl"
+      ]
     },
     {
       "group": "Integrations",
@@ -164,6 +163,15 @@
       "pages": ["pages/home/api-reference/passthrough"]
     },
     {
+      "group": "Webhooks",
+      "pages": [
+        "pages/home/api-reference/get-all-webhooks",
+        "pages/home/api-reference/get-one-webhooks",
+        "pages/home/api-reference/post-webhooks",
+        "pages/home/api-reference/delete-webhooks"
+      ]
+    },
+    {
       "group": "OAuth Apps",
       "pages": [
         "pages/home/managing-oauth-apps",
@@ -172,10 +180,6 @@
         "pages/home/api-reference/post-oauth-app",
         "pages/home/api-reference/delete-oauth-app"
       ]
-    },
-    {
-      "group": "ETL",
-      "pages": ["pages/managed-etl/about"]
     },
     {
       "group": "CRM APIs",
@@ -672,7 +676,7 @@
     },
     {
       "group": "Integrations",
-      "pages": ["pages/integrations/about", "pages/integrations/actions"]
+      "pages": ["pages/integrations/about"]
     },
     {
       "group": "Aircall",
