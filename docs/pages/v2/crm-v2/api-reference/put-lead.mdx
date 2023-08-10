@@ -1,5 +1,5 @@
 ---
-openapi: "POST /api/unifications/crm/leads/update"
+openapi: "crm-v2 POST /api/unifications/crm/leads/update"
 ---
 
 <RequestExample>
@@ -9,7 +9,7 @@ curl --request POST \
   --url https://api.vessel.dev/unifications/crm/leads/update \
   --header 'Content-Type: application/json' \
   --header 'x-vessel-api-token: ' \
-  --header 'x-vessel-access-token: '\ 
+  --header 'x-vessel-access-token: '\
   --data '{
   "id": "1231232",
   "lead": {
@@ -27,4 +27,3 @@ curl --request POST \
 </RequestExample>
 
 
-      
