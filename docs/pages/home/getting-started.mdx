@@ -22,6 +22,11 @@ Before diving into this guide, make sure to complete the following:
 
 # Setup
 
+<Note>
+  You can following along with the code below by referencing this [example
+  repository](https://github.com/vesselapi/vessel-example)
+</Note>
+
 ### Step 1: Setting up the Auth UI
 
 To start, we'll use Vessel's client sdk to quickly setup a front end component for authenticating your user's tools. The client SDK adds a pre-built UI popup that walks your user through connecting to one of the many integrations we support.
@@ -76,16 +81,13 @@ An Auth session is a temporary session that holds state during the process of co
 
 ```javascript Node (API)
 app.post("/session-token", async (req, res) => {
-  const response = await fetch(
-    "https://api.vessel.dev/auth/session-token",
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "x-vessel-api-token": process.env.VESSEL_API_KEY,
-      },
-      method: "POST",
-    }
-  );
+  const response = await fetch("https://api.vessel.dev/auth/session-token", {
+    headers: {
+      "Content-Type": "application/json",
+      "x-vessel-api-token": process.env.VESSEL_API_KEY,
+    },
+    method: "POST",
+  });
 
   const {
     result: { sessionToken },
