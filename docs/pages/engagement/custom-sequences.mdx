@@ -56,6 +56,12 @@ These custom fields are what allow us to 'embed' your custom text into the email
 
 Also, please note that you'll need to make an exception for Outreach which doesn't allow for custom fields to be created. In the case that your customer connected Outreach, you'll need to use one of the predefined custom fields that Outreach provides. It's best practice to ask your user which custom field you can use to avoid accidentally overriding a custom field used by a different integration. This is the only special handling you'll need to do for this use case.
 
+<Note>
+  **Important**: Make sure to grab the `key` from the response of this endpoint
+  so that you can reference your custom field when creating and updating
+  contacts
+</Note>
+
 <CodeGroup>
 
 ```bash Terminal
@@ -144,7 +150,7 @@ curl --request POST \
         "templateName": "AI Email Template",
         "isReply": false,
         "subject": "Hello from {{company}}!",
-        "body": "Hi {{first_name}}! {{acme_ai_personalization}}",
+        "body": "Hi {{first_name}}! {{acme_ai_personalization_key_123}}",
       }
     }
   ]
@@ -169,7 +175,7 @@ await vessel.unifications.engagement.sequenceSteps.batchCreate({
         templateName: "AI Email Template",
         isReply: false,
         subject: "Hello from {{company}}!",
-        body: "Hi {{first_name}}! {{acme_ai_personalization}}",
+        body: "Hi {{first_name}}! {{acme_ai_personalization_key_123}}",
       },
     },
   ],
@@ -238,7 +244,7 @@ curl --request POST \
   "id": "[CONTACT_ID]",
   "contact": {
     "customFields": {
-      "acme_ai_personalization": "[PERSONALIZATION]"
+      "acme_ai_personalization_key_123": "[PERSONALIZATION]"
     },
   }
 }'
@@ -256,7 +262,7 @@ for (const contact of contacts) {
     id: contact.id,
     contact: {
       customFields: {
-        acme_ai_personalization: await getPersonalization(contact),
+        acme_ai_personalization_key_123: await getPersonalization(contact),
       },
     },
   });
