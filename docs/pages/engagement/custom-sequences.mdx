@@ -150,7 +150,7 @@ curl --request POST \
         "templateName": "AI Email Template",
         "isReply": false,
         "subject": "Hello from {{company}}!",
-        "body": "Hi {{first_name}}! {{acme_ai_personalization_key_123}}",
+        "body": "Hi {{first_name}}! {{acme_ai_personalization}}",
       }
     }
   ]
@@ -175,7 +175,7 @@ await vessel.unifications.engagement.sequenceSteps.batchCreate({
         templateName: "AI Email Template",
         isReply: false,
         subject: "Hello from {{company}}!",
-        body: "Hi {{first_name}}! {{acme_ai_personalization_key_123}}",
+        body: "Hi {{first_name}}! {{acme_ai_personalization}}",
       },
     },
   ],
