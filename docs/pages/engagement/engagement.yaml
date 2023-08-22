@@ -1904,7 +1904,7 @@ components:
           description: "The subject line for this email"
         body:
           type: string
-          description: "The body of the email"
+          description: "The body of the email. Can be HTML."
         $native:
           $ref: "#/components/schemas/NativeData"
     SequenceStepCreate:
